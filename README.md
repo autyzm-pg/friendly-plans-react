@@ -26,7 +26,7 @@ Making a long story short:
 
 - Read project documentation on the [Wiki](https://github.com/autyzm-pg/friendly-plans-react/wiki) and help us improve it!
 - Add yourself to [slack autyzm-pg.slack.com](https://autyzm-pg-slack.herokuapp.com)
-- For questions and bugs please use [Github Issues](https://github.com/autyzm-pg/friendly-plans/issues)
+- For questions and bugs please use [Github Issues](https://github.com/autyzm-pg/friendly-plans-react/issues)
 - Feel free to grab an issue and propose a solution or answer
 - To share your changes please create a pull request to the master branch
 - We are using [GitHub Flow](https://guides.github.com/introduction/flow/). Please create pull requests to master branch.
@@ -37,4 +37,4 @@ The project is developing by people who want to make other people's life easier.
 Except as otherwise noted, this software is licensed under the [GNU General Public License, v3](https://www.gnu.org/licenses/gpl-3.0.txt)
 
 ## Partners
-<img src="/doc-assets/graphic/kdp-logo.jpg" height="150" /><img src="/doc-assets/graphic/iwrd-logo.png" height="150" /><img src="/doc-assets/graphic/pg-logo.jpg" height="150" />
+<img src="/doc-assets/kdp-logo.jpg" height="150" /><img src="/doc-assets/iwrd-logo.png" height="150" /><img src="/doc-assets/pg-logo.jpg" height="150" />
