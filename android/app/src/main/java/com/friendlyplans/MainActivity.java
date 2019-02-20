@@ -1,4 +1,4 @@
-package com.stxnext.rnstarterkit;
+package com.friendlyplans;
 
 import android.os.Bundle;
 import android.content.res.Configuration;
@@ -41,7 +41,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "ReactNativeStarterKit";
+        return "FriendlyPlans";
     }
 
     @Override

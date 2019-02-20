@@ -111,7 +111,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        resValue "string", "build_config_package", "com.stxnext.rnstarterkit"
+        resValue "string", "build_config_package", "com.friendlyplans"
         applicationId project.env.get("PACKAGE_NAME")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
