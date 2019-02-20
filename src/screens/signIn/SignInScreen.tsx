@@ -13,7 +13,7 @@ export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
 
   render() {
     return (
-      <FullScreenTemplate padded>
+      <FullScreenTemplate padded narrow>
         <SignInFormContainer />
 
         <StyledText style={styles.signUpTip}>

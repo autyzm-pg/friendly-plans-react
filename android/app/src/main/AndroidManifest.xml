@@ -29,6 +29,7 @@
         <activity
             android:name="com.friendlyplans.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|layoutDirection|locale"
+            android:screenOrientation="landscape"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
