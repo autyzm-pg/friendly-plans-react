@@ -63,6 +63,11 @@ To automate builds, app publishing process and switching environments we
 use [Fastlane](https://fastlane.tools/) tool.
 Fastlane documentation is auto generated for both platforms in `ios` and `android` directories.
 
+## Running tests
+Simply use scripts present in `package.json` file. 
+For local development use `test` to update component snapshots.
+For CI use `test:ci`, which will check all components to match snapshots, without updating them.
+
 # Guides
 
 ## Usage of components

@@ -1,4 +1,4 @@
-package com.stxnext.rnstarterkit;
+package com.friendlyplans;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">StarterKit</string>
+    <string name="app_name">Friendly Plans</string>
     <string name="default_notification_channel_id">Notifications</string>
 </resources>

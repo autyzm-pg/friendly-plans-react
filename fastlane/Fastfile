@@ -32,7 +32,7 @@ platform :android do
         staging_firebase_config
         sh "bash ../scripts/build-signed-apk.sh staging"
         upload_to_play_store(
-            package_name: "com.stxnext.rnstarterkit.staging",
+            package_name: "com.friendlyplans.staging",
             track: "alpha",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -46,7 +46,7 @@ platform :android do
         staging_firebase_config
         sh "bash ../scripts/build-signed-apk.sh staging"
         upload_to_play_store(
-            package_name: "com.stxnext.rnstarterkit.staging",
+            package_name: "com.friendlyplans.staging",
             track: "production",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -60,7 +60,7 @@ platform :android do
         production_firebase_config
         sh "bash ../scripts/build-signed-apk.sh production"
         upload_to_play_store(
-            package_name: "com.stxnext.rnstarterkit",
+            package_name: "com.friendlyplans",
             track: "alpha",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -74,7 +74,7 @@ platform :android do
         production_firebase_config
         sh "bash ../scripts/build-signed-apk.sh production"
         upload_to_play_store(
-            package_name: "com.stxnext.rnstarterkit",
+            package_name: "com.friendlyplans",
             track: "production",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -114,7 +114,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
             plist_path: "ReactNativeStarterKit/Info.plist",
-            app_identifier: "com.stxnext.rnstarterkit.staging"
+            app_identifier: "com.friendlyplans.staging"
         )
         update_info_plist(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
@@ -137,7 +137,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
             plist_path: "ReactNativeStarterKit/Info.plist",
-            app_identifier: "com.stxnext.rnstarterkit.staging"
+            app_identifier: "com.friendlyplans.staging"
         )
         update_info_plist(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
@@ -158,7 +158,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
             plist_path: "ReactNativeStarterKit/Info.plist",
-            app_identifier: "com.stxnext.rnstarterkit"
+            app_identifier: "com.friendlyplans"
         )
         update_info_plist(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
@@ -181,7 +181,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
             plist_path: "ReactNativeStarterKit/Info.plist",
-            app_identifier: "com.stxnext.rnstarterkit"
+            app_identifier: "com.friendlyplans"
         )
         update_info_plist(
             xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
