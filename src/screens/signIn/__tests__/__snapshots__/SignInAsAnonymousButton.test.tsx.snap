@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInAsAnonymousButton should match snapshot 1`] = `
+<FlatButton
+  loading={false}
+  onPress={[Function]}
+  title="Use the App as Guest"
+/>
+`;

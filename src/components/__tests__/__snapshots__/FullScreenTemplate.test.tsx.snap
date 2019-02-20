@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullScreenTemplate should match snapshot 1`] = `
+<SafeAreaView
+  style={
+    Array [
+      Object {
+        "paddingHorizontal": 12,
+        "paddingVertical": 16,
+      },
+    ]
+  }
+>
+  <Text>
+    Child text
+  </Text>
+</SafeAreaView>
+`;

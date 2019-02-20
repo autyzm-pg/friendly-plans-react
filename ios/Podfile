@@ -1,0 +1,36 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'ReactNativeStarterKit' do
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+        'Core',
+        'CxxBridge', # Include this for RN >= 0.47
+        'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+        'RCTText',
+        'RCTNetwork',
+        'RCTImage',
+        'RCTWebSocket', # Needed for debugging
+        'RCTAnimation', # Needed for FlatList and animations running on native UI thread
+    ]
+    pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+    # Third party deps podspec link
+    pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+    pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+    pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+    pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+    pod 'Firebase/Core', '~> 5.15.0'
+    pod 'Firebase/Auth', '~> 5.15.0'
+    pod 'Firebase/Messaging', '~> 5.15.0'
+    pod 'Fabric', '~> 1.7.13'
+    pod 'Crashlytics', '~> 3.10.7'
+
+    pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+    pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+    pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+    pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'
+
+end
+

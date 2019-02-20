@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm should match snapshot 1`] = `
+<View>
+  <InputItem
+    autoCapitalize="none"
+    blurOnSubmit={true}
+    error=""
+    keyboardType="email-address"
+    label="Email address"
+    textContentType="emailAddress"
+    touched={true}
+    value="email@domain.com"
+  />
+  <InputItem
+    blurOnSubmit={true}
+    error=""
+    label="Password"
+    secureTextEntry={true}
+    textContentType="password"
+    touched={true}
+    value="topsecretpassword"
+  />
+  <CheckboxInput
+    checked={true}
+    error=""
+    onPress={[Function]}
+    title="I accept "
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      onPress={[Function]}
+    >
+      <StyledText
+        style={
+          Object {
+            "color": "#458caf",
+          }
+        }
+      >
+        Terms of Use
+      </StyledText>
+    </TouchableOpacity>
+  </CheckboxInput>
+  <Component
+    backgroundColor="#458caf"
+    containerStyle={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 8,
+      }
+    }
+    onPress={[MockFunction]}
+    title="Sign up"
+  />
+</View>
+`;

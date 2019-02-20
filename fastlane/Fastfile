@@ -1,0 +1,199 @@
+#before_all do
+#  ensure_git_branch
+#  ensure_git_status_clean
+#  git_pull
+#end
+
+platform :android do
+    desc "Download staging Firebase config for Android"
+    lane :staging_firebase_config do
+        firebase_management_download_config(
+            service_account_json_path: "firebase-admin.json",
+            output_path: "./android/app",
+            project_id: "react-native-starter-kit-stx",
+            type: "android",
+            app_id: "1:752186238901:android:cd4d7392cb177d19"
+        )
+    end
+
+    desc "Download production Firebase config for Android"
+    lane :production_firebase_config do
+        firebase_management_download_config(
+            service_account_json_path: "firebase-admin.json",
+            output_path: "./android/app",
+            project_id: "react-native-starter-kit-stx",
+            type: "android",
+            app_id: "1:752186238901:android:e0b743ae3d077759"
+        )
+    end
+
+    desc "Deploy a new staging build to GooglePlay Alpha channel"
+    lane :staging_googleplay_alpha do
+        staging_firebase_config
+        sh "bash ../scripts/build-signed-apk.sh staging"
+        upload_to_play_store(
+            package_name: "com.stxnext.rnstarterkit.staging",
+            track: "alpha",
+            skip_upload_images: true,
+            skip_upload_screenshots: true,
+            apk: "./android/app/build/outputs/apk/release/app-release.apk",
+            json_key: "./google-play-service-key.json"
+        )
+    end
+
+    desc "Deploy a new staging build to GooglePlay Production channel"
+    lane :staging_googleplay_production do
+        staging_firebase_config
+        sh "bash ../scripts/build-signed-apk.sh staging"
+        upload_to_play_store(
+            package_name: "com.stxnext.rnstarterkit.staging",
+            track: "production",
+            skip_upload_images: true,
+            skip_upload_screenshots: true,
+            apk: Dir.pwd + "/app/build/outputs/apk/release/app-release.apk",
+            json_key: "./google-play-service-key.json"
+        )
+    end
+
+    desc "Deploy a new production version to the Google Play Alpha channel"
+    lane :release_googleplay_alpha do
+        production_firebase_config
+        sh "bash ../scripts/build-signed-apk.sh production"
+        upload_to_play_store(
+            package_name: "com.stxnext.rnstarterkit",
+            track: "alpha",
+            skip_upload_images: true,
+            skip_upload_screenshots: true,
+            apk: Dir.pwd + "/app/build/outputs/apk/release/app-release.apk",
+            json_key: "./google-play-service-key.json"
+        )
+    end
+
+    desc "Deploy a new production version to the Google Play Production channel"
+    lane :release_googleplay_production do
+        production_firebase_config
+        sh "bash ../scripts/build-signed-apk.sh production"
+        upload_to_play_store(
+            package_name: "com.stxnext.rnstarterkit",
+            track: "production",
+            skip_upload_images: true,
+            skip_upload_screenshots: true,
+            apk: Dir.pwd + "/app/build/outputs/apk/release/app-release.apk",
+            json_key: "./google-play-service-key.json"
+        )
+    end
+
+end
+
+platform :ios do
+    desc "Download staging Firebase config for iOS"
+    lane :staging_firebase_config do
+        firebase_management_download_config(
+            service_account_json_path: "firebase-admin.json",
+            output_path: "./ios/ReactNativeStarterKit",
+            project_id: "react-native-starter-kit-stx",
+            type: "ios",
+            app_id: "1:752186238901:ios:cd4d7392cb177d19"
+        )
+    end
+
+    desc "Download production Firebase config for iOS"
+    lane :production_firebase_config do
+        firebase_management_download_config(
+            service_account_json_path: "firebase-admin.json",
+            output_path: "./ios/ReactNativeStarterKit",
+            project_id: "react-native-starter-kit-stx",
+            type: "ios",
+            app_id: "1:752186238901:ios:e0b743ae3d077759"
+        )
+    end
+
+    desc "Deploy a new staging version to Apple Testflight"
+    lane :staging_testflight do
+        staging_firebase_config
+        update_app_identifier(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            app_identifier: "com.stxnext.rnstarterkit.staging"
+        )
+        update_info_plist(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            display_name: "StarterKit Staging"
+        )
+        build_app(
+            workspace: "ios/ReactNativeStarterKit.xcworkspace",
+            scheme: "ReactNativeStarterKit (staging)",
+            include_bitcode: true
+        )
+        upload_to_testflight(
+            skip_waiting_for_build_processing: true
+        )
+    end
+
+    desc "Deploy a new staging version to Apple AppStore"
+    lane :staging_appstore do
+        staging_firebase_config
+        update_app_identifier(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            app_identifier: "com.stxnext.rnstarterkit.staging"
+        )
+        update_info_plist(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            display_name: "StarterKit Staging"
+        )
+        build_app(
+            workspace: "ios/ReactNativeStarterKit.xcworkspace",
+            scheme: "ReactNativeStarterKit (staging)",
+            include_bitcode: true
+        )
+        upload_to_app_store
+    end
+
+    desc "Deploy a new production version to Apple Testflight"
+    lane :production_testflight do
+        production_firebase_config
+        update_app_identifier(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            app_identifier: "com.stxnext.rnstarterkit"
+        )
+        update_info_plist(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            display_name: "StarterKit"
+        )
+        build_app(
+            workspace: "ios/ReactNativeStarterKit.xcworkspace",
+            scheme: "ReactNativeStarterKit (production)",
+            include_bitcode: true
+        )
+        upload_to_testflight(
+            skip_waiting_for_build_processing: true
+        )
+    end
+
+    desc "Deploy a new production version to Apple AppStore"
+    lane :production_appstore do
+        production_firebase_config
+        update_app_identifier(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            app_identifier: "com.stxnext.rnstarterkit"
+        )
+        update_info_plist(
+            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
+            plist_path: "ReactNativeStarterKit/Info.plist",
+            display_name: "StarterKit"
+        )
+        build_app(
+            workspace: "ios/ReactNativeStarterKit.xcworkspace",
+            scheme: "ReactNativeStarterKit (production)",
+            include_bitcode: true
+        )
+        upload_to_app_store
+    end
+
+end

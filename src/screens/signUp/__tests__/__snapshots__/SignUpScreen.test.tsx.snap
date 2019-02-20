@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpScreen should match snapshot 1`] = `
+<FullScreenTemplate
+  padded={true}
+>
+  <SignUpFormContainer />
+</FullScreenTemplate>
+`;
