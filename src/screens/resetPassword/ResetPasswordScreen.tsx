@@ -9,7 +9,7 @@ import { ResetPasswordForm } from './ResetPasswordForm';
 export class ResetPasswordScreen extends React.PureComponent {
   render() {
     return (
-      <FullScreenTemplate padded>
+      <FullScreenTemplate padded narrow>
         <StyledText style={styles.guideText}>
           {i18n.t('resetPassword:guide1')}
         </StyledText>

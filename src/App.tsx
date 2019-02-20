@@ -21,7 +21,7 @@ PushNotificationsService.initialize();
 /* istanbul ignore next */
 if (Platform.OS === 'android') {
   // @ts-ignore
-  SafeAreaView.setStatusBarHeight(StatusBar.currentHeight);
+  SafeAreaView.setStatusBarHeight(StatusBar.currentHeight - 24);
 }
 
 const AppContainer = createAppContainer(RootStackNavigator);
@@ -34,7 +34,7 @@ export default class App extends PureComponent {
   render() {
     return (
       <I18nextProvider i18n={i18n}>
-        <StatusBar backgroundColor="rgba(0,0,0,0.2)" translucent />
+        <StatusBar hidden />
         <AppContainer
           ref={this.setNavigationRef}
           onNavigationStateChange={AnalyticsService.setCurrentScreen}

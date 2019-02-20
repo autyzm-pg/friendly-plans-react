@@ -7,7 +7,7 @@ import { SignUpFormContainer } from './SignUpFormContainer';
 export class SignUpScreen extends React.PureComponent<NavigationInjectedProps> {
   render() {
     return (
-      <FullScreenTemplate padded>
+      <FullScreenTemplate padded narrow>
         <SignUpFormContainer />
       </FullScreenTemplate>
     );
