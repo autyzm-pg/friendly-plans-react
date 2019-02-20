@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should match snapshot 1`] = `
+<Themed.Icon
+  color="#458caf"
+  name="content-paste"
+  type="material-community"
+/>
+`;

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm should match snapshot 1`] = `
+<View>
+  <InputItem
+    autoCapitalize="none"
+    blurOnSubmit={true}
+    error=""
+    keyboardType="email-address"
+    label="Email address"
+    textContentType="emailAddress"
+    touched={false}
+    value="email@domain.com"
+  />
+  <InputItem
+    blurOnSubmit={true}
+    error=""
+    label="Password"
+    secureTextEntry={true}
+    textContentType="password"
+    touched={false}
+    value="topsecretpassword"
+  />
+  <FlatButton
+    buttonStyle={
+      Object {
+        "height": 36,
+        "justifyContent": "flex-end",
+      }
+    }
+    containerStyle={
+      Object {
+        "alignSelf": "flex-end",
+        "top": -8,
+      }
+    }
+    title="forgot password?"
+    titleStyle={
+      Object {
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 12,
+        "letterSpacing": 0.4,
+      }
+    }
+  />
+  <Component
+    backgroundColor="#458caf"
+    containerStyle={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 8,
+      }
+    }
+    onPress={[MockFunction]}
+    title="Sign In"
+  />
+</View>
+`;

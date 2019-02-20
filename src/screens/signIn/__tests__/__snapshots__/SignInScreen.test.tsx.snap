@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInScreen should match snapshot 1`] = `
+<FullScreenTemplate
+  padded={true}
+>
+  <SignInFormContainer />
+  <StyledText
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.60)",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 12,
+        "letterSpacing": 0.4,
+        "marginTop": 4,
+        "textAlign": "center",
+      }
+    }
+  >
+    don't have an account?
+  </StyledText>
+  <FlatButton
+    onPress={[Function]}
+    title="Sign up"
+  />
+  <StyledText
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.60)",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 12,
+        "letterSpacing": 0.4,
+        "marginTop": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    you can also
+  </StyledText>
+  <SignInAsAnonymousButton />
+</FullScreenTemplate>
+`;

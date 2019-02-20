@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlatButton should match snapshot 1`] = `
+<ForwardRef(Themed.Button)
+  buttonStyle={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "elevation": 0,
+        "height": 44,
+      },
+      undefined,
+    ]
+  }
+  loadingProps={
+    Object {
+      "color": "#458caf",
+    }
+  }
+  title="flat button"
+  titleStyle={
+    Array [
+      Object {
+        "color": "#458caf",
+        "fontFamily": "Rubik-Medium",
+        "fontSize": 14,
+        "letterSpacing": 1.25,
+      },
+      undefined,
+    ]
+  }
+/>
+`;

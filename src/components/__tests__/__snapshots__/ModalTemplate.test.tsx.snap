@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalTemplate should match snapshot 1`] = `
+<AnimatedComponent
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "maxWidth": "90%",
+        "paddingBottom": 8,
+        "paddingHorizontal": 24,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <View>
+      <Text>
+        content inside modal
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 12,
+        }
+      }
+    >
+      <FlatButton
+        containerStyle={
+          Object {
+            "flex": 1,
+          }
+        }
+        onPress={[Function]}
+        title="Cancel"
+      />
+      <FlatButton
+        containerStyle={
+          Object {
+            "flex": 1,
+          }
+        }
+        onPress={[Function]}
+        title="okay"
+      />
+    </View>
+  </View>
+</AnimatedComponent>
+`;

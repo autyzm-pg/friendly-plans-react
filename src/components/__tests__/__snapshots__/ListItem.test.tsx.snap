@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should match snapshot 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  delayPressOut={100}
+  onPress={[MockFunction]}
+  underlayColor="rgba(0, 0, 0, 0.1)"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingHorizontal": 12,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "center",
+          "paddingLeft": 12,
+        }
+      }
+    >
+      <StyledText
+        style={
+          Object {
+            "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "Rubik-Regular",
+            "fontSize": 15,
+            "letterSpacing": 0.15,
+            "marginBottom": 2,
+          }
+        }
+      >
+        some title
+      </StyledText>
+    </View>
+  </View>
+</TouchableHighlight>
+`;

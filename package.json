@@ -1,0 +1,60 @@
+{
+  "name": "react-native-starter-kit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest --env=jsdom --updateSnapshot --silent",
+    "test:coverage": "yarn test --coverage",
+    "test:ci": "jest --env=jsdom --silent --coverage",
+    "lint": "tslint --project .",
+    "prettier-fix": "prettier --write \"**/*.{js,ts,tsx}\""
+  },
+  "dependencies": {
+    "formik": "^1.4.2",
+    "i18next": "^13.1.0",
+    "react": "16.6.3",
+    "react-i18next": "^9.0.2",
+    "react-native": "0.58.5",
+    "react-native-config": "^0.11.7",
+    "react-native-device-info": "^0.24.3",
+    "react-native-elements": "1.0.0",
+    "react-native-fast-image": "^5.1.2",
+    "react-native-firebase": "^5.2.0",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-native-splash-screen": "git://github.com/panz3r/react-native-splash-screen.git#b15bad2e7f748ca54996c3dc2bcef98bc8284980",
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^3.0.9",
+    "yup": "^0.26.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-flow-strip-types": "^7.2.3",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/i18next": "^12.1.0",
+    "@types/jest": "^23.3.11",
+    "@types/react": "^16.7.18",
+    "@types/react-native": "^0.57.24",
+    "@types/react-navigation": "^3.0.1",
+    "@types/yup": "^0.26.4",
+    "babel-jest": "23.6.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "jest": "23.6.0",
+    "jest-enzyme": "^7.0.1",
+    "metro-react-native-babel-preset": "0.51.1",
+    "prettier": "^1.15.3",
+    "react-dom": "^16.7.0",
+    "react-test-renderer": "16.6.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
+}

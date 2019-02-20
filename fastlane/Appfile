@@ -1,0 +1,28 @@
+app_identifier("com.stxnext.rnstarterkit") # The bundle identifier of the app for iOS
+package_name("com.stxnext.rnstarterkit") # The bundle identifier of the app for Android
+
+apple_id("") # Your Apple email address
+
+itc_team_id("") # App Store Connect Team ID
+team_id("") # Developer Portal Team ID
+
+for_platform :ios do
+    for_lane :staging_testflight do
+        app_identifier 'com.stxnext.rnstarterkit.staging'
+    end
+    for_lane :staging_appstore do
+        app_identifier 'com.stxnext.rnstarterkit.staging'
+    end
+end
+
+for_platform :android do
+    for_lane :staging_googleplay_alpha do
+        package_name 'com.stxnext.rnstarterkit.staging'
+    end
+    for_lane :release_googleplay_alpha do
+        package_name 'com.stxnext.rnstarterkit.staging'
+    end
+end
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
