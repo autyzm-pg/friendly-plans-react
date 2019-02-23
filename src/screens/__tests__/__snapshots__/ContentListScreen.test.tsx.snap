@@ -7,7 +7,7 @@ exports[`ContentListScreen should match snapshot 1`] = `
     source={
       Object {
         "priority": "normal",
-        "uri": "https://unsplash.it/400/700?image=8",
+        "uri": "https://unsplash.it/400/700?image=2",
       }
     }
     style={

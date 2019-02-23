@@ -13,6 +13,7 @@ import {
   NavigationService,
   PushNotificationsService,
 } from 'services';
+import { statusBarHeight } from 'styles';
 import { RootStackNavigator } from './navigators/RootStackNavigator';
 
 PushNotificationsService.initialize();
@@ -21,7 +22,7 @@ PushNotificationsService.initialize();
 /* istanbul ignore next */
 if (Platform.OS === 'android') {
   // @ts-ignore
-  SafeAreaView.setStatusBarHeight(StatusBar.currentHeight - 24);
+  SafeAreaView.setStatusBarHeight(statusBarHeight);
 }
 
 const AppContainer = createAppContainer(RootStackNavigator);
