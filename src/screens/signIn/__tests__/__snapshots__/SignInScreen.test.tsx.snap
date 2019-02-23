@@ -2,6 +2,7 @@
 
 exports[`SignInScreen should match snapshot 1`] = `
 <FullScreenTemplate
+  narrow={true}
   padded={true}
 >
   <SignInFormContainer />

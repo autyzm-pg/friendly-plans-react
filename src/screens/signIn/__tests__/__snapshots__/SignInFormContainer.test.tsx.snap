@@ -158,7 +158,7 @@ exports[`SignInFormContainer should render form correctly 1`] = `
     }
   />
   <Component
-    backgroundColor="#458caf"
+    backgroundColor="#2196F3"
     containerStyle={
       Object {
         "marginBottom": 20,

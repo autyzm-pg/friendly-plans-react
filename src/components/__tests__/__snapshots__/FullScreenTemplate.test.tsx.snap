@@ -8,11 +8,20 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
         "paddingHorizontal": 12,
         "paddingVertical": 16,
       },
+      undefined,
     ]
   }
 >
-  <Text>
-    Child text
-  </Text>
+  <View
+    style={
+      Array [
+        undefined,
+      ]
+    }
+  >
+    <Text>
+      Child text
+    </Text>
+  </View>
 </SafeAreaView>
 `;

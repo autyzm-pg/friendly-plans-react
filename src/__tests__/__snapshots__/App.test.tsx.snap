@@ -114,6 +114,12 @@ exports[`App should match snapshot 1`] = `
                 "signOutSubtitle": "After you sign out, you will need to sign in again.",
                 "signOutTitle": "Sign out",
               },
+              "sidebar": Object {
+                "addStudent": "Add Student",
+                "addTask": "Add Task",
+                "recordSound": "Record Sound",
+                "takeAPicture": "Take a Picture",
+              },
               "signIn": Object {
                 "anonymousTip": "you can also",
                 "forgotPassword": "forgot password?",
@@ -274,6 +280,12 @@ exports[`App should match snapshot 1`] = `
               "signOutSubtitle": "After you sign out, you will need to sign in again.",
               "signOutTitle": "Sign out",
             },
+            "sidebar": Object {
+              "addStudent": "Add Student",
+              "addTask": "Add Task",
+              "recordSound": "Record Sound",
+              "takeAPicture": "Take a Picture",
+            },
             "signIn": Object {
               "anonymousTip": "you can also",
               "forgotPassword": "forgot password?",
@@ -431,6 +443,12 @@ exports[`App should match snapshot 1`] = `
                       "signOutSubtitle": "After you sign out, you will need to sign in again.",
                       "signOutTitle": "Sign out",
                     },
+                    "sidebar": Object {
+                      "addStudent": "Add Student",
+                      "addTask": "Add Task",
+                      "recordSound": "Record Sound",
+                      "takeAPicture": "Take a Picture",
+                    },
                     "signIn": Object {
                       "anonymousTip": "you can also",
                       "forgotPassword": "forgot password?",
@@ -574,6 +592,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -729,6 +753,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -878,6 +908,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
                 },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
+                },
                 "signIn": Object {
                   "anonymousTip": "you can also",
                   "forgotPassword": "forgot password?",
@@ -989,6 +1025,12 @@ exports[`App should match snapshot 1`] = `
                 "signOutDialogTitle": "Sign out",
                 "signOutSubtitle": "After you sign out, you will need to sign in again.",
                 "signOutTitle": "Sign out",
+              },
+              "sidebar": Object {
+                "addStudent": "Add Student",
+                "addTask": "Add Task",
+                "recordSound": "Record Sound",
+                "takeAPicture": "Take a Picture",
               },
               "signIn": Object {
                 "anonymousTip": "you can also",
@@ -1137,6 +1179,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -1284,6 +1332,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutDialogTitle": "Sign out",
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
+                },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
                 },
                 "signIn": Object {
                   "anonymousTip": "you can also",
@@ -1453,6 +1507,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -1596,6 +1656,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutDialogTitle": "Sign out",
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
+                },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
                 },
                 "signIn": Object {
                   "anonymousTip": "you can also",
@@ -1749,6 +1815,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutDialogTitle": "Sign out",
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
+                },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
                 },
                 "signIn": Object {
                   "anonymousTip": "you can also",
@@ -1906,6 +1978,12 @@ exports[`App should match snapshot 1`] = `
                       "signOutSubtitle": "After you sign out, you will need to sign in again.",
                       "signOutTitle": "Sign out",
                     },
+                    "sidebar": Object {
+                      "addStudent": "Add Student",
+                      "addTask": "Add Task",
+                      "recordSound": "Record Sound",
+                      "takeAPicture": "Take a Picture",
+                    },
                     "signIn": Object {
                       "anonymousTip": "you can also",
                       "forgotPassword": "forgot password?",
@@ -2049,6 +2127,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -2203,6 +2287,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -3253,6 +3343,12 @@ exports[`App should match snapshot 1`] = `
               "signOutSubtitle": "After you sign out, you will need to sign in again.",
               "signOutTitle": "Sign out",
             },
+            "sidebar": Object {
+              "addStudent": "Add Student",
+              "addTask": "Add Task",
+              "recordSound": "Record Sound",
+              "takeAPicture": "Take a Picture",
+            },
             "signIn": Object {
               "anonymousTip": "you can also",
               "forgotPassword": "forgot password?",
@@ -3352,6 +3448,12 @@ exports[`App should match snapshot 1`] = `
             "signOutDialogTitle": "Sign out",
             "signOutSubtitle": "After you sign out, you will need to sign in again.",
             "signOutTitle": "Sign out",
+          },
+          "sidebar": Object {
+            "addStudent": "Add Student",
+            "addTask": "Add Task",
+            "recordSound": "Record Sound",
+            "takeAPicture": "Take a Picture",
           },
           "signIn": Object {
             "anonymousTip": "you can also",
@@ -3498,6 +3600,12 @@ exports[`App should match snapshot 1`] = `
                       "signOutSubtitle": "After you sign out, you will need to sign in again.",
                       "signOutTitle": "Sign out",
                     },
+                    "sidebar": Object {
+                      "addStudent": "Add Student",
+                      "addTask": "Add Task",
+                      "recordSound": "Record Sound",
+                      "takeAPicture": "Take a Picture",
+                    },
                     "signIn": Object {
                       "anonymousTip": "you can also",
                       "forgotPassword": "forgot password?",
@@ -3641,6 +3749,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -3796,6 +3910,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -3945,6 +4065,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
                 },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
+                },
                 "signIn": Object {
                   "anonymousTip": "you can also",
                   "forgotPassword": "forgot password?",
@@ -4056,6 +4182,12 @@ exports[`App should match snapshot 1`] = `
                 "signOutDialogTitle": "Sign out",
                 "signOutSubtitle": "After you sign out, you will need to sign in again.",
                 "signOutTitle": "Sign out",
+              },
+              "sidebar": Object {
+                "addStudent": "Add Student",
+                "addTask": "Add Task",
+                "recordSound": "Record Sound",
+                "takeAPicture": "Take a Picture",
               },
               "signIn": Object {
                 "anonymousTip": "you can also",
@@ -4204,6 +4336,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -4351,6 +4489,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutDialogTitle": "Sign out",
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
+                },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
                 },
                 "signIn": Object {
                   "anonymousTip": "you can also",
@@ -4514,6 +4658,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
                   },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
+                  },
                   "signIn": Object {
                     "anonymousTip": "you can also",
                     "forgotPassword": "forgot password?",
@@ -4657,6 +4807,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutDialogTitle": "Sign out",
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
+                },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
                 },
                 "signIn": Object {
                   "anonymousTip": "you can also",
@@ -4812,6 +4968,12 @@ exports[`App should match snapshot 1`] = `
                   "signOutSubtitle": "After you sign out, you will need to sign in again.",
                   "signOutTitle": "Sign out",
                 },
+                "sidebar": Object {
+                  "addStudent": "Add Student",
+                  "addTask": "Add Task",
+                  "recordSound": "Record Sound",
+                  "takeAPicture": "Take a Picture",
+                },
                 "signIn": Object {
                   "anonymousTip": "you can also",
                   "forgotPassword": "forgot password?",
@@ -4960,6 +5122,12 @@ exports[`App should match snapshot 1`] = `
                 "signOutDialogTitle": "Sign out",
                 "signOutSubtitle": "After you sign out, you will need to sign in again.",
                 "signOutTitle": "Sign out",
+              },
+              "sidebar": Object {
+                "addStudent": "Add Student",
+                "addTask": "Add Task",
+                "recordSound": "Record Sound",
+                "takeAPicture": "Take a Picture",
               },
               "signIn": Object {
                 "anonymousTip": "you can also",
@@ -5115,6 +5283,12 @@ exports[`App should match snapshot 1`] = `
                       "signOutSubtitle": "After you sign out, you will need to sign in again.",
                       "signOutTitle": "Sign out",
                     },
+                    "sidebar": Object {
+                      "addStudent": "Add Student",
+                      "addTask": "Add Task",
+                      "recordSound": "Record Sound",
+                      "takeAPicture": "Take a Picture",
+                    },
                     "signIn": Object {
                       "anonymousTip": "you can also",
                       "forgotPassword": "forgot password?",
@@ -5258,6 +5432,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -5412,6 +5592,12 @@ exports[`App should match snapshot 1`] = `
                     "signOutDialogTitle": "Sign out",
                     "signOutSubtitle": "After you sign out, you will need to sign in again.",
                     "signOutTitle": "Sign out",
+                  },
+                  "sidebar": Object {
+                    "addStudent": "Add Student",
+                    "addTask": "Add Task",
+                    "recordSound": "Record Sound",
+                    "takeAPicture": "Take a Picture",
                   },
                   "signIn": Object {
                     "anonymousTip": "you can also",
@@ -6462,6 +6648,12 @@ exports[`App should match snapshot 1`] = `
               "signOutSubtitle": "After you sign out, you will need to sign in again.",
               "signOutTitle": "Sign out",
             },
+            "sidebar": Object {
+              "addStudent": "Add Student",
+              "addTask": "Add Task",
+              "recordSound": "Record Sound",
+              "takeAPicture": "Take a Picture",
+            },
             "signIn": Object {
               "anonymousTip": "you can also",
               "forgotPassword": "forgot password?",
@@ -6511,9 +6703,8 @@ exports[`App should match snapshot 1`] = `
 >
   <StatusBar
     animated={false}
-    backgroundColor="rgba(0,0,0,0.2)"
+    hidden={true}
     showHideTransition="fade"
-    translucent={true}
   />
   <Component
     onNavigationStateChange={[Function]}

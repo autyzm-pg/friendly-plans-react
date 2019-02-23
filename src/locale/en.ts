@@ -56,6 +56,12 @@ const translations = {
     signOutDialogTitle: 'Sign out',
     signOutDialogDescription: 'Are you sure you want to sign out?',
   },
+  sidebar: {
+    addTask: 'Add Task',
+    addStudent: 'Add Student',
+    takeAPicture: 'Take a Picture',
+    recordSound: 'Record Sound',
+  },
 };
 
 export default translations;
