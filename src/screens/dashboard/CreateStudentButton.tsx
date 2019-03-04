@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 
-import { Icon, StyledText } from 'components';
+import { Card, Icon, StyledText } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { palette, typography } from 'styles';
@@ -14,12 +14,12 @@ export class CreateStudentButton extends React.PureComponent {
         underlayColor={palette.underlay}
         style={styles.touchable}
       >
-        <View style={styles.container}>
+        <Card style={styles.container}>
           <Icon name="account-plus" iconStyle={styles.icon} />
           <StyledText style={styles.label}>
             {i18n.t('studentList:createStudent')}
           </StyledText>
-        </View>
+        </Card>
       </TouchableHighlight>
     );
   }
@@ -28,17 +28,12 @@ export class CreateStudentButton extends React.PureComponent {
 const styles = StyleSheet.create({
   touchable: {
     margin: 8,
-    elevation: 1,
     borderRadius: 8,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: palette.border,
   },
   container: {
     flexDirection: 'row',
-    padding: 24,
     alignItems: 'center',
-    borderRadius: 8,
-    backgroundColor: palette.background,
+    margin: 0,
   },
   icon: {
     fontSize: 48,

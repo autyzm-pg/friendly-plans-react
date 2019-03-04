@@ -15,14 +15,14 @@ export class FullScreenTemplate extends React.PureComponent<Props> {
     const { children, padded, narrow, darkBackground } = this.props;
     return (
       <SafeAreaView
-        style={[
-          styles.safeArea,
-          padded && styles.padded,
-          narrow && styles.narrowContainer,
-          darkBackground && styles.darkBackground,
-        ]}
+        style={[styles.safeArea, darkBackground && styles.darkBackground]}
       >
-        <ScrollView>
+        <ScrollView
+          contentContainerStyle={[
+            padded && styles.padded,
+            narrow && styles.narrowContainer,
+          ]}
+        >
           <View style={[narrow && styles.narrow]}>{children}</View>
         </ScrollView>
       </SafeAreaView>

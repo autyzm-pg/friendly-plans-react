@@ -26,6 +26,10 @@ export default class NavigationService {
     );
   };
 
+  goBack = () => {
+    this.navigator!.dispatch(NavigationActions.back());
+  };
+
   getActiveRouteName = (navigationState: NavigationState): string => {
     if (!navigationState) {
       return '';

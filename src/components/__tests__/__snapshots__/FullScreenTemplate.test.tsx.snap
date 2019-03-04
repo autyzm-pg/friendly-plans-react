@@ -8,16 +8,21 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
         "backgroundColor": "#FFFFFF",
         "flex": 1,
       },
-      Object {
-        "paddingHorizontal": 12,
-        "paddingVertical": 16,
-      },
-      undefined,
       undefined,
     ]
   }
 >
-  <ScrollView>
+  <ScrollView
+    contentContainerStyle={
+      Array [
+        Object {
+          "paddingHorizontal": 12,
+          "paddingVertical": 16,
+        },
+        undefined,
+      ]
+    }
+  >
     <View
       style={
         Array [
