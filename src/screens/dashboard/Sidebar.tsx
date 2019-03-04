@@ -41,9 +41,8 @@ const styles = StyleSheet.create({
     marginTop: statusBarHeight,
     width: 80,
     backgroundColor: palette.primary,
-    height: '100%',
-    borderTopRightRadius: 12,
-    borderBottomRightRadius: 12,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
     justifyContent: 'space-between',
   },
   menuContainer: {

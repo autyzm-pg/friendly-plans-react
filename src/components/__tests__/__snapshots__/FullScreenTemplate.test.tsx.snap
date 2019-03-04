@@ -5,23 +5,30 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
   style={
     Array [
       Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      },
+      Object {
         "paddingHorizontal": 12,
         "paddingVertical": 16,
       },
       undefined,
+      undefined,
     ]
   }
 >
-  <View
-    style={
-      Array [
-        undefined,
-      ]
-    }
-  >
-    <Text>
-      Child text
-    </Text>
-  </View>
+  <ScrollView>
+    <View
+      style={
+        Array [
+          undefined,
+        ]
+      }
+    >
+      <Text>
+        Child text
+      </Text>
+    </View>
+  </ScrollView>
 </SafeAreaView>
 `;

@@ -10,7 +10,6 @@ exports[`SignInScreen should match snapshot 1`] = `
     style={
       Object {
         "color": "rgba(0, 0, 0, 0.60)",
-        "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
         "marginTop": 4,
@@ -28,7 +27,6 @@ exports[`SignInScreen should match snapshot 1`] = `
     style={
       Object {
         "color": "rgba(0, 0, 0, 0.60)",
-        "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
         "marginTop": 20,

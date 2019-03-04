@@ -1,26 +1,43 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, ViewStyle } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+
+import { palette } from 'styles';
 
 interface Props {
   children?: JSX.Element | JSX.Element[];
   padded?: boolean;
   narrow?: boolean;
+  darkBackground?: boolean;
 }
 
 export class FullScreenTemplate extends React.PureComponent<Props> {
   render() {
-    const { children, padded, narrow } = this.props;
+    const { children, padded, narrow, darkBackground } = this.props;
     return (
       <SafeAreaView
-        style={[padded && styles.padded, narrow && styles.narrowContainer]}
+        style={[
+          styles.safeArea,
+          padded && styles.padded,
+          narrow && styles.narrowContainer,
+          darkBackground && styles.darkBackground,
+        ]}
       >
-        <View style={[narrow && styles.narrow]}>{children}</View>
+        <ScrollView>
+          <View style={[narrow && styles.narrow]}>{children}</View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: palette.background,
+  },
+  darkBackground: {
+    backgroundColor: palette.backgroundDark,
+  },
   padded: {
     paddingHorizontal: 12,
     paddingVertical: 16,
