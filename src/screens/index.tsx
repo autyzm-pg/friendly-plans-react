@@ -1,9 +1,9 @@
 export { WelcomeScreen } from './WelcomeScreen';
 export { SignInScreen } from './signIn/SignInScreen';
-export { ContentListScreen } from './ContentListScreen';
 export { SettingsScreen } from './settings/SettingsScreen';
 export { DialogScreen } from './DialogScreen';
 export { SignUpScreen } from './signUp/SignUpScreen';
 export { ResetPasswordScreen } from './resetPassword/ResetPasswordScreen';
 export { AddTaskScreen } from './dashboard/AddTaskScreen';
 export { DashboardScreen } from './dashboard/DashboardScreen';
+export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-import { Icon, IconButton } from 'components';
+import { Card, Icon, IconButton } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { NavigationService } from 'services';
@@ -32,7 +32,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
       name: this.state.name,
     });
 
-  removeStudent = () => {
+  deleteStudent = () => {
     NavigationService.navigate('Dialog', {
       title: i18n.t('studentList:removeStudentTitle'),
       description: i18n.t('studentList:removeStudentDescription', {
@@ -45,7 +45,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <Card>
         <View style={styles.topRow}>
           <Icon name="account" iconStyle={styles.icon} />
           <TextInput
@@ -55,29 +55,16 @@ export class StudentListItem extends React.PureComponent<Props, State> {
             onChangeText={this.handleNameChange}
             underlineColorAndroid={palette.primaryDark}
           />
-          <IconButton
-            onPress={this.removeStudent}
-            name="close"
-            iconStyle={styles.actionIcon}
-          />
+          <IconButton onPress={this.deleteStudent} name="close" size={36} />
         </View>
         <StudentPlanList student={this.props.student} />
         <CreatePlanButton student={this.props.student} />
-      </View>
+      </Card>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 8,
-    elevation: 1,
-    borderRadius: 8,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: palette.border,
-    backgroundColor: palette.background,
-    padding: 24,
-  },
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -85,9 +72,6 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 48,
     marginEnd: 32,
-  },
-  actionIcon: {
-    fontSize: 36,
   },
   input: {
     height: 42,

@@ -5,16 +5,18 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
 import { CreateStudentButton } from './CreateStudentButton';
-import { Sidebar } from './Sidebar';
 import { StudentList } from './StudentList';
 
 export class DashboardScreen extends React.PureComponent<
   NavigationInjectedProps
 > {
+  static navigationOptions = {
+    header: null,
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Sidebar />
         <FullScreenTemplate padded darkBackground>
           <StudentList />
           <CreateStudentButton />

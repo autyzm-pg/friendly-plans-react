@@ -3,7 +3,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import { RNFirebase } from 'react-native-firebase';
 
 import { Plan, Student } from 'models';
-import { StudentPlanListItem } from './StudentPlanListItem';
+import StudentPlanListItem from './StudentPlanListItem';
 
 interface Props {
   student: Student;
@@ -25,12 +25,11 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   }
 
   handlePlansChange = (querySnapshot: RNFirebase.firestore.QuerySnapshot) => {
-    const plans: Plan[] = querySnapshot.docs.map(
-      doc =>
-        ({
-          id: doc.id,
-          ...doc.data(),
-        } as Plan),
+    const plans: Plan[] = querySnapshot.docs.map(doc =>
+      Object.assign(new Plan(), {
+        id: doc.id,
+        ...doc.data(),
+      }),
     );
     this.setState({ plans });
   };
@@ -38,7 +37,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   extractKey = (plan: Plan) => plan.id;
 
   renderItem = ({ item }: { item: Plan }) => (
-    <StudentPlanListItem plan={item} />
+    <StudentPlanListItem plan={item} student={this.props.student} />
   );
 
   render() {

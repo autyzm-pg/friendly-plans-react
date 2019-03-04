@@ -26,7 +26,7 @@ export class Student {
 }
 
 // Private API below
-const getStudentsRef = (
+export const getStudentsRef = (
   userId = firebase.auth().currentUser!.uid,
 ): RNFirebase.firestore.CollectionReference =>
   firebase
@@ -58,6 +58,7 @@ const createPlanForStudent = (
     .collection('plans')
     .add({
       name: i18n.t('planList:planNamePlaceholder'),
+      studentId: student.id,
     });
 
 const getStudentPlansRef = (

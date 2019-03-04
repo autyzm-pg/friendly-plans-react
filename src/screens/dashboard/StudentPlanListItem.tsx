@@ -1,15 +1,24 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { IconButton, StyledText } from 'components';
-import { Plan } from 'models';
-import { palette } from '../../styles';
+import { Plan, Student } from 'models';
+import { palette } from 'styles';
 
-interface Props {
+interface Props extends NavigationInjectedProps {
   plan: Plan;
+  student: Student;
 }
 
 export class StudentPlanListItem extends React.PureComponent<Props> {
+  navigateToUpdatePlan = () => {
+    this.props.navigation.navigate('UpdatePlan', {
+      plan: this.props.plan,
+      student: this.props.student,
+    });
+  };
+
   render() {
     const { name } = this.props.plan;
     return (
@@ -21,6 +30,7 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
             color={palette.secondary}
             size={28}
             containerStyle={styles.updateIcon}
+            onPress={this.navigateToUpdatePlan}
           />
           <IconButton name="play-circle" size={30} />
         </View>
@@ -48,3 +58,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+
+export default withNavigation(StudentPlanListItem);

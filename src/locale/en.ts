@@ -74,6 +74,12 @@ const translations = {
     createPlan: 'Add a Plan',
     planNamePlaceholder: 'Enter Plan name',
   },
+  updatePlan: {
+    screenTitle: '{{studentName}} - Update a plan',
+    removePlanTitle: 'Confirm',
+    removePlanDescription:
+      'Are you sure you want to plan "{{name}}" from student plan list?\n This action cannot be undone.',
+  },
 };
 
 export default translations;
