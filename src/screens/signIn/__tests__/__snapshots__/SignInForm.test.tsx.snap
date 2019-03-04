@@ -37,7 +37,6 @@ exports[`SignInForm should match snapshot 1`] = `
     title="forgot password?"
     titleStyle={
       Object {
-        "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
       }

@@ -17,7 +17,7 @@ export class AppLogo extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     height: 80,
-    borderTopRightRadius: 12,
+    borderTopRightRadius: 8,
     backgroundColor: palette.primaryDark,
     alignItems: 'center',
     justifyContent: 'center',

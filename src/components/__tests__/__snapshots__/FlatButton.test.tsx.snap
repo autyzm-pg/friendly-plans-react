@@ -22,7 +22,6 @@ exports[`FlatButton should match snapshot 1`] = `
     Array [
       Object {
         "color": "#2196F3",
-        "fontFamily": "Rubik-Medium",
         "fontSize": 14,
         "letterSpacing": 1.25,
       },

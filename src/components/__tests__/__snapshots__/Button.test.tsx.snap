@@ -19,7 +19,6 @@ exports[`Button should match snapshot 1`] = `
   titleStyle={
     Array [
       Object {
-        "fontFamily": "Rubik-Medium",
         "fontSize": 14,
         "letterSpacing": 1.25,
       },

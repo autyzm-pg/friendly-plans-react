@@ -117,6 +117,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode project.env.get("APP_VERSION_CODE").toInteger()
         versionName project.env.get("APP_VERSION_NAME")
+        multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -166,6 +167,7 @@ dependencies {
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-firebase')
     implementation "com.google.firebase:firebase-auth:16.1.0"
+    implementation "com.google.firebase:firebase-firestore:17.1.5"
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
         transitive = true
     }

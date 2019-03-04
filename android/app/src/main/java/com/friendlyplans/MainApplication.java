@@ -17,6 +17,7 @@ import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
@@ -50,7 +51,8 @@ public class MainApplication extends Application implements ReactApplication {
                     new RNFirebaseCrashlyticsPackage(),
                     new RNFirebaseAnalyticsPackage(),
                     new RNFirebaseMessagingPackage(),
-                    new RNFirebaseNotificationsPackage()
+                    new RNFirebaseNotificationsPackage(),
+                    new RNFirebaseFirestorePackage()
             );
         }
 

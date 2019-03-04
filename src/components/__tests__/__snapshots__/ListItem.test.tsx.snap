@@ -5,7 +5,7 @@ exports[`ListItem should match snapshot 1`] = `
   activeOpacity={0.85}
   delayPressOut={100}
   onPress={[MockFunction]}
-  underlayColor="rgba(0, 0, 0, 0.1)"
+  underlayColor="rgba(0, 0, 0, 0.2)"
 >
   <View
     style={
@@ -30,7 +30,6 @@ exports[`ListItem should match snapshot 1`] = `
         style={
           Object {
             "color": "rgba(0, 0, 0, 0.87)",
-            "fontFamily": "Rubik-Regular",
             "fontSize": 15,
             "letterSpacing": 0.15,
             "marginBottom": 2,

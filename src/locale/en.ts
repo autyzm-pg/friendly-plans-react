@@ -2,6 +2,7 @@ const translations = {
   common: {
     cancel: 'Cancel',
     ok: 'OK',
+    yes: 'Yes',
     email: 'Email address',
     password: 'Password',
     error: 'Error',
@@ -61,6 +62,17 @@ const translations = {
     addStudent: 'Add Student',
     takeAPicture: 'Take a Picture',
     recordSound: 'Record Sound',
+  },
+  studentList: {
+    createStudent: 'Add a Student',
+    studentNamePlaceholder: 'Enter Student name',
+    removeStudentTitle: 'Confirm',
+    removeStudentDescription:
+      'Are you sure you want to remove {{name}} from your student list?\n This action cannot be undone.',
+  },
+  planList: {
+    createPlan: 'Add a Plan',
+    planNamePlaceholder: 'Enter Plan name',
   },
 };
 

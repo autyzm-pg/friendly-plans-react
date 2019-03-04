@@ -89,6 +89,7 @@ exports[`App should match snapshot 1`] = `
                 "password": "Password",
                 "success": "Success",
                 "unknownError": "Unknown error occured",
+                "yes": "Yes",
               },
               "content": Object {
                 "content": "Content",
@@ -97,6 +98,10 @@ exports[`App should match snapshot 1`] = `
               "notifications": Object {
                 "channelDescription": "Get urgent notifications about the service",
                 "channelName": "Notifications",
+              },
+              "planList": Object {
+                "createPlan": "Add a Plan",
+                "planNamePlaceholder": "Enter Plan name",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -133,6 +138,13 @@ exports[`App should match snapshot 1`] = `
                 "signUp": "Sign Up",
                 "signUpButton": "Sign up",
                 "termsOfUse": "Terms of Use",
+              },
+              "studentList": Object {
+                "createStudent": "Add a Student",
+                "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                "removeStudentTitle": "Confirm",
+                "studentNamePlaceholder": "Enter Student name",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -255,6 +267,7 @@ exports[`App should match snapshot 1`] = `
               "password": "Password",
               "success": "Success",
               "unknownError": "Unknown error occured",
+              "yes": "Yes",
             },
             "content": Object {
               "content": "Content",
@@ -263,6 +276,10 @@ exports[`App should match snapshot 1`] = `
             "notifications": Object {
               "channelDescription": "Get urgent notifications about the service",
               "channelName": "Notifications",
+            },
+            "planList": Object {
+              "createPlan": "Add a Plan",
+              "planNamePlaceholder": "Enter Plan name",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -299,6 +316,13 @@ exports[`App should match snapshot 1`] = `
               "signUp": "Sign Up",
               "signUpButton": "Sign up",
               "termsOfUse": "Terms of Use",
+            },
+            "studentList": Object {
+              "createStudent": "Add a Student",
+              "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+              "removeStudentTitle": "Confirm",
+              "studentNamePlaceholder": "Enter Student name",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",
@@ -418,6 +442,7 @@ exports[`App should match snapshot 1`] = `
                       "password": "Password",
                       "success": "Success",
                       "unknownError": "Unknown error occured",
+                      "yes": "Yes",
                     },
                     "content": Object {
                       "content": "Content",
@@ -426,6 +451,10 @@ exports[`App should match snapshot 1`] = `
                     "notifications": Object {
                       "channelDescription": "Get urgent notifications about the service",
                       "channelName": "Notifications",
+                    },
+                    "planList": Object {
+                      "createPlan": "Add a Plan",
+                      "planNamePlaceholder": "Enter Plan name",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -462,6 +491,13 @@ exports[`App should match snapshot 1`] = `
                       "signUp": "Sign Up",
                       "signUpButton": "Sign up",
                       "termsOfUse": "Terms of Use",
+                    },
+                    "studentList": Object {
+                      "createStudent": "Add a Student",
+                      "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                      "removeStudentTitle": "Confirm",
+                      "studentNamePlaceholder": "Enter Student name",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -568,6 +604,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -576,6 +613,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -612,6 +653,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -728,6 +776,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -736,6 +785,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -772,6 +825,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -883,6 +943,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -891,6 +952,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -927,6 +992,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1001,6 +1073,7 @@ exports[`App should match snapshot 1`] = `
                 "password": "Password",
                 "success": "Success",
                 "unknownError": "Unknown error occured",
+                "yes": "Yes",
               },
               "content": Object {
                 "content": "Content",
@@ -1009,6 +1082,10 @@ exports[`App should match snapshot 1`] = `
               "notifications": Object {
                 "channelDescription": "Get urgent notifications about the service",
                 "channelName": "Notifications",
+              },
+              "planList": Object {
+                "createPlan": "Add a Plan",
+                "planNamePlaceholder": "Enter Plan name",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1045,6 +1122,13 @@ exports[`App should match snapshot 1`] = `
                 "signUp": "Sign Up",
                 "signUpButton": "Sign up",
                 "termsOfUse": "Terms of Use",
+              },
+              "studentList": Object {
+                "createStudent": "Add a Student",
+                "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                "removeStudentTitle": "Confirm",
+                "studentNamePlaceholder": "Enter Student name",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -1154,6 +1238,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -1162,6 +1247,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1198,6 +1287,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -1308,6 +1404,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -1316,6 +1413,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1352,6 +1453,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1482,6 +1590,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -1490,6 +1599,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1526,6 +1639,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -1632,6 +1752,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -1640,6 +1761,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1676,6 +1801,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1791,6 +1923,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -1799,6 +1932,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1835,6 +1972,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1953,6 +2097,7 @@ exports[`App should match snapshot 1`] = `
                       "password": "Password",
                       "success": "Success",
                       "unknownError": "Unknown error occured",
+                      "yes": "Yes",
                     },
                     "content": Object {
                       "content": "Content",
@@ -1961,6 +2106,10 @@ exports[`App should match snapshot 1`] = `
                     "notifications": Object {
                       "channelDescription": "Get urgent notifications about the service",
                       "channelName": "Notifications",
+                    },
+                    "planList": Object {
+                      "createPlan": "Add a Plan",
+                      "planNamePlaceholder": "Enter Plan name",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1997,6 +2146,13 @@ exports[`App should match snapshot 1`] = `
                       "signUp": "Sign Up",
                       "signUpButton": "Sign up",
                       "termsOfUse": "Terms of Use",
+                    },
+                    "studentList": Object {
+                      "createStudent": "Add a Student",
+                      "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                      "removeStudentTitle": "Confirm",
+                      "studentNamePlaceholder": "Enter Student name",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -2103,6 +2259,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -2111,6 +2268,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -2147,6 +2308,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -2263,6 +2431,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -2271,6 +2440,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -2307,6 +2480,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -3318,6 +3498,7 @@ exports[`App should match snapshot 1`] = `
               "password": "Password",
               "success": "Success",
               "unknownError": "Unknown error occured",
+              "yes": "Yes",
             },
             "content": Object {
               "content": "Content",
@@ -3326,6 +3507,10 @@ exports[`App should match snapshot 1`] = `
             "notifications": Object {
               "channelDescription": "Get urgent notifications about the service",
               "channelName": "Notifications",
+            },
+            "planList": Object {
+              "createPlan": "Add a Plan",
+              "planNamePlaceholder": "Enter Plan name",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3362,6 +3547,13 @@ exports[`App should match snapshot 1`] = `
               "signUp": "Sign Up",
               "signUpButton": "Sign up",
               "termsOfUse": "Terms of Use",
+            },
+            "studentList": Object {
+              "createStudent": "Add a Student",
+              "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+              "removeStudentTitle": "Confirm",
+              "studentNamePlaceholder": "Enter Student name",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",
@@ -3424,6 +3616,7 @@ exports[`App should match snapshot 1`] = `
             "password": "Password",
             "success": "Success",
             "unknownError": "Unknown error occured",
+            "yes": "Yes",
           },
           "content": Object {
             "content": "Content",
@@ -3432,6 +3625,10 @@ exports[`App should match snapshot 1`] = `
           "notifications": Object {
             "channelDescription": "Get urgent notifications about the service",
             "channelName": "Notifications",
+          },
+          "planList": Object {
+            "createPlan": "Add a Plan",
+            "planNamePlaceholder": "Enter Plan name",
           },
           "resetPassword": Object {
             "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3468,6 +3665,13 @@ exports[`App should match snapshot 1`] = `
             "signUp": "Sign Up",
             "signUpButton": "Sign up",
             "termsOfUse": "Terms of Use",
+          },
+          "studentList": Object {
+            "createStudent": "Add a Student",
+            "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+            "removeStudentTitle": "Confirm",
+            "studentNamePlaceholder": "Enter Student name",
           },
           "validation": Object {
             "acceptRequired": "You need to accept our Terms of Use",
@@ -3575,6 +3779,7 @@ exports[`App should match snapshot 1`] = `
                       "password": "Password",
                       "success": "Success",
                       "unknownError": "Unknown error occured",
+                      "yes": "Yes",
                     },
                     "content": Object {
                       "content": "Content",
@@ -3583,6 +3788,10 @@ exports[`App should match snapshot 1`] = `
                     "notifications": Object {
                       "channelDescription": "Get urgent notifications about the service",
                       "channelName": "Notifications",
+                    },
+                    "planList": Object {
+                      "createPlan": "Add a Plan",
+                      "planNamePlaceholder": "Enter Plan name",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3619,6 +3828,13 @@ exports[`App should match snapshot 1`] = `
                       "signUp": "Sign Up",
                       "signUpButton": "Sign up",
                       "termsOfUse": "Terms of Use",
+                    },
+                    "studentList": Object {
+                      "createStudent": "Add a Student",
+                      "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                      "removeStudentTitle": "Confirm",
+                      "studentNamePlaceholder": "Enter Student name",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -3725,6 +3941,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -3733,6 +3950,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3769,6 +3990,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -3885,6 +4113,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -3893,6 +4122,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3929,6 +4162,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4040,6 +4280,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -4048,6 +4289,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4084,6 +4329,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -4158,6 +4410,7 @@ exports[`App should match snapshot 1`] = `
                 "password": "Password",
                 "success": "Success",
                 "unknownError": "Unknown error occured",
+                "yes": "Yes",
               },
               "content": Object {
                 "content": "Content",
@@ -4166,6 +4419,10 @@ exports[`App should match snapshot 1`] = `
               "notifications": Object {
                 "channelDescription": "Get urgent notifications about the service",
                 "channelName": "Notifications",
+              },
+              "planList": Object {
+                "createPlan": "Add a Plan",
+                "planNamePlaceholder": "Enter Plan name",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4202,6 +4459,13 @@ exports[`App should match snapshot 1`] = `
                 "signUp": "Sign Up",
                 "signUpButton": "Sign up",
                 "termsOfUse": "Terms of Use",
+              },
+              "studentList": Object {
+                "createStudent": "Add a Student",
+                "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                "removeStudentTitle": "Confirm",
+                "studentNamePlaceholder": "Enter Student name",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -4311,6 +4575,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -4319,6 +4584,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4355,6 +4624,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4465,6 +4741,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -4473,6 +4750,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4509,6 +4790,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -4633,6 +4921,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -4641,6 +4930,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4677,6 +4970,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4783,6 +5083,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -4791,6 +5092,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4827,6 +5132,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -4943,6 +5255,7 @@ exports[`App should match snapshot 1`] = `
                   "password": "Password",
                   "success": "Success",
                   "unknownError": "Unknown error occured",
+                  "yes": "Yes",
                 },
                 "content": Object {
                   "content": "Content",
@@ -4951,6 +5264,10 @@ exports[`App should match snapshot 1`] = `
                 "notifications": Object {
                   "channelDescription": "Get urgent notifications about the service",
                   "channelName": "Notifications",
+                },
+                "planList": Object {
+                  "createPlan": "Add a Plan",
+                  "planNamePlaceholder": "Enter Plan name",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4987,6 +5304,13 @@ exports[`App should match snapshot 1`] = `
                   "signUp": "Sign Up",
                   "signUpButton": "Sign up",
                   "termsOfUse": "Terms of Use",
+                },
+                "studentList": Object {
+                  "createStudent": "Add a Student",
+                  "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                  "removeStudentTitle": "Confirm",
+                  "studentNamePlaceholder": "Enter Student name",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -5098,6 +5422,7 @@ exports[`App should match snapshot 1`] = `
                 "password": "Password",
                 "success": "Success",
                 "unknownError": "Unknown error occured",
+                "yes": "Yes",
               },
               "content": Object {
                 "content": "Content",
@@ -5106,6 +5431,10 @@ exports[`App should match snapshot 1`] = `
               "notifications": Object {
                 "channelDescription": "Get urgent notifications about the service",
                 "channelName": "Notifications",
+              },
+              "planList": Object {
+                "createPlan": "Add a Plan",
+                "planNamePlaceholder": "Enter Plan name",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5142,6 +5471,13 @@ exports[`App should match snapshot 1`] = `
                 "signUp": "Sign Up",
                 "signUpButton": "Sign up",
                 "termsOfUse": "Terms of Use",
+              },
+              "studentList": Object {
+                "createStudent": "Add a Student",
+                "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                "removeStudentTitle": "Confirm",
+                "studentNamePlaceholder": "Enter Student name",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -5258,6 +5594,7 @@ exports[`App should match snapshot 1`] = `
                       "password": "Password",
                       "success": "Success",
                       "unknownError": "Unknown error occured",
+                      "yes": "Yes",
                     },
                     "content": Object {
                       "content": "Content",
@@ -5266,6 +5603,10 @@ exports[`App should match snapshot 1`] = `
                     "notifications": Object {
                       "channelDescription": "Get urgent notifications about the service",
                       "channelName": "Notifications",
+                    },
+                    "planList": Object {
+                      "createPlan": "Add a Plan",
+                      "planNamePlaceholder": "Enter Plan name",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5302,6 +5643,13 @@ exports[`App should match snapshot 1`] = `
                       "signUp": "Sign Up",
                       "signUpButton": "Sign up",
                       "termsOfUse": "Terms of Use",
+                    },
+                    "studentList": Object {
+                      "createStudent": "Add a Student",
+                      "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                      "removeStudentTitle": "Confirm",
+                      "studentNamePlaceholder": "Enter Student name",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -5408,6 +5756,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -5416,6 +5765,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5452,6 +5805,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -5568,6 +5928,7 @@ exports[`App should match snapshot 1`] = `
                     "password": "Password",
                     "success": "Success",
                     "unknownError": "Unknown error occured",
+                    "yes": "Yes",
                   },
                   "content": Object {
                     "content": "Content",
@@ -5576,6 +5937,10 @@ exports[`App should match snapshot 1`] = `
                   "notifications": Object {
                     "channelDescription": "Get urgent notifications about the service",
                     "channelName": "Notifications",
+                  },
+                  "planList": Object {
+                    "createPlan": "Add a Plan",
+                    "planNamePlaceholder": "Enter Plan name",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5612,6 +5977,13 @@ exports[`App should match snapshot 1`] = `
                     "signUp": "Sign Up",
                     "signUpButton": "Sign up",
                     "termsOfUse": "Terms of Use",
+                  },
+                  "studentList": Object {
+                    "createStudent": "Add a Student",
+                    "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+                    "removeStudentTitle": "Confirm",
+                    "studentNamePlaceholder": "Enter Student name",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -6623,6 +6995,7 @@ exports[`App should match snapshot 1`] = `
               "password": "Password",
               "success": "Success",
               "unknownError": "Unknown error occured",
+              "yes": "Yes",
             },
             "content": Object {
               "content": "Content",
@@ -6631,6 +7004,10 @@ exports[`App should match snapshot 1`] = `
             "notifications": Object {
               "channelDescription": "Get urgent notifications about the service",
               "channelName": "Notifications",
+            },
+            "planList": Object {
+              "createPlan": "Add a Plan",
+              "planNamePlaceholder": "Enter Plan name",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -6667,6 +7044,13 @@ exports[`App should match snapshot 1`] = `
               "signUp": "Sign Up",
               "signUpButton": "Sign up",
               "termsOfUse": "Terms of Use",
+            },
+            "studentList": Object {
+              "createStudent": "Add a Student",
+              "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
+ This action cannot be undone.",
+              "removeStudentTitle": "Confirm",
+              "studentNamePlaceholder": "Enter Student name",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",
