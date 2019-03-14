@@ -2,6 +2,7 @@ const createAppContainer = (component: any) => component;
 const createStackNavigator = jest.fn();
 const createBottomTabNavigator = jest.fn();
 const createSwitchNavigator = jest.fn();
+const withNavigation = jest.fn();
 
 const NavigationActions = {
   navigate: jest.fn(),
@@ -18,4 +19,5 @@ export {
   createSwitchNavigator,
   NavigationActions,
   SafeAreaView,
+  withNavigation,
 };

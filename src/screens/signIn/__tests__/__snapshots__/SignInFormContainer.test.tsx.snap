@@ -151,13 +151,14 @@ exports[`SignInFormContainer should render form correctly 1`] = `
     title="forgot password?"
     titleStyle={
       Object {
+        "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
       }
     }
   />
   <Component
-    backgroundColor="#2196F3"
+    backgroundColor="#3F51B5"
     containerStyle={
       Object {
         "marginBottom": 20,

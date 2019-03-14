@@ -3,7 +3,9 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
+import { CreatePlanItemButton } from './CreatePlanItemButton';
 import { PlanHeader } from './PlanHeader';
+import { PlanItemList } from './PlanItemList';
 
 export class UpdatePlanScreen extends React.PureComponent<
   NavigationInjectedProps
@@ -17,14 +19,15 @@ export class UpdatePlanScreen extends React.PureComponent<
   };
 
   render() {
-    const student = this.props.navigation.getParam('student');
     const plan = this.props.navigation.getParam('plan');
 
     return (
       <FullScreenTemplate padded darkBackground>
         <Card>
           <PlanHeader plan={plan} />
+          <PlanItemList plan={plan} />
         </Card>
+        <CreatePlanItemButton plan={plan} />
       </FullScreenTemplate>
     );
   }

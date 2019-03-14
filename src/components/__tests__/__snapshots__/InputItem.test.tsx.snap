@@ -6,6 +6,7 @@ exports[`InputItem should match snapshot 1`] = `
     style={
       Object {
         "color": "rgba(0, 0, 0, 0.60)",
+        "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
         "marginBottom": 4,
@@ -31,6 +32,7 @@ exports[`InputItem should match snapshot 1`] = `
         Array [
           Object {
             "color": "rgba(0, 0, 0, 0.87)",
+            "fontFamily": "Rubik-Regular",
             "fontSize": 13,
             "height": 42,
             "justifyContent": "center",

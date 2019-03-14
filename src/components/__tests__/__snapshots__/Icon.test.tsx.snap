@@ -2,7 +2,7 @@
 
 exports[`Icon should match snapshot 1`] = `
 <Themed.Icon
-  color="#2196F3"
+  color="#3F51B5"
   name="content-paste"
   type="material-community"
 />
