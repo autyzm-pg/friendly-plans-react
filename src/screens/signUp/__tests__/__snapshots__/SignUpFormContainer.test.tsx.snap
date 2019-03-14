@@ -180,7 +180,7 @@ exports[`SignUpFormContainer should render form correctly 1`] = `
       <StyledText
         style={
           Object {
-            "color": "#2196F3",
+            "color": "#3F51B5",
           }
         }
       >
@@ -189,7 +189,7 @@ exports[`SignUpFormContainer should render form correctly 1`] = `
     </TouchableOpacity>
   </CheckboxInput>
   <Component
-    backgroundColor="#2196F3"
+    backgroundColor="#3F51B5"
     containerStyle={
       Object {
         "marginBottom": 20,

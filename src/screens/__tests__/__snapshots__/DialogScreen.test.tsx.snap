@@ -48,6 +48,7 @@ exports[`DialogScreen should match snapshot 1`] = `
   <StyledText
     style={
       Object {
+        "fontFamily": "Rubik-Regular",
         "fontSize": 15,
         "letterSpacing": 0.15,
         "marginBottom": 6,
@@ -60,6 +61,7 @@ exports[`DialogScreen should match snapshot 1`] = `
   <StyledText
     style={
       Object {
+        "fontFamily": "Rubik-Regular",
         "fontSize": 13,
         "letterSpacing": 0.25,
         "textAlign": "center",

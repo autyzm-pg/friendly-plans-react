@@ -65,20 +65,24 @@ const translations = {
   },
   studentList: {
     createStudent: 'Add a Student',
-    studentNamePlaceholder: 'Enter Student name',
+    studentNamePlaceholder: 'Enter Student name...',
     removeStudentTitle: 'Confirm',
     removeStudentDescription:
       'Are you sure you want to remove {{name}} from your student list?\n This action cannot be undone.',
   },
   planList: {
     createPlan: 'Add a Plan',
-    planNamePlaceholder: 'Enter Plan name',
+    planNamePlaceholder: 'Enter Plan name...',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',
     removePlanTitle: 'Confirm',
     removePlanDescription:
       'Are you sure you want to plan "{{name}}" from student plan list?\n This action cannot be undone.',
+    addBreak: 'Add break',
+    addInteraction: 'Add interaction',
+    addTask: 'Add task',
+    planItemNamePlaceholder: 'Enter Plan Item name...'
   },
 };
 

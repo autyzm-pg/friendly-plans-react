@@ -101,7 +101,7 @@ exports[`App should match snapshot 1`] = `
               },
               "planList": Object {
                 "createPlan": "Add a Plan",
-                "planNamePlaceholder": "Enter Plan name",
+                "planNamePlaceholder": "Enter Plan name...",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -144,7 +144,17 @@ exports[`App should match snapshot 1`] = `
                 "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                 "removeStudentTitle": "Confirm",
-                "studentNamePlaceholder": "Enter Student name",
+                "studentNamePlaceholder": "Enter Student name...",
+              },
+              "updatePlan": Object {
+                "addBreak": "Add break",
+                "addInteraction": "Add interaction",
+                "addTask": "Add task",
+                "planItemNamePlaceholder": "Enter Plan Item name...",
+                "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                "removePlanTitle": "Confirm",
+                "screenTitle": "{{studentName}} - Update a plan",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -279,7 +289,7 @@ exports[`App should match snapshot 1`] = `
             },
             "planList": Object {
               "createPlan": "Add a Plan",
-              "planNamePlaceholder": "Enter Plan name",
+              "planNamePlaceholder": "Enter Plan name...",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -322,7 +332,17 @@ exports[`App should match snapshot 1`] = `
               "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
               "removeStudentTitle": "Confirm",
-              "studentNamePlaceholder": "Enter Student name",
+              "studentNamePlaceholder": "Enter Student name...",
+            },
+            "updatePlan": Object {
+              "addBreak": "Add break",
+              "addInteraction": "Add interaction",
+              "addTask": "Add task",
+              "planItemNamePlaceholder": "Enter Plan Item name...",
+              "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+              "removePlanTitle": "Confirm",
+              "screenTitle": "{{studentName}} - Update a plan",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",
@@ -454,7 +474,7 @@ exports[`App should match snapshot 1`] = `
                     },
                     "planList": Object {
                       "createPlan": "Add a Plan",
-                      "planNamePlaceholder": "Enter Plan name",
+                      "planNamePlaceholder": "Enter Plan name...",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -497,7 +517,17 @@ exports[`App should match snapshot 1`] = `
                       "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                       "removeStudentTitle": "Confirm",
-                      "studentNamePlaceholder": "Enter Student name",
+                      "studentNamePlaceholder": "Enter Student name...",
+                    },
+                    "updatePlan": Object {
+                      "addBreak": "Add break",
+                      "addInteraction": "Add interaction",
+                      "addTask": "Add task",
+                      "planItemNamePlaceholder": "Enter Plan Item name...",
+                      "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                      "removePlanTitle": "Confirm",
+                      "screenTitle": "{{studentName}} - Update a plan",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -616,7 +646,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -659,7 +689,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -788,7 +828,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -831,7 +871,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -955,7 +1005,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -998,7 +1048,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1085,7 +1145,7 @@ exports[`App should match snapshot 1`] = `
               },
               "planList": Object {
                 "createPlan": "Add a Plan",
-                "planNamePlaceholder": "Enter Plan name",
+                "planNamePlaceholder": "Enter Plan name...",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1128,7 +1188,17 @@ exports[`App should match snapshot 1`] = `
                 "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                 "removeStudentTitle": "Confirm",
-                "studentNamePlaceholder": "Enter Student name",
+                "studentNamePlaceholder": "Enter Student name...",
+              },
+              "updatePlan": Object {
+                "addBreak": "Add break",
+                "addInteraction": "Add interaction",
+                "addTask": "Add task",
+                "planItemNamePlaceholder": "Enter Plan Item name...",
+                "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                "removePlanTitle": "Confirm",
+                "screenTitle": "{{studentName}} - Update a plan",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -1250,7 +1320,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1293,7 +1363,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -1416,7 +1496,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1459,7 +1539,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1602,7 +1692,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1645,7 +1735,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -1764,7 +1864,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1807,7 +1907,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -1935,7 +2045,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -1978,7 +2088,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -2109,7 +2229,7 @@ exports[`App should match snapshot 1`] = `
                     },
                     "planList": Object {
                       "createPlan": "Add a Plan",
-                      "planNamePlaceholder": "Enter Plan name",
+                      "planNamePlaceholder": "Enter Plan name...",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -2152,7 +2272,17 @@ exports[`App should match snapshot 1`] = `
                       "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                       "removeStudentTitle": "Confirm",
-                      "studentNamePlaceholder": "Enter Student name",
+                      "studentNamePlaceholder": "Enter Student name...",
+                    },
+                    "updatePlan": Object {
+                      "addBreak": "Add break",
+                      "addInteraction": "Add interaction",
+                      "addTask": "Add task",
+                      "planItemNamePlaceholder": "Enter Plan Item name...",
+                      "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                      "removePlanTitle": "Confirm",
+                      "screenTitle": "{{studentName}} - Update a plan",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -2271,7 +2401,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -2314,7 +2444,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -2443,7 +2583,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -2486,7 +2626,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -3510,7 +3660,7 @@ exports[`App should match snapshot 1`] = `
             },
             "planList": Object {
               "createPlan": "Add a Plan",
-              "planNamePlaceholder": "Enter Plan name",
+              "planNamePlaceholder": "Enter Plan name...",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3553,7 +3703,17 @@ exports[`App should match snapshot 1`] = `
               "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
               "removeStudentTitle": "Confirm",
-              "studentNamePlaceholder": "Enter Student name",
+              "studentNamePlaceholder": "Enter Student name...",
+            },
+            "updatePlan": Object {
+              "addBreak": "Add break",
+              "addInteraction": "Add interaction",
+              "addTask": "Add task",
+              "planItemNamePlaceholder": "Enter Plan Item name...",
+              "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+              "removePlanTitle": "Confirm",
+              "screenTitle": "{{studentName}} - Update a plan",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",
@@ -3628,7 +3788,7 @@ exports[`App should match snapshot 1`] = `
           },
           "planList": Object {
             "createPlan": "Add a Plan",
-            "planNamePlaceholder": "Enter Plan name",
+            "planNamePlaceholder": "Enter Plan name...",
           },
           "resetPassword": Object {
             "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3671,7 +3831,17 @@ exports[`App should match snapshot 1`] = `
             "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
             "removeStudentTitle": "Confirm",
-            "studentNamePlaceholder": "Enter Student name",
+            "studentNamePlaceholder": "Enter Student name...",
+          },
+          "updatePlan": Object {
+            "addBreak": "Add break",
+            "addInteraction": "Add interaction",
+            "addTask": "Add task",
+            "planItemNamePlaceholder": "Enter Plan Item name...",
+            "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+            "removePlanTitle": "Confirm",
+            "screenTitle": "{{studentName}} - Update a plan",
           },
           "validation": Object {
             "acceptRequired": "You need to accept our Terms of Use",
@@ -3791,7 +3961,7 @@ exports[`App should match snapshot 1`] = `
                     },
                     "planList": Object {
                       "createPlan": "Add a Plan",
-                      "planNamePlaceholder": "Enter Plan name",
+                      "planNamePlaceholder": "Enter Plan name...",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3834,7 +4004,17 @@ exports[`App should match snapshot 1`] = `
                       "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                       "removeStudentTitle": "Confirm",
-                      "studentNamePlaceholder": "Enter Student name",
+                      "studentNamePlaceholder": "Enter Student name...",
+                    },
+                    "updatePlan": Object {
+                      "addBreak": "Add break",
+                      "addInteraction": "Add interaction",
+                      "addTask": "Add task",
+                      "planItemNamePlaceholder": "Enter Plan Item name...",
+                      "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                      "removePlanTitle": "Confirm",
+                      "screenTitle": "{{studentName}} - Update a plan",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -3953,7 +4133,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -3996,7 +4176,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4125,7 +4315,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4168,7 +4358,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4292,7 +4492,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4335,7 +4535,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -4422,7 +4632,7 @@ exports[`App should match snapshot 1`] = `
               },
               "planList": Object {
                 "createPlan": "Add a Plan",
-                "planNamePlaceholder": "Enter Plan name",
+                "planNamePlaceholder": "Enter Plan name...",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4465,7 +4675,17 @@ exports[`App should match snapshot 1`] = `
                 "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                 "removeStudentTitle": "Confirm",
-                "studentNamePlaceholder": "Enter Student name",
+                "studentNamePlaceholder": "Enter Student name...",
+              },
+              "updatePlan": Object {
+                "addBreak": "Add break",
+                "addInteraction": "Add interaction",
+                "addTask": "Add task",
+                "planItemNamePlaceholder": "Enter Plan Item name...",
+                "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                "removePlanTitle": "Confirm",
+                "screenTitle": "{{studentName}} - Update a plan",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -4587,7 +4807,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4630,7 +4850,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -4753,7 +4983,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4796,7 +5026,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -4933,7 +5173,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -4976,7 +5216,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -5095,7 +5345,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5138,7 +5388,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -5267,7 +5527,7 @@ exports[`App should match snapshot 1`] = `
                 },
                 "planList": Object {
                   "createPlan": "Add a Plan",
-                  "planNamePlaceholder": "Enter Plan name",
+                  "planNamePlaceholder": "Enter Plan name...",
                 },
                 "resetPassword": Object {
                   "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5310,7 +5570,17 @@ exports[`App should match snapshot 1`] = `
                   "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                   "removeStudentTitle": "Confirm",
-                  "studentNamePlaceholder": "Enter Student name",
+                  "studentNamePlaceholder": "Enter Student name...",
+                },
+                "updatePlan": Object {
+                  "addBreak": "Add break",
+                  "addInteraction": "Add interaction",
+                  "addTask": "Add task",
+                  "planItemNamePlaceholder": "Enter Plan Item name...",
+                  "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                  "removePlanTitle": "Confirm",
+                  "screenTitle": "{{studentName}} - Update a plan",
                 },
                 "validation": Object {
                   "acceptRequired": "You need to accept our Terms of Use",
@@ -5434,7 +5704,7 @@ exports[`App should match snapshot 1`] = `
               },
               "planList": Object {
                 "createPlan": "Add a Plan",
-                "planNamePlaceholder": "Enter Plan name",
+                "planNamePlaceholder": "Enter Plan name...",
               },
               "resetPassword": Object {
                 "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5477,7 +5747,17 @@ exports[`App should match snapshot 1`] = `
                 "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                 "removeStudentTitle": "Confirm",
-                "studentNamePlaceholder": "Enter Student name",
+                "studentNamePlaceholder": "Enter Student name...",
+              },
+              "updatePlan": Object {
+                "addBreak": "Add break",
+                "addInteraction": "Add interaction",
+                "addTask": "Add task",
+                "planItemNamePlaceholder": "Enter Plan Item name...",
+                "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                "removePlanTitle": "Confirm",
+                "screenTitle": "{{studentName}} - Update a plan",
               },
               "validation": Object {
                 "acceptRequired": "You need to accept our Terms of Use",
@@ -5606,7 +5886,7 @@ exports[`App should match snapshot 1`] = `
                     },
                     "planList": Object {
                       "createPlan": "Add a Plan",
-                      "planNamePlaceholder": "Enter Plan name",
+                      "planNamePlaceholder": "Enter Plan name...",
                     },
                     "resetPassword": Object {
                       "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5649,7 +5929,17 @@ exports[`App should match snapshot 1`] = `
                       "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                       "removeStudentTitle": "Confirm",
-                      "studentNamePlaceholder": "Enter Student name",
+                      "studentNamePlaceholder": "Enter Student name...",
+                    },
+                    "updatePlan": Object {
+                      "addBreak": "Add break",
+                      "addInteraction": "Add interaction",
+                      "addTask": "Add task",
+                      "planItemNamePlaceholder": "Enter Plan Item name...",
+                      "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                      "removePlanTitle": "Confirm",
+                      "screenTitle": "{{studentName}} - Update a plan",
                     },
                     "validation": Object {
                       "acceptRequired": "You need to accept our Terms of Use",
@@ -5768,7 +6058,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5811,7 +6101,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -5940,7 +6240,7 @@ exports[`App should match snapshot 1`] = `
                   },
                   "planList": Object {
                     "createPlan": "Add a Plan",
-                    "planNamePlaceholder": "Enter Plan name",
+                    "planNamePlaceholder": "Enter Plan name...",
                   },
                   "resetPassword": Object {
                     "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -5983,7 +6283,17 @@ exports[`App should match snapshot 1`] = `
                     "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
                     "removeStudentTitle": "Confirm",
-                    "studentNamePlaceholder": "Enter Student name",
+                    "studentNamePlaceholder": "Enter Student name...",
+                  },
+                  "updatePlan": Object {
+                    "addBreak": "Add break",
+                    "addInteraction": "Add interaction",
+                    "addTask": "Add task",
+                    "planItemNamePlaceholder": "Enter Plan Item name...",
+                    "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+                    "removePlanTitle": "Confirm",
+                    "screenTitle": "{{studentName}} - Update a plan",
                   },
                   "validation": Object {
                     "acceptRequired": "You need to accept our Terms of Use",
@@ -7007,7 +7317,7 @@ exports[`App should match snapshot 1`] = `
             },
             "planList": Object {
               "createPlan": "Add a Plan",
-              "planNamePlaceholder": "Enter Plan name",
+              "planNamePlaceholder": "Enter Plan name...",
             },
             "resetPassword": Object {
               "guide1": "Provide you email in the field below. We will send you link to reset your password.",
@@ -7050,7 +7360,17 @@ exports[`App should match snapshot 1`] = `
               "removeStudentDescription": "Are you sure you want to remove {{name}} from your student list?
  This action cannot be undone.",
               "removeStudentTitle": "Confirm",
-              "studentNamePlaceholder": "Enter Student name",
+              "studentNamePlaceholder": "Enter Student name...",
+            },
+            "updatePlan": Object {
+              "addBreak": "Add break",
+              "addInteraction": "Add interaction",
+              "addTask": "Add task",
+              "planItemNamePlaceholder": "Enter Plan Item name...",
+              "removePlanDescription": "Are you sure you want to plan \\"{{name}}\\" from student plan list?
+ This action cannot be undone.",
+              "removePlanTitle": "Confirm",
+              "screenTitle": "{{studentName}} - Update a plan",
             },
             "validation": Object {
               "acceptRequired": "You need to accept our Terms of Use",

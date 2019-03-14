@@ -27,7 +27,7 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
         <View style={styles.iconContainer}>
           <IconButton
             name="pencil"
-            color={palette.secondary}
+            color={palette.accent}
             size={28}
             containerStyle={styles.updateIcon}
             onPress={this.navigateToUpdatePlan}
