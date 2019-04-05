@@ -3,7 +3,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
 
-export class AddTaskScreen extends React.PureComponent<
+export class CreatePlanItemScreen extends React.PureComponent<
   NavigationInjectedProps
 > {
   render() {
