@@ -10,7 +10,6 @@ interface Props {
 }
 
 export class CreatePlanButton extends React.PureComponent<Props> {
-
   createPlanForStudent = () => this.props.student.createPlan();
 
   render() {

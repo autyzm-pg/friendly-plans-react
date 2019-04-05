@@ -2,6 +2,14 @@ import firebase, { RNFirebase } from 'react-native-firebase';
 
 import { i18n } from 'locale';
 
+export enum StudentDisplayOption {
+  LargeImageSlide = 'largeImageSlide',
+  ImageWithTextSlide = 'imageWithTextSlide',
+  ImageWithTextList = 'imageWithTextList',
+  TextList = 'textList',
+  TextSlide = 'textSlide',
+}
+
 export class Student {
   static create(): Promise<RNFirebase.firestore.DocumentReference> {
     return createStudent();
@@ -13,7 +21,7 @@ export class Student {
 
   name!: string;
   id!: string;
-  displaySettings!: string;
+  displaySettings!: StudentDisplayOption;
   textCapitalization!: string;
   textSize!: string;
 

@@ -12,7 +12,7 @@ interface Props {
 
 export class PlanItemListItem extends React.PureComponent<Props> {
   render() {
-    const {planItem, index} = this.props;
+    const { planItem, index } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.indexContainer}>
@@ -85,5 +85,5 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     marginHorizontal: 8,
-  }
+  },
 });

@@ -10,5 +10,5 @@ export const headerStyle = StyleSheet.create({
   },
   header: {
     backgroundColor: palette.primary,
-  }
+  },
 });

@@ -11,7 +11,10 @@ interface State {
   student: Student;
 }
 
-export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
+export class StudentSettingsScreen extends React.PureComponent<
+  NavigationInjectedProps,
+  State
+> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('studentSettings:screenTitle', {
