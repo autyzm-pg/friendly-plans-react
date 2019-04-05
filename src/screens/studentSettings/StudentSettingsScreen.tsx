@@ -1,11 +1,16 @@
 import React from 'react';
+import { NavigationInjectedProps } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
-import { NavigationInjectedProps } from 'react-navigation';
-import { i18n } from '../../locale';
+import { i18n } from 'locale';
+import { Student } from 'models';
+import { StudentDisplaySettings } from './StudentDisplaySettings';
 
-export class StudentSettingsScreen extends React.PureComponent {
+interface State {
+  student: Student;
+}
 
+export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('studentSettings:screenTitle', {
@@ -14,10 +19,17 @@ export class StudentSettingsScreen extends React.PureComponent {
     };
   };
 
+  constructor(props: NavigationInjectedProps) {
+    super(props);
+    this.state = {
+      student: props.navigation.getParam('student'),
+    };
+  }
+
   render() {
     return (
       <FullScreenTemplate>
-
+        <StudentDisplaySettings student={this.state.student} />
       </FullScreenTemplate>
     );
   }
