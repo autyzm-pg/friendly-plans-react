@@ -7,12 +7,16 @@ import { Student } from 'models';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
 import { StudentTextSizeSettings } from './StudentTextSizeSettings';
+import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch'
 
 interface State {
   student: Student;
 }
 
-export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
+export class StudentSettingsScreen extends React.PureComponent<
+  NavigationInjectedProps,
+  State
+> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('studentSettings:screenTitle', {
@@ -36,6 +40,7 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
           <StudentTextCaseSettings student={this.state.student} />
           <StudentTextSizeSettings student={this.state.student} />
         </Card>
+        <SlideCardSwitch student={this.state.student}></SlideCardSwitch>
       </FullScreenTemplate>
     );
   }

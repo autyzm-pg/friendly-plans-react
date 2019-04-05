@@ -82,7 +82,7 @@ const translations = {
     addBreak: 'Add break',
     addInteraction: 'Add interaction',
     addTask: 'Add task',
-    planItemNamePlaceholder: 'Enter Plan Item name...'
+    planItemNamePlaceholder: 'Enter Plan Item name...',
   },
   studentSettings: {
     screenTitle: '{{studentName}} - Update settings',
@@ -94,7 +94,12 @@ const translations = {
     textSettingsSizeM: 'M',
     textSettingsSizeL: 'L',
     textSettingsSizeXL: 'XL',
-  }
+    largeImageSlide: 'large image - slide',
+    imageWithTextSlide: 'image + text - slide',
+    ImageWithTextList: 'image + text - list',
+    textList: 'text - list',
+    textSlide: 'text - slide',
+  },
 };
 
 export default translations;
