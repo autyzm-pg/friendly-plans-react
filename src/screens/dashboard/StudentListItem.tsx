@@ -61,7 +61,11 @@ export class StudentListItem extends React.PureComponent<Props, State> {
             onChangeText={this.handleNameChange}
             underlineColorAndroid={palette.primaryDark}
           />
-          <IconButton onPress={this.navigateToStudentSettings} name="settings" size={36} />
+          <IconButton
+            onPress={this.navigateToStudentSettings}
+            name="settings"
+            size={36}
+          />
           <IconButton onPress={this.deleteStudent} name="close" size={36} />
         </View>
         <StudentPlanList student={this.props.student} />

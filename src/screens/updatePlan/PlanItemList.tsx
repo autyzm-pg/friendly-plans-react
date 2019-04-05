@@ -24,7 +24,9 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
   }
 
-  handlePlanItemsChange = (querySnapshot: RNFirebase.firestore.QuerySnapshot) => {
+  handlePlanItemsChange = (
+    querySnapshot: RNFirebase.firestore.QuerySnapshot,
+  ) => {
     const planItems: PlanItem[] = querySnapshot.docs.map(doc =>
       Object.assign(new PlanItem(), {
         id: doc.id,
@@ -34,8 +36,8 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ planItems });
   };
 
-  renderItem = ({ item, index }: { item: PlanItem, index: number }) => (
-    <PlanItemListItem planItem={item} index={index}/>
+  renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
+    <PlanItemListItem planItem={item} index={index} />
   );
 
   extractKey = (planItem: PlanItem) => planItem.id;

@@ -33,7 +33,7 @@ export const UnauthenticatedStackNavigator = createStackNavigator(
       headerTintColor: palette.primary,
       headerTitleStyle: headerStyle.headerText,
       headerStyle: headerStyle.header,
-      headerBackImage: <Icon name="arrow-left" color={palette.textWhite}/>,
+      headerBackImage: <Icon name="arrow-left" color={palette.textWhite} />,
     },
   },
 );

@@ -1,17 +1,21 @@
 import React from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FullScreenTemplate } from 'components';
+import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch'
+import { StudentTextSettings } from './StudentTextSettings';
 
 interface State {
   student: Student;
 }
 
-export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
+export class StudentSettingsScreen extends React.PureComponent<
+  NavigationInjectedProps,
+  State
+> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('studentSettings:screenTitle', {
@@ -31,6 +35,9 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     return (
       <FullScreenTemplate>
         <StudentDisplaySettings student={this.state.student} />
+        <Card>
+          <StudentTextSettings student={this.state.student} />
+        </Card>
         <SlideCardSwitch student={this.state.student}></SlideCardSwitch>
       </FullScreenTemplate>
     );
