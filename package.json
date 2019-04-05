@@ -23,6 +23,7 @@
     "react-native-fast-image": "^5.1.2",
     "react-native-firebase": "^5.2.0",
     "react-native-gesture-handler": "^1.0.12",
+    "react-native-image-picker": "^0.28.1",
     "react-native-splash-screen": "git://github.com/panz3r/react-native-splash-screen.git#b15bad2e7f748ca54996c3dc2bcef98bc8284980",
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^3.0.9",
