@@ -1,11 +1,13 @@
 import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
 import { PlanItemHeader } from "./PlanItemHeader";
 import { PlanItemImagePicker } from './PlanItemImagePicker';
+import {PlanItemTimer} from "./PlanItemTimer";
+import {PlanItemLector} from "./PlanItemLector";
 import { PlanItem } from "../../models";
-import { PlanItemContent } from "./PlanItemContent";
 
 interface State {
   source: any;
@@ -31,10 +33,33 @@ export class CreatePlanItemScreen extends React.PureComponent<
         <FullScreenTemplate padded darkBackground>
           <Card>
             <PlanItemHeader planItem={planItem} />
-            <PlanItemImagePicker source={source} onChange={this.onImageChange} />
-            <PlanItemContent planItem={planItem} />
+
+            <View style={styles.container}>
+              <View style={styles.leftColumn}>
+                <PlanItemImagePicker source={source} onChange={this.onImageChange} />
+              </View>
+              <View style={styles.rightColumn}>
+                <PlanItemTimer planItem={planItem} />
+                <PlanItemLector planItem={planItem} />
+              </View>
+            </View>
           </Card>
         </FullScreenTemplate>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  leftColumn: {
+    flexGrow: 2,
+  },
+  rightColumn: {
+    alignItems: 'stretch',
+    justifyContent: 'space-around',
+  }
+});

@@ -20,6 +20,6 @@ export class PlanItemLector extends React.PureComponent<Props, State> {
   }
 
   render() {
-    return <Icon name="volume-high" size={32} />;
+    return <Icon name="volume-high" size={64} />;
   }
 }
