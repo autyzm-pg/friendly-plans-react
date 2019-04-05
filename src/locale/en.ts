@@ -84,6 +84,9 @@ const translations = {
     addTask: 'Add task',
     planItemNamePlaceholder: 'Enter Plan Item name...'
   },
+  studentSettings: {
+    screenTitle: '{{studentName}} - Update settings',
+  }
 };
 
 export default translations;

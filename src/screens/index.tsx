@@ -7,3 +7,4 @@ export { ResetPasswordScreen } from './resetPassword/ResetPasswordScreen';
 export { AddTaskScreen } from './dashboard/AddTaskScreen';
 export { DashboardScreen } from './dashboard/DashboardScreen';
 export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';
+export { StudentSettingsScreen } from './studentSettings/StudentSettingsScreen';

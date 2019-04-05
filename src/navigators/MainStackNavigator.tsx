@@ -2,13 +2,14 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import { Icon } from 'components';
-import { AddTaskScreen, DashboardScreen, UpdatePlanScreen } from 'screens';
+import { AddTaskScreen, DashboardScreen, StudentSettingsScreen, UpdatePlanScreen } from 'screens';
 import { headerStyle, palette } from 'styles';
 
 export const MainStackNavigator = createStackNavigator({
   Dashboard: DashboardScreen,
   AddTask: AddTaskScreen,
   UpdatePlan: UpdatePlanScreen,
+  StudentSettings: StudentSettingsScreen,
 }, {
   headerLayoutPreset: 'center',
   defaultNavigationOptions: {
