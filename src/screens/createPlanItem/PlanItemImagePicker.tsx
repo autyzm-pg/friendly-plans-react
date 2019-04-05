@@ -5,10 +5,13 @@ import ImagePicker from 'react-native-image-picker';
 import { Icon } from 'components';
 import { palette, typography } from 'styles';
 
-interface Props {}
+interface Props {
+  source: any;
+  onChange: (source: any) => void;
+}
+
 interface State {
-  size: number,
-  imageSource: any,
+  size: number;
 }
 
 export class PlanItemImagePicker extends React.PureComponent<Props, State> {
@@ -26,34 +29,28 @@ export class PlanItemImagePicker extends React.PureComponent<Props, State> {
       },
     };
 
-    /**
-     * The first arg is the options object for customization (it can also be null or omitted for default options),
-     * The second arg is the callback which sends object: response (more info in the API Reference)
-     */
     ImagePicker.showImagePicker(options, (response) => {
+      const { onChange } = this.props;
+
       if (response.didCancel || response.error) {
         console.log('User cancelled image picker');
       } else {
         const source = { uri: response.uri };
 
-        // You can also display the image using data:
-        // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({
-          imageSource: source,
-        });
+        onChange(source);
       }
     });
   };
 
   render() {
-    const { imageSource, size } = this.state;
+    const { size } = this.state;
+    const { source } = this.props;
 
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.takePicture}>
-          {imageSource ? (
-            <Image source={imageSource} style={{width: size, height: size}} />
+          {source ? (
+            <Image source={source} style={{width: size, height: size}} />
           ) : (
             <Icon name="image" size={size} iconStyle={styles.icon} />
           )}
