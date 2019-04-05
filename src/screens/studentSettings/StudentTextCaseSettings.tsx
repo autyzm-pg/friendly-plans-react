@@ -10,55 +10,50 @@ interface Props {
 }
 
 interface State {
-  textCapitalization?: string;
+  textCase?: string;
 }
 
-export class StudentTextSettings extends React.PureComponent {
-  setUpperCase = () => {
-    console.warn('upper');
-    this.props.student.update({
-      textCapitalization: 'uppercase',
-    });
-    this.setState({ textCapitalization: 'uppercase' });
-  };
+export class StudentTextCaseSettings extends React.PureComponent {
   
-  setStandardCase = () => {
-    console.warn('standard');
+  setCase = (caseState) => {
     this.props.student.update({
-      textCapitalization: 'standardcase',
+      textCase: caseState,
     });
-    this.setState({ textCapitalization: 'standardcase' });
+    this.setState({ textCase: caseState });
   };
+
+  setUpperCase = () => { this.setCase('uppercase') };
+  setStandardCase = () => { this.setCase('standardcase') };
 
   constructor(props: any) {
     super();
     this.state = {
-      textCapitalization: props.student.textCapitalization,
+      textCase: props.student.textCase,
     }
   }
 
   render() {
-    const { textCapitalization } = this.state;
+    const { textCase } = this.state;
     return (
     <View>
       <StyledText style={styles.label}>
-        {i18n.t('studentSettings:textSettings')}
+        {i18n.t('studentSettings:textCaseSettings')}
       </StyledText>
       <View style={styles.container}>
         <Button
           onPress={this.setUpperCase}
           title={i18n.t('studentSettings:textSettingsUpperCase')}
           containerStyle={styles.button}
-          backgroundColor={textCapitalization === 'uppercase' ? 'blue' : 'white'}
-          titleColor={textCapitalization === 'uppercase' ? 'white' : 'blue'}
+          backgroundColor={textCase === 'uppercase' ? 'blue' : 'white'}
+          titleColor={textCase === 'uppercase' ? 'white' : 'blue'}
           type='outline'
         />
         <Button
           onPress={this.setStandardCase}
           title={i18n.t('studentSettings:textSettingsStandardCase')}
           containerStyle={styles.button}
-          backgroundColor={textCapitalization === 'standardcase' ? 'blue' : 'white'}
-          titleColor={textCapitalization === 'standardcase' ? 'white' : 'blue'}
+          backgroundColor={textCase === 'standardcase' ? 'blue' : 'white'}
+          titleColor={textCase === 'standardcase' ? 'white' : 'blue'}
           type='outline'
         />
       </View>

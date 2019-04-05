@@ -5,7 +5,8 @@ import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
-import { StudentTextSettings } from './StudentTextSettings';
+import { StudentTextCaseSettings } from './StudentTextCaseSettings';
+import { StudentTextSizeSettings } from './StudentTextSizeSettings';
 
 interface State {
   student: Student;
@@ -32,7 +33,8 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
       <FullScreenTemplate>
         <StudentDisplaySettings student={this.state.student} />
         <Card>
-          <StudentTextSettings student={this.state.student} />
+          <StudentTextCaseSettings student={this.state.student} />
+          <StudentTextSizeSettings student={this.state.student} />
         </Card>
       </FullScreenTemplate>
     );

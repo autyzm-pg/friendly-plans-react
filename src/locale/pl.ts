@@ -20,7 +20,8 @@ const translations = {
   },
   studentSettings: {
     screenTitle: '{{studentName}} - Ustawienia wyświetlania',
-    textSettings: 'Tekst',
+    textCaseSettings: 'Tekst',
+    textSizeSettings: 'Rozmiar tekstu',
     textSettingsUpperCase: 'WIELKIE LITERY',
     textSettingsStandardCase: 'Standardowe litery'
   }

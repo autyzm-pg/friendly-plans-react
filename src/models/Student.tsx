@@ -14,7 +14,7 @@ export class Student {
   name!: string;
   id!: string;
   displaySettings!: string;
-  textCapitalization!: string;
+  textCase!: string;
   textSize!: string;
 
   delete = (): Promise<void> => deleteStudent(this);
