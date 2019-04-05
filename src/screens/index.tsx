@@ -4,6 +4,6 @@ export { SettingsScreen } from './settings/SettingsScreen';
 export { DialogScreen } from './DialogScreen';
 export { SignUpScreen } from './signUp/SignUpScreen';
 export { ResetPasswordScreen } from './resetPassword/ResetPasswordScreen';
-export { CreatePlanItemScreen } from './createPlanItem/CreatePlanItemScreen';
+export { AddTaskScreen } from './dashboard/AddTaskScreen';
 export { DashboardScreen } from './dashboard/DashboardScreen';
 export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';
