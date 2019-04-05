@@ -163,7 +163,6 @@ android {
 
 dependencies {
     implementation project(':react-native-image-picker')
-    implementation project(':react-native-camera')
     implementation project(':react-native-config')
     implementation project(':react-native-fast-image')
     implementation project(':react-native-device-info')
