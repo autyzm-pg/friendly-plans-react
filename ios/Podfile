@@ -31,6 +31,9 @@ target 'ReactNativeStarterKit' do
     pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
     pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
     pod 'react-native-fast-image', :path => '../node_modules/react-native-fast-image'
+    pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
 end
 
