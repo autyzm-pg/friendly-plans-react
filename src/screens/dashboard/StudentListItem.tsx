@@ -43,6 +43,12 @@ export class StudentListItem extends React.PureComponent<Props, State> {
     });
   };
 
+  navigateToStudentSettings = () => {
+    NavigationService.navigate('StudentSettings', {
+      student: this.props.student,
+    });
+  };
+
   render() {
     return (
       <Card>
@@ -54,6 +60,11 @@ export class StudentListItem extends React.PureComponent<Props, State> {
             onEndEditing={this.updateStudentName}
             onChangeText={this.handleNameChange}
             underlineColorAndroid={palette.primaryDark}
+          />
+          <IconButton
+            onPress={this.navigateToStudentSettings}
+            name="settings"
+            size={36}
           />
           <IconButton onPress={this.deleteStudent} name="close" size={36} />
         </View>

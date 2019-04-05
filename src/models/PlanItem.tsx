@@ -15,8 +15,8 @@ export class PlanItem {
     const icons = {
       task: 'layers',
       break: 'bell',
-      interaction: 'account-multiple'
+      interaction: 'account-multiple',
     };
     return icons[this.type];
-  }
+  };
 }
