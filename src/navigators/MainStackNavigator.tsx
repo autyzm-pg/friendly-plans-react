@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'components';
 
 import {
-  AddTaskScreen,
+  CreatePlanItemScreen,
   DashboardScreen,
   StudentSettingsScreen,
   UpdatePlanScreen,
@@ -14,7 +14,7 @@ import { headerStyle, palette } from 'styles';
 export const MainStackNavigator = createStackNavigator(
   {
     Dashboard: DashboardScreen,
-    AddTask: AddTaskScreen,
+    CreatePlanItem: CreatePlanItemScreen,
     UpdatePlan: UpdatePlanScreen,
     StudentSettings: StudentSettingsScreen,
   },
