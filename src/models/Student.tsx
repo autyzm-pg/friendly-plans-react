@@ -16,6 +16,7 @@ export class Student {
   displaySettings!: string;
   textCapitalization!: string;
   textSize!: string;
+  slideCardSwitch!: boolean;
 
   delete = (): Promise<void> => deleteStudent(this);
 

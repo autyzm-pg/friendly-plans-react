@@ -5,6 +5,7 @@ import { FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
+import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch'
 
 interface State {
   student: Student;
@@ -30,6 +31,7 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     return (
       <FullScreenTemplate>
         <StudentDisplaySettings student={this.state.student} />
+        <SlideCardSwitch student={this.state.student}></SlideCardSwitch>
       </FullScreenTemplate>
     );
   }
