@@ -18,6 +18,12 @@ const translations = {
     signOutDialogTitle: 'Wyloguj się',
     signOutDialogDescription: 'Czy na pewno chcesz się wylogować?',
   },
+  studentSettings: {
+    screenTitle: '{{studentName}} - Ustawienia wyświetlania',
+    textSettings: 'Tekst',
+    textSettingsUpperCase: 'WIELKIE LITERY',
+    textSettingsStandardCase: 'Standardowe litery'
+  }
 };
 
 export default translations;

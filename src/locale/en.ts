@@ -86,6 +86,9 @@ const translations = {
   },
   studentSettings: {
     screenTitle: '{{studentName}} - Update settings',
+    textSettings: 'Text',
+    textSettingsUpperCase: 'UPPER CASE',
+    textSettingsStandardCase: 'Standard Case'
   }
 };
 

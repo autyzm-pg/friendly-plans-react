@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FullScreenTemplate } from 'components';
+import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
+import { StudentTextSettings } from './StudentTextSettings';
 
 interface State {
   student: Student;
@@ -30,6 +31,9 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     return (
       <FullScreenTemplate>
         <StudentDisplaySettings student={this.state.student} />
+        <Card>
+          <StudentTextSettings student={this.state.student} />
+        </Card>
       </FullScreenTemplate>
     );
   }
