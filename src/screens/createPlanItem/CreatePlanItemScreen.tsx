@@ -4,6 +4,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { Card, FullScreenTemplate } from 'components';
 import { PlanItemHeader } from "./PlanItemHeader";
 import { PlanItem } from "../../models";
+import { PlanItemContent } from "./PlanItemContent";
 
 export class CreatePlanItemScreen extends React.PureComponent<
   NavigationInjectedProps
@@ -15,8 +16,11 @@ export class CreatePlanItemScreen extends React.PureComponent<
         <FullScreenTemplate padded darkBackground>
           <Card>
             <PlanItemHeader planItem={planItem} />
+            <PlanItemContent planItem={planItem} />
           </Card>
         </FullScreenTemplate>
     );
   }
 }
+
+
