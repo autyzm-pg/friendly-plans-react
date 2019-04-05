@@ -2,12 +2,12 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 
 import { Icon } from 'components';
-import { AddTaskScreen, DashboardScreen, UpdatePlanScreen } from 'screens';
+import { CreatePlanItemScreen, DashboardScreen, UpdatePlanScreen } from 'screens';
 import { headerStyle, palette } from 'styles';
 
 export const MainStackNavigator = createStackNavigator({
   Dashboard: DashboardScreen,
-  AddTask: AddTaskScreen,
+  CreatePlanItem: CreatePlanItemScreen,
   UpdatePlan: UpdatePlanScreen,
 }, {
   headerLayoutPreset: 'center',
