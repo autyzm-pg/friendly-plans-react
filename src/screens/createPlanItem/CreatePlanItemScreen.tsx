@@ -3,6 +3,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
 import { PlanItemHeader } from "./PlanItemHeader";
+import { PlanItemImagePicker } from "./PlanItemImagePicker";
 import { PlanItem } from "../../models";
 
 export class CreatePlanItemScreen extends React.PureComponent<
@@ -15,6 +16,7 @@ export class CreatePlanItemScreen extends React.PureComponent<
         <FullScreenTemplate padded darkBackground>
           <Card>
             <PlanItemHeader planItem={planItem} />
+            <PlanItemImagePicker />
           </Card>
         </FullScreenTemplate>
     );
