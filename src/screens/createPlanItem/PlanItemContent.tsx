@@ -14,10 +14,10 @@ export class PlanItemContent extends React.PureComponent<Props> {
     const { planItem } = this.props;
     return (
       <View style={styles.container}>
-          <View>
+          <View style={styles.leftColumn}>
 
           </View>
-          <View>
+          <View style={styles.rightColumn}>
             <PlanItemTimer planItem={planItem} />
             <PlanItemLector planItem={planItem} />
           </View>
@@ -30,5 +30,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
+  leftColumn: {
+     flexGrow: 2,
+  },
+  rightColumn: {
+
+  }
 });
