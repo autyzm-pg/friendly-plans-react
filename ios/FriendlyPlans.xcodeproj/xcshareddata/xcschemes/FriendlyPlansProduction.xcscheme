@@ -5,6 +5,15 @@
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "echo &quot;.env.production&quot; &gt; /tmp/envfile&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -14,9 +23,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D2A28121D9B038B00D4039D"
+               BlueprintIdentifier = "83CBBA2D1A601D0E00E9B192"
                BuildableName = "libReact.a"
-               BlueprintName = "React-tvOS"
+               BlueprintName = "React"
                ReferencedContainer = "container:../node_modules/react-native/React/React.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,10 +37,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "ReactNativeStarterKit-tvOS.app"
-               BlueprintName = "ReactNativeStarterKit-tvOS"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "FriendlyPlans.app"
+               BlueprintName = "FriendlyPlans"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -42,10 +51,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "ReactNativeStarterKit-tvOSTests.xctest"
-               BlueprintName = "ReactNativeStarterKit-tvOSTests"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "FriendlyPlansTests.xctest"
+               BlueprintName = "FriendlyPlansTests"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -60,20 +69,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "ReactNativeStarterKit-tvOSTests.xctest"
-               BlueprintName = "ReactNativeStarterKit-tvOSTests"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "FriendlyPlansTests.xctest"
+               BlueprintName = "FriendlyPlansTests"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "ReactNativeStarterKit-tvOS.app"
-            BlueprintName = "ReactNativeStarterKit-tvOS"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -93,10 +102,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "ReactNativeStarterKit-tvOS.app"
-            BlueprintName = "ReactNativeStarterKit-tvOS"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -112,10 +121,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "ReactNativeStarterKit-tvOS.app"
-            BlueprintName = "ReactNativeStarterKit-tvOS"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 import { Icon } from 'components';
@@ -29,10 +29,11 @@ export class PlanItemImagePicker extends React.PureComponent<Props, State> {
       },
     };
 
-    ImagePicker.showImagePicker(options, (response) => {
+    ImagePicker.showImagePicker(options, response => {
       const { onChange } = this.props;
 
       if (response.didCancel || response.error) {
+        // tslint:disable-next-line:no-console
         console.log('User cancelled image picker');
       } else {
         const source = { uri: response.uri };
@@ -50,7 +51,7 @@ export class PlanItemImagePicker extends React.PureComponent<Props, State> {
       <View style={styles.container}>
         <TouchableOpacity onPress={this.takePicture}>
           {source ? (
-            <Image source={source} style={{width: size, height: size}} />
+            <Image source={source} style={{ width: size, height: size }} />
           ) : (
             <Icon name="image" size={size} iconStyle={styles.icon} />
           )}

@@ -22,19 +22,19 @@ exports[`DialogScreen should match snapshot 1`] = `
         ],
         "results": Array [
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": "title",
           },
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": "description",
           },
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": "onPress",
           },
           Object {
-            "isThrow": false,
+            "type": "return",
             "value": "buttonTitle",
           },
         ],

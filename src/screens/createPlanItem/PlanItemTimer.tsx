@@ -1,5 +1,10 @@
 import React from 'react';
-import {TimePickerAndroid, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TimePickerAndroid,
+  TouchableOpacity,
+} from 'react-native';
 
 import { Icon } from 'components';
 import { PlanItem } from 'models';
@@ -22,7 +27,8 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
 
   pickTime = async () => {
     try {
-      const {action, hour, minute} = await TimePickerAndroid.open({
+      // @ts-ignore
+      const { action, hour, minute } = await TimePickerAndroid.open({
         hour: 0,
         minute: 5,
         is24Hour: true,
@@ -30,10 +36,13 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
       });
       if (action !== TimePickerAndroid.dismissedAction) {
         this.setState({
-          itemTime: hour * 60 + ':' + minute
+          itemTime: hour * 60 + ':' + minute,
         });
       }
-    } catch ({code, message}) {}
+    } catch ({ code, message }) {
+      // tslint:disable-next-line:no-console
+      console.warn(message);
+    }
   };
 
   render() {

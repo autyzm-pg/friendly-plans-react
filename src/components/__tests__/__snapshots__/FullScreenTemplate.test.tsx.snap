@@ -12,7 +12,7 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
     ]
   }
 >
-  <ScrollView
+  <ScrollViewMock
     contentContainerStyle={
       Array [
         Object {
@@ -34,6 +34,6 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
         Child text
       </Text>
     </View>
-  </ScrollView>
+  </ScrollViewMock>
 </SafeAreaView>
 `;

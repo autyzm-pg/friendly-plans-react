@@ -55,8 +55,8 @@ for playing with React Native and does not allow us to include custom native cod
 This project is using [CocoaPods](https://cocoapods.org/). Make sure to install CocoaPods on your Mac.
 After installing yarn dependencies, make sure to go to `ios` directory and run
 `pod install` to get all native dependencies.
-Because this project uses Pods, you need to use `ReactNativeStarterKit.xcworkspace` instead
-of `ReactNativeStarterKit.xcodeproj` in XCode.
+Because this project uses Pods, you need to use `FriendlyPlans.xcworkspace` instead
+of `FriendlyPlans.xcodeproj` in XCode.
 
 ## Fastlane
 To automate builds, app publishing process and switching environments we

@@ -6,19 +6,17 @@ import { palette, typography } from 'styles';
 
 interface Props extends ButtonProps {
   backgroundColor?: string;
-  titleColor?: string;
 }
 
 // @ts-ignore
 export const Button: React.FunctionComponent<Props> = ({
   backgroundColor,
-  titleColor,
   ...props
 }) => (
   <ElementsButton
     {...props}
     buttonStyle={[styles.button, { backgroundColor }, props.buttonStyle]}
-    titleStyle={[styles.title, { color: titleColor }, props.titleStyle]}
+    titleStyle={[styles.title, props.titleStyle]}
   />
 );
 
@@ -34,5 +32,6 @@ const styles = StyleSheet.create({
   },
   title: {
     ...typography.button,
+    color: palette.textWhite,
   },
 });

@@ -28,6 +28,7 @@ exports[`InputItem should match snapshot 1`] = `
     <TextInput
       allowFontScaling={true}
       label="input label"
+      rejectResponderTermination={true}
       style={
         Array [
           Object {

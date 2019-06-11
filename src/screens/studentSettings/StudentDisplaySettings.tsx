@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { IconButton } from 'components';
-import { Student, StudentDisplayOption } from 'models';
 import { i18n } from 'locale';
+import { Student, StudentDisplayOption } from 'models';
 import { palette } from '../../styles';
 
 interface Props {
@@ -15,7 +15,6 @@ interface State {
 }
 
 export class StudentDisplaySettings extends React.PureComponent<Props, State> {
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -28,7 +27,7 @@ export class StudentDisplaySettings extends React.PureComponent<Props, State> {
 
   setActive = (option: StudentDisplayOption) => {
     this.setState({
-      studentDisplayOption: option
+      studentDisplayOption: option,
     });
     this.props.student.update({
       displaySettings: option,
@@ -38,35 +37,68 @@ export class StudentDisplaySettings extends React.PureComponent<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={[styles.item, this.isActive(StudentDisplayOption.LargeImageSlide) && styles.active]}>
+        <View
+          style={[
+            styles.item,
+            this.isActive(StudentDisplayOption.LargeImageSlide) &&
+              styles.active,
+          ]}
+        >
           <IconButton
             name="image"
             onPress={() => this.setActive(StudentDisplayOption.LargeImageSlide)}
             size={128}
-            label={i18n.t(`studentSettings:${StudentDisplayOption.LargeImageSlide}`)}
+            label={i18n.t(
+              `studentSettings:${StudentDisplayOption.LargeImageSlide}`,
+            )}
           />
         </View>
 
-        <View style={[styles.item, this.isActive(StudentDisplayOption.ImageWithTextSlide) && styles.active]}>
-        <IconButton
+        <View
+          style={[
+            styles.item,
+            this.isActive(StudentDisplayOption.ImageWithTextSlide) &&
+              styles.active,
+          ]}
+        >
+          <IconButton
             name="image"
             size={128}
-            onPress={() => this.setActive(StudentDisplayOption.ImageWithTextSlide)}
-            label={i18n.t(`studentSettings:${StudentDisplayOption.ImageWithTextSlide}`)}
+            onPress={() =>
+              this.setActive(StudentDisplayOption.ImageWithTextSlide)
+            }
+            label={i18n.t(
+              `studentSettings:${StudentDisplayOption.ImageWithTextSlide}`,
+            )}
           />
         </View>
 
-        <View style={[styles.item, this.isActive(StudentDisplayOption.ImageWithTextList) && styles.active]}>
-        <IconButton
+        <View
+          style={[
+            styles.item,
+            this.isActive(StudentDisplayOption.ImageWithTextList) &&
+              styles.active,
+          ]}
+        >
+          <IconButton
             name="image"
             size={128}
-            onPress={() => this.setActive(StudentDisplayOption.ImageWithTextList)}
-            label={i18n.t(`studentSettings:${StudentDisplayOption.ImageWithTextList}`)}
+            onPress={() =>
+              this.setActive(StudentDisplayOption.ImageWithTextList)
+            }
+            label={i18n.t(
+              `studentSettings:${StudentDisplayOption.ImageWithTextList}`,
+            )}
           />
         </View>
 
-        <View style={[styles.item, this.isActive(StudentDisplayOption.TextList) && styles.active]}>
-        <IconButton
+        <View
+          style={[
+            styles.item,
+            this.isActive(StudentDisplayOption.TextList) && styles.active,
+          ]}
+        >
+          <IconButton
             name="image"
             size={128}
             onPress={() => this.setActive(StudentDisplayOption.TextList)}
@@ -74,8 +106,13 @@ export class StudentDisplaySettings extends React.PureComponent<Props, State> {
           />
         </View>
 
-        <View style={[styles.item, this.isActive(StudentDisplayOption.TextSlide) && styles.active]}>
-        <IconButton
+        <View
+          style={[
+            styles.item,
+            this.isActive(StudentDisplayOption.TextSlide) && styles.active,
+          ]}
+        >
+          <IconButton
             name="image"
             size={128}
             onPress={() => this.setActive(StudentDisplayOption.TextSlide)}
@@ -101,5 +138,5 @@ const styles = StyleSheet.create({
   },
   active: {
     backgroundColor: palette.backgroundDark,
-  }
+  },
 });

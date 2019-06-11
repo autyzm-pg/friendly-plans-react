@@ -4,10 +4,10 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
+import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
 import { StudentTextSizeSettings } from './StudentTextSizeSettings';
-import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch'
 
 interface State {
   student: Student;
@@ -40,7 +40,7 @@ export class StudentSettingsScreen extends React.PureComponent<
           <StudentTextCaseSettings student={this.state.student} />
           <StudentTextSizeSettings student={this.state.student} />
         </Card>
-        <SlideCardSwitch student={this.state.student}></SlideCardSwitch>
+        <SlideCardSwitch student={this.state.student} />
       </FullScreenTemplate>
     );
   }

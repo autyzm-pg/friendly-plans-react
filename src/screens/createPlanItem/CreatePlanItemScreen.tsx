@@ -1,20 +1,21 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
-import { PlanItemHeader } from "./PlanItemHeader";
+import { PlanItem } from '../../models';
+import { PlanItemHeader } from './PlanItemHeader';
 import { PlanItemImagePicker } from './PlanItemImagePicker';
-import {PlanItemTimer} from "./PlanItemTimer";
-import {PlanItemLector} from "./PlanItemLector";
-import { PlanItem } from "../../models";
+import { PlanItemLector } from './PlanItemLector';
+import { PlanItemTimer } from './PlanItemTimer';
 
 interface State {
   source: any;
 }
 
 export class CreatePlanItemScreen extends React.PureComponent<
-  NavigationInjectedProps, State
+  NavigationInjectedProps,
+  State
 > {
   state = {
     source: null,
@@ -28,23 +29,26 @@ export class CreatePlanItemScreen extends React.PureComponent<
     const { source } = this.state;
 
     const plan = this.props.navigation.getParam('plan');
-    const planItem = new PlanItem;
+    const planItem = new PlanItem();
     return (
-        <FullScreenTemplate padded darkBackground>
-          <Card>
-            <PlanItemHeader planItem={planItem} />
+      <FullScreenTemplate padded darkBackground>
+        <Card>
+          <PlanItemHeader planItem={planItem} />
 
-            <View style={styles.container}>
-              <View style={styles.leftColumn}>
-                <PlanItemImagePicker source={source} onChange={this.onImageChange} />
-              </View>
-              <View style={styles.rightColumn}>
-                <PlanItemTimer planItem={planItem} />
-                <PlanItemLector planItem={planItem} />
-              </View>
+          <View style={styles.container}>
+            <View style={styles.leftColumn}>
+              <PlanItemImagePicker
+                source={source}
+                onChange={this.onImageChange}
+              />
             </View>
-          </Card>
-        </FullScreenTemplate>
+            <View style={styles.rightColumn}>
+              <PlanItemTimer planItem={planItem} />
+              <PlanItemLector planItem={planItem} />
+            </View>
+          </View>
+        </Card>
+      </FullScreenTemplate>
     );
   }
 }
@@ -61,5 +65,5 @@ const styles = StyleSheet.create({
   rightColumn: {
     alignItems: 'stretch',
     justifyContent: 'space-around',
-  }
+  },
 });

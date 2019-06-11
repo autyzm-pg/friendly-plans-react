@@ -1,5 +1,4 @@
 module.exports = {
-  preset: 'react-native',
   coverageThreshold: {
     global: {
       branches: 0,
@@ -8,16 +7,15 @@ module.exports = {
       statements: 0,
     },
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
   moduleDirectories: ['node_modules', 'src'],
+  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  preset: 'react-native',
+  setupFilesAfterEnv: ['<rootDir>/testSetup.ts'],
+  testPathIgnorePatterns: ['/node_modules/'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?react-native|react-navigation)',
+    'node_modules/(?!((jest-)?react-native|@react-native-community|react-navigation|@react-navigation/.*))',
   ],
-  testPathIgnorePatterns: ['/node_modules/'],
-  collectCoverageFrom: ['src/**/*.{ts|tsx}', '!**/node_modules/**'],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
-  setupTestFrameworkScriptFile: '<rootDir>/testSetup.ts',
 };

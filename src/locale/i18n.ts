@@ -2,7 +2,6 @@ import i18n from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
 import DeviceInfo from 'react-native-device-info';
 
-import ar from './ar';
 import en from './en';
 import pl from './pl';
 
@@ -21,7 +20,6 @@ i18n
     fallbackLng: 'en',
     resources: {
       en,
-      ar,
       pl,
     },
     ns: ['common', 'signIn', 'signUp'],

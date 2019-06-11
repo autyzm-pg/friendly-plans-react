@@ -23,6 +23,7 @@ export class PlanItemHeader extends React.PureComponent<Props, State> {
 
   handleNameChange = (itemName: string) => this.setState({ itemName });
 
+  // tslint:disable-next-line:no-empty
   updatePlanItemName = () => {};
 
   render() {

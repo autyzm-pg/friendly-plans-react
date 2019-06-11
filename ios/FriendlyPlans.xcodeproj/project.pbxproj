@@ -27,7 +27,7 @@
 		3FA3CFB296B144528D95D8A3 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C70DFC7D1774F73AA6F1985 /* Octicons.ttf */; };
 		4E8C4A18221DEEBA00A99E76 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E8C49E7221DEEBA00A99E76 /* JavaScriptCore.framework */; };
 		4ED0C73E2202230D00CAFE45 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED0C73A220222F100CAFE45 /* libReactNativeConfig.a */; };
-		4ED2B29B21DE32E200C594BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ED2B27421DE32E100C594BB /* GoogleService-Info.plist */; };
+		4ED0D52422B03ED000B445C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4ED0D52322B03ED000B445C0 /* GoogleService-Info.plist */; };
 		4EFAC76521ECDD45000A4151 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EFAC76121ECDD45000A4151 /* Rubik-Bold.ttf */; };
 		4EFAC76621ECDD45000A4151 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EFAC76221ECDD45000A4151 /* Rubik-Medium.ttf */; };
 		4EFAC76721ECDD45000A4151 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EFAC76321ECDD45000A4151 /* Rubik-Light.ttf */; };
@@ -43,7 +43,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B2A13E6D7F0C461397BD2F27 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B30915988B3A41048CC381F2 /* Zocial.ttf */; };
 		B43B0D64E4DD42B495B891B2 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313E46175853488FADC5A5B2 /* Entypo.ttf */; };
-		BD8915021FC2BD370E6584EA /* libPods-ReactNativeStarterKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A484AC3E99F6B2BFCAA2A933 /* libPods-ReactNativeStarterKit.a */; };
+		BD8915021FC2BD370E6584EA /* libPods-FriendlyPlans.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A484AC3E99F6B2BFCAA2A933 /* libPods-FriendlyPlans.a */; };
 		D68E4F21E54D460CA1AA844F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ED4899D871B4B23B5AAA9E1 /* Ionicons.ttf */; };
 		E6EF09F89F38460EBAEF16C8 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFC723A53B243DB8F6C3483 /* libRNFirebase.a */; };
 		FB2C8A99D183460A86A05A62 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 110FAB09840A4F4383DCDBA4 /* MaterialCommunityIcons.ttf */; };
@@ -342,16 +342,16 @@
 		110FAB09840A4F4383DCDBA4 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ReactNativeStarterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeStarterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeStarterKit/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeStarterKit/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* FriendlyPlans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendlyPlans.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FriendlyPlans/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FriendlyPlans/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeStarterKit/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeStarterKit/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeStarterKit/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FriendlyPlans/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FriendlyPlans/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FriendlyPlans/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		198647C125244509A1A10AAC /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		1E4CF864AF21E31A55CD378D /* Pods-ReactNativeStarterKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeStarterKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeStarterKit/Pods-ReactNativeStarterKit.release.xcconfig"; sourceTree = "<group>"; };
+		1E4CF864AF21E31A55CD378D /* Pods-FriendlyPlans.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendlyPlans.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendlyPlans/Pods-FriendlyPlans.release.xcconfig"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED4899D871B4B23B5AAA9E1 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		313E46175853488FADC5A5B2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -362,7 +362,7 @@
 		4ED0C6FE2202222600CAFE45 /* libreact-native-config.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-config.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED0C7002202224D00CAFE45 /* libreact-native-config.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-config.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED0C70F220222F100CAFE45 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
-		4ED2B27421DE32E100C594BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ReactNativeStarterKit/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4ED0D52322B03ED000B445C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "FriendlyPlans/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4ED2B2DD21E4B04D00C594BB /* pl-PL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pl-PL"; path = "pl-PL.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4ED2B30421E4B05B00C594BB /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4EFAC76121ECDD45000A4151 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Bold.ttf"; path = "../../src/assets/fonts/Rubik-Bold.ttf"; sourceTree = "<group>"; };
@@ -375,11 +375,11 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9A7A83C2E56548D78FB52309 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		A484AC3E99F6B2BFCAA2A933 /* libPods-ReactNativeStarterKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeStarterKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A484AC3E99F6B2BFCAA2A933 /* libPods-FriendlyPlans.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendlyPlans.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B03F25FC9D4159ABE48BF7 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ADFC723A53B243DB8F6C3483 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
-		AE2B9543273FAAE61542C5D5 /* Pods-ReactNativeStarterKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeStarterKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactNativeStarterKit/Pods-ReactNativeStarterKit.debug.xcconfig"; sourceTree = "<group>"; };
+		AE2B9543273FAAE61542C5D5 /* Pods-FriendlyPlans.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendlyPlans.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendlyPlans/Pods-FriendlyPlans.debug.xcconfig"; sourceTree = "<group>"; };
 		B30915988B3A41048CC381F2 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		BF4B9CBF64DF474BB6130235 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		E244727F17FB43CFA512F5F2 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				BD8915021FC2BD370E6584EA /* libPods-ReactNativeStarterKit.a in Frameworks */,
+				BD8915021FC2BD370E6584EA /* libPods-FriendlyPlans.a in Frameworks */,
 				E6EF09F89F38460EBAEF16C8 /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,10 +476,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* ReactNativeStarterKit */ = {
+		13B07FAE1A68108700A75B9A /* FriendlyPlans */ = {
 			isa = PBXGroup;
 			children = (
-				4ED2B27421DE32E100C594BB /* GoogleService-Info.plist */,
+				4ED0D52322B03ED000B445C0 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -488,7 +488,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = ReactNativeStarterKit;
+			name = FriendlyPlans;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -521,7 +521,7 @@
 				4ED0C7002202224D00CAFE45 /* libreact-native-config.a */,
 				4ED0C6FE2202222600CAFE45 /* libreact-native-config.a */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				A484AC3E99F6B2BFCAA2A933 /* libPods-ReactNativeStarterKit.a */,
+				A484AC3E99F6B2BFCAA2A933 /* libPods-FriendlyPlans.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -614,7 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				4EFAC73A21ECDD26000A4151 /* Fonts */,
-				13B07FAE1A68108700A75B9A /* ReactNativeStarterKit */,
+				13B07FAE1A68108700A75B9A /* FriendlyPlans */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -630,7 +630,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ReactNativeStarterKit.app */,
+				13B07F961A680F5B00A75B9A /* FriendlyPlans.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -669,8 +669,8 @@
 		BF279F9E5FD7B5A7492B8042 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE2B9543273FAAE61542C5D5 /* Pods-ReactNativeStarterKit.debug.xcconfig */,
-				1E4CF864AF21E31A55CD378D /* Pods-ReactNativeStarterKit.release.xcconfig */,
+				AE2B9543273FAAE61542C5D5 /* Pods-FriendlyPlans.debug.xcconfig */,
+				1E4CF864AF21E31A55CD378D /* Pods-FriendlyPlans.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -678,9 +678,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* ReactNativeStarterKit */ = {
+		13B07F861A680F5B00A75B9A /* FriendlyPlans */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeStarterKit" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FriendlyPlans" */;
 			buildPhases = (
 				27F13ED9B6D267FAF54343FF /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -694,9 +694,9 @@
 			);
 			dependencies = (
 			);
-			name = ReactNativeStarterKit;
+			name = FriendlyPlans;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeStarterKit.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* FriendlyPlans.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -708,13 +708,16 @@
 				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeStarterKit" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FriendlyPlans" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				"pl-PL",
+				ar,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -779,7 +782,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ReactNativeStarterKit */,
+				13B07F861A680F5B00A75B9A /* FriendlyPlans */,
 			);
 		};
 /* End PBXProject section */
@@ -1075,7 +1078,6 @@
 				4EFAC76521ECDD45000A4151 /* Rubik-Bold.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				4ED2B29B21DE32E200C594BB /* GoogleService-Info.plist in Resources */,
 				09B335BE88294B68B1E20880 /* AntDesign.ttf in Resources */,
 				B43B0D64E4DD42B495B891B2 /* Entypo.ttf in Resources */,
 				A9157FB15FB544A293AA2F07 /* EvilIcons.ttf in Resources */,
@@ -1092,6 +1094,7 @@
 				4EFAC76821ECDD45000A4151 /* Rubik-Regular.ttf in Resources */,
 				67564D77A2AB45BAA0C0C5FC /* SimpleLineIcons.ttf in Resources */,
 				B2A13E6D7F0C461397BD2F27 /* Zocial.ttf in Resources */,
+				4ED0D52422B03ED000B445C0 /* GoogleService-Info.plist in Resources */,
 				4EFAC76721ECDD45000A4151 /* Rubik-Light.ttf in Resources */,
 				4EFAC76621ECDD45000A4151 /* Rubik-Medium.ttf in Resources */,
 			);
@@ -1129,7 +1132,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeStarterKit-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FriendlyPlans-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1162,7 +1165,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ReactNativeStarterKit/Pods-ReactNativeStarterKit-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FriendlyPlans/Pods-FriendlyPlans-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -1178,6 +1181,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -1198,10 +1202,11 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReactNativeStarterKit/Pods-ReactNativeStarterKit-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendlyPlans/Pods-FriendlyPlans-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1227,7 +1232,7 @@
 				4ED2B30421E4B05B00C594BB /* ar */,
 			);
 			name = LaunchScreen.xib;
-			path = ReactNativeStarterKit;
+			path = FriendlyPlans;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1235,7 +1240,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE2B9543273FAAE61542C5D5 /* Pods-ReactNativeStarterKit.debug.xcconfig */;
+			baseConfigurationReference = AE2B9543273FAAE61542C5D5 /* Pods-FriendlyPlans.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1244,14 +1249,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = ReactNativeStarterKit/Info.plist;
+				INFOPLIST_FILE = FriendlyPlans/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ReactNativeStarterKit\"",
+					"\"$(SRCROOT)/FriendlyPlans\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1259,14 +1264,14 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.friendlyplans;
-				PRODUCT_NAME = ReactNativeStarterKit;
+				PRODUCT_NAME = FriendlyPlans;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4CF864AF21E31A55CD378D /* Pods-ReactNativeStarterKit.release.xcconfig */;
+			baseConfigurationReference = 1E4CF864AF21E31A55CD378D /* Pods-FriendlyPlans.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1274,14 +1279,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
-				INFOPLIST_FILE = ReactNativeStarterKit/Info.plist;
+				INFOPLIST_FILE = FriendlyPlans/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/ReactNativeStarterKit\"",
+					"\"$(SRCROOT)/FriendlyPlans\"",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1289,7 +1294,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.friendlyplans;
-				PRODUCT_NAME = ReactNativeStarterKit;
+				PRODUCT_NAME = FriendlyPlans;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1398,7 +1403,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeStarterKit" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FriendlyPlans" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1407,7 +1412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeStarterKit" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FriendlyPlans" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

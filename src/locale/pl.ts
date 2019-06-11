@@ -23,8 +23,8 @@ const translations = {
     textCaseSettings: 'Tekst',
     textSizeSettings: 'Rozmiar tekstu',
     textSettingsUpperCase: 'WIELKIE LITERY',
-    textSettingsStandardCase: 'Standardowe litery'
-  }
+    textSettingsStandardCase: 'Standardowe litery',
+  },
 };
 
 export default translations;
