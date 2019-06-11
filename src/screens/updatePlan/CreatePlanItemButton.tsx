@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 import { Card, FlatButton } from 'components';
 import { i18n } from 'locale';
 import { Plan, PlanItemType } from 'models';
-import { palette } from 'styles';
 import { NavigationService } from 'services';
+import { palette } from 'styles';
 
 interface Props {
   plan: Plan;

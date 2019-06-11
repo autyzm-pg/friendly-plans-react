@@ -14,50 +14,52 @@ interface State {
 }
 
 export class StudentTextCaseSettings extends React.PureComponent {
-  
-  setCase = (caseState) => {
+  constructor(props: any) {
+    super();
+    this.state = {
+      textCase: props.student.textCase,
+    };
+  }
+  setCase = caseState => {
     this.props.student.update({
       textCase: caseState,
     });
     this.setState({ textCase: caseState });
   };
 
-  setUpperCase = () => { this.setCase('uppercase') };
-  setStandardCase = () => { this.setCase('standardcase') };
-
-  constructor(props: any) {
-    super();
-    this.state = {
-      textCase: props.student.textCase,
-    }
-  }
+  setUpperCase = () => {
+    this.setCase('uppercase');
+  };
+  setStandardCase = () => {
+    this.setCase('standardcase');
+  };
 
   render() {
     const { textCase } = this.state;
     return (
-    <View>
-      <StyledText style={styles.label}>
-        {i18n.t('studentSettings:textCaseSettings')}
-      </StyledText>
-      <View style={styles.container}>
-        <Button
-          onPress={this.setUpperCase}
-          title={i18n.t('studentSettings:textSettingsUpperCase')}
-          containerStyle={styles.button}
-          backgroundColor={textCase === 'uppercase' ? 'blue' : 'white'}
-          titleColor={textCase === 'uppercase' ? 'white' : 'blue'}
-          type='outline'
-        />
-        <Button
-          onPress={this.setStandardCase}
-          title={i18n.t('studentSettings:textSettingsStandardCase')}
-          containerStyle={styles.button}
-          backgroundColor={textCase === 'standardcase' ? 'blue' : 'white'}
-          titleColor={textCase === 'standardcase' ? 'white' : 'blue'}
-          type='outline'
-        />
+      <View>
+        <StyledText style={styles.label}>
+          {i18n.t('studentSettings:textCaseSettings')}
+        </StyledText>
+        <View style={styles.container}>
+          <Button
+            onPress={this.setUpperCase}
+            title={i18n.t('studentSettings:textSettingsUpperCase')}
+            containerStyle={styles.button}
+            backgroundColor={textCase === 'uppercase' ? 'blue' : 'white'}
+            titleColor={textCase === 'uppercase' ? 'white' : 'blue'}
+            type="outline"
+          />
+          <Button
+            onPress={this.setStandardCase}
+            title={i18n.t('studentSettings:textSettingsStandardCase')}
+            containerStyle={styles.button}
+            backgroundColor={textCase === 'standardcase' ? 'blue' : 'white'}
+            titleColor={textCase === 'standardcase' ? 'white' : 'blue'}
+            type="outline"
+          />
+        </View>
       </View>
-    </View>
     );
   }
 }

@@ -5,6 +5,15 @@
    <BuildAction
       parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "echo &quot;.env.staging&quot; &gt; /tmp/envfile&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -29,9 +38,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ReactNativeStarterKit.app"
-               BlueprintName = "ReactNativeStarterKit"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BuildableName = "FriendlyPlans.app"
+               BlueprintName = "FriendlyPlans"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +52,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ReactNativeStarterKitTests.xctest"
-               BlueprintName = "ReactNativeStarterKitTests"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BuildableName = "FriendlyPlansTests.xctest"
+               BlueprintName = "FriendlyPlansTests"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +70,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ReactNativeStarterKitTests.xctest"
-               BlueprintName = "ReactNativeStarterKitTests"
-               ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+               BuildableName = "FriendlyPlansTests.xctest"
+               BlueprintName = "FriendlyPlansTests"
+               ReferencedContainer = "container:FriendlyPlans.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ReactNativeStarterKit.app"
-            BlueprintName = "ReactNativeStarterKit"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +103,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ReactNativeStarterKit.app"
-            BlueprintName = "ReactNativeStarterKit"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +122,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ReactNativeStarterKit.app"
-            BlueprintName = "ReactNativeStarterKit"
-            ReferencedContainer = "container:ReactNativeStarterKit.xcodeproj">
+            BuildableName = "FriendlyPlans.app"
+            BlueprintName = "FriendlyPlans"
+            ReferencedContainer = "container:FriendlyPlans.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -19,6 +19,7 @@ exports[`Button should match snapshot 1`] = `
   titleStyle={
     Array [
       Object {
+        "color": "rgba(255, 255, 255, 1)",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
         "letterSpacing": 1.25,

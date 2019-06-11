@@ -26,7 +26,7 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
       "_deps": Array [],
       "_excludedEdges": Array [],
       "_exclusive": Object {},
-      "_mutate": false,
+      "_mutate": undefined,
       "_nodes": Array [
         "termsAccepted",
         "password",
@@ -51,10 +51,10 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
           "_conditions": Array [],
           "_deps": Array [],
           "_exclusive": Object {
-            "required": false,
+            "required": true,
             "undefined": false,
           },
-          "_mutate": false,
+          "_mutate": undefined,
           "_options": Object {
             "abortEarly": true,
             "recursive": true,
@@ -66,7 +66,6 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
             "refs": Map {},
           },
           "tests": Array [
-            [Function],
             [Function],
             [Function],
           ],
@@ -83,9 +82,9 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
           "_deps": Array [],
           "_exclusive": Object {
             "min": true,
-            "required": false,
+            "required": true,
           },
-          "_mutate": false,
+          "_mutate": undefined,
           "_options": Object {
             "abortEarly": true,
             "recursive": true,
@@ -97,7 +96,6 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
             "refs": Map {},
           },
           "tests": Array [
-            [Function],
             [Function],
             [Function],
           ],
@@ -113,9 +111,9 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
           "_conditions": Array [],
           "_deps": Array [],
           "_exclusive": Object {
-            "required": false,
+            "required": true,
           },
-          "_mutate": false,
+          "_mutate": undefined,
           "_options": Object {
             "abortEarly": true,
             "recursive": true,

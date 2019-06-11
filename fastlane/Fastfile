@@ -10,7 +10,7 @@ platform :android do
         firebase_management_download_config(
             service_account_json_path: "firebase-admin.json",
             output_path: "./android/app",
-            project_id: "react-native-starter-kit-stx",
+            project_id: "friendly-plans-stx",
             type: "android",
             app_id: "1:752186238901:android:cd4d7392cb177d19"
         )
@@ -21,7 +21,7 @@ platform :android do
         firebase_management_download_config(
             service_account_json_path: "firebase-admin.json",
             output_path: "./android/app",
-            project_id: "react-native-starter-kit-stx",
+            project_id: "friendly-plans-stx",
             type: "android",
             app_id: "1:752186238901:android:e0b743ae3d077759"
         )
@@ -90,8 +90,8 @@ platform :ios do
     lane :staging_firebase_config do
         firebase_management_download_config(
             service_account_json_path: "firebase-admin.json",
-            output_path: "./ios/ReactNativeStarterKit",
-            project_id: "react-native-starter-kit-stx",
+            output_path: "./ios/FriendlyPlans",
+            project_id: "friendly-plans-stx",
             type: "ios",
             app_id: "1:752186238901:ios:cd4d7392cb177d19"
         )
@@ -101,8 +101,8 @@ platform :ios do
     lane :production_firebase_config do
         firebase_management_download_config(
             service_account_json_path: "firebase-admin.json",
-            output_path: "./ios/ReactNativeStarterKit",
-            project_id: "react-native-starter-kit-stx",
+            output_path: "./ios/FriendlyPlans",
+            project_id: "friendly-plans-stx",
             type: "ios",
             app_id: "1:752186238901:ios:e0b743ae3d077759"
         )
@@ -112,18 +112,18 @@ platform :ios do
     lane :staging_testflight do
         staging_firebase_config
         update_app_identifier(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             app_identifier: "com.friendlyplans.staging"
         )
         update_info_plist(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             display_name: "StarterKit Staging"
         )
         build_app(
-            workspace: "ios/ReactNativeStarterKit.xcworkspace",
-            scheme: "ReactNativeStarterKit (staging)",
+            workspace: "ios/FriendlyPlans.xcworkspace",
+            scheme: "FriendlyPlans (staging)",
             include_bitcode: true
         )
         upload_to_testflight(
@@ -135,18 +135,18 @@ platform :ios do
     lane :staging_appstore do
         staging_firebase_config
         update_app_identifier(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             app_identifier: "com.friendlyplans.staging"
         )
         update_info_plist(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             display_name: "StarterKit Staging"
         )
         build_app(
-            workspace: "ios/ReactNativeStarterKit.xcworkspace",
-            scheme: "ReactNativeStarterKit (staging)",
+            workspace: "ios/FriendlyPlans.xcworkspace",
+            scheme: "FriendlyPlans (staging)",
             include_bitcode: true
         )
         upload_to_app_store
@@ -156,18 +156,18 @@ platform :ios do
     lane :production_testflight do
         production_firebase_config
         update_app_identifier(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             app_identifier: "com.friendlyplans"
         )
         update_info_plist(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             display_name: "StarterKit"
         )
         build_app(
-            workspace: "ios/ReactNativeStarterKit.xcworkspace",
-            scheme: "ReactNativeStarterKit (production)",
+            workspace: "ios/FriendlyPlans.xcworkspace",
+            scheme: "FriendlyPlans (production)",
             include_bitcode: true
         )
         upload_to_testflight(
@@ -179,18 +179,18 @@ platform :ios do
     lane :production_appstore do
         production_firebase_config
         update_app_identifier(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             app_identifier: "com.friendlyplans"
         )
         update_info_plist(
-            xcodeproj: "ios/ReactNativeStarterKit.xcodeproj",
-            plist_path: "ReactNativeStarterKit/Info.plist",
+            xcodeproj: "ios/FriendlyPlans.xcodeproj",
+            plist_path: "FriendlyPlans/Info.plist",
             display_name: "StarterKit"
         )
         build_app(
-            workspace: "ios/ReactNativeStarterKit.xcworkspace",
-            scheme: "ReactNativeStarterKit (production)",
+            workspace: "ios/FriendlyPlans.xcworkspace",
+            scheme: "FriendlyPlans (production)",
             include_bitcode: true
         )
         upload_to_app_store

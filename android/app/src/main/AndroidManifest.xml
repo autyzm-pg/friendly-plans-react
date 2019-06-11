@@ -17,21 +17,11 @@
         tools:ignore="GoogleAppIndexingWarning"
         android:usesCleartextTraffic="true">
         <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_stat_ic_notification" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/accent" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id"/>
-        <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="false" />
         <activity
             android:name="com.friendlyplans.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|layoutDirection|locale"
-            android:screenOrientation="landscape"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
@@ -41,13 +31,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
-        <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" />
     </application>
 
 </manifest>

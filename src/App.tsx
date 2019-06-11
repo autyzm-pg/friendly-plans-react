@@ -8,15 +8,9 @@ import {
 } from 'react-navigation';
 
 import { i18n } from 'locale';
-import {
-  AnalyticsService,
-  NavigationService,
-  PushNotificationsService,
-} from 'services';
+import { AnalyticsService, NavigationService } from 'services';
 import { statusBarHeight } from 'styles';
 import { RootStackNavigator } from './navigators/RootStackNavigator';
-
-PushNotificationsService.initialize();
 
 // Set status bar height on Android to support windowTranslucentStatus style
 /* istanbul ignore next */
