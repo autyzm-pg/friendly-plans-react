@@ -13,7 +13,9 @@ export class Plan {
 
   update = (changes: object): Promise<void> => updatePlan(this, changes);
 
-  createPlanItem = (planItemType: PlanItemType): Promise<RNFirebase.firestore.DocumentReference> =>
+  createPlanItem = (
+    planItemType: PlanItemType,
+  ): Promise<RNFirebase.firestore.DocumentReference> =>
     createPlanItem(this, planItemType);
 
   getPlanItemsRef = (): RNFirebase.firestore.CollectionReference =>
@@ -27,28 +29,23 @@ const getPlanRef = (plan: Plan): RNFirebase.firestore.DocumentReference =>
     .collection('plans')
     .doc(plan.id);
 
-const deletePlan = (plan: Plan): Promise<void> =>
-  getPlanRef(plan)
-    .delete();
+const deletePlan = (plan: Plan): Promise<void> => getPlanRef(plan).delete();
 
 const updatePlan = (plan: Plan, changes: object): Promise<void> =>
-  getPlanRef(plan)
-    .update(changes);
+  getPlanRef(plan).update(changes);
 
 const getPlanItemsRef = (
   plan: Plan,
 ): RNFirebase.firestore.CollectionReference =>
-  getPlanRef(plan)
-    .collection('planItems');
+  getPlanRef(plan).collection('planItems');
 
 const createPlanItem = (
   plan: Plan,
   type: PlanItemType,
 ): Promise<RNFirebase.firestore.DocumentReference> =>
-  getPlanItemsRef(plan)
-    .add({
-      name: i18n.t('updatePlan:planItemNamePlaceholder'),
-      studentId: plan.studentId,
-      planId: plan.id,
-      type,
-    });
+  getPlanItemsRef(plan).add({
+    name: i18n.t('updatePlan:planItemNamePlaceholder'),
+    studentId: plan.studentId,
+    planId: plan.id,
+    type,
+  });

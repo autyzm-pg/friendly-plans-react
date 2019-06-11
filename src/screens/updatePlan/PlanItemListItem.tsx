@@ -8,11 +8,12 @@ import { palette, typography } from 'styles';
 interface Props {
   planItem: PlanItem;
   index: number;
+  onDelete: () => void;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
   render() {
-    const {planItem, index} = this.props;
+    const { planItem, onDelete, index } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.indexContainer}>
@@ -29,6 +30,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
           <IconButton
             name="close"
             containerStyle={styles.actionButton}
+            onPress={onDelete}
             size={26}
           />
           <IconButton
@@ -85,5 +87,5 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     marginHorizontal: 8,
-  }
+  },
 });
