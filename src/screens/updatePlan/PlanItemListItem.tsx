@@ -9,11 +9,13 @@ interface Props {
   planItem: PlanItem;
   index: number;
   onDelete: () => void;
+  onUpdate: () => void;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
+
   render() {
-    const { planItem, onDelete, index } = this.props;
+    const { planItem, onDelete, onUpdate, index } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.indexContainer}>
@@ -37,6 +39,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
             name="pencil"
             containerStyle={styles.actionButton}
             size={24}
+            onPress={onUpdate}
           />
         </View>
       </View>
