@@ -45,12 +45,7 @@ export class CreatePlanItemButton extends React.PureComponent<Props> {
           }}
           title={i18n.t('updatePlan:addTask')}
           containerStyle={styles.buttonContainer}
-          onPress={() =>
-            NavigationService.navigate('CreatePlanItem', {
-              planId: plan.id,
-              studentId: plan.studentId,
-            })
-          }
+          onPress={() => plan.createPlanItem(PlanItemType.Task)}
         />
       </Card>
     );

@@ -17,14 +17,17 @@ export class PlanItemHeader extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      itemName: '',
+      itemName: props.planItem.name,
     };
   }
 
   handleNameChange = (itemName: string) => this.setState({ itemName });
 
-  // tslint:disable-next-line:no-empty
-  updatePlanItemName = () => {};
+  updatePlanItemName = () => {
+    this.props.planItem.update({
+        name: this.state.itemName
+    });
+  };
 
   render() {
     return (
