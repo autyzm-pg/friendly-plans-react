@@ -7,6 +7,7 @@ import { palette, typography } from 'styles';
 
 interface Props {
   planItem: PlanItem;
+  index: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {

@@ -36,17 +36,21 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ planItems });
   };
 
-  renderItem = ({ item }: { item: PlanItem }) => (
+  renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
       planItem={item}
+      index={index}
     />
   );
+
+  extractKey = (planItem: PlanItem) => planItem.id;
 
   render() {
     return (
       <FlatList
         data={this.state.planItems}
         renderItem={this.renderItem}
+        keyExtractor={this.extractKey}
       />
     );
   }
