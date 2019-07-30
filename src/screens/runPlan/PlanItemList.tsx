@@ -1,12 +1,13 @@
 import React from 'react';
 import { RNFirebase } from 'react-native-firebase';
 
-import { Plan, PlanItem } from 'models';
+import { Student, Plan, PlanItem } from 'models';
 import { FlatList } from 'react-native';
 import { PlanItemListItem } from './PlanItemListItem';
 
 interface Props {
   plan: Plan;
+  student: Student;
 }
 
 interface State {
@@ -40,6 +41,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     <PlanItemListItem
       planItem={item}
       index={index}
+      textSize={this.props.student.textSize}
     />
   );
 

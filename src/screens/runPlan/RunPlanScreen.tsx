@@ -15,11 +15,14 @@ export class RunPlanScreen extends React.PureComponent<
 
   render() {
     const plan = this.props.navigation.getParam('plan');
+    const student = this.props.navigation.getParam('student');
 
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-        	<PlanItemList plan={plan} />
+          <PlanItemList 
+            student={student}
+            plan={plan} />
         </FullScreenTemplate>
       </View>
     );
