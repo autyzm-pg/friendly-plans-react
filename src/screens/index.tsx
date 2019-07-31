@@ -8,3 +8,4 @@ export { UpdatePlanItemScreen } from './updatePlanItem/UpdatePlanItemScreen';
 export { DashboardScreen } from './dashboard/DashboardScreen';
 export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';
 export { StudentSettingsScreen } from './studentSettings/StudentSettingsScreen';
+export { RunPlanScreen } from './runPlan/RunPlanScreen';

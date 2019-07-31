@@ -1,7 +1,7 @@
 import { RNFirebase } from 'react-native-firebase';
 
 import { i18n } from 'locale';
-import { PlanItemType } from './PlanItem';
+import { PlanItemType, PlanItem } from './PlanItem';
 import { getStudentsRef } from './Student';
 
 export class Plan {
@@ -19,7 +19,7 @@ export class Plan {
     createPlanItem(this, planItemType);
 
   getPlanItemsRef = (): RNFirebase.firestore.CollectionReference =>
-    getPlanItemsRef(this);
+    getPlanItemsRef(this); 
 }
 
 // Private API below
@@ -48,4 +48,5 @@ const createPlanItem = (
     studentId: plan.studentId,
     planId: plan.id,
     type,
+    completed: false
   });

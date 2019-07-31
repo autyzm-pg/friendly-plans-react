@@ -18,6 +18,13 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
       student: this.props.student,
     });
   };
+  
+  navigateToRunPlan = () => {
+    this.props.navigation.navigate('RunPlan', {
+      plan: this.props.plan,
+      student: this.props.student,
+    });
+  };
 
   render() {
     const { name } = this.props.plan;
@@ -32,7 +39,7 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
             containerStyle={styles.updateIcon}
             onPress={this.navigateToUpdatePlan}
           />
-          <IconButton name="play-circle" size={30} />
+          <IconButton name="play-circle" size={30} onPress={this.navigateToRunPlan} />
         </View>
       </View>
     );

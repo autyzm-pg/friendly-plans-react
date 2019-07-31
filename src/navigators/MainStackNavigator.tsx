@@ -6,6 +6,7 @@ import { Icon } from 'components';
 import {
   DashboardScreen,
   StudentSettingsScreen,
+  RunPlanScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
 } from 'screens';
@@ -16,6 +17,7 @@ export const MainStackNavigator = createStackNavigator(
     Dashboard: DashboardScreen,
     UpdatePlanItem: UpdatePlanItemScreen,
     UpdatePlan: UpdatePlanScreen,
+    RunPlan: RunPlanScreen,
     StudentSettings: StudentSettingsScreen,
   },
   {

@@ -1,4 +1,5 @@
-import {RNFirebase} from 'react-native-firebase';
+import { RNFirebase } from 'react-native-firebase';
+
 import {getStudentsRef} from './Student';
 
 export enum PlanItemType {
@@ -13,6 +14,7 @@ export class PlanItem {
   type!: PlanItemType;
   planId!: string;
   studentId!: string;
+  completed!: boolean;
 
   update = (changes: object): Promise<void> => this.getPlanItemRef().update(changes);
 
