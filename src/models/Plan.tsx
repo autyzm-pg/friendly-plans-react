@@ -50,14 +50,3 @@ const createPlanItem = (
     type,
     completed: false
   });
-
-const getNoModelPlanRef = (studentId: string, planId: string): RNFirebase.firestore.DocumentReference =>
-  getStudentsRef()
-    .doc(studentId)
-    .collection('plans')
-    .doc(planId);
-
-export const getNoModelPlanItemsRef = (
-  studentId: string, planId: string
-): RNFirebase.firestore.CollectionReference =>
-  getNoModelPlanRef(studentId, planId).collection('planItems');
