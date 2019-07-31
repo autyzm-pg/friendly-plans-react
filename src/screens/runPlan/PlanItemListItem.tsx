@@ -9,10 +9,17 @@ interface Props {
   planItem: PlanItem;
   index: number;
   textSize: string;
+  textCase: string;
   currentTaskIndex: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
+  state = { 
+    planItemName: this.props.textCase=='standardcase' 
+    ? this.props.planItem.name
+    : this.props.planItem.name.toUpperCase()
+  }
+  
   textContainer() {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
@@ -38,14 +45,13 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
   
   render() {
-    const { planItem } = this.props;
     return (
       <TouchableHighlight 
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
           <Card style={this.textContainer()} >
-            <StyledText style={[this.labelColor(), this.labelTextSize()]}>{planItem.name}</StyledText>
+            <StyledText style={[this.labelColor(), this.labelTextSize()]}>{this.state.planItemName}</StyledText>
           </Card>
       </TouchableHighlight>
     );
