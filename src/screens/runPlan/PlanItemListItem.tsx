@@ -9,6 +9,7 @@ interface Props {
   planItem: PlanItem;
   index: number;
   textSize: string;
+  currentTaskIndex: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
@@ -29,10 +30,12 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     }
   }
 
-  markItemPlanAsCompleted = () =>
+  markItemPlanAsCompleted = () =>{
+    if(this.props.index == this.props.currentTaskIndex)
     this.props.planItem.update({
       completed: true,
     });
+  }
   
   render() {
     const { planItem } = this.props;

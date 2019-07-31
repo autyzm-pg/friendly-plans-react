@@ -37,11 +37,21 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ planItems });
   };
 
+  completedPlanItemCounter() {
+    let countCompletedPlanItems = 0;
+    for (let planItem of this.state.planItems){
+      if(planItem.completed == true)
+        countCompletedPlanItems++;
+    }
+    return countCompletedPlanItems;
+  };
+
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
       planItem={item}
       index={index}
       textSize={this.props.student.textSize}
+      currentTaskIndex={this.completedPlanItemCounter()}
     />
   );
 
