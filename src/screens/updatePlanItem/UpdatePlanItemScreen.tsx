@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
-import { PlanItem } from '../../models';
 import { PlanItemHeader } from './PlanItemHeader';
 import { PlanItemImagePicker } from './PlanItemImagePicker';
 import { PlanItemLector } from './PlanItemLector';
@@ -13,7 +12,7 @@ interface State {
   source: any;
 }
 
-export class CreatePlanItemScreen extends React.PureComponent<
+export class UpdatePlanItemScreen extends React.PureComponent<
   NavigationInjectedProps,
   State
 > {
@@ -28,8 +27,7 @@ export class CreatePlanItemScreen extends React.PureComponent<
   render() {
     const { source } = this.state;
 
-    const plan = this.props.navigation.getParam('plan');
-    const planItem = new PlanItem();
+    const planItem = this.props.navigation.getParam('planItem');
     return (
       <FullScreenTemplate padded darkBackground>
         <Card>

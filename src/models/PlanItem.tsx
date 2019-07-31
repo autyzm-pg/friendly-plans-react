@@ -1,6 +1,6 @@
 import { RNFirebase } from 'react-native-firebase';
 
-import { getNoModelPlanItemsRef } from './Plan';
+import {getStudentsRef} from './Student';
 
 export enum PlanItemType {
   Task = 'task',
@@ -16,6 +16,8 @@ export class PlanItem {
   studentId!: string;
   completed!: boolean;
 
+  update = (changes: object): Promise<void> => this.getPlanItemRef().update(changes);
+
   getIconName = (): string => {
     const icons = {
       task: 'layers',
@@ -25,13 +27,12 @@ export class PlanItem {
     return icons[this.type];
   };
 
-  update = (changes: object) => updatePlanItem(this, changes);
+  private getPlanItemRef = (): RNFirebase.firestore.DocumentReference  => {
+    return getStudentsRef()
+        .doc(this.studentId)
+        .collection('plans')
+        .doc(this.planId)
+        .collection('planItems')
+        .doc(this.id);
+  };
 }
-
-const getPlanItemRef = (
-  planItem: PlanItem
-): RNFirebase.firestore.DocumentReference  =>
-  getNoModelPlanItemsRef(planItem.studentId,planItem.planId).doc(planItem.id);
-
-const updatePlanItem = (planItem: PlanItem, changes: object): Promise<void> =>
-  getPlanItemRef(planItem).update(changes);

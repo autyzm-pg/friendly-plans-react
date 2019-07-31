@@ -3,6 +3,7 @@ import { RNFirebase } from 'react-native-firebase';
 
 import { Plan, PlanItem } from 'models';
 import { FlatList } from 'react-native';
+import { NavigationService } from '../../services';
 import { PlanItemListItem } from './PlanItemListItem';
 
 interface Props {
@@ -36,13 +37,20 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ planItems });
   };
 
-  deletePlan = (id: string) => {
+  deletePlanItem = (id: string) => {
     this.planItemsRef.doc(id).delete();
+  };
+
+  navigateToPlanItemUpdate = (planItem: PlanItem) => {
+      NavigationService.navigate('UpdatePlanItem', {
+          planItem
+      });
   };
 
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
-      onDelete={() => this.deletePlan(item.id)}
+      onDelete={() => this.deletePlanItem(item.id)}
+      onUpdate={() => this.navigateToPlanItemUpdate(item)}
       planItem={item}
       index={index}
     />
