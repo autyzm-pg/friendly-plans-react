@@ -4,6 +4,7 @@ import { RNFirebase } from 'react-native-firebase';
 import { Student, Plan, PlanItem } from 'models';
 import { FlatList } from 'react-native';
 import { PlanItemListItem } from './PlanItemListItem';
+import { StudentList } from '../dashboard/StudentList';
 
 interface Props {
   plan: Plan;
@@ -12,17 +13,22 @@ interface Props {
 
 interface State {
   planItems: PlanItem[];
+  student: Student;
 }
 
 export class PlanItemList extends React.PureComponent<Props, State> {
   planItemsRef: any;
+  studentRef: any;
   state = {
     planItems: [],
+    student: this.props.student,
   };
 
   componentDidMount() {
     this.planItemsRef = this.props.plan.getPlanItemsRef();
     this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
+    this.studentRef = this.props.student.getStudentRef();
+    this.studentRef.onSnapshot(this.handleStudentChange);
   }
 
   handlePlanItemsChange = (
@@ -37,6 +43,12 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ planItems });
   };
 
+  handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
+    if(documentSnapshot.exists){
+      this.setState({ student: documentSnapshot.data() });
+    }
+  }
+
   completedPlanItemCounter() {
     let countCompletedPlanItems = 0;
     for (let planItem of this.state.planItems){
@@ -50,8 +62,8 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     <PlanItemListItem
       planItem={item}
       index={index}
-      textSize={this.props.student.textSize}
-      textCase={this.props.student.textCase}
+      textSize={this.state.student.textSize}
+      textCase={this.state.student.textCase}
       currentTaskIndex={this.completedPlanItemCounter()}
     />
   );
