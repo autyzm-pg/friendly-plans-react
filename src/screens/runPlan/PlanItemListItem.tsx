@@ -8,18 +8,11 @@ import { palette, typography } from 'styles';
 interface Props {
   planItem: PlanItem;
   index: number;
-  textSize: string;
-  textCase: string;
+  student: Student;
   currentTaskIndex: number;
 }
 
-export class PlanItemListItem extends React.PureComponent<Props> {
-  state = { 
-    planItemName: this.props.textCase=='standardcase' 
-    ? this.props.planItem.name
-    : this.props.planItem.name.toUpperCase()
-  }
-  
+export class PlanItemListItem extends React.PureComponent<Props> {  
   textContainer() {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
@@ -29,12 +22,18 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   labelTextSize() {
-    switch(this.props.textSize){
+    switch(this.props.student.textSize){
       case 'xl': return styles.labelTextSizeXL;
       case 'l': return styles.labelTextSizeL;
       case 'm': return styles.labelTextSizeM;
       default: return styles.labelTextSizeS;
     }
+  }
+
+  textCase() {
+    return this.props.student.textCase == 'standardcase' 
+    ? this.props.planItem.name
+    : this.props.planItem.name.toUpperCase()
   }
 
   markItemPlanAsCompleted = () =>{
@@ -51,7 +50,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
           <Card style={this.textContainer()} >
-            <StyledText style={[this.labelColor(), this.labelTextSize()]}>{this.state.planItemName}</StyledText>
+            <StyledText style={[this.labelColor(), this.labelTextSize()]}>{this.textCase()}</StyledText>
           </Card>
       </TouchableHighlight>
     );

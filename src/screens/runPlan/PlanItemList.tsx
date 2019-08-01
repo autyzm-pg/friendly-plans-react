@@ -62,8 +62,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     <PlanItemListItem
       planItem={item}
       index={index}
-      textSize={this.state.student.textSize}
-      textCase={this.state.student.textCase}
+      student={this.state.student}
       currentTaskIndex={this.completedPlanItemCounter()}
     />
   );
