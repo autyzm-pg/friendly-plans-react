@@ -16,13 +16,14 @@ interface State {
 
 export class PlanItemList extends React.PureComponent<Props, State> {
   planItemsRef: any;
+  unsubscribePlanItems: any;
   state = {
     planItems: [],
   };
 
   componentDidMount() {
     this.planItemsRef = this.props.plan.getPlanItemsRef();
-    this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
+    this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
   }
 
   handlePlanItemsChange = (
@@ -36,6 +37,10 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     );
     this.setState({ planItems });
   };
+
+  componentWillUnmount() {
+    this.unsubscribePlanItems()
+  }
 
   deletePlanItem = (id: string) => {
     this.planItemsRef.doc(id).delete();

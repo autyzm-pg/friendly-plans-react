@@ -15,13 +15,14 @@ interface State {
 
 export class StudentPlanList extends React.PureComponent<Props, State> {
   studentPlansRef: any;
+  unsubscribeStudentPlans: any;
   state = {
     plans: [],
   };
 
   componentDidMount() {
     this.studentPlansRef = this.props.student.getPlansRef();
-    this.studentPlansRef.onSnapshot(this.handlePlansChange);
+    this.unsubscribeStudentPlans = this.studentPlansRef.onSnapshot(this.handlePlansChange);
   }
 
   handlePlansChange = (querySnapshot: RNFirebase.firestore.QuerySnapshot) => {
@@ -33,6 +34,10 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
     );
     this.setState({ plans });
   };
+
+  componentWillUnmount() {
+    this.unsubscribeStudentPlans()
+  }
 
   extractKey = (plan: Plan) => plan.id;
 

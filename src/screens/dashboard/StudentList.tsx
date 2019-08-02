@@ -11,13 +11,14 @@ interface State {
 
 export class StudentList extends React.PureComponent<{}, State> {
   studentsRef: any;
+  unsubscribeStudent: any;
   state = {
     students: [],
   };
 
   componentDidMount() {
     this.studentsRef = Student.getCollectionRef();
-    this.studentsRef.onSnapshot(this.handleStudentsChange);
+    this.unsubscribeStudent = this.studentsRef.onSnapshot(this.handleStudentsChange);
   }
 
   handleStudentsChange = (
@@ -31,6 +32,10 @@ export class StudentList extends React.PureComponent<{}, State> {
     );
     this.setState({ students });
   };
+
+  componentWillUnmount() {
+    this.unsubscribeStudent()
+  }
 
   extractKey = (student: Student) => student.id;
 
