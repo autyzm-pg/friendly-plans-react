@@ -1,10 +1,9 @@
 import React from 'react';
 import { RNFirebase } from 'react-native-firebase';
 
-import { Student, Plan, PlanItem } from 'models';
+import { Plan, PlanItem, Student } from 'models';
 import { FlatList } from 'react-native';
 import { PlanItemListItem } from './PlanItemListItem';
-import { StudentList } from '../dashboard/StudentList';
 
 interface Props {
   plan: Plan;
@@ -18,7 +17,9 @@ interface State {
 
 export class PlanItemList extends React.PureComponent<Props, State> {
   planItemsRef: any;
+  unsubscribePlanItems: any;
   studentRef: any;
+  unsubscribeStudent: any;
   state = {
     planItems: [],
     student: this.props.student,
@@ -26,9 +27,9 @@ export class PlanItemList extends React.PureComponent<Props, State> {
 
   componentDidMount() {
     this.planItemsRef = this.props.plan.getPlanItemsRef();
-    this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
+    this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
     this.studentRef = this.props.student.getStudentRef();
-    this.studentRef.onSnapshot(this.handleStudentChange);
+    this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
   }
 
   handlePlanItemsChange = (
@@ -45,14 +46,23 @@ export class PlanItemList extends React.PureComponent<Props, State> {
 
   handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
     if(documentSnapshot.exists){
-      this.setState({ student: documentSnapshot.data() });
+      const student = Object.assign(new Student(), {
+        id: documentSnapshot.id,
+        ...documentSnapshot.data(),
+      });
+      this.setState({ student });
     }
+  }
+
+  componentWillUnmount() {
+    this.unsubscribePlanItems();
+    this.unsubscribeStudent();
   }
 
   completedPlanItemCounter() {
     return this.state.planItems.reduce((planItemsCompleted, planItem) =>
-      planItem.completed ? ++planItemsCompleted : planItemsCompleted, 0); 
-  };
+      planItem.completed ? ++planItemsCompleted : planItemsCompleted, 0);
+  }
 
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem

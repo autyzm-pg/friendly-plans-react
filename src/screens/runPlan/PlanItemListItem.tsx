@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 
 import { Card, StyledText } from 'components';
-import { Student, PlanItem } from 'models';
+import { PlanItem } from 'models';
 import { palette, typography } from 'styles';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
   currentTaskIndex: number;
 }
 
-export class PlanItemListItem extends React.PureComponent<Props> {  
+export class PlanItemListItem extends React.PureComponent<Props> {
   textContainer() {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
@@ -32,7 +32,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   getPlanItemDisplayName() {
-    return this.props.textCase == 'standardcase' 
+    return this.props.textCase == 'standardcase'
     ? this.props.planItem.name
     : this.props.planItem.name.toUpperCase()
   }
@@ -43,7 +43,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
       completed: true,
     });
   }
-  
+
   render() {
     return (
       <TouchableHighlight 
