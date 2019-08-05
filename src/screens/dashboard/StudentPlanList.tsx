@@ -36,7 +36,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   };
 
   componentWillUnmount() {
-    this.unsubscribeStudentPlans()
+    this.unsubscribeStudentPlans();
   }
 
   extractKey = (plan: Plan) => plan.id;

@@ -39,7 +39,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   };
 
   componentWillUnmount() {
-    this.unsubscribePlanItems()
+    this.unsubscribePlanItems();
   }
 
   deletePlanItem = (id: string) => {
