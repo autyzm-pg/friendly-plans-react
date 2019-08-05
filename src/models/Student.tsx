@@ -35,6 +35,9 @@ export class Student {
 
   getPlansRef = (): RNFirebase.firestore.CollectionReference =>
     getStudentPlansRef(this);
+
+  getStudentRef = (): RNFirebase.firestore.DocumentReference =>
+    getStudentRef(this);
 }
 
 // Private API below
@@ -79,3 +82,9 @@ const getStudentPlansRef = (
   getStudentsRef()
     .doc(student.id)
     .collection('plans');
+
+const getStudentRef = (
+  student: Student,
+): RNFirebase.firestore.DocumentReference =>
+   getStudentsRef()
+    .doc(student.id);
