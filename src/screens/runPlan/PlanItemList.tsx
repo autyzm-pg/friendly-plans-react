@@ -1,7 +1,7 @@
 import React from 'react';
 import { RNFirebase } from 'react-native-firebase';
 
-import { Student, Plan, PlanItem } from 'models';
+import { Plan, PlanItem, Student } from 'models';
 import { FlatList } from 'react-native';
 import { PlanItemListItem } from './PlanItemListItem';
 
@@ -46,7 +46,11 @@ export class PlanItemList extends React.PureComponent<Props, State> {
 
   handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
     if(documentSnapshot.exists){
-      this.setState({ student: documentSnapshot.data() });
+      const student = Object.assign(new Student(), {
+        id: documentSnapshot.id,
+        ...documentSnapshot.data(),
+      });
+      this.setState({ student });
     }
   }
 
@@ -56,19 +60,16 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   }
 
   completedPlanItemCounter() {
-    let countCompletedPlanItems = 0;
-    for (let planItem of this.state.planItems){
-      if(planItem.completed == true)
-        countCompletedPlanItems++;
-    }
-    return countCompletedPlanItems;
-  };
+    return this.state.planItems.reduce((planItemsCompleted, planItem) =>
+      planItem.completed ? ++planItemsCompleted : planItemsCompleted, 0);
+  }
 
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
       planItem={item}
       index={index}
-      student={this.state.student}
+      textSize={this.state.student.textSize}
+      textCase={this.state.student.textCase}
       currentTaskIndex={this.completedPlanItemCounter()}
     />
   );

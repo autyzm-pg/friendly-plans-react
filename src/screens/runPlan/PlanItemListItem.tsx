@@ -2,17 +2,18 @@ import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 
 import { Card, StyledText } from 'components';
-import { Student, PlanItem } from 'models';
+import { PlanItem } from 'models';
 import { palette, typography } from 'styles';
 
 interface Props {
   planItem: PlanItem;
   index: number;
-  student: Student;
+  textSize: string;
+  textCase: string;
   currentTaskIndex: number;
 }
 
-export class PlanItemListItem extends React.PureComponent<Props> {  
+export class PlanItemListItem extends React.PureComponent<Props> {
   textContainer() {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
@@ -22,7 +23,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   labelTextSize() {
-    switch(this.props.student.textSize){
+    switch(this.props.textSize){
       case 'xl': return styles.labelTextSizeXL;
       case 'l': return styles.labelTextSizeL;
       case 'm': return styles.labelTextSizeM;
@@ -30,19 +31,19 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     }
   }
 
-  textCase() {
-    return this.props.student.textCase == 'standardcase' 
+  getPlanItemDisplayName() {
+    return this.props.textCase == 'standardcase'
     ? this.props.planItem.name
     : this.props.planItem.name.toUpperCase()
   }
 
-  markItemPlanAsCompleted = () =>{
+  markItemPlanAsCompleted = () => {
     if(this.props.index == this.props.currentTaskIndex)
     this.props.planItem.update({
       completed: true,
     });
   }
-  
+
   render() {
     return (
       <TouchableHighlight 
@@ -50,7 +51,9 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
           <Card style={this.textContainer()} >
-            <StyledText style={[this.labelColor(), this.labelTextSize()]}>{this.textCase()}</StyledText>
+            <StyledText style={[this.labelColor(), this.labelTextSize()]}>
+                {this.getPlanItemDisplayName()}
+            </StyledText>
           </Card>
       </TouchableHighlight>
     );
