@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { RNFirebase } from 'react-native-firebase';
 
 import { IconButton, StyledText } from 'components';
 import { Plan, Student } from 'models';
@@ -12,18 +13,54 @@ interface Props extends NavigationInjectedProps {
 }
 
 export class StudentPlanListItem extends React.PureComponent<Props> {
+  studentRef: any;
+  unsubscribeStudent: any;
+
+  componentDidMount() {
+    this.studentRef = this.state.student.getStudentRef();
+    this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
+  }
+
+  handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
+    if(documentSnapshot.exists){
+      const student = Object.assign(new Student(), {
+        id: documentSnapshot.id,
+        ...documentSnapshot.data(),
+      });
+      this.setState({ student });
+    }
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeStudent();
+  }
+
   navigateToUpdatePlan = () => {
     this.props.navigation.navigate('UpdatePlan', {
       plan: this.props.plan,
       student: this.props.student,
     });
   };
+  state = {
+    student: this.props.student,
+  }
   
   navigateToRunPlan = () => {
-    this.props.navigation.navigate('RunPlan', {
-      plan: this.props.plan,
-      student: this.props.student,
-    });
+    switch(this.state.student.displaySettings) {
+      case 'largeImageSlide':
+      case 'imageWithTextSlide':
+      case 'textSlide':
+        this.props.navigation.navigate('RunPlanSlide', {
+          plan: this.props.plan,
+          student: this.state.student,
+        });
+        break;
+      default:
+        this.props.navigation.navigate('RunPlanList', {
+          plan: this.props.plan,
+          student: this.state.student,
+        });
+    }
   };
 
   render() {
