@@ -100,6 +100,10 @@ const translations = {
     textList: 'text - list',
     textSlide: 'text - slide',
   },
+  runPlan: {
+    next: 'Next',
+    wait: 'Wait...',
+  },
 };
 
 export default translations;

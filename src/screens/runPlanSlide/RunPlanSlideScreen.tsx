@@ -6,6 +6,7 @@ import { RNFirebase } from 'react-native-firebase';
 import { StyledText, Card, FlatButton } from 'components';
 import { palette, typography } from 'styles';
 import { Student, PlanItem } from 'models'
+import { i18n } from 'locale';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
@@ -81,14 +82,14 @@ export class RunPlanSlideScreen extends React.PureComponent<
                   textSize={this.state.student.textSize}
                   textCase={this.state.student.textCase}
                 />
-              </View> 
+              </View>
               <FlatButton
                 style={styles.button}
                 onPress={this.nextPage}
-                title={"Next page"} />   
+                title={i18n.t('runPlan:next')} />   
             </Card>
           </View>
-        : <StyledText>Wait</StyledText>
+        : <StyledText>{i18n.t('runPlan:wait')}</StyledText>
       );
     }
   }

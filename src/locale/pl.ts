@@ -25,6 +25,10 @@ const translations = {
     textSettingsUpperCase: 'WIELKIE LITERY',
     textSettingsStandardCase: 'Standardowe litery',
   },
+  runPlan: {
+    next: 'Dalej',
+    wait: 'Czekaj...',
+  },
 };
 
 export default translations;
