@@ -67,29 +67,44 @@ export class RunPlanSlideScreen extends React.PureComponent<
   
     nextPage = () => {
       if(this.state.pageNumber + 1 < this.state.planItems.length)
-        this.setState({ pageNumber: this.state.pageNumber + 1 });
+        this.setState(state => { 
+          return {
+            pageNumber: state.pageNumber + 1,
+          }});
+      }
+
+    renderPlan = () => {
+      return (
+        <View style={styles.container}>
+          <Card style={styles.slide} >
+            <View style={styles.planItem}>
+              <PlanSlideItem
+                planItem={this.state.planItems[this.state.pageNumber]}
+                index={this.state.pageNumber}
+                textSize={this.state.student.textSize}
+                textCase={this.state.student.textCase}
+              />
+            </View>
+            <FlatButton
+              style={styles.button}
+              onPress={this.nextPage}
+              title={i18n.t('runPlan:next')} />   
+          </Card>
+        </View>
+      )
+    }
+
+    renderLoader = () => {
+      return (
+        <StyledText>{i18n.t('runPlan:wait')}</StyledText>
+      )
     }
 
     render() {
       return (
         this.state.planItems.length
-        ? <View style={styles.container}>
-            <Card style={styles.slide} >
-              <View style={styles.planItem}>
-                <PlanSlideItem
-                  planItem={this.state.planItems[this.state.pageNumber]}
-                  index={this.state.pageNumber}
-                  textSize={this.state.student.textSize}
-                  textCase={this.state.student.textCase}
-                />
-              </View>
-              <FlatButton
-                style={styles.button}
-                onPress={this.nextPage}
-                title={i18n.t('runPlan:next')} />   
-            </Card>
-          </View>
-        : <StyledText>{i18n.t('runPlan:wait')}</StyledText>
+        ? this.renderPlan()
+        : this.renderLoader()
       );
     }
   }

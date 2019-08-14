@@ -12,9 +12,17 @@ interface Props extends NavigationInjectedProps {
   student: Student;
 }
 
+interface State {
+  student: Student;
+}
+
 export class StudentPlanListItem extends React.PureComponent<Props> {
   studentRef: any;
   unsubscribeStudent: any;
+
+  state = {
+    student: this.props.student,
+  }
 
   componentDidMount() {
     this.studentRef = this.state.student.getStudentRef();
@@ -41,9 +49,6 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
       student: this.props.student,
     });
   };
-  state = {
-    student: this.props.student,
-  }
   
   navigateToRunPlan = () => {
     switch(this.state.student.displaySettings) {
