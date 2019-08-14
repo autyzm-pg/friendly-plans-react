@@ -1,18 +1,17 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { StyledText } from 'components';
-import { PlanItem } from 'models';
-import { palette, typography } from 'styles';
+import { typography } from 'styles';
 
 interface Props {
-  planItem: PlanItem;
-  index: number;
+  planItemName: string;
   textSize: string;
   textCase: string;
+  textColor: any;
 }
 
-export class PlanSlideItem extends React.PureComponent<Props> {
+export class PlanItemName extends React.PureComponent<Props> {
   labelTextSize() {
     switch(this.props.textSize){
       case 'xl': return styles.labelTextSizeXL;
@@ -24,17 +23,15 @@ export class PlanSlideItem extends React.PureComponent<Props> {
 
   getPlanItemDisplayName() {
     return this.props.textCase == 'standardcase'
-    ? this.props.planItem.name
-    : this.props.planItem.name.toUpperCase()
+    ? this.props.planItemName
+    : this.props.planItemName.toUpperCase()
   }
 
   render() {
     return (
-          <View style={styles.container} >
-            <StyledText style={this.labelTextSize()}>
-                {this.getPlanItemDisplayName()}
-            </StyledText>
-          </View>
+      <StyledText style={[this.props.textColor, this.labelTextSize()]}>
+          {this.getPlanItemDisplayName()}
+      </StyledText>
     );
   }
 }
@@ -52,12 +49,5 @@ const styles = StyleSheet.create({
   },
   labelTextSizeXL: {
     ...typography.headline3,
-  },
-  container: {
-    backgroundColor: palette.background,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    margin: 0,
   },
 });

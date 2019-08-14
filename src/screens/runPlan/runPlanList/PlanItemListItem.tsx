@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 
-import { Card, StyledText } from 'components';
+import { Card } from 'components';
 import { PlanItem } from 'models';
-import { palette, typography } from 'styles';
+import { palette } from 'styles';
+import { PlanItemName } from '../PlanItemName';
 
 interface Props {
   planItem: PlanItem;
@@ -18,23 +19,8 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
 
-  labelColor() {
-    return this.props.planItem.completed ? styles.labelColorCompleted : styles.labelColor;
-  }
-
-  labelTextSize() {
-    switch(this.props.textSize){
-      case 'xl': return styles.labelTextSizeXL;
-      case 'l': return styles.labelTextSizeL;
-      case 'm': return styles.labelTextSizeM;
-      default: return styles.labelTextSizeS;
-    }
-  }
-
-  getPlanItemDisplayName() {
-    return this.props.textCase == 'standardcase'
-    ? this.props.planItem.name
-    : this.props.planItem.name.toUpperCase()
+  nameTextColor() {
+    return this.props.planItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
   markItemPlanAsCompleted = () => {
@@ -50,10 +36,12 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
-          <Card style={this.textContainer()} >
-            <StyledText style={[this.labelColor(), this.labelTextSize()]}>
-                {this.getPlanItemDisplayName()}
-            </StyledText>
+          <Card style={[this.nameTextColor(), this.textContainer()]} >
+          <PlanItemName 
+              planItemName={this.props.planItem.name}
+              textCase={this.props.textCase}
+              textSize={this.props.textSize}
+              textColor={this.nameTextColor()} />
           </Card>
       </TouchableHighlight>
     );
@@ -65,23 +53,11 @@ const styles = StyleSheet.create({
     margin: 8,
     borderRadius: 8,
   },
-  labelColor: {
+  nameTextColor: {
     color: palette.textBlack,
   },
-  labelColorCompleted: {
+  nameTextColorCompleted: {
     color: palette.textWhite,
-  },
-  labelTextSizeS: {
-    ...typography.headline6,
-  },
-  labelTextSizeM: {
-    ...typography.headline5,
-  },
-  labelTextSizeL: {
-    ...typography.headline4,
-  },
-  labelTextSizeXL: {
-    ...typography.headline3,
   },
   textContainer: {
     backgroundColor: palette.background,
