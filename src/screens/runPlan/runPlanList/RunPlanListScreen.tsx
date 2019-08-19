@@ -2,11 +2,11 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FullScreenTemplate, StyledText } from 'components';
+import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
 import { PlanItemList } from './PlanItemList';
 
-export class RunPlanScreen extends React.PureComponent<
+export class RunPlanListScreen extends React.PureComponent<
   NavigationInjectedProps
 > {
   static navigationOptions = {
