@@ -5,9 +5,9 @@ import { Icon } from 'components';
 
 import {
   DashboardScreen,
-  StudentSettingsScreen,
   RunPlanListScreen,
   RunPlanSlideScreen,
+  StudentSettingsScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
 } from 'screens';

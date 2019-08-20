@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Button, Card, StyledText } from 'components';
+import { Button, StyledText } from 'components';
 import { i18n } from 'locale';
 import { palette, typography } from 'styles';
+import {Student} from '../../models';
 
 interface Props {
   student: Student;
@@ -13,14 +14,14 @@ interface State {
   textSize?: string;
 }
 
-export class StudentTextSizeSettings extends React.PureComponent {
-  constructor(props: any) {
-    super();
+export class StudentTextSizeSettings extends React.PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props);
     this.state = {
       textSize: props.student.textSize,
     };
   }
-  setSize = size => {
+  setSize = (size: string) => {
     this.props.student.update({
       textSize: size,
     });
@@ -53,7 +54,6 @@ export class StudentTextSizeSettings extends React.PureComponent {
             title={i18n.t('studentSettings:textSettingsSizeS')}
             containerStyle={styles.button}
             backgroundColor={textSize === 's' ? 'blue' : 'white'}
-            titleColor={textSize === 's' ? 'white' : 'blue'}
             type="outline"
           />
           <Button
@@ -61,7 +61,6 @@ export class StudentTextSizeSettings extends React.PureComponent {
             title={i18n.t('studentSettings:textSettingsSizeM')}
             containerStyle={styles.button}
             backgroundColor={textSize === 'm' ? 'blue' : 'white'}
-            titleColor={textSize === 'm' ? 'white' : 'blue'}
             type="outline"
           />
           <Button
@@ -69,7 +68,6 @@ export class StudentTextSizeSettings extends React.PureComponent {
             title={i18n.t('studentSettings:textSettingsSizeL')}
             containerStyle={styles.button}
             backgroundColor={textSize === 'l' ? 'blue' : 'white'}
-            titleColor={textSize === 'l' ? 'white' : 'blue'}
             type="outline"
           />
           <Button
@@ -77,7 +75,6 @@ export class StudentTextSizeSettings extends React.PureComponent {
             title={i18n.t('studentSettings:textSettingsSizeXL')}
             containerStyle={styles.button}
             backgroundColor={textSize === 'xl' ? 'blue' : 'white'}
-            titleColor={textSize === 'xl' ? 'white' : 'blue'}
             type="outline"
           />
         </View>

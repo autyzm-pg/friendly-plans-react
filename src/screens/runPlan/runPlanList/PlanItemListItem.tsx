@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
 import { PlanItem } from 'models';
-import { palette } from 'styles';
+import {palette, typography} from 'styles';
 import { PlanItemName } from '../PlanItemName';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-  textContainer() {
+  textContainer(): ViewStyle {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
 
@@ -24,11 +24,12 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   markItemPlanAsCompleted = () => {
-    if(this.props.index == this.props.currentTaskIndex)
+    if (this.props.index === this.props.currentTaskIndex) {
     this.props.planItem.update({
       completed: true,
     });
-  }
+    }
+  };
 
   render() {
     return (
@@ -55,22 +56,18 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
+      flex: 1,
+      alignItems: 'center',
   },
   nameTextColorCompleted: {
-    color: palette.textWhite,
+      color: palette.textWhite,
+      flex: 1,
+      alignItems: 'center',
   },
   textContainer: {
     backgroundColor: palette.background,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    margin: 0,
   },
   textContainerCompleted: {
     backgroundColor: palette.primaryDark,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    margin: 0,
   },
 });

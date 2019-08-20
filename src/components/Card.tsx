@@ -1,11 +1,11 @@
 import React from 'react';
-import { RegisteredStyle, StyleSheet, View, ViewStyle } from 'react-native';
+import {RegisteredStyle, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 
 import { palette } from 'styles';
 
 interface Props {
   children?: JSX.Element | JSX.Element[];
-  style?: RegisteredStyle<ViewStyle> | ViewStyle;
+  style?: RegisteredStyle<ViewStyle> | ViewStyle | StyleProp<ViewStyle>;
 }
 
 export class Card extends React.PureComponent<Props> {
