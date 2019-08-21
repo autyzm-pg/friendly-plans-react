@@ -10,3 +10,4 @@ export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';
 export { StudentSettingsScreen } from './studentSettings/StudentSettingsScreen';
 export { RunPlanListScreen } from './runPlan/runPlanList/RunPlanListScreen';
 export { RunPlanSlideScreen } from './runPlan/runPlanSlide/RunPlanSlideScreen';
+export { UpdatePlanSubItemScreen } from './updatePlanItem/UpdatePlanSubItemScreen';
