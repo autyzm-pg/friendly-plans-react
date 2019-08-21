@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
-      flex: 1,
-      alignItems: 'center',
+    flex: 1,
+    alignItems: 'center',
   },
   nameTextColorCompleted: {
-      color: palette.textWhite,
-      flex: 1,
-      alignItems: 'center',
+    color: palette.textWhite,
+    flex: 1,
+    alignItems: 'center',
   },
   textContainer: {
     backgroundColor: palette.background,
