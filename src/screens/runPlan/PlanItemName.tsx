@@ -29,7 +29,7 @@ export class PlanItemName extends React.PureComponent<Props> {
 
   render() {
     return (
-      <StyledText style={[this.props.textColor, this.labelTextSize()]}>
+      <StyledText style={[styles.textFlex, this.props.textColor, this.labelTextSize()]}>
           {this.getPlanItemDisplayName()}
       </StyledText>
     );
@@ -37,7 +37,9 @@ export class PlanItemName extends React.PureComponent<Props> {
 }
 
 const styles = StyleSheet.create({
-
+  textFlex: {
+    flex: 1,
+  },
   labelTextSizeS: {
     ...typography.headline6,
   },

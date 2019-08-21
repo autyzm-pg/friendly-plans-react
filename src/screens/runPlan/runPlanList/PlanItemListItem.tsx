@@ -5,6 +5,7 @@ import { Card } from 'components';
 import { PlanItem } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
   planItem: PlanItem;
@@ -37,11 +38,12 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
           <Card style={[this.nameTextColor(), this.textContainer()]} >
-          <PlanItemName 
-              planItemName={this.props.planItem.name}
-              textCase={this.props.textCase}
-              textSize={this.props.textSize}
-              textColor={this.nameTextColor()} />
+            <PlanItemName 
+                planItemName={this.props.planItem.name}
+                textCase={this.props.textCase}
+                textSize={this.props.textSize}
+                textColor={this.nameTextColor()} />
+            {this.props.planItem.time!! && <PlanItemTimer itemTime={(this.props.planItem.time!!)} />}
           </Card>
       </TouchableHighlight>
     );
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
   touchable: {
     margin: 8,
     borderRadius: 8,
+    flex: 1,
   },
   nameTextColor: {
     color: palette.textBlack,
@@ -61,9 +64,10 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     backgroundColor: palette.background,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
+    alignContent: 'space-between',
     margin: 0,
   },
   textContainerCompleted: {

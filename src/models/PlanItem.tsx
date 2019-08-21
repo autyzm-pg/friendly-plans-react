@@ -15,6 +15,7 @@ export class PlanItem {
   planId!: string;
   studentId!: string;
   completed!: boolean;
+  time!: number;
 
   update = (changes: object): Promise<void> => this.getPlanItemRef().update(changes);
 
