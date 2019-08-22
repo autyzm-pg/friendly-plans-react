@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps } from 'react-navigation';
 import { RNFirebase } from 'react-native-firebase';
+import { NavigationInjectedProps } from 'react-navigation';
 
-import { StyledText, Card, FlatButton } from 'components';
-import { palette, typography } from 'styles';
-import { Student, PlanItem } from 'models'
+import { Card, FlatButton, StyledText } from 'components';
 import { i18n } from 'locale';
+import { PlanItem, Student } from 'models';
+import { palette, typography } from 'styles';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
@@ -16,15 +16,16 @@ interface State {
 }
 
 export class RunPlanSlideScreen extends React.PureComponent<
-  NavigationInjectedProps> {
+  NavigationInjectedProps, State> {
+    static navigationOptions = {
+      header: null,
+    };
+
     planItemsRef: any;
     unsubscribePlanItems: any;
     studentRef: any;
     unsubscribeStudent: any;
-    static navigationOptions = {
-      header: null,
-    };
-    state = {
+    state: Readonly<State> = {
       planItems: [],
       pageNumber: 0,
       student: this.props.navigation.getParam('student'),
@@ -66,12 +67,10 @@ export class RunPlanSlideScreen extends React.PureComponent<
     }
   
     nextPage = () => {
-      if(this.state.pageNumber + 1 < this.state.planItems.length)
-        this.setState(state => { 
-          return {
-            pageNumber: state.pageNumber + 1,
-          }});
+      if (this.state.pageNumber + 1 < this.state.planItems.length) {
+          this.setState(state => ({pageNumber: state.pageNumber + 1}));
       }
+    };
 
     renderPlan = () => {
       return (
@@ -91,14 +90,14 @@ export class RunPlanSlideScreen extends React.PureComponent<
               title={i18n.t('runPlan:next')} />   
           </Card>
         </View>
-      )
-    }
+      );
+    };
 
     renderLoader = () => {
       return (
         <StyledText>{i18n.t('runPlan:wait')}</StyledText>
-      )
-    }
+      );
+    };
 
     render() {
       return (

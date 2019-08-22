@@ -22,9 +22,7 @@ export class PlanItemName extends React.PureComponent<Props> {
   }
 
   getPlanItemDisplayName() {
-    return this.props.textCase == 'standardcase'
-    ? this.props.planItemName
-    : this.props.planItemName.toUpperCase()
+    return this.props.textCase === 'standardcase' ? this.props.planItemName : this.props.planItemName.toUpperCase();
   }
 
   render() {

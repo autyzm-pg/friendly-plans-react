@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { RNFirebase } from 'react-native-firebase';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { IconButton, StyledText } from 'components';
 import { Plan, Student } from 'models';
@@ -16,13 +16,13 @@ interface State {
   student: Student;
 }
 
-export class StudentPlanListItem extends React.PureComponent<Props> {
+export class StudentPlanListItem extends React.PureComponent<Props, State> {
   studentRef: any;
   unsubscribeStudent: any;
 
-  state = {
+  state: Readonly<State> = {
     student: this.props.student,
-  }
+  };
 
   componentDidMount() {
     this.studentRef = this.state.student.getStudentRef();
@@ -37,7 +37,7 @@ export class StudentPlanListItem extends React.PureComponent<Props> {
       });
       this.setState({ student });
     }
-  }
+  };
 
   componentWillUnmount() {
     this.unsubscribeStudent();
