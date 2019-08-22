@@ -9,8 +9,6 @@ interface Props {
 
 interface State {
   itemTime: number;
-  seconds: string;
-  minutes: string;
 }
 
 export class PlanItemTimer extends React.PureComponent<Props, State>  {
@@ -18,8 +16,6 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
 
   state: Readonly<State> = {
     itemTime: this.props.itemTime,
-    seconds: ((this.props.itemTime % 60 < 10) ? '0' : '') + (this.props.itemTime % 60),
-    minutes: (this.props.itemTime / 60).toFixed(),
   };
 
   componentDidMount() {
@@ -34,19 +30,14 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
   }
 
   tick = () => {
-    (this.state.itemTime <= 0) ? clearInterval(this.timerID) : this.updateState();
+    (this.state.itemTime <= 0) ? clearInterval(this.timerID) : this.setState((state)=>({itemTime: state.itemTime - 1}));
   }
 
-  updateState = () => {
-    this.setState((state)=>({itemTime: state.itemTime - 1}));
-    this.setState((state)=>({
-      seconds: ((state.itemTime % 60 < 10) ? '0' : '') + (state.itemTime % 60),
-      minutes: (state.itemTime / 60).toFixed(),
-    }));
-  }
+  seconds = () => {return ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60)};
+  minutes = () => {return (this.state.itemTime / 60).toFixed()};
 
   itemTimeText = () => {
-    return this.state.minutes + ':' + this.state.seconds;
+    return this.minutes() + ':' + this.seconds();
   }
 
   render() {
