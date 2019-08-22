@@ -36,7 +36,7 @@ export class PlanItemName extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   textFlex: {
-    flex: 1,
+    flex: 5,
   },
   labelTextSizeS: {
     ...typography.headline6,

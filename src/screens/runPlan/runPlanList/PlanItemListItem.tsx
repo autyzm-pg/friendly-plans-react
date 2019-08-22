@@ -62,23 +62,22 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
-    flex: 1,
-    alignItems: 'center',
   },
   nameTextColorCompleted: {
     color: palette.textWhite,
-    flex: 1,
-    alignItems: 'center',
   },
   container: {
     backgroundColor: palette.background,
-    flex: 1,
+    flex: 6,
     flexDirection: 'row',
-    alignItems: 'center',
     alignContent: 'space-between',
     margin: 0,
   },
   containerCompleted: {
     backgroundColor: palette.primaryDark,
+    flex: 6,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+    margin: 0,
   },
 });

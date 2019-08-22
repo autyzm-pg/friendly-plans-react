@@ -51,7 +51,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
 
   render() {
     return (
-      <View>
+      <View style={styles.timeContainer}>
         <Icon name="timer" size={64} />
         <StyledText style={styles.timeText}>{this.itemTimeText()}</StyledText>
       </View>
@@ -60,6 +60,10 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
 }
 
 const styles = StyleSheet.create({
+  timeContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
   timeText: {
     fontSize: 32,
   },
