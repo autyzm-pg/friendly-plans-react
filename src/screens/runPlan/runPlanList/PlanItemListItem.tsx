@@ -16,8 +16,8 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-  textContainer() {
-    return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
+  container() {
+    return this.props.planItem.completed ? styles.containerCompleted : styles.container;
   }
 
   nameTextColor() {
@@ -37,13 +37,15 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
-          <Card style={[this.nameTextColor(), this.textContainer()]} >
+          <Card style={[this.nameTextColor(), this.container()]} >
             <PlanItemName 
                 planItemName={this.props.planItem.name}
                 textCase={this.props.textCase}
                 textSize={this.props.textSize}
                 textColor={this.nameTextColor()} />
-            {this.props.planItem.time!! && <PlanItemTimer itemTime={(this.props.planItem.time!!)} />}
+            {this.props.planItem.time!! 
+              && this.props.index === this.props.currentTaskIndex
+              && <PlanItemTimer itemTime={this.props.planItem.time!!} />}
           </Card>
       </TouchableHighlight>
     );
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
   nameTextColorCompleted: {
     color: palette.textWhite,
   },
-  textContainer: {
+  container: {
     backgroundColor: palette.background,
     flex: 1,
     flexDirection: 'row',
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
     alignContent: 'space-between',
     margin: 0,
   },
-  textContainerCompleted: {
+  containerCompleted: {
     backgroundColor: palette.primaryDark,
     flexDirection: 'row',
     alignItems: 'center',

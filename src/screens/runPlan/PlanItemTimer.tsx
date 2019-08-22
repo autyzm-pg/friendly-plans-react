@@ -7,18 +7,51 @@ interface Props {
   itemTime: number;
 }
 
-export class PlanItemTimer extends React.PureComponent<Props> {
+interface State {
+  itemTime: number;
+  seconds: string;
+  minutes: string;
+}
 
-  state = {
+export class PlanItemTimer extends React.PureComponent<Props, State>  {
+  timerID: any;
+
+  state: Readonly<State> = {
     itemTime: this.props.itemTime,
+    seconds: ((this.props.itemTime % 60 < 10) ? '0' : '') + (this.props.itemTime % 60),
+    minutes: (this.props.itemTime / 60).toFixed(),
+  };
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
   }
-  itemTimeText(){
-    return ((this.state.itemTime / 60).toFixed()) + ':' + (this.state.itemTime % 60);
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick = () => {
+    (this.state.itemTime <= 0) ? clearInterval(this.timerID) : this.updateState();
+  }
+
+  updateState = () => {
+    this.setState((state)=>({itemTime: state.itemTime - 1}));
+    this.setState((state)=>({
+      seconds: ((state.itemTime % 60 < 10) ? '0' : '') + (state.itemTime % 60),
+      minutes: (state.itemTime / 60).toFixed(),
+    }));
+  }
+
+  itemTimeText = () => {
+    return this.state.minutes + ':' + this.state.seconds;
   }
 
   render() {
     return (
-      <View style={styles.icon}>
+      <View>
         <Icon name="timer" size={64} />
         <StyledText style={styles.timeText}>{this.itemTimeText()}</StyledText>
       </View>
@@ -29,7 +62,5 @@ export class PlanItemTimer extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   timeText: {
     fontSize: 32,
-  },
-  icon: {
   },
 });
