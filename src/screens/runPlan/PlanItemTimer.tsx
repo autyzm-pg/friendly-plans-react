@@ -15,14 +15,17 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
   timerID: any;
 
   state: Readonly<State> = {
-    itemTime: this.props.itemTime,
+    itemTime: this.props.itemTime
   };
 
+  componentWillReceiveProps(nextProps: Props) {
+    clearInterval(this.timerID);
+    this.setState({itemTime: nextProps.itemTime})
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
