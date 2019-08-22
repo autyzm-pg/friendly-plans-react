@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
 import { PlanItem } from 'models';
-import { palette } from 'styles';
+import {palette, typography} from 'styles';
 import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
 
@@ -16,6 +16,7 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
+
   container() {
     return this.props.planItem.completed ? styles.containerCompleted : styles.container;
   }
@@ -25,11 +26,12 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   markItemPlanAsCompleted = () => {
-    if(this.props.index == this.props.currentTaskIndex)
+    if (this.props.index === this.props.currentTaskIndex) {
     this.props.planItem.update({
       completed: true,
     });
-  }
+    }
+  };
 
   render() {
     return (
@@ -60,9 +62,13 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
+    flex: 1,
+    alignItems: 'center',
   },
   nameTextColorCompleted: {
     color: palette.textWhite,
+    flex: 1,
+    alignItems: 'center',
   },
   container: {
     backgroundColor: palette.background,
@@ -74,9 +80,5 @@ const styles = StyleSheet.create({
   },
   containerCompleted: {
     backgroundColor: palette.primaryDark,
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    margin: 0,
   },
 });
