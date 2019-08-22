@@ -116,6 +116,6 @@ const styles = StyleSheet.create({
   },
   buttonCard: {
     flexDirection: 'row',
-      backgroundColor: 'blue'
+    backgroundColor: 'blue'
   },
 });
