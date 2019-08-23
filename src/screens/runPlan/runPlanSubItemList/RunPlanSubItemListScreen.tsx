@@ -4,9 +4,9 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
-import { PlanSubItemsList } from './PlanItemList';
+import { RunPlanSubItemList } from './RunPlanSubItemList';
 
-export class RunPlanSubItemsListScreen extends React.PureComponent<
+export class RunPlanSubItemListScreen extends React.PureComponent<
   NavigationInjectedProps
 > {
   static navigationOptions = {
@@ -15,14 +15,16 @@ export class RunPlanSubItemsListScreen extends React.PureComponent<
 
   render() {
     const planItem = this.props.navigation.getParam('planItem');
-    const student = this.props.navigation.getParam('student');
+    const textSize = this.props.navigation.getParam('textSize');
+    const textCase = this.props.navigation.getParam('textCase');
 
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-          {/* <PlanSubItemsList 
-            student={student}
-            planItem={planItem} /> */}
+          <RunPlanSubItemList 
+            planItem={planItem}
+            textSize={textSize}
+            textCase={textCase} />
         </FullScreenTemplate>
       </View>
     );

@@ -1,13 +1,14 @@
 import React from 'react';
 import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
-import { NavigationService } from '../../../services';
 import { Card } from 'components';
-import { PlanItem } from 'models';
+import { PlanSubItem } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { PlanItem } from '../../../models/PlanItem';
 
 interface Props {
+  subItem: PlanSubItem;
   planItem: PlanItem;
   index: number;
   textSize: string;
@@ -15,37 +16,23 @@ interface Props {
   currentTaskIndex: number;
 }
 
-export class PlanItemListItem extends React.PureComponent<Props> {
+export class RunPlanSubItemListItem extends React.PureComponent<Props> {
   textContainer(): ViewStyle {
-    return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
+    return this.props.subItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
 
   nameTextColor(): ViewStyle {
-    return this.props.planItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
+    return this.props.subItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-      this.props.planItem.update({
-        completed: true,
-    });
+      this.props.planItem.updatePlanSubItem(this.props.subItem.id,{completed: true,});
     }
-  }
-
-  navigateToRunPlanSubItemsList= () => {
-    NavigationService.navigate('RunPlanSubItemList', {
-      planItem: this.props.planItem,
-      textSize: this.props.textSize,
-      textCase: this.props.textCase,
-    });
   }
 
   handlePress = () => {
-    if (this.props.planItem.type === 'complexTask') {
-      return this.navigateToRunPlanSubItemsList;
-    } else {
-      return this.markItemPlanAsCompleted;
-    }
+    return this.markItemPlanAsCompleted;
   }
 
   render() {
@@ -56,7 +43,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         onPress={this.handlePress()} >
           <Card style={[this.nameTextColor(), this.textContainer()]} >
           <PlanItemName 
-              planItemName={this.props.planItem.name}
+              planItemName={this.props.subItem.name}
               textCase={this.props.textCase}
               textSize={this.props.textSize}
               textColor={this.nameTextColor()} />
@@ -73,13 +60,13 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
-    flex: 1,
-    alignItems: 'center',
+      flex: 1,
+      alignItems: 'center',
   },
   nameTextColorCompleted: {
-    color: palette.textWhite,
-    flex: 1,
-    alignItems: 'center',
+      color: palette.textWhite,
+      flex: 1,
+      alignItems: 'center',
   },
   textContainer: {
     backgroundColor: palette.background,
