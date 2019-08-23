@@ -3,45 +3,46 @@ import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
 import { NavigationService } from '../../../services';
 import { Card } from 'components';
-import { PlanItem } from 'models';
+import { Plan, PlanItem, PlanSubItem, Student } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
 
 interface Props {
-  planItem: PlanItem;
+  student: Student;
+  itemParent: PlanItem | Plan;
+  item: PlanItem | PlanSubItem;
   index: number;
-  textSize: string;
-  textCase: string;
   currentTaskIndex: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
   textContainer(): ViewStyle {
-    return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
+    return this.props.item.completed ? styles.textContainerCompleted : styles.textContainer;
   }
 
   nameTextColor(): ViewStyle {
-    return this.props.planItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
+    return this.props.item.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-      this.props.planItem.update({
-        completed: true,
-    });
+      if(this.props.item instanceof PlanItem) {
+        this.props.item.update({completed: true,});
+      } else {
+        this.props.item.updatePlanSubItem(this.props.itemParent.id,{completed: true,});
+      }
     }
   }
 
   navigateToRunPlanSubItemsList= () => {
-    NavigationService.navigate('RunPlanSubItemList', {
-      planItem: this.props.planItem,
-      textSize: this.props.textSize,
-      textCase: this.props.textCase,
+    NavigationService.navigate('RunPlanList', {
+      plan: this.props.item,
+      student: this.props.student,
     });
   }
 
   handlePress = () => {
-    if (this.props.planItem.type === 'complexTask') {
+    if (this.props.item.type === 'complexTask' && this.props.item instanceof PlanItem) {
       return this.navigateToRunPlanSubItemsList;
     } else {
       return this.markItemPlanAsCompleted;
@@ -56,9 +57,9 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         onPress={this.handlePress()} >
           <Card style={[this.nameTextColor(), this.textContainer()]} >
           <PlanItemName 
-              planItemName={this.props.planItem.name}
-              textCase={this.props.textCase}
-              textSize={this.props.textSize}
+              planItemName={this.props.item.name}
+              textCase={this.props.student.textCase}
+              textSize={this.props.student.textSize}
               textColor={this.nameTextColor()} />
           </Card>
       </TouchableHighlight>
