@@ -6,6 +6,7 @@ import { Card } from 'components';
 import { Plan, PlanItem, PlanSubItem, Student } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { Function } from '@babel/types';
 
 interface Props {
   student: Student;
@@ -36,8 +37,9 @@ export class PlanItemListItem extends React.PureComponent<Props> {
 
   navigateToRunPlanSubItemsList= () => {
     NavigationService.navigate('RunSubPlanList', {
-      plan: this.props.item,
+      itemParent: this.props.item,
       student: this.props.student,
+      onGoBack: () => this.props.item.update({completed: true,}),
     });
   }
 

@@ -13,7 +13,7 @@ export class RunPlanListScreen extends React.PureComponent<
   };
 
   render() {
-    const plan = this.props.navigation.getParam('plan');
+    const itemParent = this.props.navigation.getParam('itemParent');
     const student = this.props.navigation.getParam('student');
 
     return (
@@ -21,7 +21,7 @@ export class RunPlanListScreen extends React.PureComponent<
         <FullScreenTemplate padded darkBackground>
           <PlanItemList 
             student={student}
-            parentItem={plan} />
+            itemParent={itemParent} />
         </FullScreenTemplate>
       </View>
     );
