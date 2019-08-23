@@ -1,9 +1,10 @@
 import React from 'react';
 import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
+import { NavigationService } from '../../../services';
 import { Card } from 'components';
 import { PlanItem } from 'models';
-import {palette, typography} from 'styles';
+import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
 
 interface Props {
@@ -19,24 +20,38 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }
 
-  nameTextColor() {
+  nameTextColor(): ViewStyle {
     return this.props.planItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-    this.props.planItem.update({
-      completed: true,
+      this.props.planItem.update({
+        completed: true,
     });
     }
-  };
+  }
+
+  navigateToRunPlanSubItemsList= () => {
+    NavigationService.navigate('RunPlanSubItemsList', {
+      planItem: this.props.planItem,
+    });
+  }
+
+  handlePress = () => {
+    if (this.props.planItem.type === 'complexTask') {
+      return this.navigateToRunPlanSubItemsList;
+    } else {
+      return this.markItemPlanAsCompleted;
+    }
+  }
 
   render() {
     return (
       <TouchableHighlight 
         underlayColor={palette.underlay}
         style={styles.touchable}
-        onPress={this.markItemPlanAsCompleted} >
+        onPress={this.handlePress()} >
           <Card style={[this.nameTextColor(), this.textContainer()]} >
           <PlanItemName 
               planItemName={this.props.planItem.name}
