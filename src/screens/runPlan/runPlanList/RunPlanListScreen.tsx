@@ -7,8 +7,7 @@ import { palette } from 'styles';
 import { PlanItemList } from './PlanItemList';
 
 export class RunPlanListScreen extends React.PureComponent<
-  NavigationInjectedProps
-> {
+  NavigationInjectedProps> {
   static navigationOptions = {
     header: null,
   };

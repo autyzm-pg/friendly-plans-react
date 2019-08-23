@@ -2,10 +2,9 @@ import React from 'react';
 import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
-import { PlanSubItem } from 'models';
+import { PlanSubItem, PlanItem } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
-import { PlanItem } from '../../../models/PlanItem';
 
 interface Props {
   subItem: PlanSubItem;
@@ -16,7 +15,7 @@ interface Props {
   currentTaskIndex: number;
 }
 
-export class RunPlanSubItemListItem extends React.PureComponent<Props> {
+export class PlanSubItemListItem extends React.PureComponent<Props> {
   textContainer(): ViewStyle {
     return this.props.subItem.completed ? styles.textContainerCompleted : styles.textContainer;
   }

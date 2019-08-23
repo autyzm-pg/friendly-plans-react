@@ -3,7 +3,7 @@ import { RNFirebase } from 'react-native-firebase';
 
 import { PlanItem, PlanSubItem } from 'models';
 import { FlatList } from 'react-native';
-import { RunPlanSubItemListItem as RunPlanSubItemListItem } from './RunPlanSubItemListItem';
+import { PlanSubItemListItem } from './PlanSubItemListItem';
 
 interface Props {
   planItem: PlanItem;
@@ -15,7 +15,7 @@ interface State {
   subItems: PlanSubItem[];
 }
 
-export class RunPlanSubItemList extends React.PureComponent<Props, State> {
+export class PlanSubItemList extends React.PureComponent<Props, State> {
   subItemsRef: any;
   unsubscribeSubItems: any;
 
@@ -50,7 +50,7 @@ export class RunPlanSubItemList extends React.PureComponent<Props, State> {
   }
 
   renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => (
-    <RunPlanSubItemListItem
+    <PlanSubItemListItem
       subItem={item}
       planItem={this.props.planItem}
       index={index}
