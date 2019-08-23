@@ -29,13 +29,13 @@ export class PlanItemListItem extends React.PureComponent<Props> {
       if(this.props.item instanceof PlanItem) {
         this.props.item.update({completed: true,});
       } else {
-        this.props.item.updatePlanSubItem(this.props.itemParent.id,{completed: true,});
+        this.props.itemParent.updatePlanSubItem(this.props.item.id,{completed: true,});
       }
     }
   }
 
   navigateToRunPlanSubItemsList= () => {
-    NavigationService.navigate('RunPlanList', {
+    NavigationService.navigate('RunSubPlanList', {
       plan: this.props.item,
       student: this.props.student,
     });

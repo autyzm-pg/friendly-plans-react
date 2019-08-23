@@ -9,6 +9,6 @@ export { DashboardScreen } from './dashboard/DashboardScreen';
 export { UpdatePlanScreen } from './updatePlan/UpdatePlanScreen';
 export { StudentSettingsScreen } from './studentSettings/StudentSettingsScreen';
 export { RunPlanListScreen } from './runPlan/runPlanList/RunPlanListScreen';
-export { RunPlanSubItemListScreen } from './runPlan/runPlanSubItemList/RunPlanSubItemListScreen';
+export { RunSubPlanListScreen } from './runPlan/runPlanList/RunSubPlanListScreen';
 export { RunPlanSlideScreen } from './runPlan/runPlanSlide/RunPlanSlideScreen';
 export { UpdatePlanSubItemScreen } from './updatePlanItem/UpdatePlanSubItemScreen';

@@ -7,7 +7,7 @@ import {
   DashboardScreen,
   RunPlanListScreen,
   RunPlanSlideScreen,
-  RunPlanSubItemListScreen,
+  RunSubPlanListScreen,
   StudentSettingsScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
@@ -23,7 +23,7 @@ export const MainStackNavigator = createStackNavigator(
     UpdatePlan: UpdatePlanScreen,
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
-    RunPlanSubItemList: RunPlanSubItemListScreen,
+    RunSubPlanList: RunSubPlanListScreen,
     StudentSettings: StudentSettingsScreen,
   },
   {
