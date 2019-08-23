@@ -18,6 +18,13 @@ const translations = {
     signOutDialogTitle: 'Wyloguj się',
     signOutDialogDescription: 'Czy na pewno chcesz się wylogować?',
   },
+  updatePlanItem: {
+    planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
+    taskComplexity: 'Proste/Złożone',
+    simpleTask: 'S',
+    complexTask: 'C',
+    addSubPlanItem: 'Dodaj'
+  },
   studentSettings: {
     screenTitle: '{{studentName}} - Ustawienia wyświetlania',
     textCaseSettings: 'Tekst',

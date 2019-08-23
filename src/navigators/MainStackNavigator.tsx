@@ -10,6 +10,7 @@ import {
   StudentSettingsScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
+  UpdatePlanSubItemScreen
 } from 'screens';
 import { headerStyle, palette } from 'styles';
 
@@ -17,6 +18,7 @@ export const MainStackNavigator = createStackNavigator(
   {
     Dashboard: DashboardScreen,
     UpdatePlanItem: UpdatePlanItemScreen,
+    UpdatePlanSubItem: UpdatePlanSubItemScreen,
     UpdatePlan: UpdatePlanScreen,
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,

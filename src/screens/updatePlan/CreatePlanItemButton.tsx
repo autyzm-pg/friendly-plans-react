@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 import { Card, FlatButton } from 'components';
 import { i18n } from 'locale';
 import { Plan, PlanItemType } from 'models';
-import { NavigationService } from 'services';
 import { palette } from 'styles';
 
 interface Props {
@@ -45,7 +44,7 @@ export class CreatePlanItemButton extends React.PureComponent<Props> {
           }}
           title={i18n.t('updatePlan:addTask')}
           containerStyle={styles.buttonContainer}
-          onPress={() => plan.createPlanItem(PlanItemType.Task)}
+          onPress={() => plan.createPlanItem(PlanItemType.SimpleTask)}
         />
       </Card>
     );

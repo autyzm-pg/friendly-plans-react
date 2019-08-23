@@ -59,7 +59,7 @@ export class RunPlanSlideScreen extends React.PureComponent<
         });
         this.setState({ student });
       }
-    }
+    };
   
     componentWillUnmount() {
       this.unsubscribePlanItems();
