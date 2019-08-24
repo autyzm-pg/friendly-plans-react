@@ -20,7 +20,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   unsubscribePlanItems: any;
   studentRef: any;
   unsubscribeStudent: any;
-  state = {
+  state: Readonly<State> = {
     planItems: [],
     student: this.props.student,
   };

@@ -5,10 +5,12 @@ import { Icon } from 'components';
 
 import {
   DashboardScreen,
+  RunPlanListScreen,
+  RunPlanSlideScreen,
   StudentSettingsScreen,
-  RunPlanScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
+  UpdatePlanSubItemScreen
 } from 'screens';
 import { headerStyle, palette } from 'styles';
 
@@ -16,8 +18,10 @@ export const MainStackNavigator = createStackNavigator(
   {
     Dashboard: DashboardScreen,
     UpdatePlanItem: UpdatePlanItemScreen,
+    UpdatePlanSubItem: UpdatePlanSubItemScreen,
     UpdatePlan: UpdatePlanScreen,
-    RunPlan: RunPlanScreen,
+    RunPlanList: RunPlanListScreen,
+    RunPlanSlide: RunPlanSlideScreen,
     StudentSettings: StudentSettingsScreen,
   },
   {

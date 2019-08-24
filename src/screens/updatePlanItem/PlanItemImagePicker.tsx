@@ -33,11 +33,9 @@ export class PlanItemImagePicker extends React.PureComponent<Props, State> {
       const { onChange } = this.props;
 
       if (response.didCancel || response.error) {
-        // tslint:disable-next-line:no-console
-        console.log('User cancelled image picker');
+        return;
       } else {
         const source = { uri: response.uri };
-
         onChange(source);
       }
     });

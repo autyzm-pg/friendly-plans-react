@@ -58,7 +58,7 @@ const translations = {
     signOutDialogDescription: 'Are you sure you want to sign out?',
   },
   sidebar: {
-    addTask: 'Add Task',
+    addTask: 'Add SimpleTask',
     addStudent: 'Add Student',
     takeAPicture: 'Take a Picture',
     recordSound: 'Record Sound',
@@ -84,6 +84,13 @@ const translations = {
     addTask: 'Add task',
     planItemNamePlaceholder: 'Enter Plan Item name...',
   },
+  updatePlanItem: {
+    planSubItemNamePlaceholder: 'Enter sub item name...',
+    taskComplexity: 'Simple/Complex',
+    simpleTask: 'S',
+    complexTask: 'C',
+    addSubPlanItem: 'Add'
+  },
   studentSettings: {
     screenTitle: '{{studentName}} - Update settings',
     textCaseSettings: 'Text Case',
@@ -99,6 +106,10 @@ const translations = {
     ImageWithTextList: 'image + text - list',
     textList: 'text - list',
     textSlide: 'text - slide',
+  },
+  runPlan: {
+    next: 'Next',
+    wait: 'Wait...',
   },
 };
 
