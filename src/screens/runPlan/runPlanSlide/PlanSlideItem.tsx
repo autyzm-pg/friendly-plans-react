@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { PlanItem } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
   planItem: PlanItem;
@@ -21,6 +22,7 @@ export class PlanSlideItem extends React.PureComponent<Props> {
           textCase={this.props.textCase}
           textSize={this.props.textSize}
           textColor={styles.nameTextColor} />
+          {(this.props.planItem.time!!) ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
       </View>
     );
   }

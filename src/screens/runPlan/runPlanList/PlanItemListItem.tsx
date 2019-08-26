@@ -5,6 +5,7 @@ import { Card } from 'components';
 import { PlanItem } from 'models';
 import {palette, typography} from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
   planItem: PlanItem;
@@ -15,8 +16,9 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-  textContainer(): ViewStyle {
-    return this.props.planItem.completed ? styles.textContainerCompleted : styles.textContainer;
+
+  container() {
+    return this.props.planItem.completed ? styles.containerCompleted : styles.container;
   }
 
   nameTextColor() {
@@ -37,12 +39,14 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
-          <Card style={[this.nameTextColor(), this.textContainer()]} >
-          <PlanItemName 
-              planItemName={this.props.planItem.name}
-              textCase={this.props.textCase}
-              textSize={this.props.textSize}
-              textColor={this.nameTextColor()} />
+          <Card style={[this.nameTextColor(), this.container()]} >
+            <PlanItemName 
+                planItemName={this.props.planItem.name}
+                textCase={this.props.textCase}
+                textSize={this.props.textSize}
+                textColor={this.nameTextColor()} />
+            {(this.props.planItem.time!! && this.props.index === this.props.currentTaskIndex)
+              ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
           </Card>
       </TouchableHighlight>
     );
@@ -53,21 +57,26 @@ const styles = StyleSheet.create({
   touchable: {
     margin: 8,
     borderRadius: 8,
+    flex: 1,
   },
   nameTextColor: {
     color: palette.textBlack,
-    flex: 1,
-    alignItems: 'center',
   },
   nameTextColorCompleted: {
     color: palette.textWhite,
-    flex: 1,
-    alignItems: 'center',
   },
-  textContainer: {
+  container: {
     backgroundColor: palette.background,
+    flex: 6,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+    margin: 0,
   },
-  textContainerCompleted: {
+  containerCompleted: {
     backgroundColor: palette.primaryDark,
+    flex: 6,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+    margin: 0,
   },
 });
