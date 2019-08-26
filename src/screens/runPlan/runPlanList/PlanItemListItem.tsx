@@ -45,9 +45,8 @@ export class PlanItemListItem extends React.PureComponent<Props> {
                 textCase={this.props.textCase}
                 textSize={this.props.textSize}
                 textColor={this.nameTextColor()} />
-            {this.props.planItem.time!! 
-              && this.props.index === this.props.currentTaskIndex
-              && <PlanItemTimer itemTime={this.props.planItem.time!!} />}
+            {(this.props.planItem.time!! && this.props.index === this.props.currentTaskIndex)
+              ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
           </Card>
       </TouchableHighlight>
     );

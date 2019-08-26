@@ -42,7 +42,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
   }
 
   seconds = () => {return ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60)};
-  minutes = () => {return (this.state.itemTime / 60).toFixed()};
+  minutes = () => {return Math.floor(this.state.itemTime / 60)};
 
   itemTimeText = () => {
     return this.minutes() + ':' + this.seconds();
