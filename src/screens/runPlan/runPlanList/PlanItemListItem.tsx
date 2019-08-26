@@ -6,6 +6,7 @@ import { Card } from 'components';
 import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
+import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
   student: Student;
@@ -16,8 +17,8 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-  textContainer(): ViewStyle {
-    return this.props.item.completed ? styles.textContainerCompleted : styles.textContainer;
+  container(): ViewStyle {
+    return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
 
   nameTextColor(): ViewStyle {
@@ -35,7 +36,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   isItemParentPlan() {
-    return (this.props.itemParent instanceof Plan)
+    return (this.props.itemParent instanceof Plan);
   }
 
   navigateToRunPlanSubItemsList= () => {
@@ -44,7 +45,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
       student: this.props.student,
       onGoBack: () => this.props.item.update({completed: true,}),
     });
-  }
+  };
 
   handlePress = () => {
     if (this.props.item.type === PlanItemType.ComplexTask && this.isItemParentPlan()) {
@@ -60,12 +61,15 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.handlePress()} >
-          <Card style={[this.nameTextColor(), this.textContainer()]} >
+          <Card style={[this.nameTextColor(), this.container()]} >
           <PlanItemName 
               planItemName={this.props.item.name}
               textCase={this.props.student.textCase}
               textSize={this.props.student.textSize}
-              textColor={this.nameTextColor()} />
+              textColor={this.nameTextColor()}
+          />
+          {(this.props.item.time!! && this.props.index === this.props.currentTaskIndex)
+              ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
           </Card>
       </TouchableHighlight>
     );
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
   touchable: {
     margin: 8,
     borderRadius: 8,
+    flex: 1,
   },
   nameTextColor: {
     color: palette.textBlack,
@@ -87,12 +92,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  textContainer: {
+  container: {
     backgroundColor: palette.background,
+    flex: 6,
+    flexDirection: 'row',
+    alignContent: 'space-between',
     margin: 0,
   },
-  textContainerCompleted: {
+  containerCompleted: {
     backgroundColor: palette.primaryDark,
+    flex: 6,
+    flexDirection: 'row',
+    alignContent: 'space-between',
     margin: 0,
   },
 });

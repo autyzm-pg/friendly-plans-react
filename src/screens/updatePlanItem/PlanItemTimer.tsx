@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { Icon } from 'components';
+import { Icon, StyledText } from 'components';
 import { PlanItem } from 'models';
 
 interface Props {
@@ -14,14 +14,18 @@ interface Props {
 }
 
 interface State {
-  itemTime: string;
+  itemTime: number;
+  itemTimeText: string;
 }
 
 export class PlanItemTimer extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      itemTime: '',
+      itemTime: this.props.planItem.time,
+      itemTimeText: (this.props.planItem.time!!) 
+        ? (this.props.planItem.time / 60).toFixed() + ':' + this.props.planItem.time % 60
+        : ''
     };
   }
 
@@ -36,8 +40,15 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
       });
       if (action !== TimePickerAndroid.dismissedAction) {
         this.setState({
-          itemTime: hour * 60 + ':' + minute,
+          itemTimeText: hour + ':' + minute,
         });
+        //Now it stores time in minutes but picker will allow minutes and seconds
+        //firebase will store seconds
+        if (action == TimePickerAndroid.timeSetAction) {
+          this.props.planItem.update({
+            time: ((hour * 60) + minute),
+          });
+        }
       }
     } catch ({ code, message }) {
       // tslint:disable-next-line:no-console
@@ -46,12 +57,12 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { itemTime } = this.state;
+    const { itemTimeText } = this.state;
 
     return (
       <TouchableOpacity onPress={this.pickTime}>
         <Icon name="timer" size={64} />
-        {!!itemTime && <Text style={styles.timeText}>{itemTime}</Text>}
+        {!!itemTimeText && <Text style={styles.timeText}>{itemTimeText}</Text>}
       </TouchableOpacity>
     );
   }

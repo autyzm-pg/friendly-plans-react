@@ -16,13 +16,14 @@ export class SlideCardSwitch extends React.PureComponent<Props, State> {
   constructor(props: any) {
     super(props);
     this.state = {
-      switch: true,
+      switch: props.student.slideCardSwitch,
     };
   }
 
-  toggleSwitch = () => {
-    this.setState({ switch: !this.state.switch });
-    this.props.student.update({ slideCardSwitch: this.state.switch });
+  toggleSwitch = () => { 
+    this.setState((state) => ({ 
+      switch: !state.switch
+    }), () =>  { this.props.student.update({ slideCardSwitch: this.state.switch })});
   };
 
   render() {

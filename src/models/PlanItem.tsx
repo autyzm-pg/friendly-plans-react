@@ -18,6 +18,7 @@ export class PlanItem {
   planId!: string;
   studentId!: string;
   completed!: boolean;
+  time!: number;
 
   getIconName = (): string => {
     const icons = {
