@@ -30,7 +30,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   componentDidMount() {
     this.studentRef = this.props.student.getStudentRef();
     this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
-    if (this.props.itemParent instanceof Plan) {
+    if (this.isItemParentPlan()) {
       this.itemsRef = this.props.itemParent.getPlanItemsRef();
       this.unsubscribeItems = this.itemsRef.onSnapshot(this.handlePlanItemsChange);
     } else {
@@ -79,11 +79,18 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   }
 
   componentDidUpdate() {
-    if (this.state.items.length!! && this.completedPlanItemCounter() >= this.state.items.length
-      && this.props.itemParent instanceof PlanItem) {
+    if (this.isEveryPlanItemCompleted() && !this.isItemParentPlan()) {
         this.props.onGoBack();
         NavigationService.goBack();
     }
+  }
+
+  isItemParentPlan() {
+    return (this.props.itemParent instanceof Plan)
+  }
+
+  isEveryPlanItemCompleted() {
+    return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length)
   }
 
   completedPlanItemCounter() {

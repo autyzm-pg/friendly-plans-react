@@ -3,10 +3,9 @@ import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
 import { NavigationService } from '../../../services';
 import { Card } from 'components';
-import { Plan, PlanItem, PlanSubItem, Student } from 'models';
+import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
 import { palette } from 'styles';
 import { PlanItemName } from '../PlanItemName';
-import { Function } from '@babel/types';
 
 interface Props {
   student: Student;
@@ -27,12 +26,16 @@ export class PlanItemListItem extends React.PureComponent<Props> {
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-      if(this.props.item instanceof PlanItem) {
+      if(this.isItemParentPlan()) {
         this.props.item.update({completed: true,});
       } else {
-        this.props.itemParent.updatePlanSubItem(this.props.item.id,{completed: true,});
+        this.props.itemParent.updatePlanSubItem(this.props.item.id, {completed: true,});
       }
     }
+  }
+
+  isItemParentPlan() {
+    return (this.props.itemParent instanceof Plan)
   }
 
   navigateToRunPlanSubItemsList= () => {
@@ -44,7 +47,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
   }
 
   handlePress = () => {
-    if (this.props.item.type === 'complexTask' && this.props.item instanceof PlanItem) {
+    if (this.props.item.type === PlanItemType.ComplexTask && this.isItemParentPlan()) {
       return this.navigateToRunPlanSubItemsList;
     } else {
       return this.markItemPlanAsCompleted;
