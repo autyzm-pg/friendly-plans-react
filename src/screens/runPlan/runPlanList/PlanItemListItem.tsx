@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
 
-import { NavigationService } from '../../../services';
 import { Card } from 'components';
 import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
 import { palette } from 'styles';
+import { NavigationService } from '../../../services';
 import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
 
@@ -68,7 +68,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
               textSize={this.props.student.textSize}
               textColor={this.nameTextColor()}
           />
-          {(this.props.item.time!! && this.props.index === this.props.currentTaskIndex)
+          {(!!this.props.item.time && this.props.index === this.props.currentTaskIndex)
               ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
           </Card>
       </TouchableHighlight>

@@ -42,9 +42,9 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
         this.setState({
           itemTimeText: hour + ':' + minute,
         });
-        //Now it stores time in minutes but picker will allow minutes and seconds
-        //firebase will store seconds
-        if (action == TimePickerAndroid.timeSetAction) {
+        // Now it stores time in minutes but picker will allow minutes and seconds
+        // firebase will store seconds
+        if (action === TimePickerAndroid.timeSetAction) {
           this.props.planItem.update({
             time: ((hour * 60) + minute),
           });

@@ -1,9 +1,9 @@
 import React from 'react';
+import { FlatList } from 'react-native';
 import { RNFirebase } from 'react-native-firebase';
 
+import { Plan, PlanItem, PlanSubItem, Student } from 'models';
 import { NavigationService } from '../../../services';
-import { Plan, PlanItem, Student, PlanSubItem } from 'models';
-import { FlatList } from 'react-native';
 import { PlanItemListItem } from './PlanItemListItem';
 
 interface Props {
@@ -86,11 +86,11 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   }
 
   isItemParentPlan() {
-    return (this.props.itemParent instanceof Plan)
+    return (this.props.itemParent instanceof Plan);
   }
 
   isEveryPlanItemCompleted() {
-    return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length)
+    return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length);
   }
 
   completedPlanItemCounter() {
