@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
+import {StyleSheet, TouchableHighlight, View} from 'react-native';
 
 import { Card } from 'components';
 import { PlanItem } from 'models';
@@ -39,14 +39,16 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.markItemPlanAsCompleted} >
-          <Card style={[this.nameTextColor(), this.container()]} >
-            <PlanItemName 
-                planItemName={this.props.planItem.name}
-                textCase={this.props.textCase}
-                textSize={this.props.textSize}
-                textColor={this.nameTextColor()} />
-            {(this.props.planItem.time!! && this.props.index === this.props.currentTaskIndex)
-              ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
+          <Card style={this.container()} >
+            <View>
+              <PlanItemName 
+                  planItemName={this.props.planItem.name}
+                  textCase={this.props.textCase}
+                  textSize={this.props.textSize}
+                  textColor={this.nameTextColor()} />
+              {(this.props.planItem.time!! && this.props.index === this.props.currentTaskIndex)
+                ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
+            </View>
           </Card>
       </TouchableHighlight>
     );
