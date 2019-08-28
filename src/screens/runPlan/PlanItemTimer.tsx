@@ -18,15 +18,13 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
     itemTime: this.props.itemTime
   };
 
-  seconds = ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60);
-  minutes = Math.floor(this.state.itemTime / 60);
+  seconds = () => ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60);
+  minutes = () => Math.floor(this.state.itemTime / 60);
 
-  itemTimeText = this.minutes + ':' + this.seconds;
+  itemTimeText = () => this.minutes() + ':' + this.seconds();
 
   componentWillReceiveProps(nextProps: Props) {
-    clearInterval(this.timerID);
     this.setState({itemTime: nextProps.itemTime});
-    this.timerID = setInterval(() => this.tick(), 1000);
   }
 
   componentDidMount() {
@@ -50,7 +48,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
     return (
       <View style={styles.timeContainer}>
         <Icon name="timer" size={64} />
-        <StyledText style={styles.timeText}>{this.itemTimeText}</StyledText>
+        <StyledText style={styles.timeText}>{this.itemTimeText()}</StyledText>
       </View>
     );
   }
