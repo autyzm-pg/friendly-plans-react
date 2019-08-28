@@ -5,6 +5,7 @@ import {
   TimePickerAndroid,
   TouchableOpacity,
 } from 'react-native';
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
 import { Icon, StyledText } from 'components';
 import { PlanItem } from 'models';
@@ -16,6 +17,7 @@ interface Props {
 interface State {
   itemTime: number;
   itemTimeText: string;
+  visible: boolean;
 }
 
 export class PlanItemTimer extends React.PureComponent<Props, State> {
@@ -25,44 +27,26 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
       itemTime: this.props.planItem.time,
       itemTimeText: (this.props.planItem.time!!) 
         ? (this.props.planItem.time / 60).toFixed() + ':' + this.props.planItem.time % 60
-        : ''
+        : '',
+        visible: false,
     };
   }
-
-  pickTime = async () => {
-    try {
-      // @ts-ignore
-      const { action, hour, minute } = await TimePickerAndroid.open({
-        hour: 0,
-        minute: 5,
-        is24Hour: true,
-        mode: 'spinner',
-      });
-      if (action !== TimePickerAndroid.dismissedAction) {
-        this.setState({
-          itemTimeText: hour + ':' + minute,
-        });
-        //Now it stores time in minutes but picker will allow minutes and seconds
-        //firebase will store seconds
-        if (action == TimePickerAndroid.timeSetAction) {
-          this.props.planItem.update({
-            time: ((hour * 60) + minute),
-          });
-        }
-      }
-    } catch ({ code, message }) {
-      // tslint:disable-next-line:no-console
-      console.warn(message);
-    }
-  };
 
   render() {
     const { itemTimeText } = this.state;
 
     return (
-      <TouchableOpacity onPress={this.pickTime}>
+      <TouchableOpacity onPress={() => this.setState({visible: true})}>
         <Icon name="timer" size={64} />
         {!!itemTimeText && <Text style={styles.timeText}>{itemTimeText}</Text>}
+
+        <Dialog
+            visible={this.state.visible}
+            onTouchOutside={() => {this.setState({ visible: false });}}>
+            <DialogContent>
+              <StyledText> time </StyledText>
+            </DialogContent>
+        </Dialog>      
       </TouchableOpacity>
     );
   }
