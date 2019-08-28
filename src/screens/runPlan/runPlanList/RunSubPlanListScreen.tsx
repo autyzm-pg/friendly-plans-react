@@ -6,7 +6,7 @@ import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
 import { PlanItemList } from './PlanItemList';
 
-export class RunPlanListScreen extends React.PureComponent<
+export class RunSubPlanListScreen extends React.PureComponent<
   NavigationInjectedProps> {
   static navigationOptions = {
     header: null,
@@ -15,6 +15,7 @@ export class RunPlanListScreen extends React.PureComponent<
   render() {
     const itemParent = this.props.navigation.getParam('itemParent');
     const student = this.props.navigation.getParam('student');
+    const onGoBack = this.props.navigation.getParam('onGoBack');
 
     return (
       <View style={styles.container}>
@@ -22,7 +23,7 @@ export class RunPlanListScreen extends React.PureComponent<
           <PlanItemList 
             student={student}
             itemParent={itemParent}
-            onGoBack={null} />
+            onGoBack={onGoBack} />
         </FullScreenTemplate>
       </View>
     );
