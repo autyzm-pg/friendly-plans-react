@@ -24,6 +24,7 @@ export class SlideCardSwitch extends React.PureComponent<Props, State> {
     this.setState((state) => ({ 
       switch: !state.switch
     }), () =>  { this.props.student.update({ slideCardSwitch: this.state.switch }); });
+
   };
 
   render() {

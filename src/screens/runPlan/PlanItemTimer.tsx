@@ -15,7 +15,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
   timerID: any;
 
   state: Readonly<State> = {
-    itemTime: this.props.itemTime
+    itemTime: this.props.itemTime,
   };
 
   seconds = () => ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60);
@@ -35,14 +35,17 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
     clearInterval(this.timerID);
   }
 
-  tick = () => {
-    (this.state.itemTime <= 0) ? this.HandleTimesUp() : this.setState((state)=>({itemTime: state.itemTime - 1}));
-  }
-
   HandleTimesUp = () => {
     clearInterval(this.timerID);
-    console.log('Time is up!');
   }
+
+  decreaseTime() {
+    this.setState((state)=>({itemTime: state.itemTime - 1}));
+  }
+
+  tick = () => {
+    (this.state.itemTime <= 0) ? this.HandleTimesUp() : this.decreaseTime();
+  }  
 
   render() {
     return (

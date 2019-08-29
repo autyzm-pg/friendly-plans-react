@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { IconButton, StyledText } from 'components';
-import { Plan, Student } from 'models';
+import { Plan, Student, StudentDisplayOption } from 'models';
 import { palette } from 'styles';
 import {StudentRepository} from '../../models/repository/StudentRepository';
 
@@ -42,9 +42,9 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
   
   navigateToRunPlan = () => {
     switch(this.state.student.displaySettings) {
-      case 'largeImageSlide':
-      case 'imageWithTextSlide':
-      case 'textSlide':
+      case StudentDisplayOption.LargeImageSlide:
+      case StudentDisplayOption.ImageWithTextSlide:
+      case StudentDisplayOption.TextSlide:
         this.props.navigation.navigate('RunPlanSlide', {
           plan: this.props.plan,
           student: this.state.student,
