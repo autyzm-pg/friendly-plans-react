@@ -21,7 +21,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
 
-  nameTextColor() {
+  nameTextColor(): ViewStyle {
     return this.props.item.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
@@ -62,7 +62,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         style={styles.touchable}
         onPress={this.handlePress()} >
           <Card style={this.container()} >
-            <View>
+            <View style={this.container()}>
               <PlanItemName 
                   planItemName={this.props.item.name}
                   textCase={this.props.student.textCase}
@@ -81,20 +81,28 @@ const styles = StyleSheet.create({
   touchable: {
     margin: 8,
     borderRadius: 8,
-    flex: 1,
+    flex: 6,
+    flexDirection: 'row',
   },
   nameTextColor: {
+    flex: 5,
     color: palette.textBlack,
+    textAlignVertical: 'center',
   },
   nameTextColorCompleted: {
+    flex: 5,
     color: palette.textWhite,
+    textAlignVertical: 'center',
+  },
+  card: {
+    flex: 1,
+    margin: 0,
   },
   container: {
     backgroundColor: palette.background,
     flex: 6,
     flexDirection: 'row',
     alignContent: 'space-between',
-    margin: 0,
   },
   containerCompleted: {
     backgroundColor: palette.primaryDark,
