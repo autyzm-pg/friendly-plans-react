@@ -62,7 +62,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
         break;
       default:
         this.props.navigation.navigate('RunPlanList', {
-          plan: this.props.plan,
+          itemParent: this.props.plan,
           student: this.state.student,
         });
     }

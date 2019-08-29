@@ -56,7 +56,6 @@ export class PlanItem {
     return this.getSubItemsRef().doc(planSubItemId).update(changes);
   };
 
-
   getPlanItemRef = (): RNFirebase.firestore.DocumentReference => {
     return getStudentsRef()
         .doc(this.studentId)

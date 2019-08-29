@@ -2,36 +2,58 @@ import React from 'react';
 import {StyleSheet, TouchableHighlight, View} from 'react-native';
 
 import { Card } from 'components';
-import { PlanItem } from 'models';
-import {palette, typography} from 'styles';
+import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
+import { palette } from 'styles';
+import { NavigationService } from '../../../services';
 import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
-  planItem: PlanItem;
+  student: Student;
+  itemParent: PlanItem | Plan;
+  item: PlanItem | PlanSubItem;
   index: number;
-  textSize: string;
-  textCase: string;
   currentTaskIndex: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-
-  container() {
-    return this.props.planItem.completed ? styles.containerCompleted : styles.container;
+  container(): ViewStyle {
+    return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
 
-  nameTextColor() {
-    return this.props.planItem.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
+  nameTextColor(): ViewStyle {
+    return this.props.item.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-    this.props.planItem.update({
-      completed: true,
-    });
+      if(this.isItemParentPlan()) {
+        this.props.item.update({completed: true,});
+      } else {
+        this.props.itemParent.updatePlanSubItem(this.props.item.id, {completed: true,});
+      }
     }
+  }
+
+  isItemParentPlan() {
+    return (this.props.itemParent instanceof Plan);
+  }
+
+  navigateToRunPlanSubItemsList= () => {
+    NavigationService.navigate('RunSubPlanList', {
+      itemParent: this.props.item,
+      student: this.props.student,
+      onGoBack: () => this.props.item.update({completed: true,}),
+    });
   };
+
+  handlePress = () => {
+    if (this.props.item.type === PlanItemType.ComplexTask && this.isItemParentPlan()) {
+      return this.navigateToRunPlanSubItemsList;
+    } else {
+      return this.markItemPlanAsCompleted;
+    }
+  }
 
   render() {
     return (
@@ -63,9 +85,13 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
+    flex: 1,
+    alignItems: 'center',
   },
   nameTextColorCompleted: {
     color: palette.textWhite,
+    flex: 1,
+    alignItems: 'center',
   },
   container: {
     backgroundColor: palette.background,
