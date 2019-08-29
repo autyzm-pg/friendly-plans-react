@@ -1,47 +1,54 @@
 import React from 'react';
+import { FlatList } from 'react-native';
 import { RNFirebase } from 'react-native-firebase';
 
-import { Plan, PlanItem, Student } from 'models';
-import { FlatList } from 'react-native';
+import { Plan, PlanItem, PlanSubItem, Student } from 'models';
+import { NavigationService } from '../../../services';
 import { PlanItemListItem } from './PlanItemListItem';
 
 interface Props {
-  plan: Plan;
+  itemParent: Plan | PlanItem;
   student: Student;
+  onGoBack: any;
 }
 
 interface State {
-  planItems: PlanItem[];
+  items: PlanItem[] | PlanSubItem[];
   student: Student;
 }
 
 export class PlanItemList extends React.PureComponent<Props, State> {
-  planItemsRef: any;
-  unsubscribePlanItems: any;
+  itemsRef: any;
+  unsubscribeItems: any;
   studentRef: any;
   unsubscribeStudent: any;
   state: Readonly<State> = {
-    planItems: [],
+    items: [],
     student: this.props.student,
   };
 
   componentDidMount() {
-    this.planItemsRef = this.props.plan.getPlanItemsRef();
-    this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
     this.studentRef = this.props.student.getStudentRef();
     this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
+    if (this.isItemParentPlan()) {
+      this.itemsRef = this.props.itemParent.getPlanItemsRef();
+      this.unsubscribeItems = this.itemsRef.onSnapshot(this.handlePlanItemsChange);
+    } else {
+      this.itemsRef = this.props.itemParent.getSubItemsRef();
+      this.unsubscribeItems = this.itemsRef.onSnapshot(this.handleSubItemsChange);
+    }
   }
 
   handlePlanItemsChange = (
     querySnapshot: RNFirebase.firestore.QuerySnapshot,
   ) => {
-    const planItems: PlanItem[] = querySnapshot.docs.map(doc =>
+    const items: PlanItem[] = querySnapshot.docs.map(doc =>
       Object.assign(new PlanItem(), {
         id: doc.id,
         ...doc.data(),
       }),
     );
-    this.setState({ planItems });
+    this.setState({ items });
   };
 
   handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
@@ -54,22 +61,49 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     }
   }
 
+  handleSubItemsChange = (
+    querySnapshot: RNFirebase.firestore.QuerySnapshot,
+  ) => {
+    const items: PlanSubItem[] = querySnapshot.docs.map(doc =>
+      Object.assign(new PlanSubItem(), {
+        id: doc.id,
+        ...doc.data(),
+      }),
+    );
+    this.setState({ items });
+  };
+
   componentWillUnmount() {
-    this.unsubscribePlanItems();
     this.unsubscribeStudent();
+    this.unsubscribeItems();
+  }
+
+  componentDidUpdate() {
+    if (this.isEveryPlanItemCompleted() && !this.isItemParentPlan()) {
+        this.props.onGoBack();
+        NavigationService.goBack();
+    }
+  }
+
+  isItemParentPlan() {
+    return (this.props.itemParent instanceof Plan);
+  }
+
+  isEveryPlanItemCompleted() {
+    return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length);
   }
 
   completedPlanItemCounter() {
-    return this.state.planItems.reduce((planItemsCompleted, planItem) =>
+    return this.state.items.reduce((planItemsCompleted, planItem) =>
       planItem.completed ? ++planItemsCompleted : planItemsCompleted, 0);
   }
 
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
-      planItem={item}
+      student={this.state.student}
+      itemParent={this.props.itemParent}
+      item={item}
       index={index}
-      textSize={this.state.student.textSize}
-      textCase={this.state.student.textCase}
       currentTaskIndex={this.completedPlanItemCounter()}
     />
   );
@@ -79,7 +113,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   render() {
     return (
       <FlatList
-        data={this.state.planItems}
+        data={this.state.items}
         renderItem={this.renderItem}
         keyExtractor={this.extractKey}
       />

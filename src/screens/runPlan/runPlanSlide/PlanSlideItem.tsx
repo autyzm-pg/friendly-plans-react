@@ -22,7 +22,7 @@ export class PlanSlideItem extends React.PureComponent<Props> {
           textCase={this.props.textCase}
           textSize={this.props.textSize}
           textColor={styles.nameTextColor} />
-          {(this.props.planItem.time!!) ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
+          {(!!this.props.planItem.time) ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
       </View>
     );
   }

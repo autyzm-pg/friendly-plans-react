@@ -36,11 +36,11 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
       <DialogFooter>
         <DialogButton
           text="cancel"
-          onPress={() => {}}
+          onPress={() => {this.setState({ visible: false });} }
         />
         <DialogButton
           text="ok"
-          onPress={() => {}}
+          onPress={() => {this.setState({ visible: false });} }
         />
       </DialogFooter>
     )
@@ -61,7 +61,8 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
             onTouchOutside={() => {this.setState({ visible: false });}}
             footer={this.rednerFooter()}>
             <DialogContent style={styles.dialogcontent}>
-              <StyledText> time </StyledText>
+              <StyledText style={styles.wheeler}>minutes</StyledText>
+              <StyledText style={styles.wheeler}>seconds</StyledText>
             </DialogContent>
         </Dialog>      
       </TouchableOpacity>
@@ -75,7 +76,13 @@ const styles = StyleSheet.create({
   },
   dialogcontent: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+  },
+  wheeler: {
+    flex: 1,
     flexDirection: 'column',
     alignContent: 'stretch',
+    margin: 10,
   },
 });
