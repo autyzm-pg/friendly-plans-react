@@ -2,10 +2,9 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  TimePickerAndroid,
   TouchableOpacity,
 } from 'react-native';
-import Dialog, { DialogContent } from 'react-native-popup-dialog';
+import Dialog, { DialogFooter, DialogButton, DialogContent } from 'react-native-popup-dialog';
 
 import { Icon, StyledText } from 'components';
 import { PlanItem } from 'models';
@@ -32,6 +31,21 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
     };
   }
 
+  rednerFooter = () => {
+    return (
+      <DialogFooter>
+        <DialogButton
+          text="cancel"
+          onPress={() => {}}
+        />
+        <DialogButton
+          text="ok"
+          onPress={() => {}}
+        />
+      </DialogFooter>
+    )
+  }
+
   render() {
     const { itemTimeText } = this.state;
 
@@ -41,9 +55,12 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
         {!!itemTimeText && <Text style={styles.timeText}>{itemTimeText}</Text>}
 
         <Dialog
+            width={.3}
+            height={.7}
             visible={this.state.visible}
-            onTouchOutside={() => {this.setState({ visible: false });}}>
-            <DialogContent>
+            onTouchOutside={() => {this.setState({ visible: false });}}
+            footer={this.rednerFooter()}>
+            <DialogContent style={styles.dialogcontent}>
               <StyledText> time </StyledText>
             </DialogContent>
         </Dialog>      
@@ -55,5 +72,10 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
 const styles = StyleSheet.create({
   timeText: {
     fontSize: 32,
+  },
+  dialogcontent: {
+    flex: 1,
+    flexDirection: 'column',
+    alignContent: 'stretch',
   },
 });
