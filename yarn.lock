@@ -5497,6 +5497,11 @@ react-native-image-picker@^0.28.1:
   version "0.28.1"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
 
+react-native-picker-scrollview@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-picker-scrollview/-/react-native-picker-scrollview-1.0.0.tgz#6588c5f6b2e2f0e27933ad018615209b38894a72"
+  integrity sha512-CZIfqdBGpQGsY/mEfP4EeVW/pdMK86IWIED09iPsoEvxk1e6S3Jv4ribfOKLFtaYBzrszWrpsdGkbv9cG9QxfA==
+
 react-native-popup-dialog@^0.18.3:
   version "0.18.3"
   resolved "https://registry.yarnpkg.com/react-native-popup-dialog/-/react-native-popup-dialog-0.18.3.tgz#5d7a13fd7d9f817cf2121965a3b100a257201b67"
