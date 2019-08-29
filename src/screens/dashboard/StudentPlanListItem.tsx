@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { RNFirebase } from 'react-native-firebase';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { IconButton, StyledText } from 'components';
 import { Plan, Student } from 'models';
 import { palette } from 'styles';
+import {StudentRepository} from '../../models/repository/StudentRepository';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;
@@ -17,30 +17,20 @@ interface State {
 }
 
 export class StudentPlanListItem extends React.PureComponent<Props, State> {
-  studentRef: any;
-  unsubscribeStudent: any;
+  studentRepository: StudentRepository = new StudentRepository();
 
   state: Readonly<State> = {
     student: this.props.student,
   };
 
   componentDidMount() {
-    this.studentRef = this.state.student.getStudentRef();
-    this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
+    this.studentRepository.subscribeObjectUpdates(
+      this.props.student.id, (student) => this.setState({ student })
+    );
   }
 
-  handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
-    if(documentSnapshot.exists){
-      const student = Object.assign(new Student(), {
-        id: documentSnapshot.id,
-        ...documentSnapshot.data(),
-      });
-      this.setState({ student });
-    }
-  };
-
   componentWillUnmount() {
-    this.unsubscribeStudent();
+    this.studentRepository.unsubscribeObjectUpdates();
   }
 
   navigateToUpdatePlan = () => {

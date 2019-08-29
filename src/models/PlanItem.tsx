@@ -2,7 +2,7 @@ import { RNFirebase } from 'react-native-firebase';
 
 import {OperationalError} from '../infrastructure/Errors';
 import {i18n} from '../locale';
-import {getStudentsRef} from './Student';
+import {getStudentsRef} from './repository/FirebaseRefProxy';
 
 export enum PlanItemType {
   SimpleTask = 'simpleTask',

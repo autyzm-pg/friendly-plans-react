@@ -2,7 +2,7 @@ import { RNFirebase } from 'react-native-firebase';
 
 import { i18n } from 'locale';
 import { PlanItemType } from './PlanItem';
-import { getStudentsRef } from './Student';
+import {getStudentsRef} from './repository/FirebaseRefProxy';
 
 export class Plan {
   name!: string;

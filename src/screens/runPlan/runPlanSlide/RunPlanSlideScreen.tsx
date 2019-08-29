@@ -8,6 +8,7 @@ import { i18n } from 'locale';
 import { PlanItem, Student } from 'models';
 import { palette, typography } from 'styles';
 import { PlanSlideItem } from './PlanSlideItem';
+import {StudentRepository} from '../../../models/repository/StudentRepository';
 
 interface State {
   planItems: PlanItem[];
@@ -21,10 +22,9 @@ export class RunPlanSlideScreen extends React.PureComponent<
       header: null,
     };
 
+    studentRepository: StudentRepository = new StudentRepository();
     planItemsRef: any;
     unsubscribePlanItems: any;
-    studentRef: any;
-    unsubscribeStudent: any;
     state: Readonly<State> = {
       planItems: [],
       pageNumber: 0,
@@ -32,11 +32,14 @@ export class RunPlanSlideScreen extends React.PureComponent<
     };
 
     componentDidMount() {
+      const student = this.props.navigation.getParam('student');
       const plan = this.props.navigation.getParam('plan');
       this.planItemsRef = plan.getPlanItemsRef();
       this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
-      this.studentRef = this.state.student.getStudentRef();
-      this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
+
+      this.studentRepository.subscribeObjectUpdates(
+        student, (updatedStudent) => this.setState({student: updatedStudent })
+      );
     }
   
     handlePlanItemsChange = (
@@ -51,19 +54,9 @@ export class RunPlanSlideScreen extends React.PureComponent<
       this.setState({ planItems });
     };
   
-    handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
-      if(documentSnapshot.exists){
-        const student = Object.assign(new Student(), {
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
-        });
-        this.setState({ student });
-      }
-    };
-  
     componentWillUnmount() {
       this.unsubscribePlanItems();
-      this.unsubscribeStudent();
+      this.studentRepository.unsubscribeObjectUpdates();
     }
   
     nextPage = () => {

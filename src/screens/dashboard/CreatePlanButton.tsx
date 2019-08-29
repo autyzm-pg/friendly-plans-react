@@ -4,13 +4,14 @@ import { FlatButton } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { palette } from 'styles';
+import {PlanRepository} from '../../models/repository/PlanRepository';
 
 interface Props {
   student: Student;
 }
 
 export class CreatePlanButton extends React.PureComponent<Props> {
-  createPlanForStudent = () => this.props.student.createPlan();
+  createPlanForStudent = () => PlanRepository.create(this.props.student.id);
 
   render() {
     return (

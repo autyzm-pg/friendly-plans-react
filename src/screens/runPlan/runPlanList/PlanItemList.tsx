@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import { RNFirebase } from 'react-native-firebase';
 
 import { Plan, PlanItem, PlanSubItem, Student } from 'models';
+import {StudentRepository} from '../../../models/repository/StudentRepository';
 import { NavigationService } from '../../../services';
 import { PlanItemListItem } from './PlanItemListItem';
 
@@ -18,18 +19,18 @@ interface State {
 }
 
 export class PlanItemList extends React.PureComponent<Props, State> {
+  studentRepository: StudentRepository = new StudentRepository();
   itemsRef: any;
   unsubscribeItems: any;
-  studentRef: any;
-  unsubscribeStudent: any;
   state: Readonly<State> = {
     items: [],
     student: this.props.student,
   };
 
   componentDidMount() {
-    this.studentRef = this.props.student.getStudentRef();
-    this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
+    this.studentRepository.subscribeObjectUpdates(
+      this.props.student.id, (student) => this.setState({ student })
+    );
     if (this.isItemParentPlan()) {
       this.itemsRef = this.props.itemParent.getPlanItemsRef();
       this.unsubscribeItems = this.itemsRef.onSnapshot(this.handlePlanItemsChange);
@@ -51,16 +52,6 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     this.setState({ items });
   };
 
-  handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
-    if(documentSnapshot.exists){
-      const student = Object.assign(new Student(), {
-        id: documentSnapshot.id,
-        ...documentSnapshot.data(),
-      });
-      this.setState({ student });
-    }
-  }
-
   handleSubItemsChange = (
     querySnapshot: RNFirebase.firestore.QuerySnapshot,
   ) => {
@@ -74,7 +65,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   };
 
   componentWillUnmount() {
-    this.unsubscribeStudent();
+    this.studentRepository.unsubscribeObjectUpdates();
     this.unsubscribeItems();
   }
 

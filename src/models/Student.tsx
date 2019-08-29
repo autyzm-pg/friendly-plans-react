@@ -1,6 +1,6 @@
-import firebase, { RNFirebase } from 'react-native-firebase';
+import { RNFirebase } from 'react-native-firebase';
 
-import { i18n } from 'locale';
+import {StudentRepository} from './repository/StudentRepository';
 
 export enum StudentDisplayOption {
   LargeImageSlide = 'largeImageSlide',
@@ -11,13 +11,13 @@ export enum StudentDisplayOption {
 }
 
 export class Student {
-  static create(): Promise<RNFirebase.firestore.DocumentReference> {
-    return createStudent();
-  }
 
-  static getCollectionRef(): RNFirebase.firestore.CollectionReference {
-    return getStudentsRef();
-  }
+  static fromDocument = (document: RNFirebase.firestore.DocumentSnapshot): Student => {
+    return Object.assign(new Student(), {
+      id: document.id,
+      ...document.data(),
+    });
+  };
 
   name!: string;
   id!: string;
@@ -26,65 +26,7 @@ export class Student {
   textSize!: string;
   slideCardSwitch!: boolean;
 
-  delete = (): Promise<void> => deleteStudent(this);
+  delete = (): Promise<void> => StudentRepository.delete(this.id);
+  update = (changes: object) => StudentRepository.update(this.id, changes);
 
-  update = (changes: object) => updateStudent(this, changes);
-
-  createPlan = (): Promise<RNFirebase.firestore.DocumentReference> =>
-    createPlanForStudent(this);
-
-  getPlansRef = (): RNFirebase.firestore.CollectionReference =>
-    getStudentPlansRef(this);
-
-  getStudentRef = (): RNFirebase.firestore.DocumentReference =>
-    getStudentRef(this);
 }
-
-// Private API below
-export const getStudentsRef = (
-  userId = firebase.auth().currentUser!.uid,
-): RNFirebase.firestore.CollectionReference =>
-  firebase
-    .firestore()
-    .collection('users')
-    .doc(userId)
-    .collection('students');
-
-const createStudent = (): Promise<RNFirebase.firestore.DocumentReference> =>
-  getStudentsRef().add({
-    name: i18n.t('studentList:studentNamePlaceholder'),
-  });
-
-const deleteStudent = (student: Student): Promise<void> =>
-  getStudentsRef()
-    .doc(student.id)
-    .delete();
-
-const updateStudent = (student: Student, changes: object): Promise<void> =>
-  getStudentsRef()
-    .doc(student.id)
-    .update(changes);
-
-const createPlanForStudent = (
-  student: Student,
-): Promise<RNFirebase.firestore.DocumentReference> =>
-  getStudentsRef()
-    .doc(student.id)
-    .collection('plans')
-    .add({
-      name: i18n.t('planList:planNamePlaceholder'),
-      studentId: student.id,
-    });
-
-const getStudentPlansRef = (
-  student: Student,
-): RNFirebase.firestore.CollectionReference =>
-  getStudentsRef()
-    .doc(student.id)
-    .collection('plans');
-
-const getStudentRef = (
-  student: Student,
-): RNFirebase.firestore.DocumentReference =>
-   getStudentsRef()
-    .doc(student.id);

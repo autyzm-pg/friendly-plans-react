@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { RNFirebase } from 'react-native-firebase';
 
 import { Student } from 'models';
+import {StudentRepository} from '../../models/repository/StudentRepository';
 import { StudentListItem } from './StudentListItem';
 
 interface State {
@@ -10,31 +10,19 @@ interface State {
 }
 
 export class StudentList extends React.PureComponent<{}, State> {
-  studentsRef: any;
-  unsubscribeStudent: any;
-  state = {
+  studentRepository: StudentRepository = new StudentRepository();
+  state: State = {
     students: [],
   };
 
   componentDidMount() {
-    this.studentsRef = Student.getCollectionRef();
-    this.unsubscribeStudent = this.studentsRef.onSnapshot(this.handleStudentsChange);
+    this.studentRepository.subscribeCollectionUpdates(
+      (students: Student[]) => this.setState({ students })
+    );
   }
 
-  handleStudentsChange = (
-    querySnapshot: RNFirebase.firestore.QuerySnapshot,
-  ) => {
-    const students: Student[] = querySnapshot.docs.map(doc =>
-      Object.assign(new Student(), {
-        id: doc.id,
-        ...doc.data(),
-      }),
-    );
-    this.setState({ students });
-  };
-
   componentWillUnmount() {
-    this.unsubscribeStudent();
+    this.studentRepository.unsubscribeCollectionUpdates();
   }
 
   extractKey = (student: Student) => student.id;
