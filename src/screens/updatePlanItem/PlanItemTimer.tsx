@@ -11,6 +11,7 @@ import Dialog, { DialogFooter, DialogButton, DialogContent } from 'react-native-
 import { Icon, StyledText } from 'components';
 import { PlanItem } from 'models';
 import { palette } from 'styles';
+import { TimePicker } from './TimePicker';
 
 interface Props {
   planItem: PlanItem;
@@ -43,29 +44,10 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
       + this.props.planItem.time % 60
     )
   }
-
-  rednerFooter = () => {
-    return (
-      <DialogFooter>
-        <DialogButton
-          style={styles.dialogButton}
-          text="cancel"
-          onPress={() => {this.setState({ visible: false });} }
-        />
-        <DialogButton
-          style={styles.dialogButton}
-          text="ok"
-          onPress={() => {
-            this.props.planItem.update({
-              time: this.minutesPicker.getSelected()*60 + this.secondsPicker.getSelected()
-            });
-            this.setState({ 
-              visible: false });
-            }
-          }
-        />
-      </DialogFooter>
-    )
+  updatePlanItemTime = (minutes: number, seconds: number) => {
+    this.props.planItem.update({
+      time: minutes*60 + seconds
+    });
   }
 
   render() {
@@ -74,46 +56,9 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
         <Icon name="timer" size={64} />
         {!!this.props.planItem.time && <Text style={styles.timeText}>{this.itemTimeText()}</Text>}
 
-        <Dialog
-          width={.3}
-          height={.7}
-          visible={this.state.visible}
-          onTouchOutside={() => {this.setState({ visible: false });}}
-          footer={this.rednerFooter()}>
-          <DialogContent style={styles.dialogContent}>
-            <ScrollPicker
-              ref={(minutes) => {this.minutesPicker = minutes}}
-              style={styles.dialogContentColumn}
-              dataSource={scrollData}
-              selectedIndex={0}
-              highlightColor={palette.primary}
-              itemHeight={50}
-              wrapperHeight={50*4-2*20}
-              renderItem={(data: number, index: number, isSelected: boolean) => {
-                return(<StyledText>{data}</StyledText>) 
-              }}
-              onValueChange={(data, selectedIndex) => {
-                selectedIndex=selectedIndex
-              }}
-              />
-            <View style={styles.dialogContentMiddleColumn} />
-            <ScrollPicker
-              ref={(seconds) => {this.secondsPicker = seconds}}
-              style={styles.dialogContentColumn}
-              dataSource={scrollData}
-              selectedIndex={0}
-              highlightColor={palette.primaryDark}
-              itemHeight={50}
-              wrapperHeight={50*4-2*20}
-              renderItem={(data: number, index: number, isSelected: boolean) => {
-                return( <StyledText>{(Math.floor(data / 10) == 0) ? '0'+ data : data}</StyledText>)
-              }} 
-              onValueChange={(data, selectedIndex) => {
-                selectedIndex=selectedIndex
-              }}
-            />
-          </DialogContent>
-        </Dialog>      
+        <TimePicker 
+          visible={this.state.visible} 
+          onTimeSet={(minutes, seconds) => this.updatePlanItemTime(minutes, seconds)}/>     
       </TouchableOpacity>
     );
   }
@@ -123,27 +68,5 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: 32,
     color: palette.primary,
-  },
-  dialog: {
-    flex:1,
-  },
-  dialogContent: {
-    flex: 7,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-    alignContent: 'space-between',
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  dialogButton: {
-    flex: 1,
-    height:50,
-  },
-  dialogContentMiddleColumn: {
-    backgroundColor: palette.white,
-    width: 15,
-  },
-  dialogContentColumn: {
-    backgroundColor: palette.white,
   },
 });
