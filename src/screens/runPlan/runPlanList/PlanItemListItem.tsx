@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableHighlight, View} from 'react-native';
+import {StyleSheet, TouchableHighlight, View, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
 import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
@@ -21,7 +21,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
 
-  nameTextColor(): ViewStyle {
+  nameTextColor() {
     return this.props.item.completed ? styles.nameTextColorCompleted : styles.nameTextColor;
   }
 
@@ -39,7 +39,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return (this.props.itemParent instanceof Plan);
   }
 
-  navigateToRunPlanSubItemsList= () => {
+  navigateToRunPlanSubItemsList = () => {
     NavigationService.navigate('RunSubPlanList', {
       itemParent: this.props.item,
       student: this.props.student,
@@ -60,16 +60,16 @@ export class PlanItemListItem extends React.PureComponent<Props> {
       <TouchableHighlight 
         underlayColor={palette.underlay}
         style={styles.touchable}
-        onPress={this.markItemPlanAsCompleted} >
+        onPress={this.handlePress()} >
           <Card style={this.container()} >
             <View>
               <PlanItemName 
-                  planItemName={this.props.planItem.name}
-                  textCase={this.props.textCase}
-                  textSize={this.props.textSize}
+                  planItemName={this.props.item.name}
+                  textCase={this.props.student.textCase}
+                  textSize={this.props.student.textSize}
                   textColor={this.nameTextColor()} />
-              {(this.props.planItem.time!! && this.props.index === this.props.currentTaskIndex)
-                ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
+              {(!!this.props.item.time && this.props.index === this.props.currentTaskIndex)
+                ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
             </View>
           </Card>
       </TouchableHighlight>
@@ -85,13 +85,9 @@ const styles = StyleSheet.create({
   },
   nameTextColor: {
     color: palette.textBlack,
-    flex: 1,
-    alignItems: 'center',
   },
   nameTextColorCompleted: {
     color: palette.textWhite,
-    flex: 1,
-    alignItems: 'center',
   },
   container: {
     backgroundColor: palette.background,

@@ -34,8 +34,8 @@ export class UpdatePlanScreen extends React.PureComponent<
         break;
       default:
         this.props.navigation.navigate('RunPlanList', {
-          plan: this.plan,
           student: this.student,
+          itemParent: this.plan,
         });
     }
   };

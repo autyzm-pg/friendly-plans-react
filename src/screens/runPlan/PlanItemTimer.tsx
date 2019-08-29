@@ -51,7 +51,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
     return (
       <View style={styles.timeContainer}>
         <Icon name="timer" size={64} />
-        <StyledText style={styles.timeText}>{this.itemTimeText}</StyledText>
+        <StyledText style={styles.timeText}>{this.itemTimeText()}</StyledText>
       </View>
     );
   }
