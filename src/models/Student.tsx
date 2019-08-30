@@ -1,6 +1,9 @@
 import { RNFirebase } from 'react-native-firebase';
 
-import {StudentRepository} from './repository/StudentRepository';
+import {i18n} from '../locale';
+import {getPlansRef, getStudentRef, getStudentsRef} from './FirebaseRefProxy';
+import {Plan} from './Plan';
+import {ParameterlessConstructor, SubscribableModel} from './SubscribableModel';
 
 export enum StudentDisplayOption {
   LargeImageSlide = 'largeImageSlide',
@@ -10,14 +13,12 @@ export enum StudentDisplayOption {
   TextSlide = 'textSlide',
 }
 
-export class Student {
+export class Student implements SubscribableModel {
 
-  static fromDocument = (document: RNFirebase.firestore.DocumentSnapshot): Student => {
-    return Object.assign(new Student(), {
-      id: document.id,
-      ...document.data(),
-    });
-  };
+  static create = (): Promise<RNFirebase.firestore.DocumentReference> =>
+    getStudentsRef().add({
+      name: i18n.t('studentList:studentNamePlaceholder'),
+  });
 
   name!: string;
   id!: string;
@@ -26,7 +27,11 @@ export class Student {
   textSize!: string;
   slideCardSwitch!: boolean;
 
-  delete = (): Promise<void> => StudentRepository.delete(this.id);
-  update = (changes: object) => StudentRepository.update(this.id, changes);
+  update = (changes: object) => getStudentRef(this.id).update(changes);
+  delete = (): Promise<void> => getStudentRef(this.id).delete();
+
+  getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => getPlansRef(this.id);
+  getChildType: () => ParameterlessConstructor<SubscribableModel> = () => Plan;
+  getRef: () => RNFirebase.firestore.DocumentReference = () => getStudentRef(this.id);
 
 }

@@ -5,7 +5,7 @@ import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { IconButton, StyledText } from 'components';
 import { Plan, Student, StudentDisplayOption } from 'models';
 import { palette } from 'styles';
-import {StudentRepository} from '../../models/repository/StudentRepository';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;
@@ -17,20 +17,20 @@ interface State {
 }
 
 export class StudentPlanListItem extends React.PureComponent<Props, State> {
-  studentRepository: StudentRepository = new StudentRepository();
+  studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
 
   state: Readonly<State> = {
     student: this.props.student,
   };
 
   componentDidMount() {
-    this.studentRepository.subscribeObjectUpdates(
-      this.props.student.id, (student) => this.setState({ student })
+    this.studentSubscriber.subscribeElementUpdates(
+      this.props.student, (student) => this.setState({ student })
     );
   }
 
   componentWillUnmount() {
-    this.studentRepository.unsubscribeObjectUpdates();
+    this.studentSubscriber.unsubscribeElementUpdates();
   }
 
   navigateToUpdatePlan = () => {

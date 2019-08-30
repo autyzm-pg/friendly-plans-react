@@ -2,8 +2,9 @@ import React from 'react';
 import {StyleSheet, TouchableHighlight, View, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
-import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
+import { Plan, PlanItem, PlanItemType, Student } from 'models';
 import { palette } from 'styles';
+import {PlanElement} from '../../../models/PlanElement';
 import { NavigationService } from '../../../services';
 import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
@@ -11,12 +12,13 @@ import { PlanItemTimer } from '../PlanItemTimer';
 interface Props {
   student: Student;
   itemParent: PlanItem | Plan;
-  item: PlanItem | PlanSubItem;
+  item: PlanElement;
   index: number;
   currentTaskIndex: number;
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
+
   container(): ViewStyle {
     return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
@@ -27,33 +29,31 @@ export class PlanItemListItem extends React.PureComponent<Props> {
 
   markItemPlanAsCompleted = () => {
     if (this.props.index === this.props.currentTaskIndex) {
-      if(this.isItemParentPlan()) {
-        this.props.item.update({completed: true,});
-      } else {
-        this.props.itemParent.updatePlanSubItem(this.props.item.id, {completed: true,});
-      }
+      this.props.item.complete();
     }
-  }
-
-  isItemParentPlan() {
-    return (this.props.itemParent instanceof Plan);
-  }
+  };
 
   navigateToRunPlanSubItemsList = () => {
     NavigationService.navigate('RunSubPlanList', {
       itemParent: this.props.item,
       student: this.props.student,
-      onGoBack: () => this.props.item.update({completed: true,}),
+      onGoBack: () => {
+        this.props.item.complete();
+        NavigationService.goBack();
+      }
     });
   };
 
   handlePress = () => {
-    if (this.props.item.type === PlanItemType.ComplexTask && this.isItemParentPlan()) {
+    if (this.props.item.type === PlanItemType.ComplexTask) {
       return this.navigateToRunPlanSubItemsList;
     } else {
       return this.markItemPlanAsCompleted;
     }
-  }
+  };
+
+  isTimerAvailableForElement =
+    (): boolean => !!this.props.item.time && this.props.index === this.props.currentTaskIndex;
 
   render() {
     return (
@@ -67,9 +67,9 @@ export class PlanItemListItem extends React.PureComponent<Props> {
                   planItemName={this.props.item.name}
                   textCase={this.props.student.textCase}
                   textSize={this.props.student.textSize}
-                  textColor={this.nameTextColor()} />
-              {(!!this.props.item.time && this.props.index === this.props.currentTaskIndex)
-                ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
+                  textColor={this.nameTextColor()}
+              />
+              {this.isTimerAvailableForElement() ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
             </View>
           </Card>
       </TouchableHighlight>

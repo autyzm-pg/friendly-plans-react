@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { Icon, StyledText } from 'components';
+import { Icon } from 'components';
 import { PlanItem } from 'models';
 
 interface Props {

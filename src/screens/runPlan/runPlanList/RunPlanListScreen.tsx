@@ -22,7 +22,8 @@ export class RunPlanListScreen extends React.PureComponent<
           <PlanItemList 
             student={student}
             itemParent={itemParent}
-            onGoBack={null} />
+            onGoBack={() => null}
+          />
         </FullScreenTemplate>
       </View>
     );

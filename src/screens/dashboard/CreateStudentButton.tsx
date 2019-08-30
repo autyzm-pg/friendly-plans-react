@@ -5,13 +5,12 @@ import { Card, Icon, StyledText } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { palette, typography } from 'styles';
-import {StudentRepository} from '../../models/repository/StudentRepository';
 
 export class CreateStudentButton extends React.PureComponent {
   render() {
     return (
       <TouchableHighlight
-        onPress={StudentRepository.create}
+        onPress={Student.create}
         underlayColor={palette.underlay}
         style={styles.touchable}
       >

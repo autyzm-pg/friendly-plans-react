@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Card, FlatButton } from 'components';
 import { i18n } from 'locale';
-import { Plan, PlanItemType } from 'models';
+import {Plan, PlanItem, PlanItemType} from 'models';
 import { palette } from 'styles';
 
 interface Props {
@@ -24,7 +24,7 @@ export class CreatePlanItemButton extends React.PureComponent<Props> {
           }}
           title={i18n.t('updatePlan:addBreak')}
           containerStyle={styles.buttonContainer}
-          onPress={() => plan.createPlanItem(PlanItemType.Break)}
+          onPress={() => PlanItem.create(plan, PlanItemType.Break)}
         />
         <FlatButton
           icon={{
@@ -34,7 +34,7 @@ export class CreatePlanItemButton extends React.PureComponent<Props> {
           }}
           title={i18n.t('updatePlan:addInteraction')}
           containerStyle={styles.buttonContainer}
-          onPress={() => plan.createPlanItem(PlanItemType.Interaction)}
+          onPress={() => PlanItem.create(plan, PlanItemType.Interaction)}
         />
         <FlatButton
           icon={{
@@ -44,7 +44,7 @@ export class CreatePlanItemButton extends React.PureComponent<Props> {
           }}
           title={i18n.t('updatePlan:addTask')}
           containerStyle={styles.buttonContainer}
-          onPress={() => plan.createPlanItem(PlanItemType.SimpleTask)}
+          onPress={() => PlanItem.create(plan, PlanItemType.SimpleTask)}
         />
       </Card>
     );

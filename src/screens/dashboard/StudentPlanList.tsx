@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import { Plan, Student } from 'models';
-import {PlanRepository} from '../../models/repository/PlanRepository';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 import StudentPlanListItem from './StudentPlanListItem';
 
 interface Props {
@@ -14,17 +14,19 @@ interface State {
 }
 
 export class StudentPlanList extends React.PureComponent<Props, State> {
-  planRepository: PlanRepository = new PlanRepository();
-  state: State = {
+  plansSubscriber: ModelSubscriber<Plan> = new ModelSubscriber();
+  state: Readonly<State> = {
     plans: [],
   };
 
   componentDidMount() {
-    this.planRepository.subscribeCollectionUpdates(this.props.student.id, plans => this.setState({ plans }));
+    this.plansSubscriber.subscribeCollectionUpdates(
+      this.props.student, plans => this.setState({ plans })
+    );
   }
 
   componentWillUnmount() {
-    this.planRepository.unsubscribeCollectionUpdates();
+    this.plansSubscriber.unsubscribeCollectionUpdates();
   }
 
   extractKey = (plan: Plan) => plan.id;

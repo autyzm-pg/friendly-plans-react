@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { Student } from 'models';
-import {StudentRepository} from '../../models/repository/StudentRepository';
+import {AuthUser, Student} from 'models';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 import { StudentListItem } from './StudentListItem';
 
 interface State {
@@ -10,19 +10,19 @@ interface State {
 }
 
 export class StudentList extends React.PureComponent<{}, State> {
-  studentRepository: StudentRepository = new StudentRepository();
+  modelSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
   state: State = {
     students: [],
   };
 
   componentDidMount() {
-    this.studentRepository.subscribeCollectionUpdates(
-      (students: Student[]) => this.setState({ students })
+    this.modelSubscriber.subscribeCollectionUpdates(
+      AuthUser.getAuthenticatedUser(), (students: Student[]) => this.setState({ students })
     );
   }
 
   componentWillUnmount() {
-    this.studentRepository.unsubscribeCollectionUpdates();
+    this.modelSubscriber.unsubscribeCollectionUpdates();
   }
 
   extractKey = (student: Student) => student.id;

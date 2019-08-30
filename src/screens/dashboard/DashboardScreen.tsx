@@ -7,9 +7,7 @@ import { palette } from 'styles';
 import { CreateStudentButton } from './CreateStudentButton';
 import { StudentList } from './StudentList';
 
-export class DashboardScreen extends React.PureComponent<
-  NavigationInjectedProps
-> {
+export class DashboardScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
     header: null,
   };
