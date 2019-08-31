@@ -1,4 +1,5 @@
 import {RNFirebase} from 'react-native-firebase';
+import {OperationalError} from '../infrastructure/Errors';
 import {SubscribableModel} from './SubscribableModel';
 
 export class ModelSubscriber<T> {
@@ -7,30 +8,46 @@ export class ModelSubscriber<T> {
   private unsubscribeElementUpdatesCallback: any = null;
 
   subscribeCollectionUpdates = (parent: SubscribableModel, callback: (elements: T[]) => void): void => {
-    // TODO: check if there no subscription already
+    if (this.unsubscribeCollectionUpdatesCallback !== null) {
+      throw new OperationalError(
+        'Trying to subscribe on collection updates when there is a subscription already. Unsubscribe first.'
+      );
+    }
     this.unsubscribeCollectionUpdatesCallback = parent.getChildCollectionRef().onSnapshot(
       this.parseCollectionDataToObjects(parent, callback)
     );
   };
 
-  unsubscribeCollectionUpdates() {
-    // TODO: check if there any subscription already
+  unsubscribeCollectionUpdates = () => {
+    if (this.unsubscribeCollectionUpdatesCallback === null) {
+      throw new OperationalError(
+        'Trying to unsubscribe on collection updates when there is no subscription. Subscribe first.'
+      );
+    }
     this.unsubscribeCollectionUpdatesCallback();
     this.unsubscribeCollectionUpdatesCallback = null;
-  }
+  };
 
   subscribeElementUpdates = (element: SubscribableModel, callback: (element: T) => void): void => {
-    // TODO: check if there no subscription already
+    if (this.unsubscribeElementUpdatesCallback !== null) {
+      throw new OperationalError(
+        'Trying to subscribe on element updates when there is a subscription already. Unsubscribe first.'
+      );
+    }
     this.unsubscribeElementUpdatesCallback = element.getRef().onSnapshot(
       this.parseSingleElementDataToObject(element, callback)
     );
   };
 
-  unsubscribeElementUpdates() {
-    // TODO: check if there any subscription already
+  unsubscribeElementUpdates = () => {
+    if (this.unsubscribeElementUpdatesCallback === null) {
+      throw new OperationalError(
+        'Trying to unsubscribe on element updates when there is no subscription. Subscribe first.'
+      );
+    }
     this.unsubscribeElementUpdatesCallback();
     this.unsubscribeElementUpdatesCallback = null;
-  }
+  };
 
   private parseCollectionDataToObjects = (
     parent: SubscribableModel, callback: (elements: T[]) => void
