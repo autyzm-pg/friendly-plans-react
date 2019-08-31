@@ -17,7 +17,7 @@ interface Props {
   currentTaskIndex: number;
 }
 
-export class PlanItemListItem extends React.PureComponent<Props> {
+export class PlanElementListItem extends React.PureComponent<Props> {
 
   container(): ViewStyle {
     return this.props.item.completed ? styles.containerCompleted : styles.container;

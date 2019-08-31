@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 import { Plan, PlanItem, Student } from 'models';
 import {ModelSubscriber} from '../../../models/ModelSubscriber';
 import {PlanElement} from '../../../models/PlanElement';
-import { PlanItemListItem } from './PlanItemListItem';
+import { PlanElementListItem } from './PlanElementListItem';
 
 interface Props {
   itemParent: Plan | PlanItem;
@@ -17,7 +17,7 @@ interface State {
   student: Student;
 }
 
-export class PlanItemList extends React.PureComponent<Props, State> {
+export class PlanElementList extends React.PureComponent<Props, State> {
   studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
   planElementsSubscriber: ModelSubscriber<PlanElement> = new ModelSubscriber();
   itemsRef: any;
@@ -47,10 +47,6 @@ export class PlanItemList extends React.PureComponent<Props, State> {
     }
   }
 
-  isItemParentPlan() {
-    return (this.props.itemParent instanceof Plan);
-  }
-
   isEveryPlanItemCompleted() {
     return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length);
   }
@@ -61,7 +57,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
   }
 
   renderItem = ({ item, index }: { item: PlanElement; index: number }) => (
-    <PlanItemListItem
+    <PlanElementListItem
       student={this.state.student}
       itemParent={this.props.itemParent}
       item={item}
