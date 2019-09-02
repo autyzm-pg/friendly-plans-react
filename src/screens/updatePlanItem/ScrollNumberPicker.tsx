@@ -44,25 +44,6 @@ export class ScrollNumberPicker extends React.PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
-  dialog: {
-    flex:1,
-  },
-  dialogContent: {
-    flex: 7,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-    alignContent: 'space-between',
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  dialogButton: {
-    flex: 1,
-    height:50,
-  },
-  dialogContentMiddleColumn: {
-    backgroundColor: palette.white,
-    width: 15,
-  },
   dialogContentColumn: {
     backgroundColor: palette.white,
   },

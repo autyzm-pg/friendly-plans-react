@@ -10,7 +10,7 @@ interface Props {
   startMinute: number;
   startSecond: number;
   onPressShowTimePicker: () => boolean;
-  onTimeSet: (minutes, seconds) => void;
+  onTimeSet: (minutes: number, seconds: number) => void;
 }
 
 interface State {
@@ -103,8 +103,5 @@ const styles = StyleSheet.create({
   dialogContentMiddleColumn: {
     backgroundColor: palette.white,
     width: 15,
-  },
-  dialogContentColumn: {
-    backgroundColor: palette.white,
   },
 });
