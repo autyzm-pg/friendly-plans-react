@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableHighlight, ViewStyle} from 'react-native';
+import {StyleSheet, TouchableHighlight, View, ViewStyle} from 'react-native';
 
 import { Card } from 'components';
 import { Plan, PlanItem, PlanItemType, PlanSubItem, Student } from 'models';
@@ -39,7 +39,7 @@ export class PlanItemListItem extends React.PureComponent<Props> {
     return (this.props.itemParent instanceof Plan);
   }
 
-  navigateToRunPlanSubItemsList= () => {
+  navigateToRunPlanSubItemsList = () => {
     NavigationService.navigate('RunSubPlanList', {
       itemParent: this.props.item,
       student: this.props.student,
@@ -61,15 +61,16 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.handlePress()} >
-          <Card style={[this.nameTextColor(), this.container()]} >
-          <PlanItemName 
-              planItemName={this.props.item.name}
-              textCase={this.props.student.textCase}
-              textSize={this.props.student.textSize}
-              textColor={this.nameTextColor()}
-          />
-          {(!!this.props.item.time && this.props.index === this.props.currentTaskIndex)
-              ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
+          <Card style={this.container()} >
+            <View style={this.container()}>
+              <PlanItemName 
+                  planItemName={this.props.item.name}
+                  textCase={this.props.student.textCase}
+                  textSize={this.props.student.textSize}
+                  textColor={this.nameTextColor()} />
+              {(!!this.props.item.time && this.props.index === this.props.currentTaskIndex)
+                ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
+            </View>
           </Card>
       </TouchableHighlight>
     );
@@ -80,24 +81,28 @@ const styles = StyleSheet.create({
   touchable: {
     margin: 8,
     borderRadius: 8,
-    flex: 1,
+    flex: 6,
+    flexDirection: 'row',
   },
   nameTextColor: {
+    flex: 5,
     color: palette.textBlack,
-    flex: 1,
-    alignItems: 'center',
+    textAlignVertical: 'center',
   },
   nameTextColorCompleted: {
+    flex: 5,
     color: palette.textWhite,
+    textAlignVertical: 'center',
+  },
+  card: {
     flex: 1,
-    alignItems: 'center',
+    margin: 0,
   },
   container: {
     backgroundColor: palette.background,
     flex: 6,
     flexDirection: 'row',
     alignContent: 'space-between',
-    margin: 0,
   },
   containerCompleted: {
     backgroundColor: palette.primaryDark,
