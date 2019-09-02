@@ -49,7 +49,9 @@ export class PlanItemListItem extends React.PureComponent<Props> {
 
   handlePress = () => {
     if (this.props.item.type === PlanItemType.ComplexTask && this.isItemParentPlan()) {
-      return this.navigateToRunPlanSubItemsList;
+      if(this.props.item.completed === false) {
+        return this.navigateToRunPlanSubItemsList;
+      }
     } else {
       return this.markItemPlanAsCompleted;
     }
