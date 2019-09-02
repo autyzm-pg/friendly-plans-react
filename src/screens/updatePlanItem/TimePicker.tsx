@@ -71,7 +71,8 @@ export class TimePicker extends React.PureComponent<Props, State> {
 						style={styles.dialogContentColumn}
 						dataSource={scrollData}
 						selectedIndex={0}
-						highlightColor={palette.primary}
+            highlightColor={palette.primary}
+            wrapperColor={"#ffffff"}
 						itemHeight={50}
 						wrapperHeight={50*4-2*20}
 						renderItem={(data: number, index: number, isSelected: boolean) => {
@@ -89,7 +90,8 @@ export class TimePicker extends React.PureComponent<Props, State> {
 						style={styles.dialogContentColumn}
 						dataSource={scrollData}
 						selectedIndex={0}
-						highlightColor={palette.primaryDark}
+            highlightColor={palette.primaryDark}
+            wrapperColor={"#ffffff"}
 						itemHeight={50}
 						wrapperHeight={50*4-2*20}
 						renderItem={(data: number, index: number, isSelected: boolean) => {
