@@ -38,7 +38,7 @@ export class RunPlanSlideScreen extends React.PureComponent<
       this.studentRef = this.state.student.getStudentRef();
       this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
     }
-  
+
     handlePlanItemsChange = (
       querySnapshot: RNFirebase.firestore.QuerySnapshot,
     ) => {
@@ -50,7 +50,7 @@ export class RunPlanSlideScreen extends React.PureComponent<
       );
       this.setState({ planItems });
     };
-  
+
     handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
       if(documentSnapshot.exists){
         const student = Object.assign(new Student(), {
@@ -60,12 +60,12 @@ export class RunPlanSlideScreen extends React.PureComponent<
         this.setState({ student });
       }
     };
-  
+
     componentWillUnmount() {
       this.unsubscribePlanItems();
       this.unsubscribeStudent();
     }
-  
+
     nextPage = () => {
       if (this.state.pageNumber + 1 < this.state.planItems.length) {
           this.setState(state => ({pageNumber: state.pageNumber + 1}));
@@ -87,7 +87,7 @@ export class RunPlanSlideScreen extends React.PureComponent<
             <FlatButton
               style={styles.button}
               onPress={this.nextPage}
-              title={i18n.t('runPlan:next')} />   
+              title={i18n.t('runPlan:next')} />
           </Card>
         </View>
       );

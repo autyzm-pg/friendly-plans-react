@@ -20,7 +20,7 @@ export class RunSubPlanListScreen extends React.PureComponent<
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-          <PlanItemList 
+          <PlanItemList
             student={student}
             itemParent={itemParent}
             onGoBack={onGoBack} />

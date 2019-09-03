@@ -49,7 +49,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
       student: this.props.student,
     });
   };
-  
+
   navigateToRunPlan = () => {
     switch(this.state.student.displaySettings) {
       case StudentDisplayOption.LargeImageSlide:

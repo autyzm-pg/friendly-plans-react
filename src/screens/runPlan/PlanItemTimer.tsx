@@ -45,7 +45,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
 
   tick = () => {
     (this.state.itemTime <= 0) ? this.HandleTimesUp() : this.decreaseTime();
-  }  
+  }
 
   render() {
     return (

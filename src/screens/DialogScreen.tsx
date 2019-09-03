@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { ModalTemplate, StyledText } from 'components';
-import { emptyFunction } from 'helpers/functions';
 import { DialogProps } from 'models';
 import { typography } from 'styles';
 
@@ -32,7 +31,7 @@ export class DialogScreen extends React.PureComponent<
   state = {
     title: '',
     description: '',
-    onPress: emptyFunction,
+    onPress: () => null,
     buttonTitle: '',
   };
 

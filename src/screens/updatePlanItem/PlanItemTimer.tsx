@@ -23,7 +23,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
     super(props);
     this.state = {
       itemTime: this.props.planItem.time,
-      itemTimeText: (this.props.planItem.time!!) 
+      itemTimeText: (this.props.planItem.time!!)
         ? (this.props.planItem.time / 60).toFixed() + ':' + this.props.planItem.time % 60
         : ''
     };

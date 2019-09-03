@@ -3,8 +3,8 @@ import { RNFirebase } from 'react-native-firebase';
 
 import { PlanItem } from 'models';
 import { FlatList } from 'react-native';
-import {PlanSubItem} from '../../models/PlanSubItem';
-import {NavigationService} from '../../services';
+import { PlanSubItem } from '../../models/PlanSubItem';
+import { NavigationService } from '../../services';
 import { PlanSubItemListItem } from './PlanSubItemListItem';
 
 interface Props {
@@ -27,10 +27,14 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
 
   componentDidMount() {
     const planSubItemsRef = this.props.planItem.getSubItemsRef();
-    this.unsubscribePlanSubItems = planSubItemsRef.onSnapshot(this.handlePlanSubItemsChange);
+    this.unsubscribePlanSubItems = planSubItemsRef.onSnapshot(
+      this.handlePlanSubItemsChange,
+    );
   }
 
-  handlePlanSubItemsChange = (querySnapshot: RNFirebase.firestore.QuerySnapshot) => {
+  handlePlanSubItemsChange = (
+    querySnapshot: RNFirebase.firestore.QuerySnapshot,
+  ) => {
     const planSubItems: PlanSubItem[] = querySnapshot.docs.map(doc =>
       Object.assign(new PlanSubItem(), {
         id: doc.id,
@@ -45,15 +49,15 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
   }
 
   navigateToPlanSubItemUpdate = (planSubItem: PlanSubItem) => {
-      NavigationService.navigate('UpdatePlanSubItem', {planSubItem});
+    NavigationService.navigate('UpdatePlanSubItem', { planSubItem });
   };
 
   renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => (
     <PlanSubItemListItem
-        planSubItem={item}
-        index={index}
-        onDelete={() => this.props.planItem.deletePlanSubItem(item.id)}
-        onUpdate={() => this.navigateToPlanSubItemUpdate(item)}
+      planSubItem={item}
+      index={index}
+      onDelete={() => this.props.planItem.deletePlanSubItem(item.id)}
+      onUpdate={() => this.navigateToPlanSubItemUpdate(item)}
     />
   );
 

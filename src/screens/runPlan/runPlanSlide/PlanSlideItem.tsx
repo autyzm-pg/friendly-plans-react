@@ -17,7 +17,7 @@ export class PlanSlideItem extends React.PureComponent<Props> {
   render() {
     return (
       <View style={styles.container} >
-        <PlanItemName 
+        <PlanItemName
           planItemName={this.props.planItem.name}
           textCase={this.props.textCase}
           textSize={this.props.textSize}

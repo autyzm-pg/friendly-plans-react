@@ -19,7 +19,7 @@ export class Plan {
     createPlanItem(this, planItemType);
 
   getPlanItemsRef = (): RNFirebase.firestore.CollectionReference =>
-    getPlanItemsRef(this); 
+    getPlanItemsRef(this);
 }
 
 // Private API below
