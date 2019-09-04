@@ -1,8 +1,8 @@
 import React from 'react';
-import { RNFirebase } from 'react-native-firebase';
 
 import { Plan, PlanItem } from 'models';
 import { FlatList } from 'react-native';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 import { NavigationService } from '../../services';
 import { PlanItemListItem } from './PlanItemListItem';
 
@@ -15,36 +15,20 @@ interface State {
 }
 
 export class PlanItemList extends React.PureComponent<Props, State> {
-  planItemsRef: any;
-  unsubscribePlanItems: any;
-  state = {
+  planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
+  state: Readonly<State> = {
     planItems: [],
   };
 
   componentDidMount() {
-    this.planItemsRef = this.props.plan.getPlanItemsRef();
-    this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
-  }
-
-  handlePlanItemsChange = (
-    querySnapshot: RNFirebase.firestore.QuerySnapshot,
-  ) => {
-    const planItems: PlanItem[] = querySnapshot.docs.map(doc =>
-      Object.assign(new PlanItem(), {
-        id: doc.id,
-        ...doc.data(),
-      }),
+    this.planItemsSubscriber.subscribeCollectionUpdates(
+      this.props.plan, (planItems => this.setState({ planItems }))
     );
-    this.setState({ planItems });
-  };
+  }
 
   componentWillUnmount() {
-    this.unsubscribePlanItems();
+    this.planItemsSubscriber.unsubscribeCollectionUpdates();
   }
-
-  deletePlanItem = (id: string) => {
-    this.planItemsRef.doc(id).delete();
-  };
 
   navigateToPlanItemUpdate = (planItem: PlanItem) => {
       NavigationService.navigate('UpdatePlanItem', {
@@ -54,7 +38,7 @@ export class PlanItemList extends React.PureComponent<Props, State> {
 
   renderItem = ({ item, index }: { item: PlanItem; index: number }) => (
     <PlanItemListItem
-      onDelete={() => this.deletePlanItem(item.id)}
+      onDelete={() => item.delete()}
       onUpdate={() => this.navigateToPlanItemUpdate(item)}
       planItem={item}
       index={index}

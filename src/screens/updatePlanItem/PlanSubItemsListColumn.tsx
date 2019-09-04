@@ -4,7 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import {FlatButton} from 'components';
 import { i18n } from 'locale';
 import {palette} from 'styles';
-import {PlanItem} from '../../models';
+import {PlanItem, PlanSubItem} from '../../models';
 import {PlanSubItemList} from './PlanSubItemList';
 
 interface Props {
@@ -27,7 +27,7 @@ export class PlanSubItemsListColumn extends React.PureComponent<Props> {
            }}
            title={i18n.t('updatePlanItem:addSubPlanItem')}
            containerStyle={styles.buttonContainer}
-           onPress={() => planItem.createSubItem()}
+           onPress={() => PlanSubItem.create(planItem)}
          />
         </View>
     );

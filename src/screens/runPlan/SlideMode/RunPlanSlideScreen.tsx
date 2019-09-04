@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { RNFirebase } from 'react-native-firebase';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FlatButton, StyledText } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, Student } from 'models';
 import { palette, typography } from 'styles';
+import {ModelSubscriber} from '../../../models/ModelSubscriber';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
@@ -15,16 +15,13 @@ interface State {
   student: Student;
 }
 
-export class RunPlanSlideScreen extends React.PureComponent<
-  NavigationInjectedProps, State> {
+export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedProps, State> {
     static navigationOptions = {
       header: null,
     };
 
-    planItemsRef: any;
-    unsubscribePlanItems: any;
-    studentRef: any;
-    unsubscribeStudent: any;
+    studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
+    planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
     state: Readonly<State> = {
       planItems: [],
       pageNumber: 0,
@@ -32,38 +29,20 @@ export class RunPlanSlideScreen extends React.PureComponent<
     };
 
     componentDidMount() {
+      const student = this.props.navigation.getParam('student');
       const plan = this.props.navigation.getParam('plan');
-      this.planItemsRef = plan.getPlanItemsRef();
-      this.unsubscribePlanItems = this.planItemsRef.onSnapshot(this.handlePlanItemsChange);
-      this.studentRef = this.state.student.getStudentRef();
-      this.unsubscribeStudent = this.studentRef.onSnapshot(this.handleStudentChange);
-    }
-  
-    handlePlanItemsChange = (
-      querySnapshot: RNFirebase.firestore.QuerySnapshot,
-    ) => {
-      const planItems: PlanItem[] = querySnapshot.docs.map(doc =>
-        Object.assign(new PlanItem(), {
-          id: doc.id,
-          ...doc.data(),
-        }),
+
+      this.planItemsSubscriber.subscribeCollectionUpdates(
+        plan, (planItems => this.setState({ planItems }))
       );
-      this.setState({ planItems });
-    };
-  
-    handleStudentChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
-      if(documentSnapshot.exists){
-        const student = Object.assign(new Student(), {
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
-        });
-        this.setState({ student });
-      }
-    };
-  
+      this.studentSubscriber.subscribeElementUpdates(
+        student, (updatedStudent) => this.setState({ student: updatedStudent })
+      );
+    }
+
     componentWillUnmount() {
-      this.unsubscribePlanItems();
-      this.unsubscribeStudent();
+      this.planItemsSubscriber.unsubscribeCollectionUpdates();
+      this.studentSubscriber.unsubscribeElementUpdates();
     }
   
     nextPage = () => {
@@ -87,7 +66,8 @@ export class RunPlanSlideScreen extends React.PureComponent<
             <FlatButton
               style={styles.button}
               onPress={this.nextPage}
-              title={i18n.t('runPlan:next')} />   
+              title={i18n.t('runPlan:next')}
+            />
           </Card>
         </View>
       );

@@ -8,9 +8,7 @@ import { CreatePlanItemButton } from './CreatePlanItemButton';
 import { PlanHeader } from './PlanHeader';
 import { PlanItemList } from './PlanItemList';
 
-export class UpdatePlanScreen extends React.PureComponent<
-  NavigationInjectedProps
-> {
+export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('updatePlan:screenTitle', {

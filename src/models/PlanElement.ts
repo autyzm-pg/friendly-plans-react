@@ -1,0 +1,14 @@
+import {PlanItemType} from './PlanItem';
+
+export interface PlanElement {
+
+  id: string;
+  name: string;
+  type: PlanItemType;
+  completed: boolean;
+  time: number;
+
+  complete: () => void;
+
+
+}

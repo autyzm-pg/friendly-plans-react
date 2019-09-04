@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FlatButton } from 'components';
 import { i18n } from 'locale';
-import { Student } from 'models';
+import {Plan, Student} from 'models';
 import { palette } from 'styles';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export class CreatePlanButton extends React.PureComponent<Props> {
-  createPlanForStudent = () => this.props.student.createPlan();
+  createPlanForStudent = () => Plan.create(this.props.student);
 
   render() {
     return (
