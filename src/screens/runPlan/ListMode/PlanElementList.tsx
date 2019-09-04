@@ -20,8 +20,6 @@ interface State {
 export class PlanElementList extends React.PureComponent<Props, State> {
   studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
   planElementsSubscriber: ModelSubscriber<PlanElement> = new ModelSubscriber();
-  itemsRef: any;
-  unsubscribeItems: any;
   state: Readonly<State> = {
     items: [],
     student: this.props.student,
