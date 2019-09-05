@@ -15,6 +15,7 @@
     "formik": "^1.5.7",
     "i18next": "^15.0.7",
     "react-i18next": "^9.0.2",
+    "react-native": "0.59.9",
     "react-native-config": "^0.11.7",
     "react-native-device-info": "^0.24.3",
     "react-native-elements": "1.0.0",
@@ -24,7 +25,6 @@
     "react-native-image-picker": "^0.28.1",
     "react-native-splash-screen": "^3.2.0",
     "react-native-vector-icons": "^6.5.0",
-    "react-native": "0.59.9",
     "react-navigation": "^3.11.0",
     "react": "16.8.6",
     "yup": "^0.27.0"
