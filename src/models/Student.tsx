@@ -1,6 +1,9 @@
-import firebase, { RNFirebase } from 'react-native-firebase';
+import { RNFirebase } from 'react-native-firebase';
 
-import { i18n } from 'locale';
+import {i18n} from '../locale';
+import {getPlansRef, getStudentRef, getStudentsRef} from './FirebaseRefProxy';
+import {Plan} from './Plan';
+import {ParameterlessConstructor, SubscribableModel} from './SubscribableModel';
 
 export enum StudentDisplayOption {
   LargeImageSlide = 'largeImageSlide',
@@ -10,14 +13,12 @@ export enum StudentDisplayOption {
   TextSlide = 'textSlide',
 }
 
-export class Student {
-  static create(): Promise<RNFirebase.firestore.DocumentReference> {
-    return createStudent();
-  }
+export class Student implements SubscribableModel {
 
-  static getCollectionRef(): RNFirebase.firestore.CollectionReference {
-    return getStudentsRef();
-  }
+  static create = (): Promise<RNFirebase.firestore.DocumentReference> =>
+    getStudentsRef().add({
+      name: i18n.t('studentList:studentNamePlaceholder'),
+  });
 
   name!: string;
   id!: string;
@@ -26,65 +27,11 @@ export class Student {
   textSize!: string;
   slideCardSwitch!: boolean;
 
-  delete = (): Promise<void> => deleteStudent(this);
+  update = (changes: object) => getStudentRef(this.id).update(changes);
+  delete = (): Promise<void> => getStudentRef(this.id).delete();
 
-  update = (changes: object) => updateStudent(this, changes);
+  getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => getPlansRef(this.id);
+  getChildType: () => ParameterlessConstructor<SubscribableModel> = () => Plan;
+  getRef: () => RNFirebase.firestore.DocumentReference = () => getStudentRef(this.id);
 
-  createPlan = (): Promise<RNFirebase.firestore.DocumentReference> =>
-    createPlanForStudent(this);
-
-  getPlansRef = (): RNFirebase.firestore.CollectionReference =>
-    getStudentPlansRef(this);
-
-  getStudentRef = (): RNFirebase.firestore.DocumentReference =>
-    getStudentRef(this);
 }
-
-// Private API below
-export const getStudentsRef = (
-  userId = firebase.auth().currentUser!.uid,
-): RNFirebase.firestore.CollectionReference =>
-  firebase
-    .firestore()
-    .collection('users')
-    .doc(userId)
-    .collection('students');
-
-const createStudent = (): Promise<RNFirebase.firestore.DocumentReference> =>
-  getStudentsRef().add({
-    name: i18n.t('studentList:studentNamePlaceholder'),
-  });
-
-const deleteStudent = (student: Student): Promise<void> =>
-  getStudentsRef()
-    .doc(student.id)
-    .delete();
-
-const updateStudent = (student: Student, changes: object): Promise<void> =>
-  getStudentsRef()
-    .doc(student.id)
-    .update(changes);
-
-const createPlanForStudent = (
-  student: Student,
-): Promise<RNFirebase.firestore.DocumentReference> =>
-  getStudentsRef()
-    .doc(student.id)
-    .collection('plans')
-    .add({
-      name: i18n.t('planList:planNamePlaceholder'),
-      studentId: student.id,
-    });
-
-const getStudentPlansRef = (
-  student: Student,
-): RNFirebase.firestore.CollectionReference =>
-  getStudentsRef()
-    .doc(student.id)
-    .collection('plans');
-
-const getStudentRef = (
-  student: Student,
-): RNFirebase.firestore.DocumentReference =>
-   getStudentsRef()
-    .doc(student.id);

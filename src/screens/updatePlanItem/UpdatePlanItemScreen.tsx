@@ -3,8 +3,8 @@ import {StyleSheet, View} from 'react-native';
 import {NavigationInjectedProps} from 'react-navigation';
 
 import {Card, FullScreenTemplate} from 'components';
-import {RNFirebase} from 'react-native-firebase';
 import {PlanItem, PlanItemType} from '../../models';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 import {PlanItemHeader} from './PlanItemHeader';
 import {PlanItemImagePicker} from './PlanItemImagePicker';
 import {PlanItemLector} from './PlanItemLector';
@@ -18,7 +18,7 @@ interface State {
 }
 
 export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjectedProps, State> {
-  unsubscribePlanItem: any;
+  planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
 
   constructor(props: NavigationInjectedProps) {
     super(props);
@@ -29,22 +29,14 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   }
 
   componentDidMount() {
-    const planItemRef = this.state.planItem.getPlanItemRef();
-    this.unsubscribePlanItem = planItemRef.onSnapshot(this.handlePlanItemChange);
+    const planItem = this.props.navigation.getParam('planItem');
+    this.planItemsSubscriber.subscribeElementUpdates(
+      planItem, updatedPlanItem =>  this.setState({ planItem: updatedPlanItem })
+    );
   }
 
-  handlePlanItemChange = (documentSnapshot: RNFirebase.firestore.DocumentSnapshot) => {
-    if (documentSnapshot.exists) {
-      const planItem = Object.assign(new PlanItem(), {
-        id: documentSnapshot.id,
-        ...documentSnapshot.data(),
-      });
-      this.setState({ planItem });
-    }
-  };
-
   componentWillUnmount() {
-    this.unsubscribePlanItem();
+    this.planItemsSubscriber.unsubscribeElementUpdates();
   }
 
   onImageChange = (source: any) => {
@@ -54,7 +46,7 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   onComplexitySwitch(planItemType: PlanItemType): void {
     const planItem: PlanItem = this.props.navigation.getParam('planItem');
     planItem.update({
-        type: planItemType
+      type: planItemType
     });
   }
 

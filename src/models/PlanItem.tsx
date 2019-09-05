@@ -1,19 +1,38 @@
 import { RNFirebase } from 'react-native-firebase';
-
-import {OperationalError} from '../infrastructure/Errors';
 import {i18n} from '../locale';
-import {getStudentsRef} from './Student';
+import {getPlanItemRef, getPlanItemsRef, getPlanSubItemsRef} from './FirebaseRefProxy';
+import {Plan} from './Plan';
+import {PlanElement} from './PlanElement';
+import {PlanSubItem} from './PlanSubItem';
+import {ParameterlessConstructor, SubscribableModel} from './SubscribableModel';
 
 export enum PlanItemType {
   SimpleTask = 'simpleTask',
   ComplexTask = 'complexTask',
   Break = 'break',
   Interaction = 'interaction',
+  SubElement = 'subElement'
 }
 
-export class PlanItem {
-  name!: string;
+const PLAN_ITEMS_ICONS = {
+  task: 'layers',
+  break: 'bell',
+  interaction: 'account-multiple',
+};
+
+export class PlanItem implements SubscribableModel, PlanElement {
+
+  static create = (plan: Plan, type: PlanItemType): Promise<RNFirebase.firestore.DocumentReference> =>
+    getPlanItemsRef(plan.studentId, plan.id).add({
+      name: i18n.t('updatePlan:planItemNamePlaceholder'),
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false
+    });
+
   id!: string;
+  name!: string;
   type!: PlanItemType;
   planId!: string;
   studentId!: string;
@@ -21,47 +40,20 @@ export class PlanItem {
   time!: number;
 
   getIconName = (): string => {
-    const icons = {
-      task: 'layers',
-      break: 'bell',
-      interaction: 'account-multiple',
-    };
-    return icons[this.type];
+    return PLAN_ITEMS_ICONS[this.type];
   };
 
   isTask = (): boolean => this.type === PlanItemType.SimpleTask || this.type === PlanItemType.ComplexTask;
-
-  update = (changes: object): Promise<void> => this.getPlanItemRef().update(changes);
-
-  getSubItemsRef = (): RNFirebase.firestore.CollectionReference  => {
-    return this.getPlanItemRef().collection('subItems');
+  complete = () => {
+    this.update({completed: true});
   };
 
-  createSubItem = (): Promise<RNFirebase.firestore.DocumentReference> => {
-    if (this.type !== PlanItemType.ComplexTask) {
-        throw new OperationalError();
-    }
-    return this.getPlanItemRef().collection('subItems').add({
-        name: i18n.t('updatePlan:planItemNamePlaceholder'),
-        planItemId: this.id,
-        completed: false,
-    });
-  };
+  update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
+  delete = (): Promise<void> => getPlanItemRef(this.studentId, this.planId, this.id).delete();
 
-  deletePlanSubItem = (planSubItemId: string): Promise<void> => {
-    return this.getSubItemsRef().doc(planSubItemId).delete();
-  };
+  getChildCollectionRef: () => RNFirebase.firestore.CollectionReference =
+    () => getPlanSubItemsRef(this.studentId, this.planId, this.id);
+  getChildType: () => ParameterlessConstructor<SubscribableModel> = () => PlanSubItem;
+  getRef: () => RNFirebase.firestore.DocumentReference = () => getPlanItemRef(this.studentId, this.planId, this.id);
 
-  updatePlanSubItem = (planSubItemId: string, changes: object): Promise<void> => {
-    return this.getSubItemsRef().doc(planSubItemId).update(changes);
-  };
-
-  getPlanItemRef = (): RNFirebase.firestore.DocumentReference => {
-    return getStudentsRef()
-        .doc(this.studentId)
-        .collection('plans')
-        .doc(this.planId)
-        .collection('planItems')
-        .doc(this.id);
-  };
 }

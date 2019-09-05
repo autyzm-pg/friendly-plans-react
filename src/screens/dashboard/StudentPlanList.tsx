@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
-import { RNFirebase } from 'react-native-firebase';
 
 import { Plan, Student } from 'models';
+import {ModelSubscriber} from '../../models/ModelSubscriber';
 import StudentPlanListItem from './StudentPlanListItem';
 
 interface Props {
@@ -14,29 +14,19 @@ interface State {
 }
 
 export class StudentPlanList extends React.PureComponent<Props, State> {
-  studentPlansRef: any;
-  unsubscribeStudentPlans: any;
-  state = {
+  plansSubscriber: ModelSubscriber<Plan> = new ModelSubscriber();
+  state: Readonly<State> = {
     plans: [],
   };
 
   componentDidMount() {
-    this.studentPlansRef = this.props.student.getPlansRef();
-    this.unsubscribeStudentPlans = this.studentPlansRef.onSnapshot(this.handlePlansChange);
+    this.plansSubscriber.subscribeCollectionUpdates(
+      this.props.student, plans => this.setState({ plans })
+    );
   }
 
-  handlePlansChange = (querySnapshot: RNFirebase.firestore.QuerySnapshot) => {
-    const plans: Plan[] = querySnapshot.docs.map(doc =>
-      Object.assign(new Plan(), {
-        id: doc.id,
-        ...doc.data(),
-      }),
-    );
-    this.setState({ plans });
-  };
-
   componentWillUnmount() {
-    this.unsubscribeStudentPlans();
+    this.plansSubscriber.unsubscribeCollectionUpdates();
   }
 
   extractKey = (plan: Plan) => plan.id;

@@ -1,8 +1,9 @@
 import React from 'react';
 import {OperationalError} from '../../infrastructure/Errors';
 import {PlanItem, PlanItemType} from '../PlanItem';
+import {PlanSubItem} from '../PlanSubItem';
 
-describe('PlanItem', () => {
+describe('PlanSubItem', () => {
 
   [
       { planItemType: PlanItemType.SimpleTask },
@@ -13,7 +14,7 @@ describe('PlanItem', () => {
       const planItem = new PlanItem();
       planItem.id = 'ID-1';
       planItem.type = planItemType;
-      expect(planItem.createSubItem).toThrow(OperationalError);
+      expect(() => PlanSubItem.create(planItem)).toThrow(OperationalError);
   });
  });
 
