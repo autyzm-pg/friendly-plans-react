@@ -10,6 +10,7 @@ import { fonts } from './fonts';
 interface TypographyEntry {
   fontFamily: string;
   fontSize: number;
+  fontWeight?: string;
   letterSpacing: number;
 }
 
@@ -59,6 +60,7 @@ export const typography: Typography = StyleSheet.create({
   headline6: {
     fontFamily: fonts.sansSerif.medium,
     fontSize: 17,
+    fontWeight: '400',
     letterSpacing: 0.15,
   },
   // used for list item bigger text
