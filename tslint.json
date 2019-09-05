@@ -10,10 +10,7 @@
     "jsx-no-lambda": [false],
     // TODO This rule is really usefull during merge conflicts as in consuming our code APIs
     // To fix it we need more typing in the codebase
-    "object-literal-sort-keys": {
-      "severity": "warning",
-      "options": ["match-declaration-order", "shorthand-first"]
-    },
+    "object-literal-sort-keys": false,
     // TODO allowing to import implicit dependencies may cause to commit the leftovers from developer experiments
     // Removing this rule will need to fix current submodule architecture for 'services', 'screens', etc.
     "no-implicit-dependencies": false

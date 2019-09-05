@@ -7,30 +7,7 @@ import { StyleSheet } from 'react-native';
 
 import { fonts } from './fonts';
 
-interface TypographyEntry {
-  fontFamily: string;
-  fontSize: number;
-  fontWeight?: string;
-  letterSpacing: number;
-}
-
-interface Typography {
-  headline1: TypographyEntry;
-  headline2: TypographyEntry;
-  headline3: TypographyEntry;
-  headline4: TypographyEntry;
-  headline5: TypographyEntry;
-  headline6: TypographyEntry;
-  subtitle1: TypographyEntry;
-  subtitle2: TypographyEntry;
-  body1: TypographyEntry;
-  body2: TypographyEntry;
-  button: TypographyEntry;
-  caption: TypographyEntry;
-  overline: TypographyEntry;
-}
-
-export const typography: Typography = StyleSheet.create({
+export const typography = StyleSheet.create({
   headline1: {
     fontFamily: fonts.sansSerif.light,
     fontSize: 96,
