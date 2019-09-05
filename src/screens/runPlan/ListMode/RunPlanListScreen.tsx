@@ -19,11 +19,7 @@ export class RunPlanListScreen extends React.PureComponent<
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-<<<<<<< HEAD:src/screens/runPlan/runPlanList/RunPlanListScreen.tsx
-          <PlanItemList
-=======
           <PlanElementList
->>>>>>> master:src/screens/runPlan/ListMode/RunPlanListScreen.tsx
             student={student}
             itemParent={itemParent}
             onGoBack={() => null}
