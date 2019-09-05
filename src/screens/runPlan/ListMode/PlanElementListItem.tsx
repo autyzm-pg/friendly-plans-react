@@ -57,13 +57,13 @@ export class PlanElementListItem extends React.PureComponent<Props> {
 
   render() {
     return (
-      <TouchableHighlight 
+      <TouchableHighlight
         underlayColor={palette.underlay}
         style={styles.touchable}
         onPress={this.handlePress()} >
           <Card style={this.container()} >
             <View style={this.container()}>
-              <PlanItemName 
+              <PlanItemName
                   planItemName={this.props.item.name}
                   textCase={this.props.student.textCase}
                   textSize={this.props.student.textSize}

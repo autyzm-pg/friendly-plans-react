@@ -14,11 +14,11 @@ describe('App', () => {
   it('should set top level navigator ref', () => {
     const wrapper = shallow(<App />);
     const instance = wrapper.instance() as App;
-    const navigator = {} as NavigationContainerComponent;
+    const navigator = {};
     const spy = jest
       .spyOn(NavigationService, 'setTopLevelNavigator')
       .mockImplementationOnce(() => null);
-    instance.setNavigationRef(navigator);
+    instance.setNavigationRef(navigator as NavigationContainerComponent);
     expect(spy).toHaveBeenCalledWith(navigator);
   });
 });

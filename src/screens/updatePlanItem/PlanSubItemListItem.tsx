@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     color: palette.textWhite,
   },
   textContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
     color: palette.textBlack,
+    flex: 1,
+    flexDirection: 'row',
   },
   planName: {
     ...typography.subtitle1,

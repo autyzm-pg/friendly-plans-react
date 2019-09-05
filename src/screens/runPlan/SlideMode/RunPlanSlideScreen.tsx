@@ -6,7 +6,7 @@ import { Card, FlatButton, StyledText } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, Student } from 'models';
 import { palette, typography } from 'styles';
-import {ModelSubscriber} from '../../../models/ModelSubscriber';
+import { ModelSubscriber } from '../../../models/ModelSubscriber';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
@@ -15,78 +15,77 @@ interface State {
   student: Student;
 }
 
-export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedProps, State> {
-    static navigationOptions = {
-      header: null,
-    };
+export class RunPlanSlideScreen extends React.PureComponent<
+  NavigationInjectedProps,
+  State
+> {
+  static navigationOptions = {
+    header: null,
+  };
 
-    studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
-    planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
-    state: Readonly<State> = {
-      planItems: [],
-      pageNumber: 0,
-      student: this.props.navigation.getParam('student'),
-    };
+  studentSubscriber: ModelSubscriber<Student> = new ModelSubscriber();
+  planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
+  state: Readonly<State> = {
+    planItems: [],
+    pageNumber: 0,
+    student: this.props.navigation.getParam('student'),
+  };
 
-    componentDidMount() {
-      const student = this.props.navigation.getParam('student');
-      const plan = this.props.navigation.getParam('plan');
+  componentDidMount() {
+    const student = this.props.navigation.getParam('student');
+    const plan = this.props.navigation.getParam('plan');
 
-      this.planItemsSubscriber.subscribeCollectionUpdates(
-        plan, (planItems => this.setState({ planItems }))
-      );
-      this.studentSubscriber.subscribeElementUpdates(
-        student, (updatedStudent) => this.setState({ student: updatedStudent })
-      );
-    }
-
-    componentWillUnmount() {
-      this.planItemsSubscriber.unsubscribeCollectionUpdates();
-      this.studentSubscriber.unsubscribeElementUpdates();
-    }
-  
-    nextPage = () => {
-      if (this.state.pageNumber + 1 < this.state.planItems.length) {
-          this.setState(state => ({pageNumber: state.pageNumber + 1}));
-      }
-    };
-
-    renderPlan = () => {
-      return (
-        <View style={styles.container}>
-          <Card style={styles.slide} >
-            <View style={styles.planItem}>
-              <PlanSlideItem
-                planItem={this.state.planItems[this.state.pageNumber]}
-                index={this.state.pageNumber}
-                textSize={this.state.student.textSize}
-                textCase={this.state.student.textCase}
-              />
-            </View>
-            <FlatButton
-              style={styles.button}
-              onPress={this.nextPage}
-              title={i18n.t('runPlan:next')}
-            />
-          </Card>
-        </View>
-      );
-    };
-
-    renderLoader = () => {
-      return (
-        <StyledText>{i18n.t('runPlan:wait')}</StyledText>
-      );
-    };
-
-    render() {
-      return (
-        this.state.planItems.length
-        ? this.renderPlan()
-        : this.renderLoader()
-      );
-    }
+    this.planItemsSubscriber.subscribeCollectionUpdates(plan, planItems =>
+      this.setState({ planItems }),
+    );
+    this.studentSubscriber.subscribeElementUpdates(student, updatedStudent =>
+      this.setState({ student: updatedStudent }),
+    );
   }
+
+  componentWillUnmount() {
+    this.planItemsSubscriber.unsubscribeCollectionUpdates();
+    this.studentSubscriber.unsubscribeElementUpdates();
+  }
+
+  nextPage = () => {
+    if (this.state.pageNumber + 1 < this.state.planItems.length) {
+      this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
+    }
+  };
+
+  renderPlan = () => {
+    return (
+      <View style={styles.container}>
+        <Card style={styles.slide}>
+          <View style={styles.planItem}>
+            <PlanSlideItem
+              planItem={this.state.planItems[this.state.pageNumber]}
+              index={this.state.pageNumber}
+              textSize={this.state.student.textSize}
+              textCase={this.state.student.textCase}
+            />
+          </View>
+          <FlatButton
+            style={styles.button}
+            onPress={this.nextPage}
+            title={i18n.t('runPlan:next')}
+          />
+        </Card>
+      </View>
+    );
+  };
+
+  renderLoader = () => {
+    return <StyledText>{i18n.t('runPlan:wait')}</StyledText>;
+  };
+
+  render() {
+    return this.state.planItems.length
+      ? this.renderPlan()
+      : this.renderLoader();
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -96,10 +95,10 @@ const styles = StyleSheet.create({
   slide: {
     flex: 1,
     backgroundColor: palette.background,
-    margin:20,
+    margin: 20,
   },
   buttonContainer: {
-    flex:1,
+    flex: 1,
     alignItems: 'center',
   },
   button: {

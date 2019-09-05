@@ -2,9 +2,9 @@ import React from 'react';
 
 import { PlanItem } from 'models';
 import { FlatList } from 'react-native';
-import {PlanSubItem} from '../../models';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
-import {NavigationService} from '../../services';
+import { PlanSubItem } from '../../models';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
+import { NavigationService } from '../../services';
 import { PlanSubItemListItem } from './PlanSubItemListItem';
 
 interface Props {
@@ -27,25 +27,25 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
 
   componentDidMount() {
     this.planSubItemsSubscriber.subscribeCollectionUpdates(
-      this.props.planItem, planSubItems => this.setState({ planSubItems })
+      this.props.planItem,
+      planSubItems => this.setState({ planSubItems }),
     );
   }
-
 
   componentWillUnmount() {
     this.planSubItemsSubscriber.unsubscribeCollectionUpdates();
   }
 
   navigateToPlanSubItemUpdate = (planSubItem: PlanSubItem) => {
-      NavigationService.navigate('UpdatePlanSubItem', {planSubItem});
+    NavigationService.navigate('UpdatePlanSubItem', { planSubItem });
   };
 
   renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => (
     <PlanSubItemListItem
-        planSubItem={item}
-        index={index}
-        onDelete={() => item.delete()}
-        onUpdate={() => this.navigateToPlanSubItemUpdate(item)}
+      planSubItem={item}
+      index={index}
+      onDelete={() => item.delete()}
+      onUpdate={() => this.navigateToPlanSubItemUpdate(item)}
     />
   );
 
