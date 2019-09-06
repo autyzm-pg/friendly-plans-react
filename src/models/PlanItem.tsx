@@ -29,6 +29,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
+      order: Date.now(),
     });
 
   id!: string;
@@ -40,6 +41,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
   time!: number;
   image!: string;
   lector!: boolean;
+  order!: number;
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];

@@ -21,7 +21,7 @@ export class Plan implements SubscribableModel {
   delete = (): Promise<void> => getPlanRef(this.studentId, this.id).delete();
 
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () =>
-    getPlanItemsRef(this.studentId, this.id);
+    getPlanItemsRef(this.studentId, this.id).orderBy('order', 'asc');
   getChildType: () => ParameterlessConstructor<SubscribableModel> = () => PlanItem;
   getRef: () => RNFirebase.firestore.DocumentReference = () => getPlanRef(this.studentId, this.id);
 }
