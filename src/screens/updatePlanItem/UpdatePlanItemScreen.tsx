@@ -55,7 +55,7 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
     const planItemTaskComplexitySwitch = (
         <PlanItemTaskComplexitySwitch
           planItemType={planItem.type}
-          onComplexitySwitch={(planItemType) => this.onComplexitySwitch(planItemType)}
+          onComplexitySwitch={this.onComplexitySwitch}
         />
     );
 

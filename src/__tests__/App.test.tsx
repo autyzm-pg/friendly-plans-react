@@ -1,5 +1,7 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+
+import { shallow } from 'enzyme';
+import noop from 'lodash.noop';
 import { NavigationContainerComponent } from 'react-navigation';
 
 import { NavigationService } from 'services';
@@ -17,7 +19,7 @@ describe('App', () => {
     const navigator = {};
     const spy = jest
       .spyOn(NavigationService, 'setTopLevelNavigator')
-      .mockImplementationOnce(() => null);
+      .mockImplementationOnce(noop);
     instance.setNavigationRef(navigator as NavigationContainerComponent);
     expect(spy).toHaveBeenCalledWith(navigator);
   });

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import noop from 'lodash.noop';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
@@ -22,7 +24,7 @@ export class RunPlanListScreen extends React.PureComponent<
           <PlanElementList
             student={student}
             itemParent={itemParent}
-            onGoBack={() => null}
+            onGoBack={noop}
           />
         </FullScreenTemplate>
       </View>
