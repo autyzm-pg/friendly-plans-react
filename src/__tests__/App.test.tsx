@@ -2,8 +2,12 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import { NavigationContainerComponent } from 'react-navigation';
 
+import * as locale from 'locale';
 import { NavigationService } from 'services';
 import App from '../App';
+
+// @ts-ignore
+locale.i18n = jest.fn();
 
 describe('App', () => {
   it('should match snapshot', () => {
