@@ -22,18 +22,9 @@ const styles = StyleSheet.create({
 export const CreatePlanItemButton: SFC<Props> = (props: Props) => {
   const { plan } = props;
 
-  const createBreak = useCallback(
-    () => PlanItem.create(plan, PlanItemType.Break),
-    [],
-  );
-  const createInteraction = useCallback(
-    () => PlanItem.create(plan, PlanItemType.Interaction),
-    [],
-  );
-  const createSimpleTask = useCallback(
-    () => PlanItem.create(plan, PlanItemType.SimpleTask),
-    [],
-  );
+  const createBreak = useCallback(() => PlanItem.create(plan, PlanItemType.Break), []);
+  const createInteraction = useCallback(() => PlanItem.create(plan, PlanItemType.Interaction), []);
+  const createSimpleTask = useCallback(() => PlanItem.create(plan, PlanItemType.SimpleTask), []);
 
   return (
     <Card style={styles.container}>
