@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button as ElementsButton, ButtonProps } from 'react-native-elements';
 
@@ -9,10 +9,7 @@ interface Props extends ButtonProps {
 }
 
 // @ts-ignore
-export const Button: React.FunctionComponent<Props> = ({
-  backgroundColor,
-  ...props
-}) => (
+export const Button: React.SFC<Props> = ({ backgroundColor, ...props }) => (
   <ElementsButton
     {...props}
     buttonStyle={[styles.button, { backgroundColor }, props.buttonStyle]}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { FlatButton } from 'components';
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PlanSubItemsListColumn = ({ planItem }: Props) => {
+export const PlanSubItemsListColumn: SFC<Props> = ({ planItem }: Props) => {
   const handleCreateItem = () => {
     PlanSubItem.create(planItem);
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Button, StyledText } from 'components';
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PlanItemTaskComplexitySwitch = (props: Props) => {
+export const PlanItemTaskComplexitySwitch: SFC<Props> = (props: Props) => {
   const { onComplexitySwitch, planItemType } = props;
 
   const setCompexityToComplex = () => {
@@ -34,29 +34,22 @@ export const PlanItemTaskComplexitySwitch = (props: Props) => {
     onComplexitySwitch(PlanItemType.ComplexTask);
   };
 
-  const getBackgroundColor = (isActive: boolean) =>
-    isActive ? 'blue' : 'gray';
+  const getBackgroundColor = (isActive: boolean) => (isActive ? 'blue' : 'gray');
 
   return (
     <View>
-      <StyledText style={styles.label}>
-        {i18n.t('updatePlanItem:taskComplexity')}
-      </StyledText>
+      <StyledText style={styles.label}>{i18n.t('updatePlanItem:taskComplexity')}</StyledText>
       <View style={styles.container}>
         <Button
           onPress={setCompexityToSimple}
           title={i18n.t('updatePlanItem:simpleTask')}
-          backgroundColor={getBackgroundColor(
-            planItemType === PlanItemType.SimpleTask,
-          )}
+          backgroundColor={getBackgroundColor(planItemType === PlanItemType.SimpleTask)}
           type="outline"
         />
         <Button
           onPress={setCompexityToComplex}
           title={i18n.t('updatePlanItem:complexTask')}
-          backgroundColor={getBackgroundColor(
-            planItemType === PlanItemType.ComplexTask,
-          )}
+          backgroundColor={getBackgroundColor(planItemType === PlanItemType.ComplexTask)}
           type="outline"
         />
       </View>
