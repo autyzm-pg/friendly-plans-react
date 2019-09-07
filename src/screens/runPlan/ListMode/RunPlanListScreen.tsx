@@ -12,6 +12,8 @@ export class RunPlanListScreen extends React.PureComponent<
     header: null,
   };
 
+  handleGoBack = () => this.props.navigation.navigate('Dashboard');
+
   render() {
     const itemParent = this.props.navigation.getParam('itemParent');
     const student = this.props.navigation.getParam('student');
@@ -22,7 +24,7 @@ export class RunPlanListScreen extends React.PureComponent<
           <PlanElementList
             student={student}
             itemParent={itemParent}
-            onGoBack={() => null}
+            onGoBack={this.handleGoBack}
           />
         </FullScreenTemplate>
       </View>
