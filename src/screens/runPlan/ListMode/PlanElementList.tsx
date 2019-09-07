@@ -42,11 +42,11 @@ export class PlanElementList extends React.PureComponent<Props, State> {
   componentDidUpdate() {
     if (this.isEveryPlanItemCompleted()) {
       this.props.onGoBack();
-      this.markAllItemsAsUncompleted();
+      this.updateAllItemsAsUncompleted();
     }
   }
 
-  markAllItemsAsUncompleted = () => {
+  updateAllItemsAsUncompleted = () => {
     this.state.items.map((item) => {
       item.update({completed: false});
     });
