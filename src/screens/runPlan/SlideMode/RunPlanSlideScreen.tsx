@@ -51,6 +51,8 @@ export class RunPlanSlideScreen extends React.PureComponent<
   nextPage = () => {
     if (this.state.pageNumber + 1 < this.state.planItems.length) {
       this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
+    } else {
+      this.props.navigation.navigate('Dashboard');
     }
   };
 
