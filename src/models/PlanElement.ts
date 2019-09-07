@@ -7,6 +7,7 @@ export interface PlanElement {
   type: PlanItemType;
   completed: boolean;
   time: number;
+  lector: boolean;
 
   complete: () => void;
 
