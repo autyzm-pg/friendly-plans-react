@@ -13,11 +13,12 @@ export class PlanSubItem implements SubscribableModel, PlanElement {
         throw new OperationalError('Sub item can be created only for ComplexTask');
     }
     return getPlanSubItemsRef(planItem.studentId, planItem.planId, planItem.id).add({
-        name: i18n.t('updatePlan:planItemNamePlaceholder'),
-        planItemId: planItem.id,
-        planId: planItem.planId,
-        studentId: planItem.studentId,
-        completed: false,
+      name: i18n.t('updatePlan:planItemNamePlaceholder'),
+      planItemId: planItem.id,
+      planId: planItem.planId,
+      studentId: planItem.studentId,
+      completed: false,
+      lector: false,
     });
   };
 
@@ -29,6 +30,7 @@ export class PlanSubItem implements SubscribableModel, PlanElement {
   completed!: boolean;
   time!: number;
   type: PlanItemType = PlanItemType.SubElement;
+  lector! :boolean;
 
   complete = () => {
     this.update({completed: true});

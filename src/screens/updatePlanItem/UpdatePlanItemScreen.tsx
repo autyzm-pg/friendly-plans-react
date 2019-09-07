@@ -42,6 +42,10 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
     this.state.planItem.update({image: image.data});
   };
 
+  onLectorChange = (lector: boolean) => {
+    this.state.planItem.update({lector});
+  };
+
   onComplexitySwitch(planItemType: PlanItemType): void {
     const planItem: PlanItem = this.props.navigation.getParam('planItem');
     planItem.update({
@@ -76,7 +80,10 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
               <View style={styles.rightColumn}>
                   {planItem.isTask() ? planItemTaskComplexitySwitch : <View/>}
                 <PlanItemTimer planItem={planItem} />
-                <PlanItemLector planItem={planItem} />
+                <PlanItemLector
+                    planItem={planItem}
+                    onChange={this.onLectorChange}
+                />
               </View>
             </View>
           </View>
