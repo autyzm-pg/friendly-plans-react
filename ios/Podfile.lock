@@ -170,7 +170,7 @@ PODS:
     - React
   - RNGestureHandler (1.3.0):
     - React
-  - RNVectorIcons (6.5.0):
+  - RNVectorIcons (6.6.0):
     - React
   - SDWebImage/Core (4.4.7)
   - SDWebImage/GIF (4.4.7):
@@ -275,16 +275,16 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
-  React: 1d605e098d69bdf08960787f3446f0a9dc2e2ccf
-  react-native-fast-image: cba3d9bf9c2cf8ddb643d887a686c53a5dd90a2c
-  react-native-image-picker: f42de90075c5b1af53417af927631d909a1a746e
-  react-native-splash-screen: a49be22f0f6648b8416f3bd28258645eeaa5b42b
-  RNDeviceInfo: 568c5641057313b4912d08a7742ff0b2f753ed5c
-  RNGestureHandler: 7ccf2f3f60458e084f9ada01fbaf610f6fef073c
-  RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
+  React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
+  react-native-fast-image: ec7e5a2420a9e63cf9b2925fce7babc580ea8e05
+  react-native-image-picker: fd93361c666f397bdf72f9c6c23f13d2685b9173
+  react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
+  RNDeviceInfo: e7c5fcde13d40e161d8a27f6c5dc69c638936002
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
-  yoga: 128daf064cacaede0c3bb27424b6b4c71052e6cd
+  yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
 PODFILE CHECKSUM: 3d247af87c144a32464a04bd0f1d68c314495bf9
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
