@@ -10,11 +10,9 @@ interface Props {
   onChange: (image: any) => void;
 }
 
-
 const IMAGE_SIZE = 256;
 
 export class PlanItemImagePicker extends React.PureComponent<Props> {
-
   takePicture = () => {
     const options = {
       title: 'Pick image',
@@ -42,7 +40,10 @@ export class PlanItemImagePicker extends React.PureComponent<Props> {
       <View style={styles.container}>
         <TouchableOpacity onPress={this.takePicture}>
           {imageBase64Data ? (
-            <Image source={{uri: imageBase64Data}} style={{ width: IMAGE_SIZE, height: IMAGE_SIZE }} />
+            <Image
+              source={{ uri: `data:image/jpeg;base64,${imageBase64Data}` }}
+              style={{ width: IMAGE_SIZE, height: IMAGE_SIZE }}
+            />
           ) : (
             <Icon name="image" size={IMAGE_SIZE} iconStyle={styles.icon} />
           )}

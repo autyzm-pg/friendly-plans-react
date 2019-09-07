@@ -38,6 +38,7 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   }
 
   onImageChange = (image: any) => {
+    console.log(image.data);
     this.state.planItem.update({image: image.data});
   };
 
