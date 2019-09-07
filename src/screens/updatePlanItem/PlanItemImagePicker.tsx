@@ -6,19 +6,14 @@ import { Icon } from 'components';
 import { palette, typography } from 'styles';
 
 interface Props {
-  source: any;
-  onChange: (source: any) => void;
+  imageBase64Data: string;
+  onChange: (image: any) => void;
 }
 
-interface State {
-  size: number;
-}
 
-export class PlanItemImagePicker extends React.PureComponent<Props, State> {
-  state = {
-    size: 256,
-    imageSource: null,
-  };
+const IMAGE_SIZE = 256;
+
+export class PlanItemImagePicker extends React.PureComponent<Props> {
 
   takePicture = () => {
     const options = {
@@ -35,23 +30,21 @@ export class PlanItemImagePicker extends React.PureComponent<Props, State> {
       if (response.didCancel || response.error) {
         return;
       } else {
-        const source = { uri: response.uri };
-        onChange(source);
+        onChange(response);
       }
     });
   };
 
   render() {
-    const { size } = this.state;
-    const { source } = this.props;
+    const { imageBase64Data } = this.props;
 
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.takePicture}>
-          {source ? (
-            <Image source={source} style={{ width: size, height: size }} />
+          {imageBase64Data ? (
+            <Image source={{uri: imageBase64Data}} style={{ width: IMAGE_SIZE, height: IMAGE_SIZE }} />
           ) : (
-            <Icon name="image" size={size} iconStyle={styles.icon} />
+            <Icon name="image" size={IMAGE_SIZE} iconStyle={styles.icon} />
           )}
         </TouchableOpacity>
       </View>
