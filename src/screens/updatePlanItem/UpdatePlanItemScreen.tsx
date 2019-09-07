@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {NavigationInjectedProps} from 'react-navigation';
 
 import {Card, FullScreenTemplate} from 'components';
-import {PlanItem, PlanItemType} from '../../models';
+import { PlanItem, PlanItemType} from '../../models';
 import {ModelSubscriber} from '../../models/ModelSubscriber';
 import {PlanItemHeader} from './PlanItemHeader';
 import {PlanItemImagePicker} from './PlanItemImagePicker';
@@ -13,7 +13,6 @@ import {PlanItemTimer} from './PlanItemTimer';
 import {PlanSubItemsListColumn} from './PlanSubItemsListColumn';
 
 interface State {
-  source: any;
   planItem: PlanItem;
 }
 
@@ -23,7 +22,6 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   constructor(props: NavigationInjectedProps) {
     super(props);
     this.state = {
-      source: null,
       planItem: this.props.navigation.getParam('planItem')
     };
   }
@@ -39,8 +37,9 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
     this.planItemsSubscriber.unsubscribeElementUpdates();
   }
 
-  onImageChange = (source: any) => {
-    this.setState({ source });
+  onImageChange = (image: any) => {
+    console.log(image.data);
+    this.state.planItem.update({image: image.data});
   };
 
   onComplexitySwitch(planItemType: PlanItemType): void {
@@ -51,7 +50,7 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   }
 
   render() {
-    const { source, planItem } = this.state;
+    const { planItem } = this.state;
     const planItemTaskComplexitySwitch = (
         <PlanItemTaskComplexitySwitch
           planItemType={planItem.type}
@@ -70,7 +69,7 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
             <View style={styles.itemDetailsContainer}>
               <View style={styles.leftColumn}>
                 <PlanItemImagePicker
-                  source={source}
+                  imageBase64Data={planItem.image}
                   onChange={this.onImageChange}
                 />
               </View>
