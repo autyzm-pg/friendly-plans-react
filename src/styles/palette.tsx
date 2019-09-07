@@ -15,4 +15,5 @@ export const palette = {
   error: '#ff1d5c',
   textWhite: 'rgba(255, 255, 255, 1)',
   textWhiteMuted: 'rgba(255, 255, 255, 0.6)',
+  shadow: 'rgba(0, 0, 0, 0.7)',
 };
