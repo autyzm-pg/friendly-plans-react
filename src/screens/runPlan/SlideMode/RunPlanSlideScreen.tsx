@@ -55,11 +55,13 @@ export class RunPlanSlideScreen extends React.PureComponent<
   };
 
   renderPlan = () => {
+    const { student } = this.state;
     return (
       <View style={styles.container}>
         <Card style={styles.slide}>
           <View style={styles.planItem}>
             <PlanSlideItem
+              type={student.displaySettings}
               planItem={this.state.planItems[this.state.pageNumber]}
               index={this.state.pageNumber}
               textSize={this.state.student.textSize}
