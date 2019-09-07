@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { Card, FullScreenTemplate } from 'components';
+import { NarrowScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
-import { SlideCardSwitch } from '../studentSettings/SlideCardSwitch';
+import { SlideCardSwitch } from './SlideCardSwitch';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
 import { StudentTextSizeSettings } from './StudentTextSizeSettings';
@@ -13,17 +13,12 @@ interface State {
   student: Student;
 }
 
-export class StudentSettingsScreen extends React.PureComponent<
-  NavigationInjectedProps,
-  State
-> {
-  static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
-    return {
-      title: i18n.t('studentSettings:screenTitle', {
-        studentName: navigation.getParam('student').name,
-      }),
-    };
-  };
+export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
+  get screenName(): string {
+    return i18n.t('studentSettings:screenTitle', {
+      studentName: this.props.navigation.getParam('student').name,
+    });
+  }
 
   constructor(props: NavigationInjectedProps) {
     super(props);
@@ -33,15 +28,15 @@ export class StudentSettingsScreen extends React.PureComponent<
   }
 
   render() {
+    const { navigation } = this.props;
+    const { student } = this.state;
     return (
-      <FullScreenTemplate>
-        <StudentDisplaySettings student={this.state.student} />
-        <Card>
-          <StudentTextCaseSettings student={this.state.student} />
-          <StudentTextSizeSettings student={this.state.student} />
-        </Card>
-        <SlideCardSwitch student={this.state.student} />
-      </FullScreenTemplate>
+      <NarrowScreenTemplate title={this.screenName} navigation={navigation}>
+        <StudentDisplaySettings student={student} />
+        <StudentTextSizeSettings student={student} />
+        <StudentTextCaseSettings student={student} />
+        <SlideCardSwitch student={student} />
+      </NarrowScreenTemplate>
     );
   }
 }

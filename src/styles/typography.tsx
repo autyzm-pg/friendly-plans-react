@@ -28,12 +28,13 @@ export const typography = StyleSheet.create({
     fontSize: 34,
     letterSpacing: 0.25,
   },
+  // used for view header
   headline5: {
-    fontFamily: fonts.sansSerif.regular,
-    fontSize: 24,
+    fontFamily: fonts.sansSerif.medium,
+    fontSize: 20,
     letterSpacing: 0,
   },
-  // used for header text, some bigger inputs
+  // used for some bigger inputs
   headline6: {
     fontFamily: fonts.sansSerif.medium,
     fontSize: 17,
@@ -43,8 +44,8 @@ export const typography = StyleSheet.create({
   // used for list item bigger text
   subtitle1: {
     fontFamily: fonts.sansSerif.regular,
-    fontSize: 15,
-    letterSpacing: 0.15,
+    fontSize: 16,
+    letterSpacing: 0,
   },
   subtitle2: {
     fontFamily: fonts.sansSerif.medium,
@@ -69,7 +70,7 @@ export const typography = StyleSheet.create({
     fontSize: 14,
     letterSpacing: 1.25,
   },
-  // used for ayth input labels, errors
+  // used for auth input labels, errors
   caption: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 12,

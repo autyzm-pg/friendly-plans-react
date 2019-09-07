@@ -8,10 +8,9 @@ import {
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
-  StudentSettingsScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
-  UpdatePlanSubItemScreen
+  UpdatePlanSubItemScreen,
 } from 'screens';
 import { headerStyle, palette } from 'styles';
 
@@ -24,7 +23,6 @@ export const MainStackNavigator = createStackNavigator(
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
     RunSubPlanList: RunSubPlanListScreen,
-    StudentSettings: StudentSettingsScreen,
   },
   {
     headerLayoutPreset: 'center',

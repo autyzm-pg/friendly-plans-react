@@ -1,3 +1,6 @@
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 
-export const statusBarHeight = StatusBar.currentHeight! - 24;
+export const statusBarHeight = Platform.select({
+  android: StatusBar.currentHeight! - 24,
+  ios: 0,
+});

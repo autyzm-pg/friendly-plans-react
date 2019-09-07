@@ -4,6 +4,16 @@ exports[`IconButton should match snapshot 1`] = `
 <TouchableOpacity
   activeOpacity={0.2}
   onPress={[MockFunction]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "padding": 8,
+      },
+      undefined,
+    ]
+  }
 >
   <Icon
     name="content-paste"
