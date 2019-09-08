@@ -49,8 +49,8 @@ exports[`DialogScreen should match snapshot 1`] = `
     style={
       Object {
         "fontFamily": "Rubik-Regular",
-        "fontSize": 15,
-        "letterSpacing": 0.15,
+        "fontSize": 16,
+        "letterSpacing": 0,
         "marginBottom": 6,
         "textAlign": "center",
       }

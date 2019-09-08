@@ -1,9 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { Plan, PlanItem, Student } from 'models';
-import {ModelSubscriber} from '../../../models/ModelSubscriber';
-import {PlanElement} from '../../../models/PlanElement';
+import { ModelSubscriber, Plan, PlanElement, PlanItem, Student } from 'models';
 import { PlanElementListItem } from './PlanElementListItem';
 
 interface Props {
@@ -26,11 +24,9 @@ export class PlanElementList extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    this.studentSubscriber.subscribeElementUpdates(
-      this.props.student, (student) => this.setState({ student })
-    );
-    this.planElementsSubscriber.subscribeCollectionUpdates(
-      this.props.itemParent, (elements) => this.setState({ items: elements })
+    this.studentSubscriber.subscribeElementUpdates(this.props.student, student => this.setState({ student }));
+    this.planElementsSubscriber.subscribeCollectionUpdates(this.props.itemParent, elements =>
+      this.setState({ items: elements }),
     );
   }
 
@@ -41,17 +37,26 @@ export class PlanElementList extends React.PureComponent<Props, State> {
 
   componentDidUpdate() {
     if (this.isEveryPlanItemCompleted()) {
-        this.props.onGoBack();
+      this.props.onGoBack();
+      this.updateAllItemsAsUncompleted();
     }
   }
 
+  updateAllItemsAsUncompleted = () => {
+    this.state.items.map((item: PlanElement) => {
+      item.update({ completed: false });
+    });
+  };
+
   isEveryPlanItemCompleted() {
-    return (this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length);
+    return this.state.items.length && this.completedPlanItemCounter() >= this.state.items.length;
   }
 
   completedPlanItemCounter() {
-    return this.state.items.reduce((planItemsCompleted, planItem) =>
-      planItem.completed ? ++planItemsCompleted : planItemsCompleted, 0);
+    return this.state.items.reduce(
+      (planItemsCompleted, planItem) => (planItem.completed ? ++planItemsCompleted : planItemsCompleted),
+      0,
+    );
   }
 
   renderItem = ({ item, index }: { item: PlanElement; index: number }) => (
@@ -67,12 +72,6 @@ export class PlanElementList extends React.PureComponent<Props, State> {
   extractKey = (planElement: PlanElement) => planElement.id;
 
   render() {
-    return (
-      <FlatList
-        data={this.state.items}
-        renderItem={this.renderItem}
-        keyExtractor={this.extractKey}
-      />
-    );
+    return <FlatList data={this.state.items} renderItem={this.renderItem} keyExtractor={this.extractKey} />;
   }
 }

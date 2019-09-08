@@ -1,99 +1,46 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
-import { Button, StyledText } from 'components';
+import { FixedValueSlider } from 'components';
 import { i18n } from 'locale';
-import { palette, typography } from 'styles';
-import {Student} from '../../models';
+import { Student, StudentTextSizeOption } from 'models';
 
 interface Props {
   student: Student;
 }
 
-interface State {
-  textSize?: string;
-}
+export class StudentTextSizeSettings extends React.PureComponent<Props> {
+  options = [
+    {
+      value: StudentTextSizeOption.Small,
+      label: i18n.t('studentSettings:textSettingsSizeS'),
+    },
+    {
+      value: StudentTextSizeOption.Medium,
+      label: i18n.t('studentSettings:textSettingsSizeM'),
+    },
+    {
+      value: StudentTextSizeOption.Large,
+      label: i18n.t('studentSettings:textSettingsSizeL'),
+    },
+    {
+      value: StudentTextSizeOption.ExtraLarge,
+      label: i18n.t('studentSettings:textSettingsSizeXL'),
+    },
+  ];
 
-export class StudentTextSizeSettings extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      textSize: props.student.textSize,
-    };
-  }
-  setSize = (size: string) => {
-    this.props.student.update({
-      textSize: size,
-    });
-    this.setState({ textSize: size });
-  };
-
-  setSizeS = () => {
-    this.setSize('s');
-  };
-  setSizeM = () => {
-    this.setSize('m');
-  };
-  setSizeL = () => {
-    this.setSize('l');
-  };
-  setSizeXL = () => {
-    this.setSize('xl');
+  onSlidingComplete = (textSize: string) => {
+    this.props.student.update({ textSize });
   };
 
   render() {
-    const { textSize } = this.state;
     return (
-      <View>
-        <StyledText style={styles.label}>
-          {i18n.t('studentSettings:textSizeSettings')}
-        </StyledText>
-        <View style={styles.container}>
-          <Button
-            onPress={this.setSizeS}
-            title={i18n.t('studentSettings:textSettingsSizeS')}
-            containerStyle={styles.button}
-            backgroundColor={textSize === 's' ? 'blue' : 'white'}
-            type="outline"
-          />
-          <Button
-            onPress={this.setSizeM}
-            title={i18n.t('studentSettings:textSettingsSizeM')}
-            containerStyle={styles.button}
-            backgroundColor={textSize === 'm' ? 'blue' : 'white'}
-            type="outline"
-          />
-          <Button
-            onPress={this.setSizeL}
-            title={i18n.t('studentSettings:textSettingsSizeL')}
-            containerStyle={styles.button}
-            backgroundColor={textSize === 'l' ? 'blue' : 'white'}
-            type="outline"
-          />
-          <Button
-            onPress={this.setSizeXL}
-            title={i18n.t('studentSettings:textSettingsSizeXL')}
-            containerStyle={styles.button}
-            backgroundColor={textSize === 'xl' ? 'blue' : 'white'}
-            type="outline"
-          />
-        </View>
-      </View>
+      <FixedValueSlider
+        value={this.props.student.textSize}
+        options={this.options}
+        iconLeft={{ name: 'format-text-variant', size: 24 }}
+        iconRight={{ name: 'format-text-variant', size: 36 }}
+        onSlidingComplete={this.onSlidingComplete}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 0,
-  },
-  label: {
-    color: palette.textBlack,
-    ...typography.headline6,
-  },
-  button: {
-    marginTop: 8,
-  },
-});

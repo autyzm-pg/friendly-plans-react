@@ -1,7 +1,6 @@
-import {PlanItemType} from './PlanItem';
+import { PlanItemType } from './PlanItem';
 
 export interface PlanElement {
-
   id: string;
   name: string;
   type: PlanItemType;
@@ -10,6 +9,5 @@ export interface PlanElement {
   lector: boolean;
 
   complete: () => void;
-
-
+  update: (changes: any) => void;
 }

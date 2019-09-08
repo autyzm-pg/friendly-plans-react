@@ -6,11 +6,12 @@ import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
 import { PlanElementList } from './PlanElementList';
 
-export class RunPlanListScreen extends React.PureComponent<
-  NavigationInjectedProps> {
+export class RunPlanListScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
     header: null,
   };
+
+  handleGoBack = () => this.props.navigation.navigate('Dashboard');
 
   render() {
     const itemParent = this.props.navigation.getParam('itemParent');
@@ -19,11 +20,7 @@ export class RunPlanListScreen extends React.PureComponent<
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-          <PlanElementList
-            student={student}
-            itemParent={itemParent}
-            onGoBack={() => null}
-          />
+          <PlanElementList student={student} itemParent={itemParent} onGoBack={this.handleGoBack} />
         </FullScreenTemplate>
       </View>
     );
@@ -34,6 +31,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
   },
 });
