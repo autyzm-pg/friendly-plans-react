@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { getElevation, palette, typography } from 'styles';
+import { getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    height: 56,
+    height: headerHeight,
     paddingHorizontal: 16,
     backgroundColor: palette.primaryDark,
     alignItems: 'center',

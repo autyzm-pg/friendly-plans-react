@@ -18,6 +18,9 @@ const translations = {
     signOutDialogTitle: 'Wyloguj się',
     signOutDialogDescription: 'Czy na pewno chcesz się wylogować?',
   },
+  planList: {
+    viewTitle: 'Wszystkie plany',
+  },
   updatePlanItem: {
     planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
     taskComplexity: 'Proste/Złożone',

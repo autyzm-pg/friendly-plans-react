@@ -14,3 +14,5 @@ export { NarrowScreenTemplate } from './NarrowScreenTemplate';
 export { FixedValueSlider } from './FixedValueSlider';
 export { SwitchItem } from './SwitchItem';
 export { Separator } from './Separator';
+export { DrawerContent } from './DrawerContent';
+export { Header } from './Header';

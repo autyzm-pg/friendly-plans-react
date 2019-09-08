@@ -4,7 +4,7 @@ export const palette = {
   primaryDark: '#4b39ba',
   primaryLight: '#b9b6ff',
   primaryDisabled: '#2096f1',
-  accent: '#607D8B',
+  accent: '#FE9DCA',
   textBlack: '#16107B',
   textBlackMuted: '#9B9B9B',
   textBlackDisabled: 'rgba(0, 0, 0, 0.33)',

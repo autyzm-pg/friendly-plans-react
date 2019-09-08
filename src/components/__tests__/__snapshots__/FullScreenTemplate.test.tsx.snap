@@ -16,6 +16,9 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
     contentContainerStyle={
       Array [
         Object {
+          "flexGrow": 1,
+        },
+        Object {
           "paddingHorizontal": 12,
           "paddingVertical": 16,
         },
@@ -26,6 +29,9 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
     <View
       style={
         Array [
+          Object {
+            "flexGrow": 1,
+          },
           undefined,
         ]
       }

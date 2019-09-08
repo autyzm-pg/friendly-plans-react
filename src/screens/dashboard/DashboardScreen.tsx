@@ -3,13 +3,14 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
+import { i18n } from 'locale';
 import { palette } from 'styles';
 import { CreateStudentButton } from './CreateStudentButton';
 import { StudentList } from './StudentList';
 
 export class DashboardScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
-    header: null,
+    title: i18n.t('planList:viewTitle'),
   };
 
   render() {
@@ -17,8 +18,8 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
           <StudentList />
-          <CreateStudentButton />
         </FullScreenTemplate>
+        <CreateStudentButton />
       </View>
     );
   }
