@@ -6,8 +6,7 @@ import { FullScreenTemplate } from 'components';
 import { palette } from 'styles';
 import { PlanElementList } from './PlanElementList';
 
-export class RunPlanListScreen extends React.PureComponent<
-  NavigationInjectedProps> {
+export class RunPlanListScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
     header: null,
   };
@@ -36,6 +35,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
   },
 });

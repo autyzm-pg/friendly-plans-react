@@ -1,46 +1,23 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
+import { FloatingAction } from 'react-native-floating-action';
 
-import { Card, Icon, StyledText } from 'components';
-import { i18n } from 'locale';
+import { Icon } from 'components';
 import { Student } from 'models';
-import { palette, typography } from 'styles';
+import { palette } from 'styles';
 
 export class CreateStudentButton extends React.PureComponent {
   render() {
     return (
-      <TouchableHighlight
-        onPress={Student.create}
-        underlayColor={palette.underlay}
-        style={styles.touchable}
-      >
-        <Card style={styles.container}>
-          <Icon name="account-plus" iconStyle={styles.icon} />
-          <StyledText style={styles.label}>
-            {i18n.t('studentList:createStudent')}
-          </StyledText>
-        </Card>
-      </TouchableHighlight>
+      <FloatingAction
+        overrideWithAction
+        actions={[
+          {
+            name: 'create student',
+            icon: <Icon name="add" type="material" color={palette.accent} size={32} />,
+          },
+        ]}
+        onPressItem={Student.create}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  touchable: {
-    margin: 8,
-    borderRadius: 8,
-  },
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 0,
-  },
-  icon: {
-    fontSize: 48,
-    marginEnd: 32,
-  },
-  label: {
-    color: palette.textBlack,
-    ...typography.headline6,
-  },
-});

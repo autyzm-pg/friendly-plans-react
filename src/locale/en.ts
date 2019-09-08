@@ -35,13 +35,10 @@ const translations = {
   },
   resetPassword: {
     resetPassword: 'Reset password',
-    guide1:
-      'Provide you email in the field below. We will send you link to reset your password.',
-    guide2:
-      'After setting up new password, sign in with newly set password at the login screen.',
+    guide1: 'Provide you email in the field below. We will send you link to reset your password.',
+    guide2: 'After setting up new password, sign in with newly set password at the login screen.',
     resetPasswordButtonLabel: 'Reset Password',
-    userNotFound:
-      'No user found for provided email. Make sure to provide email you registered.',
+    userNotFound: 'No user found for provided email. Make sure to provide email you registered.',
     resetPasswordSuccess:
       'Email with password reset link has been sent. After setting up new password, sign in with newly set password at the login screen.',
   },
@@ -71,6 +68,7 @@ const translations = {
       'Are you sure you want to remove {{name}} from your student list?\n This action cannot be undone.',
   },
   planList: {
+    viewTitle: 'All Plans',
     createPlan: 'Add a Plan',
     planNamePlaceholder: 'Enter Plan name...',
   },
@@ -89,23 +87,23 @@ const translations = {
     taskComplexity: 'Simple/Complex',
     simpleTask: 'S',
     complexTask: 'C',
-    addSubPlanItem: 'Add'
+    addSubPlanItem: 'Add',
   },
   studentSettings: {
-    screenTitle: '{{studentName}} - Update settings',
-    textCaseSettings: 'Text Case',
-    textSizeSettings: 'Text Size',
-    textSettingsUpperCase: 'UPPER CASE',
-    textSettingsStandardCase: 'Standard Case',
-    textSettingsSizeS: 'S',
-    textSettingsSizeM: 'M',
-    textSettingsSizeL: 'L',
-    textSettingsSizeXL: 'XL',
-    largeImageSlide: 'large image - slide',
-    imageWithTextSlide: 'image + text - slide',
-    ImageWithTextList: 'image + text - list',
-    textList: 'text - list',
-    textSlide: 'text - slide',
+    studentName: "Student's name",
+    taskView: "Task's view",
+    screenTitle: "Student's settings",
+    textSettingsSizeS: 'Font size: S',
+    textSettingsSizeM: 'Font size: M',
+    textSettingsSizeL: 'Font size: L',
+    textSettingsSizeXL: 'Font size: XL',
+    largeImageSlide: 'Large image as a slide',
+    imageWithTextSlide: 'Image with text label as a slide',
+    textSlide: 'Just text as a slide',
+    imageWithTextList: 'image with text label as a list',
+    textList: 'Just text label as a list',
+    uppercase: 'Uppercase letters',
+    blockSwipe: 'Block swipe',
   },
   runPlan: {
     next: 'Next',
