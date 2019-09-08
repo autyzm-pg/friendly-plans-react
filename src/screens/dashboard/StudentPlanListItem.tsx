@@ -3,9 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { IconButton, StyledText } from 'components';
-import { Plan, Student, StudentDisplayOption } from 'models';
+import { ModelSubscriber, Plan, Student, StudentDisplayOption } from 'models';
 import { palette } from 'styles';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;
@@ -24,9 +23,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    this.studentSubscriber.subscribeElementUpdates(
-      this.props.student, (student) => this.setState({ student })
-    );
+    this.studentSubscriber.subscribeElementUpdates(this.props.student, student => this.setState({ student }));
   }
 
   componentWillUnmount() {
@@ -41,7 +38,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
   };
 
   navigateToRunPlan = () => {
-    switch(this.state.student.displaySettings) {
+    switch (this.state.student.displaySettings) {
       case StudentDisplayOption.LargeImageSlide:
       case StudentDisplayOption.ImageWithTextSlide:
       case StudentDisplayOption.TextSlide:
@@ -88,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
     marginBottom: 16,
     marginEnd: 16,
     borderRadius: 12,

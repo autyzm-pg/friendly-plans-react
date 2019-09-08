@@ -10,25 +10,19 @@ interface Props {
   planItem: PlanItem;
   index: number;
   textSize: string;
-  textCase: string;
+  isUpperCase: boolean;
   type: StudentDisplayOption;
 }
 
 export class PlanSlideItem extends React.PureComponent<Props> {
   get showText(): boolean {
     const { type } = this.props;
-    return (
-      type === StudentDisplayOption.ImageWithTextSlide ||
-      type === StudentDisplayOption.TextSlide
-    );
+    return type === StudentDisplayOption.ImageWithTextSlide || type === StudentDisplayOption.TextSlide;
   }
 
   get showImage(): boolean {
     const { type } = this.props;
-    return (
-      type === StudentDisplayOption.ImageWithTextSlide ||
-      type === StudentDisplayOption.LargeImageSlide
-    );
+    return type === StudentDisplayOption.ImageWithTextSlide || type === StudentDisplayOption.LargeImageSlide;
   }
 
   render() {
@@ -47,14 +41,12 @@ export class PlanSlideItem extends React.PureComponent<Props> {
         {this.showText && (
           <PlanItemName
             planItemName={this.props.planItem.name}
-            textCase={this.props.textCase}
+            isUpperCase={this.props.isUpperCase}
             textSize={this.props.textSize}
             textColor={styles.nameTextColor}
           />
         )}
-        {!!this.props.planItem.time ? (
-          <PlanItemTimer itemTime={this.props.planItem.time} />
-        ) : null}
+        {!!this.props.planItem.time ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}
       </View>
     );
   }

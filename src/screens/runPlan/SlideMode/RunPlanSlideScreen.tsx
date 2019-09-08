@@ -4,9 +4,8 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FlatButton, StyledText } from 'components';
 import { i18n } from 'locale';
-import { PlanItem, Student } from 'models';
+import { ModelSubscriber, PlanItem, Student } from 'models';
 import { palette, typography } from 'styles';
-import { ModelSubscriber } from '../../../models/ModelSubscriber';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
@@ -15,10 +14,7 @@ interface State {
   student: Student;
 }
 
-export class RunPlanSlideScreen extends React.PureComponent<
-  NavigationInjectedProps,
-  State
-> {
+export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedProps, State> {
   static navigationOptions = {
     header: null,
   };
@@ -35,9 +31,7 @@ export class RunPlanSlideScreen extends React.PureComponent<
     const student = this.props.navigation.getParam('student');
     const plan = this.props.navigation.getParam('plan');
 
-    this.planItemsSubscriber.subscribeCollectionUpdates(plan, planItems =>
-      this.setState({ planItems }),
-    );
+    this.planItemsSubscriber.subscribeCollectionUpdates(plan, planItems => this.setState({ planItems }));
     this.studentSubscriber.subscribeElementUpdates(student, updatedStudent =>
       this.setState({ student: updatedStudent }),
     );
@@ -67,14 +61,10 @@ export class RunPlanSlideScreen extends React.PureComponent<
               planItem={this.state.planItems[this.state.pageNumber]}
               index={this.state.pageNumber}
               textSize={this.state.student.textSize}
-              textCase={this.state.student.textCase}
+              isUpperCase={this.state.student.isUpperCase}
             />
           </View>
-          <FlatButton
-            style={styles.button}
-            onPress={this.nextPage}
-            title={i18n.t('runPlan:next')}
-          />
+          <FlatButton style={styles.button} onPress={this.nextPage} title={i18n.t('runPlan:next')} />
         </Card>
       </View>
     );
@@ -85,16 +75,14 @@ export class RunPlanSlideScreen extends React.PureComponent<
   };
 
   render() {
-    return this.state.planItems.length
-      ? this.renderPlan()
-      : this.renderLoader();
+    return this.state.planItems.length ? this.renderPlan() : this.renderLoader();
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
   },
   slide: {
     flex: 1,
@@ -117,6 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     color: palette.textBlack,
-    ...typography.headline5,
+    ...typography.header,
   },
 });

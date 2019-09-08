@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: 40,
     marginHorizontal: 24,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
     flex: 1,
   },
   slider: {

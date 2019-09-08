@@ -9,8 +9,9 @@ import { StyledText } from './StyledText';
 const { height } = Dimensions.get('window');
 
 interface Props extends NavigationInjectedProps {
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
   title: string;
+  buttons?: React.ReactNode;
 }
 
 export class NarrowScreenTemplate extends React.PureComponent<Props> {
@@ -38,13 +39,14 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
       inputRange: [0, 1],
       outputRange: [height, 0],
     });
-    const { children, title } = this.props;
+    const { children, title, buttons } = this.props;
     return (
       <Animated.View style={[styles.overlay]}>
         <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
           <View style={styles.header}>
             <IconButton name="arrow-back" type="material" size={24} color={palette.textWhite} onPress={this.goBack} />
             <StyledText style={styles.headerText}>{title}</StyledText>
+            {buttons}
           </View>
           <ScrollView bounces={false} alwaysBounceVertical={false} contentContainerStyle={styles.contentContainer}>
             {children}
@@ -73,13 +75,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: palette.primaryDark,
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   headerText: {
     marginStart: 8,
-    ...typography.headline5,
+    flex: 1,
+    ...typography.header,
     color: palette.textWhite,
   },
-  headerBackIcon: {},
   contentContainer: {
     flex: 1,
     backgroundColor: palette.background,

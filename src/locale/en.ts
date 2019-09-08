@@ -89,6 +89,8 @@ const translations = {
     addSubPlanItem: 'Add',
   },
   studentSettings: {
+    studentName: "Student's name",
+    taskView: "Task's view",
     screenTitle: "Student's settings",
     textSettingsSizeS: 'Font size: S',
     textSettingsSizeM: 'Font size: M',

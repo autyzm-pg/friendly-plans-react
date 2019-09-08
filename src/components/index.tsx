@@ -13,3 +13,4 @@ export { TextInput } from './TextInput';
 export { NarrowScreenTemplate } from './NarrowScreenTemplate';
 export { FixedValueSlider } from './FixedValueSlider';
 export { SwitchItem } from './SwitchItem';
+export { Separator } from './Separator';

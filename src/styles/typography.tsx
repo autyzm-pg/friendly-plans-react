@@ -1,23 +1,12 @@
 /*
  * Try to always use following typography in your components.
- * This style is based on default Material Design typography.
- * https://material.io/design/typography/the-type-system.html#type-scale
+ * Use spread ... operator to merge local component styles with typography
  * */
 import { StyleSheet } from 'react-native';
 
 import { fonts } from './fonts';
 
 export const typography = StyleSheet.create({
-  headline1: {
-    fontFamily: fonts.sansSerif.light,
-    fontSize: 96,
-    letterSpacing: -1.5,
-  },
-  headline2: {
-    fontFamily: fonts.sansSerif.light,
-    fontSize: 60,
-    letterSpacing: -0.5,
-  },
   headline3: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 48,
@@ -29,9 +18,9 @@ export const typography = StyleSheet.create({
     letterSpacing: 0.25,
   },
   // used for view header
-  headline5: {
+  header: {
     fontFamily: fonts.sansSerif.medium,
-    fontSize: 20,
+    fontSize: 18,
     letterSpacing: 0,
   },
   // used for some bigger inputs

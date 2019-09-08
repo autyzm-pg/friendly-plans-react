@@ -10,33 +10,17 @@ interface Props {
   onValueChange: (value: boolean) => void;
 }
 
-interface State {
-  value: boolean;
-}
-
-export class SwitchItem extends React.PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      value: this.props.value,
-    };
-  }
-
-  onValueChange = (value: boolean) => {
-    this.setState({ value });
-    this.props.onValueChange(value);
-  };
-
+export class SwitchItem extends React.PureComponent<Props> {
   render() {
-    const { label } = this.props;
+    const { label, value, onValueChange } = this.props;
     return (
       <View style={styles.container}>
         <StyledText style={styles.label}>{label}</StyledText>
         <Switch
-          value={this.state.value}
-          onValueChange={this.onValueChange}
+          value={value}
+          onValueChange={onValueChange}
           thumbColor={palette.primary}
-          trackColor={{ false: palette.backgroundDark, true: palette.primaryLight }}
+          trackColor={{ false: palette.backgroundTinted, true: palette.primaryLight }}
         />
       </View>
     );

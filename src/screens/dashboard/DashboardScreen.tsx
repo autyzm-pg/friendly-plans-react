@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundTinted,
   },
 });

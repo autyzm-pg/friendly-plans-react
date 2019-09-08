@@ -26,6 +26,8 @@ const translations = {
     addSubPlanItem: 'Dodaj',
   },
   studentSettings: {
+    studentName: 'Imię podopiecznego',
+    taskView: 'Widok zadań',
     screenTitle: 'Ustawienia podopiecznego',
     textSettingsSizeS: 'Rozmiar liter: S',
     textSettingsSizeM: 'Rozmiar liter: M',
@@ -33,7 +35,7 @@ const translations = {
     textSettingsSizeXL: 'Rozmiar liter: XL',
     largeImageSlide: 'Duży obrazek jako slajd',
     imageWithTextSlide: 'Obrazek z tekstem jako slajd',
-    textSlide: 'Tylko Tekst jako slajd',
+    textSlide: 'Tylko tekst jako slajd',
     imageWithTextList: 'Obrazek z tekstem jako lista',
     textList: 'Tylko tekst jako lista',
     uppercase: 'Wielkie litery',
