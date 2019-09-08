@@ -8,6 +8,7 @@ import {
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
+  StudentListScreen,
   UpdatePlanItemScreen,
   UpdatePlanScreen,
   UpdatePlanSubItemScreen,
@@ -22,6 +23,7 @@ export const MainStackNavigator = createStackNavigator(
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
     RunSubPlanList: RunSubPlanListScreen,
+    StudentList: StudentListScreen,
   },
   {
     headerLayoutPreset: 'left',

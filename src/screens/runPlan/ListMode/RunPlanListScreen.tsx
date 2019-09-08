@@ -20,11 +20,7 @@ export class RunPlanListScreen extends React.PureComponent<NavigationInjectedPro
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
-          <PlanElementList
-            student={student}
-            itemParent={itemParent}
-            onGoBack={this.handleGoBack}
-          />
+          <PlanElementList student={student} itemParent={itemParent} onGoBack={this.handleGoBack} />
         </FullScreenTemplate>
       </View>
     );
