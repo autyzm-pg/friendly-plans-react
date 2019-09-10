@@ -5,6 +5,7 @@ import { PlanItem } from 'models';
 
 interface Props {
   planItem: PlanItem;
+  onChange: (lector: boolean) => void;
 }
 
 interface State {
@@ -19,7 +20,13 @@ export class PlanItemLector extends React.PureComponent<Props, State> {
     };
   }
 
+  handleLectorChange = () => {
+    this.props.onChange(!this.props.planItem.lector);
+  }
+
   render() {
-    return <Icon name="volume-high" size={64} />;
+    const { lector } = this.props.planItem;
+    const chosenIcon = lector ? 'volume-high': 'volume-mute';
+    return <Icon onPress={this.handleLectorChange} name={chosenIcon} size={64} />;
   }
 }

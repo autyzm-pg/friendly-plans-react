@@ -1,19 +1,18 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {NavigationInjectedProps} from 'react-navigation';
+import { StyleSheet, View } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
-import {Card, FullScreenTemplate} from 'components';
-import {PlanItem, PlanItemType} from '../../models';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
-import {PlanItemHeader} from './PlanItemHeader';
-import {PlanItemImagePicker} from './PlanItemImagePicker';
-import {PlanItemLector} from './PlanItemLector';
-import {PlanItemTaskComplexitySwitch} from './PlanItemTaskComplexitySwitch';
-import {PlanItemTimer} from './PlanItemTimer';
-import {PlanSubItemsListColumn} from './PlanSubItemsListColumn';
+import { Card, FullScreenTemplate } from 'components';
+import { PlanItem, PlanItemType } from '../../models';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
+import { PlanItemHeader } from './PlanItemHeader';
+import { PlanItemImagePicker } from './PlanItemImagePicker';
+import { PlanItemLector } from './PlanItemLector';
+import { PlanItemTaskComplexitySwitch } from './PlanItemTaskComplexitySwitch';
+import { PlanItemTimer } from './PlanItemTimer';
+import { PlanSubItemsListColumn } from './PlanSubItemsListColumn';
 
 interface State {
-  source: any;
   planItem: PlanItem;
 }
 
@@ -23,15 +22,14 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
   constructor(props: NavigationInjectedProps) {
     super(props);
     this.state = {
-      source: null,
-      planItem: this.props.navigation.getParam('planItem')
+      planItem: this.props.navigation.getParam('planItem'),
     };
   }
 
   componentDidMount() {
     const planItem = this.props.navigation.getParam('planItem');
-    this.planItemsSubscriber.subscribeElementUpdates(
-      planItem, updatedPlanItem =>  this.setState({ planItem: updatedPlanItem })
+    this.planItemsSubscriber.subscribeElementUpdates(planItem, updatedPlanItem =>
+      this.setState({ planItem: updatedPlanItem }),
     );
   }
 
@@ -39,19 +37,23 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
     this.planItemsSubscriber.unsubscribeElementUpdates();
   }
 
-  onImageChange = (source: any) => {
-    this.setState({ source });
+  onImageChange = (image: any) => {
+    this.state.planItem.update({ image: image.data });
+  };
+
+  onLectorChange = (lector: boolean) => {
+    this.state.planItem.update({ lector });
   };
 
   onComplexitySwitch(planItemType: PlanItemType): void {
     const planItem: PlanItem = this.props.navigation.getParam('planItem');
     planItem.update({
-      type: planItemType
+      type: planItemType,
     });
   }
 
   render() {
-    const { source, planItem } = this.state;
+    const { planItem } = this.state;
     const planItemTaskComplexitySwitch = (
         <PlanItemTaskComplexitySwitch
           planItemType={planItem.type}
@@ -64,20 +66,16 @@ export class UpdatePlanItemScreen extends React.PureComponent<NavigationInjected
         <Card>
           <PlanItemHeader planItem={planItem} />
           <View style={styles.mainContainer}>
-
-              {planItem.type === PlanItemType.ComplexTask ? <PlanSubItemsListColumn planItem={planItem} /> : <View/>}
+            {planItem.type === PlanItemType.ComplexTask ? <PlanSubItemsListColumn planItem={planItem} /> : <View />}
 
             <View style={styles.itemDetailsContainer}>
               <View style={styles.leftColumn}>
-                <PlanItemImagePicker
-                  source={source}
-                  onChange={this.onImageChange}
-                />
+                <PlanItemImagePicker imageBase64Data={planItem.image} onChange={this.onImageChange} />
               </View>
               <View style={styles.rightColumn}>
-                  {planItem.isTask() ? planItemTaskComplexitySwitch : <View/>}
+                {planItem.isTask() ? planItemTaskComplexitySwitch : <View />}
                 <PlanItemTimer planItem={planItem} />
-                <PlanItemLector planItem={planItem} />
+                <PlanItemLector planItem={planItem} onChange={this.onLectorChange} />
               </View>
             </View>
           </View>
@@ -93,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-   itemDetailsContainer: {
+  itemDetailsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -108,6 +106,6 @@ const styles = StyleSheet.create({
   },
   buttonCard: {
     flexDirection: 'row',
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
   },
 });

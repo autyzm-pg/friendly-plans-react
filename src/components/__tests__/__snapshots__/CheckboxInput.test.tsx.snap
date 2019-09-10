@@ -33,7 +33,7 @@ exports[`Button should match snapshot 1`] = `
       <StyledText
         style={
           Object {
-            "color": "rgba(0, 0, 0, 0.87)",
+            "color": "#16107B",
           }
         }
       >

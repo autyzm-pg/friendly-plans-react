@@ -29,10 +29,10 @@ exports[`ListItem should match snapshot 1`] = `
       <StyledText
         style={
           Object {
-            "color": "rgba(0, 0, 0, 0.87)",
+            "color": "#16107B",
             "fontFamily": "Rubik-Regular",
-            "fontSize": 15,
-            "letterSpacing": 0.15,
+            "fontSize": 16,
+            "letterSpacing": 0,
             "marginBottom": 2,
           }
         }

@@ -9,7 +9,7 @@ exports[`SignInScreen should match snapshot 1`] = `
   <StyledText
     style={
       Object {
-        "color": "rgba(0, 0, 0, 0.60)",
+        "color": "#9B9B9B",
         "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,
@@ -27,7 +27,7 @@ exports[`SignInScreen should match snapshot 1`] = `
   <StyledText
     style={
       Object {
-        "color": "rgba(0, 0, 0, 0.60)",
+        "color": "#9B9B9B",
         "fontFamily": "Rubik-Regular",
         "fontSize": 12,
         "letterSpacing": 0.4,

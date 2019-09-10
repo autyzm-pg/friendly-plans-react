@@ -49,11 +49,21 @@ export class StudentListItem extends React.PureComponent<Props, State> {
     });
   };
 
+  // todo this is just a fixed link to new Students list screen
+  navigateToStudentList = () => {
+    NavigationService.navigate('StudentList');
+  };
+
   render() {
     return (
       <Card>
         <View style={styles.topRow}>
-          <Icon name="account" iconStyle={styles.icon} />
+          {/*todo this is just a fixed link to new Students list screen*/}
+          <Icon
+              onPress={this.navigateToStudentList}
+              name="account"
+              iconStyle={styles.icon}
+          />
           <TextInput
             value={this.state.name}
             style={styles.input}
