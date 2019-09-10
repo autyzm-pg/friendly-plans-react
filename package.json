@@ -11,7 +11,7 @@
     "test:coverage": "yarn test --coverage",
     "test": "jest --env=jsdom --updateSnapshot --silent",
     "typescript-check": "tsc --noEmit",
-    "pre-commit": "lint-staged && yarn test"
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "formik": "^1.5.7",
@@ -62,14 +62,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run pre-commit",
-      "pre-push": "yarn test:coverage"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
-      "tslint --fix",
+      "tslint",
       "git add"
     ]
   }
