@@ -9,7 +9,7 @@ interface Props extends ButtonProps {
 }
 
 // @ts-ignore
-export const Button: React.SFC<Props> = ({ backgroundColor, ...props }) => (
+export const Button: SFC<Props> = ({ backgroundColor, ...props }) => (
   <ElementsButton
     {...props}
     buttonStyle={[styles.button, { backgroundColor }, props.buttonStyle]}

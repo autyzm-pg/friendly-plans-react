@@ -40,7 +40,7 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
     NavigationService.navigate('UpdatePlanSubItem', { planSubItem });
   };
 
-  renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => {\
+  renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => {
     const handleNavigation = useCallback(() => this.navigateToPlanSubItemUpdate(item), [item]);
 
     return (
