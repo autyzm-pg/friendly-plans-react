@@ -1,9 +1,9 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import { FlatList, View } from 'react-native';
 
-import {AuthUser, Student} from 'models';
+import { AuthUser, Student } from 'models';
 import { StyledText } from '../../components';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
 import { StudentListItem } from './StudentListItem';
 
 interface State {
@@ -17,8 +17,8 @@ export class StudentList extends React.PureComponent<{}, State> {
   };
 
   componentDidMount() {
-    this.modelSubscriber.subscribeCollectionUpdates(
-      AuthUser.getAuthenticatedUser(), (students: Student[]) => this.setState({ students })
+    this.modelSubscriber.subscribeCollectionUpdates(AuthUser.getAuthenticatedUser(), (students: Student[]) =>
+      this.setState({ students }),
     );
   }
 
@@ -28,9 +28,7 @@ export class StudentList extends React.PureComponent<{}, State> {
 
   extractKey = (student: Student) => student.id;
 
-  renderItem = ({ item }: { item: Student }) => (
-    <StudentListItem student={item} />
-  );
+  renderItem = ({ item }: { item: Student }) => <StudentListItem student={item} />;
 
   compareStudentNames(studentA: Student, studentB: Student) {
     if (studentA.name.toLowerCase() > studentB.name.toLowerCase()) {
@@ -41,11 +39,13 @@ export class StudentList extends React.PureComponent<{}, State> {
     return 0;
   }
 
-  groupAndSortStudents(): { [id: string] : Student[]; } {
+  groupAndSortStudents(): { [id: string]: Student[] } {
     const studentsSortedAndGrouped = {};
-    this.state.students.forEach((student) => {
+    this.state.students.forEach(student => {
       const index = student.name[0].toLowerCase();
-      if (!(index in studentsSortedAndGrouped)) { studentsSortedAndGrouped[index] = []; }
+      if (!(index in studentsSortedAndGrouped)) {
+        studentsSortedAndGrouped[index] = [];
+      }
       studentsSortedAndGrouped[index].push(student);
     });
     for (const index in studentsSortedAndGrouped) {
@@ -62,22 +62,18 @@ export class StudentList extends React.PureComponent<{}, State> {
 
     const firstLettersOfNames = Object.keys(studentsSortedAndGrouped);
     firstLettersOfNames.sort();
-    firstLettersOfNames.forEach((index) => {
+    firstLettersOfNames.forEach(index => {
       items.push(
-        <View key={index} >
+        <View key={index}>
           <StyledText>{index.toUpperCase()}</StyledText>
           <FlatList
             data={studentsSortedAndGrouped[index]}
             renderItem={this.renderItem}
             keyExtractor={this.extractKey}
           />
-        </View>
+        </View>,
       );
     });
-    return (
-      <View>
-        {items}
-      </View>
-    );
+    return <View>{items}</View>;
   }
 }

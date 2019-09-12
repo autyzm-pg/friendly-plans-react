@@ -26,9 +26,8 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    this.planSubItemsSubscriber.subscribeCollectionUpdates(
-      this.props.planItem,
-      planSubItems => this.setState({ planSubItems }),
+    this.planSubItemsSubscriber.subscribeCollectionUpdates(this.props.planItem, planSubItems =>
+      this.setState({ planSubItems }),
     );
   }
 
@@ -43,25 +42,12 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
   renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => {
     const handleNavigation = useCallback(() => this.navigateToPlanSubItemUpdate(item), [item]);
 
-    return (
-      <PlanSubItemListItem
-        planSubItem={item}
-        index={index}
-        onDelete={item.delete}
-        onUpdate={handleNavigation}
-      />
-    );
+    return <PlanSubItemListItem planSubItem={item} index={index} onDelete={item.delete} onUpdate={handleNavigation} />;
   };
 
   extractKey = (planSubItem: PlanSubItem) => planSubItem.id;
 
   render() {
-    return (
-      <FlatList
-        data={this.state.planSubItems}
-        renderItem={this.renderItem}
-        keyExtractor={this.extractKey}
-      />
-    );
+    return <FlatList data={this.state.planSubItems} renderItem={this.renderItem} keyExtractor={this.extractKey} />;
   }
 }

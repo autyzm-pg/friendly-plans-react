@@ -15,13 +15,8 @@ export default class AnalyticsService {
     this.user = null;
   }
 
-  setCurrentScreen = (
-    prevState: NavigationState,
-    currentState: NavigationState,
-  ) => {
-    const currentScreen = this.navigationService.getActiveRouteName(
-      currentState,
-    );
+  setCurrentScreen = (prevState: NavigationState, currentState: NavigationState) => {
+    const currentScreen = this.navigationService.getActiveRouteName(currentState);
     const prevScreen = this.navigationService.getActiveRouteName(prevState);
 
     if (prevScreen !== currentScreen) {

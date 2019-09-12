@@ -16,17 +16,10 @@ export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
       <FullScreenTemplate padded narrow>
         <SignInFormContainer />
 
-        <StyledText style={styles.signUpTip}>
-          {i18n.t('signIn:signUpTip')}
-        </StyledText>
-        <FlatButton
-          onPress={this.navigateToSignUp}
-          title={i18n.t('signUp:signUpButton')}
-        />
+        <StyledText style={styles.signUpTip}>{i18n.t('signIn:signUpTip')}</StyledText>
+        <FlatButton onPress={this.navigateToSignUp} title={i18n.t('signUp:signUpButton')} />
 
-        <StyledText style={styles.anonymousTip}>
-          {i18n.t('signIn:anonymousTip')}
-        </StyledText>
+        <StyledText style={styles.anonymousTip}>{i18n.t('signIn:anonymousTip')}</StyledText>
         <SignInAsAnonymousButton />
       </FullScreenTemplate>
     );

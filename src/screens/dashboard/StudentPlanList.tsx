@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
 import { Plan, Student } from 'models';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
 import StudentPlanListItem from './StudentPlanListItem';
 
 interface Props {
@@ -20,9 +20,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
-    this.plansSubscriber.subscribeCollectionUpdates(
-      this.props.student, plans => this.setState({ plans })
-    );
+    this.plansSubscriber.subscribeCollectionUpdates(this.props.student, plans => this.setState({ plans }));
   }
 
   componentWillUnmount() {
@@ -31,9 +29,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
 
   extractKey = (plan: Plan) => plan.id;
 
-  renderItem = ({ item }: { item: Plan }) => (
-    <StudentPlanListItem plan={item} student={this.props.student} />
-  );
+  renderItem = ({ item }: { item: Plan }) => <StudentPlanListItem plan={item} student={this.props.student} />;
 
   render() {
     return (

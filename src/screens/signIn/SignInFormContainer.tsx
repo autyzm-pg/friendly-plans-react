@@ -38,9 +38,7 @@ export class SignInFormContainer extends React.PureComponent<{}, State> {
   onSubmit = async (values: SignInFormData) => {
     this.setState({ loading: true });
     try {
-      await firebase
-        .auth()
-        .signInWithEmailAndPassword(values.email, values.password);
+      await firebase.auth().signInWithEmailAndPassword(values.email, values.password);
       NavigationService.navigate('Authenticated');
     } catch (error) {
       this.setState({ loading: false });
@@ -67,10 +65,6 @@ export class SignInFormContainer extends React.PureComponent<{}, State> {
   }
 
   renderForm = (props: FormikProps<SignInFormData>) => (
-    <SignInForm
-      {...props}
-      loading={this.state.loading}
-      navigateToResetPassword={this.navigateToResetPassword}
-    />
+    <SignInForm {...props} loading={this.state.loading} navigateToResetPassword={this.navigateToResetPassword} />
   );
 }

@@ -30,9 +30,7 @@ describe('NavigationService', () => {
         },
       ],
     } as any;
-    expect(navigationService.getActiveRouteName(navigationState)).toBe(
-      'UserProfile',
-    );
+    expect(navigationService.getActiveRouteName(navigationState)).toBe('UserProfile');
   });
 
   it('should return empty string when no navigation state is present', () => {

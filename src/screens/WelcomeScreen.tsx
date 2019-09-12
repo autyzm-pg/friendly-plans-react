@@ -5,9 +5,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { FullScreenTemplate } from 'components';
 import { NavigationInjectedProps } from 'react-navigation';
 
-export class WelcomeScreen extends React.PureComponent<
-  NavigationInjectedProps
-> {
+export class WelcomeScreen extends React.PureComponent<NavigationInjectedProps> {
   componentDidMount() {
     const currentUser = firebase.auth().currentUser;
     if (currentUser) {

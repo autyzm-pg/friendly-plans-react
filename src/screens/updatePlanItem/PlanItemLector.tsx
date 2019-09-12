@@ -22,11 +22,11 @@ export class PlanItemLector extends React.PureComponent<Props, State> {
 
   handleLectorChange = () => {
     this.props.onChange(!this.props.planItem.lector);
-  }
+  };
 
   render() {
     const { lector } = this.props.planItem;
-    const chosenIcon = lector ? 'volume-high': 'volume-mute';
+    const chosenIcon = lector ? 'volume-high' : 'volume-mute';
     return <Icon onPress={this.handleLectorChange} name={chosenIcon} size={64} />;
   }
 }

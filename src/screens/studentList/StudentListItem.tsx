@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Card, StyledText} from 'components';
+import { Card, StyledText } from 'components';
 import { Student } from 'models';
 
 interface Props {

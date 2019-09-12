@@ -24,16 +24,9 @@ export class SignOutButton extends React.PureComponent {
 
   render() {
     return (
-      <TouchableHighlight
-        underlayColor={palette.underlay}
-        onPress={this.openSignOutDialog}
-      >
+      <TouchableHighlight underlayColor={palette.underlay} onPress={this.openSignOutDialog}>
         <View style={styles.container}>
-          <Icon
-            name="logout-variant"
-            color={palette.textWhiteMuted}
-            size={28}
-          />
+          <Icon name="logout-variant" color={palette.textWhiteMuted} size={28} />
         </View>
       </TouchableHighlight>
     );

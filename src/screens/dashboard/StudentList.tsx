@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import {AuthUser, Student} from 'models';
-import {ModelSubscriber} from '../../models/ModelSubscriber';
+import { AuthUser, Student } from 'models';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
 import { StudentListItem } from './StudentListItem';
 
 interface State {
@@ -16,8 +16,8 @@ export class StudentList extends React.PureComponent<{}, State> {
   };
 
   componentDidMount() {
-    this.modelSubscriber.subscribeCollectionUpdates(
-      AuthUser.getAuthenticatedUser(), (students: Student[]) => this.setState({ students })
+    this.modelSubscriber.subscribeCollectionUpdates(AuthUser.getAuthenticatedUser(), (students: Student[]) =>
+      this.setState({ students }),
     );
   }
 
@@ -27,17 +27,9 @@ export class StudentList extends React.PureComponent<{}, State> {
 
   extractKey = (student: Student) => student.id;
 
-  renderItem = ({ item }: { item: Student }) => (
-    <StudentListItem student={item} />
-  );
+  renderItem = ({ item }: { item: Student }) => <StudentListItem student={item} />;
 
   render() {
-    return (
-      <FlatList
-        data={this.state.students}
-        renderItem={this.renderItem}
-        keyExtractor={this.extractKey}
-      />
-    );
+    return <FlatList data={this.state.students} renderItem={this.renderItem} keyExtractor={this.extractKey} />;
   }
 }

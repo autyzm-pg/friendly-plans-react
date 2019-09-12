@@ -38,16 +38,11 @@ describe('ResetPasswordForm', () => {
   it('should show success message and navigate to sign in screen on successful password reset', async () => {
     const wrapper = shallow(<ResetPasswordForm />);
     const instance = wrapper.instance() as ResetPasswordForm;
-    const navigationSpy = jest
-      .spyOn(NavigationService, 'navigate')
-      .mockImplementationOnce(jest.fn());
+    const navigationSpy = jest.spyOn(NavigationService, 'navigate').mockImplementationOnce(jest.fn());
     const alertSpy = jest.spyOn(Alert, 'alert');
     await instance.onSubmit(formProps.values);
     expect(navigationSpy).toBeCalledWith('SignIn');
-    expect(alertSpy).toBeCalledWith(
-      i18n.t('common:success'),
-      i18n.t('resetPassword:resetPasswordSuccess'),
-    );
+    expect(alertSpy).toBeCalledWith(i18n.t('common:success'), i18n.t('resetPassword:resetPasswordSuccess'));
   });
 
   it('should handle user not found errors', async () => {
@@ -56,15 +51,10 @@ describe('ResetPasswordForm', () => {
     const spy = jest.spyOn(Alert, 'alert');
     // @ts-ignore
     firebase.auth = jest.fn().mockImplementationOnce(() => ({
-      sendPasswordResetEmail: jest.fn(() =>
-        Promise.reject({ code: 'auth/user-not-found' }),
-      ),
+      sendPasswordResetEmail: jest.fn(() => Promise.reject({ code: 'auth/user-not-found' })),
     }));
     await instance.onSubmit(formProps.values);
-    expect(spy).toBeCalledWith(
-      i18n.t('common:error'),
-      i18n.t('resetPassword:userNotFound'),
-    );
+    expect(spy).toBeCalledWith(i18n.t('common:error'), i18n.t('resetPassword:userNotFound'));
   });
 
   it('should handle unknown errors', async () => {
@@ -73,14 +63,9 @@ describe('ResetPasswordForm', () => {
     const spy = jest.spyOn(Alert, 'alert');
     // @ts-ignore
     firebase.auth = jest.fn().mockImplementationOnce(() => ({
-      sendPasswordResetEmail: jest.fn(() =>
-        Promise.reject({ code: 'unknown code' }),
-      ),
+      sendPasswordResetEmail: jest.fn(() => Promise.reject({ code: 'unknown code' })),
     }));
     await instance.onSubmit(formProps.values);
-    expect(spy).toBeCalledWith(
-      i18n.t('common:error'),
-      i18n.t('common:unknownError'),
-    );
+    expect(spy).toBeCalledWith(i18n.t('common:error'), i18n.t('common:unknownError'));
   });
 });

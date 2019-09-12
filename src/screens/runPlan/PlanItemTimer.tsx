@@ -11,20 +11,20 @@ interface State {
   itemTime: number;
 }
 
-export class PlanItemTimer extends React.PureComponent<Props, State>  {
+export class PlanItemTimer extends React.PureComponent<Props, State> {
   timerID: any;
 
   state: Readonly<State> = {
     itemTime: this.props.itemTime,
   };
 
-  seconds = () => ((this.state.itemTime % 60 < 10) ? '0' : '') + (this.state.itemTime % 60);
+  seconds = () => (this.state.itemTime % 60 < 10 ? '0' : '') + (this.state.itemTime % 60);
   minutes = () => Math.floor(this.state.itemTime / 60);
 
   itemTimeText = () => this.minutes() + ':' + this.seconds();
 
   componentWillReceiveProps(nextProps: Props) {
-    this.setState({itemTime: nextProps.itemTime});
+    this.setState({ itemTime: nextProps.itemTime });
   }
 
   componentDidMount() {
@@ -37,15 +37,15 @@ export class PlanItemTimer extends React.PureComponent<Props, State>  {
 
   HandleTimesUp = () => {
     clearInterval(this.timerID);
-  }
+  };
 
   decreaseTime() {
-    this.setState((state)=>({itemTime: state.itemTime - 1}));
+    this.setState(state => ({ itemTime: state.itemTime - 1 }));
   }
 
   tick = () => {
-    (this.state.itemTime <= 0) ? this.HandleTimesUp() : this.decreaseTime();
-  }
+    this.state.itemTime <= 0 ? this.HandleTimesUp() : this.decreaseTime();
+  };
 
   render() {
     return (

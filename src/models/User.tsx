@@ -1,14 +1,13 @@
-import {RNFirebase} from 'react-native-firebase';
-import {getAuthenticatedUserId, getStudentsRef, getUserRef} from './FirebaseRefProxy';
-import {Student} from './Student';
-import {ParameterlessConstructor, SubscribableModel} from './SubscribableModel';
+import { RNFirebase } from 'react-native-firebase';
+import { getAuthenticatedUserId, getStudentsRef, getUserRef } from './FirebaseRefProxy';
+import { Student } from './Student';
+import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
 
 export interface User {
   id: number;
 }
 
 export class AuthUser implements SubscribableModel {
-
   static getAuthenticatedUser = (): AuthUser => {
     return new AuthUser(getAuthenticatedUserId());
   };
@@ -22,5 +21,4 @@ export class AuthUser implements SubscribableModel {
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => getStudentsRef(this.id);
   getChildType: () => ParameterlessConstructor<SubscribableModel> = () => Student;
   getRef: () => RNFirebase.firestore.DocumentReference = () => getUserRef(this.id);
-
 }

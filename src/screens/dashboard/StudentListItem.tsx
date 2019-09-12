@@ -59,11 +59,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
       <Card>
         <View style={styles.topRow}>
           {/*todo this is just a fixed link to new Students list screen*/}
-          <Icon
-              onPress={this.navigateToStudentList}
-              name="account"
-              iconStyle={styles.icon}
-          />
+          <Icon onPress={this.navigateToStudentList} name="account" iconStyle={styles.icon} />
           <TextInput
             value={this.state.name}
             style={styles.input}
@@ -71,11 +67,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
             onChangeText={this.handleNameChange}
             underlineColorAndroid={palette.primaryDark}
           />
-          <IconButton
-            onPress={this.navigateToStudentSettings}
-            name="settings"
-            size={36}
-          />
+          <IconButton onPress={this.navigateToStudentSettings} name="settings" size={36} />
           <IconButton onPress={this.deleteStudent} name="close" size={36} />
         </View>
         <StudentPlanList student={this.props.student} />

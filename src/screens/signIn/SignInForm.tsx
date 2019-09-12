@@ -14,15 +14,7 @@ interface Props extends FormikProps<SignInFormData> {
 
 export class SignInForm extends React.PureComponent<Props> {
   render() {
-    const {
-      handleChange,
-      handleBlur,
-      values,
-      handleSubmit,
-      errors,
-      touched,
-      loading,
-    } = this.props;
+    const { handleChange, handleBlur, values, handleSubmit, errors, touched, loading } = this.props;
     return (
       <View>
         <InputItem
