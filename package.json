@@ -6,7 +6,7 @@
     "lint-fix": "tslint --fix --project .",
     "lint": "tslint --project .",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "prettier:check": "prettier --list-different \"src/**/*.js\"",
+    "prettier:check": "prettier --list-different \"**/*.{js,ts,tsx}\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test:ci": "jest --env=jsdom --silent --coverage",
     "test:coverage": "yarn test --coverage",
