@@ -42,7 +42,7 @@ export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProp
     return (
       <FullScreenTemplate padded darkBackground>
         <Card>
-          <PlanHeader plan={this.plan} onRunPlan={() => this.navigateToRunPlan()} />
+          <PlanHeader plan={this.plan} onRunPlan={this.navigateToRunPlan} />
           <PlanItemList plan={this.plan} />
         </Card>
         <CreatePlanItemButton plan={this.plan} />

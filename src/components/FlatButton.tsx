@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button as ElementsButton, ButtonProps } from 'react-native-elements';
 
 import { palette, typography } from 'styles';
 
-export const FlatButton: React.FunctionComponent<ButtonProps> = props => (
+export const FlatButton: SFC<ButtonProps> = props => (
   <ElementsButton
     {...props}
     loadingProps={{ color: palette.primary }}

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import noop from 'lodash.noop';
 import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
@@ -31,7 +33,7 @@ export class DialogScreen extends React.PureComponent<
   state = {
     title: '',
     description: '',
-    onPress: () => null,
+    onPress: noop,
     buttonTitle: '',
   };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import { FixedValueSlider } from 'components';
 import { i18n } from 'locale';
@@ -8,7 +8,7 @@ interface Props {
   student: Student;
 }
 
-export class StudentDisplaySettings extends React.PureComponent<Props> {
+export class StudentDisplaySettings extends PureComponent<Props> {
   options = [
     {
       value: StudentDisplayOption.LargeImageSlide,

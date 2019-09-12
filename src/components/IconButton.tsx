@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { IconProps } from 'react-native-elements';
 
@@ -10,7 +10,7 @@ interface Props extends IconProps {
   label?: string;
 }
 
-export const IconButton: React.FunctionComponent<Props> = ({ onPress, containerStyle, label, ...props }) => (
+export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, ...props }) => (
   <TouchableOpacity onPress={onPress} style={[styles.container, containerStyle]}>
     <Icon {...props} />
     {!!label && <StyledText style={styles.label}>{label}</StyledText>}

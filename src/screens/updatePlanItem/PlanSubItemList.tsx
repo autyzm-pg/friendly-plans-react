@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { PlanItem } from 'models';
 import { FlatList } from 'react-native';
@@ -40,14 +40,18 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
     NavigationService.navigate('UpdatePlanSubItem', { planSubItem });
   };
 
-  renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => (
-    <PlanSubItemListItem
-      planSubItem={item}
-      index={index}
-      onDelete={() => item.delete()}
-      onUpdate={() => this.navigateToPlanSubItemUpdate(item)}
-    />
-  );
+  renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => {
+    const handleNavigation = useCallback(() => this.navigateToPlanSubItemUpdate(item), [item]);
+
+    return (
+      <PlanSubItemListItem
+        planSubItem={item}
+        index={index}
+        onDelete={item.delete}
+        onUpdate={handleNavigation}
+      />
+    );
+  };
 
   extractKey = (planSubItem: PlanSubItem) => planSubItem.id;
 
