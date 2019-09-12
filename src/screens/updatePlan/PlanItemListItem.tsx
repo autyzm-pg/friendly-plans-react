@@ -14,11 +14,11 @@ interface Props {
 
 export class PlanItemListItem extends React.PureComponent<Props> {
   render() {
-    const { planItem, onDelete, onUpdate, index } = this.props;
+    const { planItem, onDelete, onUpdate } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.indexContainer}>
-          <StyledText style={styles.index}>{(index + 1).toString()}</StyledText>
+          <StyledText style={styles.index}>{(planItem.order + 1).toString()}</StyledText>
         </View>
         <View style={styles.textContainer}>
           <StyledText style={styles.planName}>{planItem.name}</StyledText>

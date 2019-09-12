@@ -21,7 +21,11 @@ const PLAN_ITEMS_ICONS = {
 };
 
 export class PlanItem implements SubscribableModel, PlanElement {
-  static create = (plan: Plan, type: PlanItemType): Promise<RNFirebase.firestore.DocumentReference> =>
+  static create = (
+    plan: Plan,
+    type: PlanItemType,
+    planItemListLength: number,
+  ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
       name: i18n.t('updatePlan:planItemNamePlaceholder'),
       studentId: plan.studentId,
@@ -29,7 +33,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
-      order: Date.now(),
+      order: planItemListLength,
     });
 
   id!: string;

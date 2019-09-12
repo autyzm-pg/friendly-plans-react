@@ -3,11 +3,12 @@ import { StyleSheet } from 'react-native';
 
 import { Card, FlatButton } from 'components';
 import { i18n } from 'locale';
-import { Plan, PlanItem, PlanItemType } from 'models';
+import { Plan, PlanItemType } from 'models';
 import { palette } from 'styles';
 
 interface Props {
   plan: Plan;
+  handlePress: (planItemType: PlanItemType) => void;
 }
 
 const styles = StyleSheet.create({
@@ -20,9 +21,9 @@ const styles = StyleSheet.create({
 });
 
 export class CreatePlanItemButton extends Component<Props> {
-  createBreak = () => PlanItem.create(this.props.plan, PlanItemType.Break);
-  createInteraction = () => PlanItem.create(this.props.plan, PlanItemType.Interaction);
-  createSimpleTask = () => PlanItem.create(this.props.plan, PlanItemType.SimpleTask);
+  createBreak = () => this.props.handlePress(PlanItemType.Break);
+  createInteraction = () => this.props.handlePress(PlanItemType.Interaction);
+  createSimpleTask = () => this.props.handlePress(PlanItemType.SimpleTask);
 
   render() {
     return (

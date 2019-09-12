@@ -3,12 +3,17 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Card, FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
-import { StudentDisplayOption } from 'models';
+import { PlanItem, PlanItemType, StudentDisplayOption } from 'models';
+import { ModelSubscriber } from '../../models/ModelSubscriber';
 import { CreatePlanItemButton } from './CreatePlanItemButton';
 import { PlanHeader } from './PlanHeader';
 import { PlanItemList } from './PlanItemList';
 
-export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProps> {
+interface State {
+  planItems: PlanItem[];
+}
+
+export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProps, State> {
   static navigationOptions = ({ navigation }: NavigationInjectedProps) => {
     return {
       title: i18n.t('updatePlan:screenTitle', {
@@ -19,6 +24,23 @@ export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProp
 
   plan = this.props.navigation.getParam('plan');
   student = this.props.navigation.getParam('student');
+
+  planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
+  state: Readonly<State> = {
+    planItems: [],
+  };
+
+  componentDidMount() {
+    this.planItemsSubscriber.subscribeCollectionUpdates(this.plan, planItems => this.setState({ planItems }));
+  }
+
+  componentWillUnmount() {
+    this.planItemsSubscriber.unsubscribeCollectionUpdates();
+  }
+
+  createPlanItem = (planItemType: PlanItemType) => {
+    PlanItem.create(this.plan, planItemType, this.state.planItems.length);
+  };
 
   navigateToRunPlan = () => {
     switch (this.student.displaySettings) {
@@ -43,9 +65,9 @@ export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProp
       <FullScreenTemplate padded darkBackground>
         <Card>
           <PlanHeader plan={this.plan} onRunPlan={this.navigateToRunPlan} />
-          <PlanItemList plan={this.plan} />
+          <PlanItemList plan={this.plan} planItems={this.state.planItems} />
         </Card>
-        <CreatePlanItemButton plan={this.plan} />
+        <CreatePlanItemButton plan={this.plan} handlePress={this.createPlanItem} />
       </FullScreenTemplate>
     );
   }
