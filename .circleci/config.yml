@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Run Typescript Check
           command: yarn run typescript:check
-      #Due to performance tests hiccup i need to omit this step in CI check
-      #- run:
-          #name: Run Unit Tests With Code Coverage
-          #command: yarn run test:ci
+      # Parallel tests temporary disable for CI env by --runInBand flag in `test:ci` script
+      - run:
+          name: Run Unit Tests With Code Coverage
+          command: yarn run test:ci
