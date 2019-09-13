@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "175093379002",
+    "firebase_url": "https://friendly-plans.firebaseio.com",
+    "project_id": "friendly-plans",
+    "storage_bucket": "friendly-plans.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175093379002:android:42c34bb76cac2bfe",
+        "android_client_info": {
+          "package_name": "com.friendlyplans"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvEVBAErunHgeRfp_7q7U7_tWzbrAOk_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175093379002-jlm9f5d7185fsm6321140emrgdqid7ct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

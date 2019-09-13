@@ -66,14 +66,11 @@ coverage/
 
 # Firebase
 GoogleService-Info.plist
-google-services.json
-firebase-admin.json
 
 # Fastlane
 fastlane/report.xml
 
 # keys and signing
-keystore.properties
 *.keystore
 google-play-service-key.json
 
