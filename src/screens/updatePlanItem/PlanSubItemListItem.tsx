@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {IconButton, StyledText} from 'components';
-import {palette, typography} from 'styles';
-import {PlanSubItem} from '../../models/PlanSubItem';
+import { IconButton, StyledText } from 'components';
+import { palette, typography } from 'styles';
+import { PlanSubItem } from '../../models/PlanSubItem';
 
 interface Props {
   planSubItem: PlanSubItem;
@@ -13,11 +13,9 @@ interface Props {
 }
 
 export class PlanSubItemListItem extends React.PureComponent<Props> {
-
   render() {
-
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.indexContainer}>
           <StyledText style={styles.index}>{(this.props.index + 1).toString()}</StyledText>
         </View>
@@ -25,18 +23,8 @@ export class PlanSubItemListItem extends React.PureComponent<Props> {
           <StyledText style={styles.planName}>{this.props.planSubItem.name}</StyledText>
         </View>
         <View style={styles.actionButtonsContainer}>
-          <IconButton
-            name="close"
-            containerStyle={styles.actionButton}
-            onPress={this.props.onDelete}
-            size={26}
-          />
-          <IconButton
-            name="pencil"
-            containerStyle={styles.actionButton}
-            size={24}
-            onPress={this.props.onUpdate}
-          />
+          <IconButton name="close" containerStyle={styles.actionButton} onPress={this.props.onDelete} size={26} />
+          <IconButton name="pencil" containerStyle={styles.actionButton} size={24} onPress={this.props.onUpdate} />
         </View>
       </View>
     );

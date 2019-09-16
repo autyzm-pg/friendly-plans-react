@@ -17,9 +17,7 @@ describe('SignInScreen', () => {
 
   it('should navigate to signup on sign up button press', () => {
     const wrapper = shallow(<SignInScreen {...props} />);
-    const button = wrapper.find(
-      `FlatButton[title="${i18n.t('signUp:signUpButton')}"]`,
-    );
+    const button = wrapper.find(`FlatButton[title="${i18n.t('signUp:signUpButton')}"]`);
     button.simulate('press');
     expect(props.navigation.navigate).toBeCalledWith('SignUp');
   });

@@ -1,3 +1,1 @@
-export class OperationalError extends Error {
-
-}
+export class OperationalError extends Error {}

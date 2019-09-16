@@ -51,16 +51,12 @@ export class SignUpFormContainer extends React.PureComponent<{}, State> {
     );
   }
 
-  renderForm = (props: FormikProps<SignUpFormData>) => (
-    <SignUpForm {...props} loading={this.state.loading} />
-  );
+  renderForm = (props: FormikProps<SignUpFormData>) => <SignUpForm {...props} loading={this.state.loading} />;
 
   onSubmit = async (values: SignUpFormData) => {
     this.setState({ loading: true });
     try {
-      await firebase
-        .auth()
-        .createUserWithEmailAndPassword(values.email, values.password);
+      await firebase.auth().createUserWithEmailAndPassword(values.email, values.password);
       NavigationService.navigate('Authenticated');
     } catch (error) {
       this.setState({ loading: false });

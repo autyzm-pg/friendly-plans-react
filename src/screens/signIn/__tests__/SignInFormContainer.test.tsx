@@ -43,9 +43,7 @@ describe('SignInFormContainer', () => {
       email: 'email@domain.com',
       password: 'topsecretpa$$w0rd',
     };
-    const spy = jest
-      .spyOn(NavigationService, 'navigate')
-      .mockImplementation(jest.fn());
+    const spy = jest.spyOn(NavigationService, 'navigate').mockImplementation(jest.fn());
     await instance.onSubmit(data);
     expect(spy).toBeCalledWith('Authenticated');
     jest.resetAllMocks();

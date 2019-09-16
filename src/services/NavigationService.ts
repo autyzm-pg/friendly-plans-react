@@ -1,8 +1,4 @@
-import {
-  NavigationActions,
-  NavigationContainerComponent,
-  NavigationState,
-} from 'react-navigation';
+import { NavigationActions, NavigationContainerComponent, NavigationState } from 'react-navigation';
 
 import { DialogProps } from 'models';
 

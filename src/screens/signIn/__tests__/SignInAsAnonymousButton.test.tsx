@@ -16,9 +16,7 @@ describe('SignInAsAnonymousButton', () => {
   it('should navigate to authenticated view after sign in', async () => {
     const wrapper = shallow(<SignInAsAnonymousButton />);
     const instance = wrapper.instance() as SignInAsAnonymousButton;
-    const spy = jest
-      .spyOn(NavigationService, 'navigate')
-      .mockImplementation(jest.fn());
+    const spy = jest.spyOn(NavigationService, 'navigate').mockImplementation(jest.fn());
     await instance.signInAnonymously();
     expect(spy).toBeCalledWith('Authenticated');
     jest.clearAllMocks();

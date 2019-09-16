@@ -21,9 +21,7 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     const instance = wrapper.instance() as App;
     const navigator = {};
-    const spy = jest
-      .spyOn(NavigationService, 'setTopLevelNavigator')
-      .mockImplementationOnce(noop);
+    const spy = jest.spyOn(NavigationService, 'setTopLevelNavigator').mockImplementationOnce(noop);
     instance.setNavigationRef(navigator as NavigationContainerComponent);
     expect(spy).toHaveBeenCalledWith(navigator);
   });

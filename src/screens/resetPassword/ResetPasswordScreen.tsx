@@ -10,12 +10,8 @@ export class ResetPasswordScreen extends React.PureComponent {
   render() {
     return (
       <FullScreenTemplate padded narrow>
-        <StyledText style={styles.guideText}>
-          {i18n.t('resetPassword:guide1')}
-        </StyledText>
-        <StyledText style={styles.guideText}>
-          {i18n.t('resetPassword:guide2')}
-        </StyledText>
+        <StyledText style={styles.guideText}>{i18n.t('resetPassword:guide1')}</StyledText>
+        <StyledText style={styles.guideText}>{i18n.t('resetPassword:guide2')}</StyledText>
         <ResetPasswordForm />
       </FullScreenTemplate>
     );

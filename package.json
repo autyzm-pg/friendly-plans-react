@@ -5,12 +5,13 @@
   "scripts": {
     "lint-fix": "tslint --fix --project .",
     "lint": "tslint --project .",
-    "prettier-fix": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "prettier:check": "prettier --list-different \"**/*.{js,ts,tsx}\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test:ci": "jest --env=jsdom --silent --coverage",
+    "test:ci": "jest --env=jsdom --silent --coverage --runInBand",
     "test:coverage": "yarn test --coverage",
     "test": "jest --env=jsdom --updateSnapshot --silent",
-    "typescript-check": "tsc --noEmit",
+    "typescript:check": "tsc --noEmit",
     "pre-commit": "lint-staged"
   },
   "dependencies": {

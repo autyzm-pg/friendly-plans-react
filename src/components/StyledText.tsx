@@ -6,10 +6,7 @@ interface Props extends TextProps {
   children: string;
 }
 
-export const StyledText: React.FunctionComponent<Props> = ({
-  children,
-  ...props
-}) => (
+export const StyledText: React.FunctionComponent<Props> = ({ children, ...props }) => (
   <Text {...props} style={[styles.text, props.style]}>
     {children}
   </Text>

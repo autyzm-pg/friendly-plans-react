@@ -48,9 +48,7 @@ describe('SignUpFormContainer', () => {
       password: 'topsecretpa$$w0rd',
       termsAccepted: true,
     };
-    const spy = jest
-      .spyOn(NavigationService, 'navigate')
-      .mockImplementation(jest.fn());
+    const spy = jest.spyOn(NavigationService, 'navigate').mockImplementation(jest.fn());
     await instance.onSubmit(data);
     expect(spy).toBeCalledWith('Authenticated');
     jest.resetAllMocks();

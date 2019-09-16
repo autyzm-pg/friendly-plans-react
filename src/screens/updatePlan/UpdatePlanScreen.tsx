@@ -21,7 +21,7 @@ export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProp
   student = this.props.navigation.getParam('student');
 
   navigateToRunPlan = () => {
-    switch(this.student.displaySettings) {
+    switch (this.student.displaySettings) {
       case StudentDisplayOption.LargeImageSlide:
       case StudentDisplayOption.ImageWithTextSlide:
       case StudentDisplayOption.TextSlide:

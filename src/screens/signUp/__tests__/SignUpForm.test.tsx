@@ -35,9 +35,7 @@ describe('SignUpForm', () => {
   it('should navigate to Terms of Use screen', () => {
     const wrapper = shallow(<SignUpForm {...props} />);
     const instance = wrapper.instance() as SignUpForm;
-    const spy = jest
-      .spyOn(NavigationService, 'navigate')
-      .mockImplementation(jest.fn());
+    const spy = jest.spyOn(NavigationService, 'navigate').mockImplementation(jest.fn());
     instance.navigateToTermsOfUse();
     expect(spy).toBeCalledWith('TermsOfUse');
   });

@@ -39,9 +39,7 @@ export class CheckboxInput extends React.PureComponent<Props> {
             {children}
           </View>
         </View>
-        <View style={styles.errorContainer}>
-          {!!error && <StyledText style={styles.error}>{error}</StyledText>}
-        </View>
+        <View style={styles.errorContainer}>{!!error && <StyledText style={styles.error}>{error}</StyledText>}</View>
       </>
     );
   }

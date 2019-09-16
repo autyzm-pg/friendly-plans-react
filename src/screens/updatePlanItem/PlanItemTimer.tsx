@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TimePickerAndroid,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, TimePickerAndroid, TouchableOpacity } from 'react-native';
 
 import { Icon } from 'components';
 import { PlanItem } from 'models';
@@ -23,9 +18,9 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
     super(props);
     this.state = {
       itemTime: this.props.planItem.time,
-      itemTimeText: (this.props.planItem.time!!)
-        ? (this.props.planItem.time / 60).toFixed() + ':' + this.props.planItem.time % 60
-        : ''
+      itemTimeText: this.props.planItem.time!!
+        ? (this.props.planItem.time / 60).toFixed() + ':' + (this.props.planItem.time % 60)
+        : '',
     };
   }
 
@@ -46,7 +41,7 @@ export class PlanItemTimer extends React.PureComponent<Props, State> {
         // firebase will store seconds
         if (action === TimePickerAndroid.timeSetAction) {
           this.props.planItem.update({
-            time: ((hour * 60) + minute),
+            time: hour * 60 + minute,
           });
         }
       }

@@ -22,15 +22,7 @@ export class SignUpForm extends React.PureComponent<Props> {
   };
 
   render() {
-    const {
-      handleChange,
-      handleBlur,
-      values,
-      handleSubmit,
-      errors,
-      touched,
-      loading,
-    } = this.props;
+    const { handleChange, handleBlur, values, handleSubmit, errors, touched, loading } = this.props;
     return (
       <View>
         <InputItem
@@ -65,9 +57,7 @@ export class SignUpForm extends React.PureComponent<Props> {
           title={i18n.t('signUp:accept')}
         >
           <TouchableOpacity onPress={this.navigateToTermsOfUse}>
-            <StyledText style={styles.link}>
-              {i18n.t('signUp:termsOfUse')}
-            </StyledText>
+            <StyledText style={styles.link}>{i18n.t('signUp:termsOfUse')}</StyledText>
           </TouchableOpacity>
         </CheckboxInput>
         <Button

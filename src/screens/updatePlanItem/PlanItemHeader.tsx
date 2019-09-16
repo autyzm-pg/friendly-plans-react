@@ -25,7 +25,7 @@ export class PlanItemHeader extends React.PureComponent<Props, State> {
 
   updatePlanItemName = () => {
     this.props.planItem.update({
-        name: this.state.itemName
+      name: this.state.itemName,
     });
   };
 
