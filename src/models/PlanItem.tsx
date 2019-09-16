@@ -24,7 +24,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
   static create = (
     plan: Plan,
     type: PlanItemType,
-    planItemListLength: number,
+    lastItemOrder: number,
   ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
       name: i18n.t('updatePlan:planItemNamePlaceholder'),
@@ -33,7 +33,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
-      order: planItemListLength,
+      order: lastItemOrder + 1,
     });
 
   id!: string;

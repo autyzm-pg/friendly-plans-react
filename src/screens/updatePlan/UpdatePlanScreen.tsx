@@ -38,8 +38,16 @@ export class UpdatePlanScreen extends React.PureComponent<NavigationInjectedProp
     this.planItemsSubscriber.unsubscribeCollectionUpdates();
   }
 
+  getLastItemOrder = (): number => {
+    if (!this.state.planItems.length) {
+      return 0;
+    }
+    const lastItem = this.state.planItems[this.state.planItems.length - 1];
+    return lastItem.order;
+  };
+
   createPlanItem = (planItemType: PlanItemType) => {
-    PlanItem.create(this.plan, planItemType, this.state.planItems.length);
+    PlanItem.create(this.plan, planItemType, this.getLastItemOrder());
   };
 
   navigateToRunPlan = () => {
