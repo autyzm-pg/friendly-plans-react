@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 
-import { SettingsScreen } from 'screens';
+import { StudentSettingsScreen } from 'screens';
 import { headerStyle, palette } from '../styles';
 
 export const SettingsStackNavigator = createStackNavigator(
   {
-    SettingsList: SettingsScreen,
+    SettingsList: StudentSettingsScreen,
   },
   {
     headerBackTitleVisible: false,

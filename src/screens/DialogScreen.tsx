@@ -10,14 +10,8 @@ import { typography } from 'styles';
 
 type State = DialogProps;
 
-export class DialogScreen extends React.PureComponent<
-  NavigationInjectedProps,
-  State
-> {
-  static getDerivedStateFromProps(
-    props: NavigationInjectedProps,
-    state: State,
-  ) {
+export class DialogScreen extends React.PureComponent<NavigationInjectedProps, State> {
+  static getDerivedStateFromProps(props: NavigationInjectedProps, state: State) {
     if (state.title) {
       return null;
     }
@@ -40,11 +34,7 @@ export class DialogScreen extends React.PureComponent<
   render() {
     const { title, description, onPress, buttonTitle } = this.state;
     return (
-      <ModalTemplate
-        onPress={onPress}
-        navigation={this.props.navigation}
-        buttonTitle={buttonTitle}
-      >
+      <ModalTemplate onPress={onPress} navigation={this.props.navigation} buttonTitle={buttonTitle}>
         <StyledText style={styles.title}>{title}</StyledText>
         <StyledText style={styles.description}>{description}</StyledText>
       </ModalTemplate>

@@ -13,20 +13,13 @@ interface Props {
   onPress?: () => void;
 }
 
-export const ListItem: React.FunctionComponent<Props> = ({
-  title,
-  subtitle,
-  icon,
-  onPress,
-}) => (
+export const ListItem: React.FunctionComponent<Props> = ({ title, subtitle, icon, onPress }) => (
   <TouchableHighlight underlayColor={palette.underlay} onPress={onPress}>
     <View style={styles.container}>
       {!!icon && <Icon {...icon} containerStyle={styles.iconContainer} />}
       <View style={styles.textContainer}>
         <StyledText style={styles.title}>{title}</StyledText>
-        {!!subtitle && (
-          <StyledText style={styles.subtitle}>{subtitle}</StyledText>
-        )}
+        {!!subtitle && <StyledText style={styles.subtitle}>{subtitle}</StyledText>}
       </View>
     </View>
   </TouchableHighlight>

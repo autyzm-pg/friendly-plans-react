@@ -34,17 +34,11 @@ export class ResetPasswordForm extends React.PureComponent<{}, State> {
   onSubmit = async (values: ResetPasswordFormData) => {
     try {
       await firebase.auth().sendPasswordResetEmail(values.email);
-      Alert.alert(
-        i18n.t('common:success'),
-        i18n.t('resetPassword:resetPasswordSuccess'),
-      );
+      Alert.alert(i18n.t('common:success'), i18n.t('resetPassword:resetPasswordSuccess'));
       NavigationService.navigate('SignIn');
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
-        Alert.alert(
-          i18n.t('common:error'),
-          i18n.t('resetPassword:userNotFound'),
-        );
+        Alert.alert(i18n.t('common:error'), i18n.t('resetPassword:userNotFound'));
       } else {
         Alert.alert(i18n.t('common:error'), i18n.t('common:unknownError'));
       }
@@ -63,14 +57,7 @@ export class ResetPasswordForm extends React.PureComponent<{}, State> {
   }
 
   renderForm = (props: FormikProps<ResetPasswordFormData>) => {
-    const {
-      handleChange,
-      handleBlur,
-      values,
-      handleSubmit,
-      errors,
-      touched,
-    } = props;
+    const { handleChange, handleBlur, values, handleSubmit, errors, touched } = props;
     return (
       <View style={styles.container}>
         <InputItem

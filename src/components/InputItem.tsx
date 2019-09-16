@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  TextInput as BaseTextInput,
-  TextInputProps,
-  View,
-} from 'react-native';
+import { StyleSheet, TextInput as BaseTextInput, TextInputProps, View } from 'react-native';
 
 import { palette, typography } from 'styles';
 import { IconButton } from './IconButton';
@@ -58,9 +53,7 @@ export class InputItem extends React.PureComponent<Props, State> {
           {this.renderSecureTextSwitch()}
         </View>
         <View style={styles.errorContainer}>
-          {!!error && touched && (
-            <StyledText style={styles.error}>{error}</StyledText>
-          )}
+          {!!error && touched && <StyledText style={styles.error}>{error}</StyledText>}
         </View>
       </View>
     );

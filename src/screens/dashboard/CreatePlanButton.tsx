@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FlatButton } from 'components';
 import { i18n } from 'locale';
-import {Plan, Student} from 'models';
+import { Plan, Student } from 'models';
 import { palette } from 'styles';
 
 interface Props {

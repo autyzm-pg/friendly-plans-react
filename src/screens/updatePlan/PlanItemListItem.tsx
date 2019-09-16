@@ -13,7 +13,6 @@ interface Props {
 }
 
 export class PlanItemListItem extends React.PureComponent<Props> {
-
   render() {
     const { planItem, onDelete, onUpdate, index } = this.props;
     return (
@@ -23,24 +22,11 @@ export class PlanItemListItem extends React.PureComponent<Props> {
         </View>
         <View style={styles.textContainer}>
           <StyledText style={styles.planName}>{planItem.name}</StyledText>
-          <Icon
-            containerStyle={styles.planTypeIconContainer}
-            name={planItem.getIconName()}
-          />
+          <Icon containerStyle={styles.planTypeIconContainer} name={planItem.getIconName()} />
         </View>
         <View style={styles.actionButtonsContainer}>
-          <IconButton
-            name="close"
-            containerStyle={styles.actionButton}
-            onPress={onDelete}
-            size={26}
-          />
-          <IconButton
-            name="pencil"
-            containerStyle={styles.actionButton}
-            size={24}
-            onPress={onUpdate}
-          />
+          <IconButton name="close" containerStyle={styles.actionButton} onPress={onDelete} size={26} />
+          <IconButton name="pencil" containerStyle={styles.actionButton} size={24} onPress={onUpdate} />
         </View>
       </View>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {RegisteredStyle, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import { RegisteredStyle, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { palette } from 'styles';
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.20,
+    shadowOpacity: 0.2,
     shadowRadius: 1.41,
     borderRadius: 8,
     backgroundColor: palette.background,

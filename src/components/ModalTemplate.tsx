@@ -50,18 +50,12 @@ export class ModalTemplate extends React.PureComponent<Props, State> {
           <View>{children}</View>
           <View style={styles.footer}>
             <FlatButton
-              title={
-                !!buttonTitle ? i18n.t('common:cancel') : i18n.t('common:ok')
-              }
+              title={!!buttonTitle ? i18n.t('common:cancel') : i18n.t('common:ok')}
               containerStyle={styles.button}
               onPress={this.onCancel}
             />
             {!!buttonTitle && (
-              <FlatButton
-                title={this.props.buttonTitle}
-                onPress={this.onPress}
-                containerStyle={styles.button}
-              />
+              <FlatButton title={this.props.buttonTitle} onPress={this.onPress} containerStyle={styles.button} />
             )}
           </View>
         </View>

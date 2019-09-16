@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - run:
+          name: Run Linter
+          command: yarn run lint
+      - run:
+          name: Code Formatting Check
+          command: npm run prettier:check
+      - run:
+          name: Run Typescript Check
+          command: yarn run typescript:check
+      # Parallel tests temporary disable for CI env by --runInBand flag in `test:ci` script
+      - run:
+          name: Run Unit Tests With Code Coverage
+          command: yarn run test:ci

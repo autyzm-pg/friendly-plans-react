@@ -1,16 +1,15 @@
-import {RNFirebase} from 'react-native-firebase';
-import {OperationalError} from '../infrastructure/Errors';
-import {i18n} from '../locale';
-import {getPlanSubItemRef, getPlanSubItemsRef} from './FirebaseRefProxy';
-import {PlanElement} from './PlanElement';
-import {PlanItem, PlanItemType} from './PlanItem';
-import {ParameterlessConstructor, SubscribableModel} from './SubscribableModel';
+import { RNFirebase } from 'react-native-firebase';
+import { OperationalError } from '../infrastructure/Errors';
+import { i18n } from '../locale';
+import { getPlanSubItemRef, getPlanSubItemsRef } from './FirebaseRefProxy';
+import { PlanElement } from './PlanElement';
+import { PlanItem, PlanItemType } from './PlanItem';
+import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
 
 export class PlanSubItem implements SubscribableModel, PlanElement {
-
   static create = (planItem: PlanItem): Promise<RNFirebase.firestore.DocumentReference> => {
     if (planItem.type !== PlanItemType.ComplexTask) {
-        throw new OperationalError('Sub item can be created only for ComplexTask');
+      throw new OperationalError('Sub item can be created only for ComplexTask');
     }
     return getPlanSubItemsRef(planItem.studentId, planItem.planId, planItem.id).add({
       name: i18n.t('updatePlan:planItemNamePlaceholder'),
@@ -30,13 +29,14 @@ export class PlanSubItem implements SubscribableModel, PlanElement {
   completed!: boolean;
   time!: number;
   type: PlanItemType = PlanItemType.SubElement;
-  lector! :boolean;
+  lector!: boolean;
 
   complete = () => {
-    this.update({completed: true});
+    this.update({ completed: true });
   };
 
-  update = (changes: object) => getPlanSubItemRef(this.studentId, this.planId, this.planItemId, this.id).update(changes);
+  update = (changes: object) =>
+    getPlanSubItemRef(this.studentId, this.planId, this.planItemId, this.id).update(changes);
   delete = (): Promise<void> => getPlanSubItemRef(this.studentId, this.planId, this.planItemId, this.id).delete();
 
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => {
@@ -45,7 +45,6 @@ export class PlanSubItem implements SubscribableModel, PlanElement {
   getChildType: () => ParameterlessConstructor<SubscribableModel> = () => {
     throw new OperationalError('PlanSubItem does not have child type');
   };
-  getRef: () => RNFirebase.firestore.DocumentReference =
-    () => getPlanSubItemRef(this.studentId, this.planId, this.planItemId, this.id);
-
+  getRef: () => RNFirebase.firestore.DocumentReference = () =>
+    getPlanSubItemRef(this.studentId, this.planId, this.planItemId, this.id);
 }
