@@ -34,7 +34,7 @@ exports[`SignUpForm should match snapshot 1`] = `
       <StyledText
         style={
           Object {
-            "color": "#4F3DD5",
+            "color": "#6654EB",
           }
         }
       >
@@ -43,7 +43,7 @@ exports[`SignUpForm should match snapshot 1`] = `
     </TouchableOpacity>
   </CheckboxInput>
   <Component
-    backgroundColor="#4F3DD5"
+    backgroundColor="#6654EB"
     containerStyle={
       Object {
         "marginBottom": 20,

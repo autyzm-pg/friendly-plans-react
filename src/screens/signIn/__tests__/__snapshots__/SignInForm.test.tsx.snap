@@ -44,7 +44,7 @@ exports[`SignInForm should match snapshot 1`] = `
     }
   />
   <Component
-    backgroundColor="#4F3DD5"
+    backgroundColor="#6654EB"
     containerStyle={
       Object {
         "marginBottom": 20,
