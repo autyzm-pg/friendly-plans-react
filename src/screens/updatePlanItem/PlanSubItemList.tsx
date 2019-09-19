@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { PlanItem } from 'models';
 import { FlatList } from 'react-native';
@@ -40,7 +40,7 @@ export class PlanSubItemList extends React.PureComponent<Props, State> {
   };
 
   renderItem = ({ item, index }: { item: PlanSubItem; index: number }) => {
-    const handleNavigation = useCallback(() => this.navigateToPlanSubItemUpdate(item), [item]);
+    const handleNavigation = () => this.navigateToPlanSubItemUpdate(item);
 
     return <PlanSubItemListItem planSubItem={item} index={index} onDelete={item.delete} onUpdate={handleNavigation} />;
   };
