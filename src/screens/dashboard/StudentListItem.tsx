@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-import { Card, Icon, IconButton } from 'components';
+import { Icon, IconButton } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { NavigationService } from 'services';
 import { palette, typography } from 'styles';
+import { StudentPlanList } from '../studentPlanList/StudentPlanList';
 import { CreatePlanButton } from './CreatePlanButton';
-import { StudentPlanList } from './StudentPlanList';
 
 interface Props {
   student: Student;
