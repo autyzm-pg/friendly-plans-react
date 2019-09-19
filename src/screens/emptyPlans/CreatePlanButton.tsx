@@ -1,22 +1,13 @@
-import React from 'react';
-
 import { FlatButton } from 'components';
-import { i18n } from 'locale';
-import { Plan, Student } from 'models';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { palette } from 'styles';
 
-interface Props {
-  student: Student;
-}
-
-export class CreatePlanButton extends React.PureComponent<Props> {
-  createPlanForStudent = () => Plan.create(this.props.student);
-
+export class CreatePlanButton extends React.PureComponent {
   render() {
     return (
       <FlatButton
-        title={i18n.t('planList:createPlan')}
+        title="DODAJ NOWY PLAN"
         icon={{
           name: 'database-plus',
           type: 'material-community',
@@ -24,7 +15,6 @@ export class CreatePlanButton extends React.PureComponent<Props> {
         }}
         buttonStyle={styles.button}
         titleStyle={styles.title}
-        onPress={this.createPlanForStudent}
       />
     );
   }
