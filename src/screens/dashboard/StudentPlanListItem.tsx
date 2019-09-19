@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { IconButton, StyledText } from 'components';
+import { Card, Emoji, IconButton, StyledText } from 'components';
 import { ModelSubscriber, Plan, Student, StudentDisplayOption } from 'models';
-import { palette } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;
@@ -59,39 +59,37 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
     const { name } = this.props.plan;
     return (
       <View style={styles.container}>
-        <StyledText>{name}</StyledText>
-        <View style={styles.iconContainer}>
-          <IconButton
-            name="pencil"
-            color={palette.accent}
-            size={28}
-            containerStyle={styles.updateIcon}
-            onPress={this.navigateToUpdatePlan}
-          />
-          <IconButton name="play-circle" size={30} onPress={this.navigateToRunPlan} />
-        </View>
+        <Card style={styles.card}>
+          <View style={styles.cardTextContainer}>
+            <Emoji symbol="🎸" />
+            <StyledText style={styles.cardText}>{name}</StyledText>
+          </View>
+          <IconButton name="play-circle" color={palette.secondary} size={50} onPress={this.navigateToRunPlan} />
+        </Card>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  updateIcon: {
-    marginEnd: 12,
-  },
   container: {
     width: '50%',
-    padding: 12,
+  },
+  card: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: palette.backgroundTinted,
-    marginBottom: 16,
-    marginEnd: 16,
-    borderRadius: 12,
+    margin: dimensions.spacingSmall,
   },
-  iconContainer: {
+  cardText: {
+    ...typography.subtitle1,
+    color: palette.primaryDark,
+    marginLeft: dimensions.spacingBig,
+  },
+  cardTextContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 

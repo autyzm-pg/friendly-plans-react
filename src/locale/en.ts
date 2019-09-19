@@ -70,7 +70,7 @@ const translations = {
   planList: {
     viewTitle: 'All Plans',
     createPlan: 'Add a Plan',
-    planNamePlaceholder: 'Enter Plan name...',
+    planNamePlaceholder: 'Muzykowanie',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',

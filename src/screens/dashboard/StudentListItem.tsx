@@ -56,7 +56,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
 
   render() {
     return (
-      <Card>
+      <>
         <View style={styles.topRow}>
           {/*todo this is just a fixed link to new Students list screen*/}
           <Icon onPress={this.navigateToStudentList} name="account" iconStyle={styles.icon} />
@@ -72,7 +72,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
         </View>
         <StudentPlanList student={this.props.student} />
         <CreatePlanButton student={this.props.student} />
-      </Card>
+      </>
     );
   }
 }
