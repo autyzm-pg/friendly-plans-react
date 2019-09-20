@@ -9,8 +9,8 @@ export class CreatePlanButton extends React.PureComponent {
       <FlatButton
         title="DODAJ NOWY PLAN"
         icon={{
-          name: 'database-plus',
-          type: 'material-community',
+          name: 'addfile',
+          type: 'antdesign',
           color: palette.textWhite,
         }}
         buttonStyle={styles.button}
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: palette.primaryDark,
     borderRadius: 15,
+    margin: 16,
   },
   title: {
     color: palette.textWhite,

@@ -9,8 +9,8 @@ export class CopyPlanButton extends React.PureComponent {
       <FlatButton
         title="SKOPIUJ ISTNIEJACY PLAN"
         icon={{
-          name: 'database-plus',
-          type: 'material-community',
+          name: 'ios-copy',
+          type: 'ionicon',
           color: palette.primaryDark,
         }}
         buttonStyle={styles.button}
@@ -22,5 +22,6 @@ export class CopyPlanButton extends React.PureComponent {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 15,
+    margin: 16,
   },
 });

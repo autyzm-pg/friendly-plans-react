@@ -1,10 +1,10 @@
 import { i18n } from 'locale';
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
+import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';
-import { PlanButtons } from './PlanButtons';
 
 export class EmptyPlansScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
@@ -12,6 +12,21 @@ export class EmptyPlansScreen extends React.PureComponent<NavigationInjectedProp
   };
 
   render() {
-    return <View />;
+    return (
+      <View style={styles.container}>
+        <CreatePlanButton />
+        <StyledText>lub</StyledText>
+        <CopyPlanButton />
+      </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
