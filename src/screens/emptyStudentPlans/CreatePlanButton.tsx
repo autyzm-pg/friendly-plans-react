@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 import { dimensions, palette } from 'styles';
 
 interface Props {
-  onNavigateToDashboard: () => void;
+  onPress: () => void;
 }
 
 export class CreatePlanButton extends React.PureComponent<Props> {
@@ -19,7 +19,7 @@ export class CreatePlanButton extends React.PureComponent<Props> {
           color: palette.textWhite,
         }}
         buttonStyle={styles.button}
-        onPress={this.props.onNavigateToDashboard}
+        onPress={this.props.onPress}
       />
     );
   }

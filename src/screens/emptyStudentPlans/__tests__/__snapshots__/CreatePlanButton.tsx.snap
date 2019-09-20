@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePlanButton renders correctly 1`] = `
+<Component
+  backgroundColor="#6654EB"
+  buttonStyle={
+    Object {
+      "margin": 16,
+    }
+  }
+  icon={
+    Object {
+      "color": "rgba(255, 255, 255, 1)",
+      "name": "addfile",
+      "type": "antdesign",
+    }
+  }
+  onPress={[MockFunction]}
+  title="ADD PLAN"
+/>
+`;
