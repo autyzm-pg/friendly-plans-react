@@ -12,14 +12,14 @@ export class EmptyStudentPlansScreen extends React.PureComponent<NavigationInjec
     title: i18n.t('planList:viewTitle'),
   };
 
-  navigateToDashboard = () => {
+  navigate = () => {
     this.props.navigation.navigate('Dashboard');
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <CreatePlanButton onPress={this.navigateToDashboard} />
+        <CreatePlanButton onPress={this.navigate} />
         <StyledText>{i18n.t('planList:conjunction')}</StyledText>
         <CopyPlanButton />
       </View>
