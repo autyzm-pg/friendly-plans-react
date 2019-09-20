@@ -13,7 +13,7 @@ export class CreateStudentButton extends React.PureComponent {
         actions={[
           {
             name: 'create student',
-            icon: <Icon name="add" type="material" color={palette.accent} size={32} />,
+            icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
           },
         ]}
         onPressItem={Student.create}
