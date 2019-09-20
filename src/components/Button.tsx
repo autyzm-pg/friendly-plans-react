@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button as ElementsButton, ButtonProps } from 'react-native-elements';
 
-import { palette, typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 
 interface Props extends ButtonProps {
   backgroundColor?: string;
@@ -23,7 +23,7 @@ Button.defaultProps = {
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 21,
+    borderRadius: dimensions.spacingMedium,
     elevation: 0,
     height: 44,
   },

@@ -22,7 +22,6 @@ export class CopyPlanButton extends React.PureComponent {
 
 const styles = StyleSheet.create({
   button: {
-    borderRadius: dimensions.spacingMedium,
     margin: dimensions.spacingMedium,
   },
 });
