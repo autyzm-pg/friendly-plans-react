@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   container: {
-    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },

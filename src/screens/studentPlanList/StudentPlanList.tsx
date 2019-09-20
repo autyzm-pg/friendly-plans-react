@@ -48,6 +48,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
 const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 12,
+    width: '100%',
   },
   columnWrapper: {
     marginEnd: 12,
