@@ -1,13 +1,14 @@
 import { FlatButton } from 'components';
+import { i18n } from 'locale';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { palette } from 'styles';
+import { dimensions, palette } from 'styles';
 
 export class CreatePlanButton extends React.PureComponent {
   render() {
     return (
       <FlatButton
-        title="DODAJ NOWY PLAN"
+        title={i18n.t('planList:createPlan')}
         icon={{
           name: 'addfile',
           type: 'antdesign',
@@ -23,8 +24,8 @@ export class CreatePlanButton extends React.PureComponent {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: palette.primaryDark,
-    borderRadius: 15,
-    margin: 16,
+    borderRadius: dimensions.spacingMedium,
+    margin: dimensions.spacingMedium,
   },
   title: {
     color: palette.textWhite,

@@ -5,7 +5,7 @@ import { Header } from 'components';
 
 import {
   DashboardScreen,
-  EmptyPlansScreen,
+  EmptyStudentPlansScreen,
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
@@ -16,7 +16,7 @@ import {
 
 export const MainStackNavigator = createStackNavigator(
   {
-    EmptyPlans: EmptyPlansScreen,
+    EmptyPlans: EmptyStudentPlansScreen,
     Dashboard: DashboardScreen,
     UpdatePlanItem: UpdatePlanItemScreen,
     UpdatePlanSubItem: UpdatePlanSubItemScreen,

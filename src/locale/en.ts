@@ -68,8 +68,10 @@ const translations = {
       'Are you sure you want to remove {{name}} from your student list?\n This action cannot be undone.',
   },
   planList: {
-    viewTitle: 'All Plans',
-    createPlan: 'Add a Plan',
+    viewTitle: 'ALL Plans',
+    createPlan: 'ADD PLAN',
+    copyPlan: 'COPY EXISTING PLAN',
+    conjunction: 'or',
     planNamePlaceholder: 'Muzykowanie',
   },
   updatePlan: {
