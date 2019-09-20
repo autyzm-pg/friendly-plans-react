@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
-import { Card, Icon, IconButton } from 'components';
+import { Icon, IconButton } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { NavigationService } from 'services';
 import { palette, typography } from 'styles';
+import { StudentPlanList } from '../studentPlanList/StudentPlanList';
 import { CreatePlanButton } from './CreatePlanButton';
-import { StudentPlanList } from './StudentPlanList';
 
 interface Props {
   student: Student;
@@ -56,7 +56,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
 
   render() {
     return (
-      <Card>
+      <>
         <View style={styles.topRow}>
           {/*todo this is just a fixed link to new Students list screen*/}
           <Icon onPress={this.navigateToStudentList} name="account" iconStyle={styles.icon} />
@@ -72,7 +72,7 @@ export class StudentListItem extends React.PureComponent<Props, State> {
         </View>
         <StudentPlanList student={this.props.student} />
         <CreatePlanButton student={this.props.student} />
-      </Card>
+      </>
     );
   }
 }

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   indexContainer: {
-    backgroundColor: palette.accent,
+    backgroundColor: palette.secondary,
     width: 24,
     height: 24,
     borderRadius: 12,

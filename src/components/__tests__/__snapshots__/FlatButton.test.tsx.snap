@@ -14,14 +14,14 @@ exports[`FlatButton should match snapshot 1`] = `
   }
   loadingProps={
     Object {
-      "color": "#4F3DD5",
+      "color": "#6654EB",
     }
   }
   title="flat button"
   titleStyle={
     Array [
       Object {
-        "color": "#4b39ba",
+        "color": "#4F3DD5",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
         "letterSpacing": 1.25,
