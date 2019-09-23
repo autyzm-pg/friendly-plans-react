@@ -4,6 +4,7 @@ import { createStackNavigator, HeaderProps } from 'react-navigation';
 import { Header } from 'components';
 
 import {
+  ActivityPlanScreen,
   DashboardScreen,
   EmptyStudentPlansScreen,
   RunPlanListScreen,
@@ -17,6 +18,7 @@ import {
 export const MainStackNavigator = createStackNavigator(
   {
     EmptyPlans: EmptyStudentPlansScreen,
+    ActivityPlan: ActivityPlanScreen,
     Dashboard: DashboardScreen,
     UpdatePlanItem: UpdatePlanItemScreen,
     UpdatePlanSubItem: UpdatePlanSubItemScreen,
