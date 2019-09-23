@@ -19,10 +19,11 @@ exports[`CreatePlanButton renders correctly 1`] = `
     }
   }
   onPress={[MockFunction]}
-  title="DODAJ NOWY PLAN"
+  title="Add new plan"
   titleStyle={
     Object {
       "marginLeft": 3,
+      "textTransform": "uppercase",
     }
   }
 />

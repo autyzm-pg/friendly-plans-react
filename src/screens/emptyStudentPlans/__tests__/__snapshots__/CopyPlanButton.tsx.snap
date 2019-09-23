@@ -15,10 +15,11 @@ exports[`CopyPlanButton renders correctly 1`] = `
       "type": "ionicon",
     }
   }
-  title="SKOPIUJ ISTNIEJĄCY PLAN"
+  title="Copy existing plan"
   titleStyle={
     Object {
       "marginLeft": 3,
+      "textTransform": "uppercase",
     }
   }
 />
