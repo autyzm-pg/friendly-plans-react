@@ -5,18 +5,25 @@ exports[`CreatePlanButton renders correctly 1`] = `
   backgroundColor="#6654EB"
   buttonStyle={
     Object {
-      "margin": 16,
+      "margin": 22,
+      "paddingRight": 15,
+      "paddingVertical": 12,
     }
   }
   icon={
     Object {
       "color": "rgba(255, 255, 255, 1)",
       "name": "addfile",
-      "size": 17,
+      "size": 13,
       "type": "antdesign",
     }
   }
   onPress={[MockFunction]}
   title="DODAJ NOWY PLAN"
+  titleStyle={
+    Object {
+      "marginLeft": 3,
+    }
+  }
 />
 `;

@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: dimensions.spacingMedium,
     elevation: 0,
-    height: 44,
-    padding: dimensions.spacingMedium,
+    height: 36,
   },
   title: {
     ...typography.button,

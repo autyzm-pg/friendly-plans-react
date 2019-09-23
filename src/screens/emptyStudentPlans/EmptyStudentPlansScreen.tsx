@@ -20,7 +20,7 @@ export class EmptyStudentPlansScreen extends React.PureComponent<NavigationInjec
     return (
       <View style={styles.container}>
         <CreatePlanButton onPress={this.navigate} />
-        <StyledText>{i18n.t('planList:conjunction')}</StyledText>
+        <StyledText style={styles.text}>{i18n.t('planList:conjunction')}</StyledText>
         <CopyPlanButton />
       </View>
     );
@@ -30,9 +30,11 @@ export class EmptyStudentPlansScreen extends React.PureComponent<NavigationInjec
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: palette.backgroundTinted,
+  },
+  text: {
+    color: palette.primaryLight,
   },
 });

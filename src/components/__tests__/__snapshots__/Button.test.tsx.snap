@@ -7,8 +7,7 @@ exports[`Button should match snapshot 1`] = `
       Object {
         "borderRadius": 16,
         "elevation": 0,
-        "height": 44,
-        "padding": 16,
+        "height": 36,
       },
       Object {
         "backgroundColor": "blue",
