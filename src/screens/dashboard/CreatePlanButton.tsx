@@ -19,7 +19,7 @@ export class CreatePlanButton extends React.PureComponent<Props> {
         icon={{
           name: 'database-plus',
           type: 'material-community',
-          color: palette.primaryDark,
+          color: palette.primaryVariant,
         }}
         onPress={this.createPlanForStudent}
       />

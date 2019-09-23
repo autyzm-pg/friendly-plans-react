@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   container: {
     height: 80,
     borderTopRightRadius: 8,
-    backgroundColor: palette.primaryDark,
+    backgroundColor: palette.primaryVariant,
     alignItems: 'center',
     justifyContent: 'center',
   },

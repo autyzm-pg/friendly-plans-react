@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: palette.primaryDark,
+    backgroundColor: palette.primaryVariant,
   },
   buttonText: {
     color: palette.textWhite,

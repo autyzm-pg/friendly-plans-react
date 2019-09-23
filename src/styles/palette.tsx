@@ -1,7 +1,7 @@
 // palette based on https://www.materialpalette.com/indigo/blue-grey
 export const palette = {
   primary: '#6654EB',
-  primaryDark: '#4F3DD5',
+  primaryVariant: '#4F3DD5',
   primaryLight: '#b9b6ff',
   primaryDisabled: '#2096f1',
   secondary: '#FE9DCA',

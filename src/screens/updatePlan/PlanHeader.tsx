@@ -54,7 +54,7 @@ export class PlanHeader extends React.PureComponent<Props, State> {
           style={styles.input}
           onEndEditing={this.updatePlanName}
           onChangeText={this.handleNameChange}
-          underlineColorAndroid={palette.primaryDark}
+          underlineColorAndroid={palette.primaryVariant}
         />
         <IconButton onPress={this.props.onRunPlan} name="play-circle" size={30} />
         <IconButton onPress={this.deletePlan} name="close" size={36} />

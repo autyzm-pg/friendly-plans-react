@@ -29,7 +29,7 @@ export const PlanSubItemsListColumn: SFC<Props> = ({ planItem }: Props) => {
         icon={{
           name: 'plus',
           type: 'material-community',
-          color: palette.primaryDark,
+          color: palette.primaryVariant,
         }}
         title={i18n.t('updatePlanItem:addSubPlanItem')}
         containerStyle={styles.buttonContainer}
