@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     paddingVertical: dimensions.spacingSmall,
     paddingRight: 15,
     margin: 22,
-    textTransform: 'uppercase',
   },
   title: {
     marginLeft: 3,
+    textTransform: 'uppercase',
   },
 });
