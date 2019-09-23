@@ -20,6 +20,10 @@ const translations = {
   },
   planList: {
     viewTitle: 'Wszystkie plany',
+    createPlan: 'DODAJ NOWY PLAN',
+    copyPlan: 'SKOPIUJ ISTNIEJĄCY PLAN',
+    conjunction: 'lub',
+    planNamePlaceholder: 'Muzykowanie',
   },
   updatePlanItem: {
     planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
