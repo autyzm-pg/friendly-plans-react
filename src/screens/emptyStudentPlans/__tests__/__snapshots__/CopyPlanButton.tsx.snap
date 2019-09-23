@@ -11,9 +11,10 @@ exports[`CopyPlanButton renders correctly 1`] = `
     Object {
       "color": "#4F3DD5",
       "name": "ios-copy",
+      "size": 17,
       "type": "ionicon",
     }
   }
-  title="COPY EXISTING PLAN"
+  title="SKOPIUJ ISTNIEJĄCY PLAN"
 />
 `;

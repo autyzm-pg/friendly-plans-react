@@ -13,6 +13,7 @@ export class CopyPlanButton extends React.PureComponent {
           name: 'ios-copy',
           type: 'ionicon',
           color: palette.primaryDark,
+          size: 17,
         }}
         buttonStyle={styles.button}
       />

@@ -24,7 +24,7 @@ exports[`FlatButton should match snapshot 1`] = `
         "color": "#4F3DD5",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
-        "letterSpacing": 1.25,
+        "letterSpacing": 0.5,
       },
       undefined,
     ]

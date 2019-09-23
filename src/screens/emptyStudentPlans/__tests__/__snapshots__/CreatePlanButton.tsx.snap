@@ -12,10 +12,11 @@ exports[`CreatePlanButton renders correctly 1`] = `
     Object {
       "color": "rgba(255, 255, 255, 1)",
       "name": "addfile",
+      "size": 17,
       "type": "antdesign",
     }
   }
   onPress={[MockFunction]}
-  title="ADD PLAN"
+  title="DODAJ NOWY PLAN"
 />
 `;

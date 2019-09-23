@@ -8,6 +8,7 @@ exports[`Button should match snapshot 1`] = `
         "borderRadius": 16,
         "elevation": 0,
         "height": 44,
+        "padding": 16,
       },
       Object {
         "backgroundColor": "blue",
@@ -22,7 +23,7 @@ exports[`Button should match snapshot 1`] = `
         "color": "rgba(255, 255, 255, 1)",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
-        "letterSpacing": 1.25,
+        "letterSpacing": 0.5,
       },
       undefined,
     ]

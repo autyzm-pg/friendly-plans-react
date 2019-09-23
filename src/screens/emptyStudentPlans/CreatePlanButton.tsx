@@ -17,6 +17,7 @@ export class CreatePlanButton extends React.PureComponent<Props> {
           name: 'addfile',
           type: 'antdesign',
           color: palette.textWhite,
+          size: 17,
         }}
         buttonStyle={styles.button}
         onPress={this.props.onPress}

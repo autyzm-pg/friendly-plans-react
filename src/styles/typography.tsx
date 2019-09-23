@@ -57,7 +57,7 @@ export const typography = StyleSheet.create({
   button: {
     fontFamily: fonts.sansSerif.medium,
     fontSize: 14,
-    letterSpacing: 1.25,
+    letterSpacing: 0.5,
   },
   // used for auth input labels, errors
   caption: {
