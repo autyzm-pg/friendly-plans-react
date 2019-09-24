@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@types/lodash.noop": "^3.0.6",
+    "@types/lodash.sortby": "^4.7.6",
     "formik": "^1.5.7",
     "i18next": "^15.0.7",
     "lodash.noop": "^3.0.1",
