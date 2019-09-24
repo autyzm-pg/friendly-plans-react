@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: 44,
   },
   title: {
-    color: palette.primaryDark,
+    color: palette.primary,
     ...typography.button,
   },
 });

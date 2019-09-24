@@ -17,10 +17,11 @@ export class CreatePlanButton extends React.PureComponent<Props> {
           name: 'addfile',
           type: 'antdesign',
           color: palette.textWhite,
-          size: 17,
+          size: 13,
         }}
         buttonStyle={styles.button}
         onPress={this.props.onPress}
+        titleStyle={styles.title}
       />
     );
   }
@@ -28,6 +29,12 @@ export class CreatePlanButton extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   button: {
-    margin: dimensions.spacingMedium,
+    paddingVertical: dimensions.spacingSmall,
+    paddingRight: 15,
+    margin: 22,
+  },
+  title: {
+    marginLeft: 3,
+    textTransform: 'uppercase',
   },
 });

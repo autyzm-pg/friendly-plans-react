@@ -4,17 +4,23 @@ exports[`CopyPlanButton renders correctly 1`] = `
 <FlatButton
   buttonStyle={
     Object {
-      "margin": 16,
+      "margin": 15,
     }
   }
   icon={
     Object {
-      "color": "#4F3DD5",
+      "color": "#6654EB",
       "name": "ios-copy",
-      "size": 17,
+      "size": 14,
       "type": "ionicon",
     }
   }
-  title="SKOPIUJ ISTNIEJĄCY PLAN"
+  title="Copy existing plan"
+  titleStyle={
+    Object {
+      "marginLeft": 3,
+      "textTransform": "uppercase",
+    }
+  }
 />
 `;

@@ -12,10 +12,11 @@ export class CopyPlanButton extends React.PureComponent {
         icon={{
           name: 'ios-copy',
           type: 'ionicon',
-          color: palette.primaryDark,
-          size: 17,
+          color: palette.primary,
+          size: 14,
         }}
         buttonStyle={styles.button}
+        titleStyle={styles.title}
       />
     );
   }
@@ -23,6 +24,10 @@ export class CopyPlanButton extends React.PureComponent {
 
 const styles = StyleSheet.create({
   button: {
-    margin: dimensions.spacingMedium,
+    margin: 15,
+  },
+  title: {
+    marginLeft: 3,
+    textTransform: 'uppercase',
   },
 });
