@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyPlanButton renders correctly 1`] = `
+<FlatButton
+  buttonStyle={
+    Object {
+      "margin": 15,
+    }
+  }
+  icon={
+    Object {
+      "color": "#6654EB",
+      "name": "ios-copy",
+      "size": 14,
+      "type": "ionicon",
+    }
+  }
+  title="Copy existing plan"
+  titleStyle={
+    Object {
+      "marginLeft": 3,
+      "textTransform": "uppercase",
+    }
+  }
+/>
+`;

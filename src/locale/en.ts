@@ -69,7 +69,9 @@ const translations = {
   },
   planList: {
     viewTitle: 'All Plans',
-    createPlan: 'Add a Plan',
+    createPlan: 'Add new plan',
+    copyPlan: 'Copy existing plan',
+    conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
   updatePlan: {

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatePlanButton renders correctly 1`] = `
+<Component
+  backgroundColor="#6654EB"
+  buttonStyle={
+    Object {
+      "margin": 22,
+      "paddingRight": 15,
+      "paddingVertical": 12,
+    }
+  }
+  icon={
+    Object {
+      "color": "rgba(255, 255, 255, 1)",
+      "name": "addfile",
+      "size": 13,
+      "type": "antdesign",
+    }
+  }
+  onPress={[MockFunction]}
+  title="Add new plan"
+  titleStyle={
+    Object {
+      "marginLeft": 3,
+      "textTransform": "uppercase",
+    }
+  }
+/>
+`;
