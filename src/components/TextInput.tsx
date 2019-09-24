@@ -7,23 +7,19 @@ type Props = TextInputProps;
 
 export class TextInput extends React.PureComponent<Props> {
   render() {
-    return (
-      <BaseTextInput
-        style={[styles.input, this.props.style]}
-        placeholderTextColor={palette.textBlackMuted}
-        underlineColorAndroid={palette.primaryDark}
-        {...this.props}
-      />
-    );
+    return <BaseTextInput style={[styles.input, this.props.style]} placeholderTextColor="#C8CBFA" {...this.props} />;
   }
 }
 
 const styles = StyleSheet.create({
   input: {
-    height: 42,
+    height: 28,
     ...typography.subtitle1,
-    color: palette.textBlack,
-    flex: 1,
-    borderBottomColor: 'black',
+    color: palette.primaryDark,
+    backgroundColor: '#F5F5FF',
+    paddingTop: 5,
+    paddingBottom: 4,
+    borderBottomColor: palette.primary,
+    borderBottomWidth: 1,
   },
 });
