@@ -11,7 +11,7 @@ export const MainDrawerNavigator = createDrawerNavigator(
   },
   {
     contentOptions: {
-      activeTintColor: palette.primaryDark,
+      activeTintColor: palette.primaryVariant,
       inactiveTintColor: palette.primary,
     },
     edgeWidth: -100, // to disable opening gesture

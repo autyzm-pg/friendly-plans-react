@@ -48,6 +48,9 @@ const translations = {
     uppercase: 'Wielkie litery',
     blockSwipe: "Blokada swipe'u",
   },
+  studentsList: {
+    screenTitle: 'Wybór podopiecznego',
+  },
   runPlan: {
     next: 'Dalej',
     wait: 'Czekaj...',

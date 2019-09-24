@@ -107,6 +107,9 @@ const translations = {
     uppercase: 'Uppercase letters',
     blockSwipe: 'Block swipe',
   },
+  studentsList: {
+    screenTitle: 'Select student',
+  },
   runPlan: {
     next: 'Next',
     wait: 'Wait...',

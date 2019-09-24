@@ -1,8 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { AuthUser, Student } from 'models';
-import { ModelSubscriber } from '../../models/ModelSubscriber';
+import { AuthUser, ModelSubscriber, Student } from 'models';
 import { StudentListItem } from './StudentListItem';
 
 interface State {

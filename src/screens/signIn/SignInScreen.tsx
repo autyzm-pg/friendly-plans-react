@@ -29,13 +29,13 @@ export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
 const styles = StyleSheet.create({
   signUpTip: {
     ...typography.caption,
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
     textAlign: 'center',
     marginTop: 4,
   },
   anonymousTip: {
     ...typography.caption,
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
     textAlign: 'center',
     marginTop: 20,
   },

@@ -10,8 +10,8 @@ export class TextInput extends React.PureComponent<Props> {
     return (
       <BaseTextInput
         style={[styles.input, this.props.style]}
-        placeholderTextColor={palette.textBlackMuted}
-        underlineColorAndroid={palette.primaryDark}
+        placeholderTextColor={palette.textDisabled}
+        underlineColorAndroid={palette.primaryVariant}
         {...this.props}
       />
     );

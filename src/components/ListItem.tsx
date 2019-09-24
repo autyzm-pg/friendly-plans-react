@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     ...typography.body2,
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
   },
 });

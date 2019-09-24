@@ -31,7 +31,7 @@ export class CreatePlanItemButton extends Component<Props> {
           icon={{
             name: 'bell',
             type: 'material-community',
-            color: palette.primaryDark,
+            color: palette.primaryVariant,
           }}
           title={i18n.t('updatePlan:addBreak')}
           containerStyle={styles.buttonContainer}
@@ -41,7 +41,7 @@ export class CreatePlanItemButton extends Component<Props> {
           icon={{
             name: 'account-multiple',
             type: 'material-community',
-            color: palette.primaryDark,
+            color: palette.primaryVariant,
           }}
           title={i18n.t('updatePlan:addInteraction')}
           containerStyle={styles.buttonContainer}
@@ -51,7 +51,7 @@ export class CreatePlanItemButton extends Component<Props> {
           icon={{
             name: 'layers',
             type: 'material-community',
-            color: palette.primaryDark,
+            color: palette.primaryVariant,
           }}
           title={i18n.t('updatePlan:addTask')}
           containerStyle={styles.buttonContainer}
