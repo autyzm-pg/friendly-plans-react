@@ -19,6 +19,7 @@
     "formik": "^1.5.7",
     "i18next": "^15.0.7",
     "lodash.noop": "^3.0.1",
+    "lodash.sortby": "^4.7.0",
     "react": "16.8.6",
     "react-i18next": "^9.0.2",
     "react-native": "0.59.9",

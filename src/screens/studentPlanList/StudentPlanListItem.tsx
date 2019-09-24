@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     ...typography.subtitle1,
-    color: palette.primaryVariant,
+    color: palette.textBody,
     marginLeft: dimensions.spacingBig,
   },
   cardTextContainer: {

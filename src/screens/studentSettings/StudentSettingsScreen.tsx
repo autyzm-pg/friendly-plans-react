@@ -65,7 +65,7 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
 const styles = StyleSheet.create({
   label: {
     ...typography.body2,
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
   },
   taskViewLabel: {
     marginVertical: 20,

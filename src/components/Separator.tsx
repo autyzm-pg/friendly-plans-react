@@ -1,23 +1,21 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { palette } from 'styles';
+import { dimensions, palette } from 'styles';
 
 interface Props {
   extraWide?: boolean;
 }
 
-export class Separator extends React.PureComponent<Props> {
-  render() {
-    const { extraWide } = this.props;
-    return <View style={[styles.separator, extraWide && styles.extraWide]} />;
-  }
-}
+export const Separator: SFC<Props> = ({ extraWide, ...props }) => (
+  <View style={[styles.separator, extraWide && styles.extraWide]} />
+);
 
 const styles = StyleSheet.create({
   separator: {
     height: 8,
-    backgroundColor: palette.backgroundDark,
+    backgroundColor: palette.backgroundAdditional,
+    marginBottom: dimensions.spacingSmall,
   },
   extraWide: {
     marginHorizontal: -24,

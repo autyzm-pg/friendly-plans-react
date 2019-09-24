@@ -24,6 +24,9 @@ export class Header extends React.PureComponent<Props> {
 
   goBack = () => NavigationService.goBack(); // this.props.navigation didn't worked
 
+  navigateToStudentsList = () => {
+    NavigationService.navigate('StudentsList');
+  };
   get isRoot(): boolean {
     return this.props.navigation.state.routes.length <= 1;
   }
@@ -54,6 +57,7 @@ export class Header extends React.PureComponent<Props> {
           size={30}
           color={palette.textWhite}
           containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentsList}
         />
       </View>
     );
