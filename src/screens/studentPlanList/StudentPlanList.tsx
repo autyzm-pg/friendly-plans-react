@@ -48,7 +48,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   render() {
     const { plans } = this.state;
 
-    if (!plans) {
+    if (!plans.length) {
       return <EmptyStudentPlans />;
     }
 
