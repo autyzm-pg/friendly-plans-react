@@ -13,10 +13,12 @@ export class TextInput extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   input: {
+    flex: 1,
     height: 28,
     ...typography.subtitle1,
     color: palette.primaryDark,
     backgroundColor: '#F5F5FF',
+    marginLeft: 8,
     paddingTop: 5,
     paddingBottom: 4,
     borderBottomColor: palette.primary,

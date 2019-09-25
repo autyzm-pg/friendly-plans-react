@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'transparent',
     elevation: 0,
-    height: 44,
+    height: 36,
   },
   title: {
     color: palette.primary,

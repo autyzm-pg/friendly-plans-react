@@ -1,33 +1,33 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { FlatButton, Icon, TextInput } from '../../components';
+import { palette } from 'styles';
+import { FullScreenTemplate } from '../../components';
+import { PlanInput } from './PlanInput';
+import { TaskButtons } from './TaskButtons';
 
 export class ActivityPlanScreen extends React.PureComponent {
   render() {
     return (
-      <View style={style.container}>
-        <Icon name="emoticon-happy-outline" size={24} />
-        <TextInput placeholder="Wpisz nazwę planu" />
-        <FlatButton
-          title="TASUJ ZADANIA"
-          icon={{
-            name: 'shuffle',
-            type: 'material-community-icons',
-            size: 14,
-          }}
-        />
-        <Icon name="play" type="antdesign" size={24} />
-      </View>
+      <FullScreenTemplate darkBackground>
+        <View style={styles.container}>
+          <PlanInput />
+          <TaskButtons />
+        </View>
+      </FullScreenTemplate>
     );
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
+    height: 56,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 12,
-    paddingBottom: 8,
+    justifyContent: 'space-between',
+    paddingLeft: 32,
+    paddingRight: 24,
+    backgroundColor: palette.background,
+    elevation: 5,
   },
 });
