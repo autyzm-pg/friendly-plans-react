@@ -2,17 +2,17 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { navigationMock } from 'helpers';
-import { EmptyStudentPlansScreen } from '../EmptyStudentPlansScreen';
+import { EmptyStudentPlans } from '../EmptyStudentPlans';
 
-describe('EmptyStydentPlansScreen', () => {
+describe('EmptyStydentPlans', () => {
   const props = {
     navigation: navigationMock,
   };
 
   it('should navigate to `Dashboard` when `CreatePlanButton` press', () => {
-    const emptyStudentPlansScreen = shallow(<EmptyStudentPlansScreen {...props} />);
+    const emptyStudentPlans = shallow(<EmptyStudentPlans {...props} />);
 
-    const createPlanButton = emptyStudentPlansScreen.find(`CreatePlanButton`);
+    const createPlanButton = emptyStudentPlans.find(`CreatePlanButton`);
     createPlanButton.simulate('press');
 
     expect(props.navigation.navigate).toBeCalledWith('Dashboard');

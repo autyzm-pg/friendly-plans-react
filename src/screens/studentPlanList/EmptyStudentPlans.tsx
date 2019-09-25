@@ -1,17 +1,13 @@
 import { i18n } from 'locale';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps } from 'react-navigation';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { palette } from 'styles';
 import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';
 
-export class EmptyStudentPlansScreen extends React.PureComponent<NavigationInjectedProps> {
-  static navigationOptions = {
-    title: i18n.t('planList:viewTitle'),
-  };
-
+export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
   navigate = () => {
     this.props.navigation.navigate('Dashboard');
   };
@@ -38,3 +34,5 @@ const styles = StyleSheet.create({
     color: palette.primaryLight,
   },
 });
+
+export default withNavigation(EmptyStudentPlans);

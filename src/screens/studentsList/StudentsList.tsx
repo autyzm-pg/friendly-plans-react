@@ -5,17 +5,13 @@ import { Separator, StyledText } from 'components';
 import sortBy from 'lodash.sortby';
 import { Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import StudentName from './StudentName';
 
 interface Props {
   students: Student[];
 }
 
 export const StudentsList: SFC<Props> = ({ students }) => {
-  const renderStudentEntry = (student: Student) => (
-    <StyledText key={student.id} style={styles.studentName}>
-      {student.name}
-    </StyledText>
-  );
   const renderLetterGroupLabel = (letter: string) => (
     <StyledText key={letter} style={styles.label}>
       {letter}
@@ -27,7 +23,7 @@ export const StudentsList: SFC<Props> = ({ students }) => {
     const firstLetter = student.name.charAt(0).toLowerCase();
     const shouldRenderSeparator = !grouped[firstLetter] && !!Object.keys(grouped).length;
 
-    const studentEntry = renderStudentEntry(student);
+    const studentEntry = <StudentName student={student} key={student.id} />;
 
     grouped[firstLetter] = grouped[firstLetter]
       ? [...grouped[firstLetter], studentEntry]
