@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   input: {
     height: 28,
     ...typography.subtitle1,
-    color: palette.primaryDark,
+    color: palette.primaryVariant,
     backgroundColor: palette.backgroundAdditional,
     paddingTop: 5,
     paddingBottom: 4,

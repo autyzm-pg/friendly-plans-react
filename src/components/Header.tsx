@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { HeaderProps } from 'react-navigation';
 
 import { NavigationService } from 'services';
-import { getElevation, headerHeight, palette, typography } from 'styles';
+import { dimensions, getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
@@ -24,6 +24,9 @@ export class Header extends React.PureComponent<Props> {
 
   goBack = () => NavigationService.goBack(); // this.props.navigation didn't worked
 
+  navigateToStudentsList = () => {
+    NavigationService.navigate('StudentsList');
+  };
   get isRoot(): boolean {
     return this.props.navigation.state.routes.length <= 1;
   }
@@ -41,6 +44,21 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
+        <IconButton
+          name="settings"
+          type="material"
+          color={palette.textWhite}
+          size={30}
+          containerStyle={styles.iconContainer}
+        />
+        <IconButton
+          name="people"
+          type="material"
+          size={30}
+          color={palette.textWhite}
+          containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentsList}
+        />
       </View>
     );
   }
@@ -48,15 +66,15 @@ export class Header extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
+    ...getElevation(4),
     height: headerHeight,
     paddingHorizontal: 16,
-    backgroundColor: palette.primary,
-    ...getElevation(4),
+    backgroundColor: palette.primaryVariant,
     flexDirection: 'row',
     alignItems: 'center',
   },
   iconContainer: {
-    padding: 8,
+    margin: dimensions.spacingSmall,
   },
   headerText: {
     marginStart: 8,

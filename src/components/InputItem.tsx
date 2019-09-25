@@ -63,7 +63,7 @@ export class InputItem extends React.PureComponent<Props, State> {
 const styles = StyleSheet.create({
   label: {
     ...typography.caption,
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
     marginBottom: 4,
   },
   inputContainer: {

@@ -38,7 +38,7 @@ export class PlanItemHeader extends React.PureComponent<Props, State> {
           style={styles.input}
           onEndEditing={this.updatePlanItemName}
           onChangeText={this.handleNameChange}
-          underlineColorAndroid={palette.primaryDark}
+          underlineColorAndroid={palette.primaryVariant}
         />
       </View>
     );

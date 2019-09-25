@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     alignContent: 'space-between',
   },
   containerCompleted: {
-    backgroundColor: palette.primaryDark,
+    backgroundColor: palette.primaryVariant,
     flex: 6,
     flexDirection: 'row',
     alignContent: 'space-between',

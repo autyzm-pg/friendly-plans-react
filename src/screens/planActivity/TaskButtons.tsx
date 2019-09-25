@@ -14,13 +14,13 @@ export class TaskButtons extends React.PureComponent {
           icon={{
             name: 'shuffle',
             type: 'material-community-icons',
-            color: palette.textBlackMuted,
+            color: palette.textDisabled,
             size: 22,
           }}
           buttonStyle={styles.buttonStyle}
           titleStyle={styles.buttonTitle}
         />
-        <IconButton name="play" type="antdesign" size={36} color={palette.textBlackMuted} />
+        <IconButton name="play" type="antdesign" size={36} color={palette.textDisabled} />
       </View>
     );
   }
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   buttonTitle: {
-    color: palette.textBlackMuted,
+    color: palette.textDisabled,
     textTransform: 'uppercase',
   },
 });
