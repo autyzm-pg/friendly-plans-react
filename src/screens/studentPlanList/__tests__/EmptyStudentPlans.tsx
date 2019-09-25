@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { EmptyStudentPlans } from '../EmptyStudentPlans';
-import { navigationMock } from './node_modules/helpers';
+import { navigationMock } from 'helpers';
+import EmptyStudentPlans from '../EmptyStudentPlans';
 
-describe('EmptyStydentPlansScreen', () => {
+describe('EmptyStydentPlans', () => {
   const props = {
     navigation: navigationMock,
   };
