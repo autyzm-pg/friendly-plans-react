@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanActivityScreen renders correctly 1`] = `
+<FullScreenTemplate
+  darkBackground={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "elevation": 5,
+        "flexDirection": "row",
+        "height": 56,
+        "justifyContent": "space-between",
+        "paddingLeft": 32,
+        "paddingRight": 24,
+      }
+    }
+  >
+    <PlanInput />
+    <TaskButtons />
+  </View>
+</FullScreenTemplate>
+`;

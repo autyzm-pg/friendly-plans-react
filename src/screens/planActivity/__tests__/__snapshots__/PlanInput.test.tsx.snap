@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlanInput renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "maxWidth": "40%",
+    }
+  }
+>
+  <Icon
+    color="#C8CBFA"
+    name="emoticon-happy-outline"
+    size={24}
+  />
+  <TextInput
+    placeholder="Plan name"
+    style={
+      Object {
+        "marginLeft": 8,
+      }
+    }
+  />
+</View>
+`;

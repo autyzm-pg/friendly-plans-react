@@ -6,7 +6,7 @@ import { FullScreenTemplate } from '../../components';
 import { PlanInput } from './PlanInput';
 import { TaskButtons } from './TaskButtons';
 
-export class ActivityPlanScreen extends React.PureComponent {
+export class PlanActivityScreen extends React.PureComponent {
   render() {
     return (
       <FullScreenTemplate darkBackground>

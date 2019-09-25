@@ -13,7 +13,7 @@ export class EmptyStudentPlansScreen extends React.PureComponent<NavigationInjec
   };
 
   navigate = () => {
-    this.props.navigation.navigate('ActivityPlan');
+    this.props.navigation.navigate('PlanActivity');
   };
 
   render() {

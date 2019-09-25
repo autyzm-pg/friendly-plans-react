@@ -15,6 +15,6 @@ describe('EmptyStydentPlansScreen', () => {
     const createPlanButton = emptyStudentPlansScreen.find(`CreatePlanButton`);
     createPlanButton.simulate('press');
 
-    expect(props.navigation.navigate).toBeCalledWith('Dashboard');
+    expect(props.navigation.navigate).toBeCalledWith('PlanActivity');
   });
 });

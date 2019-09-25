@@ -7,7 +7,7 @@ exports[`FlatButton should match snapshot 1`] = `
       Object {
         "backgroundColor": "transparent",
         "elevation": 0,
-        "height": 44,
+        "height": 36,
       },
       undefined,
     ]

@@ -12,4 +12,4 @@ export { RunSubPlanListScreen } from './runPlan/ListMode/RunSubPlanListScreen';
 export { RunPlanSlideScreen } from './runPlan/SlideMode/RunPlanSlideScreen';
 export { UpdatePlanSubItemScreen } from './updatePlanItem/UpdatePlanSubItemScreen';
 export { EmptyStudentPlansScreen } from './emptyStudentPlans/EmptyStudentPlansScreen';
-export { ActivityPlanScreen } from './acitivtyPlan/ActivityPlanScreen';
+export { PlanActivityScreen } from './planActivity/PlanActivityScreen';

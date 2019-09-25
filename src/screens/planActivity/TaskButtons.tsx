@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { i18n } from 'locale';
 import { palette } from 'styles';
 import { FlatButton, IconButton } from '../../components';
 
@@ -9,7 +10,7 @@ export class TaskButtons extends React.PureComponent {
     return (
       <View style={styles.container}>
         <FlatButton
-          title="TASUJ ZADANIA"
+          title={i18n.t('planActivity:shuffleTasks')}
           icon={{
             name: 'shuffle',
             type: 'material-community-icons',
@@ -34,5 +35,6 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     color: palette.textBlackMuted,
+    textTransform: 'uppercase',
   },
 });
