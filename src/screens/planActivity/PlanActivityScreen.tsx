@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { palette } from 'styles';
+import { dimensions, getElevation, palette } from 'styles';
 import { FullScreenTemplate } from '../../components';
 import { PlanInput } from './PlanInput';
 import { TaskButtons } from './TaskButtons';
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: 32,
-    paddingRight: 24,
+    paddingLeft: dimensions.spacingLarge,
+    paddingRight: dimensions.spacingBig,
     backgroundColor: palette.background,
-    elevation: 5,
+    ...getElevation(5),
   },
 });

@@ -11,7 +11,7 @@ export class TextInput extends React.PureComponent<Props> {
 
     return (
       <View style={[styles.inputWrapper, style]}>
-        <BaseTextInput style={[styles.input]} placeholderTextColor={palette.textInput} {...inputProps} />
+        <BaseTextInput style={[styles.input]} placeholderTextColor={palette.textInputPlaceholder} {...inputProps} />
       </View>
     );
   }
@@ -23,8 +23,7 @@ const styles = StyleSheet.create({
     ...typography.subtitle1,
     color: palette.primaryVariant,
     backgroundColor: palette.backgroundAdditional,
-    paddingTop: 5,
-    paddingBottom: 4,
+    paddingVertical: 4,
     borderBottomColor: palette.primary,
     borderBottomWidth: 1,
   },

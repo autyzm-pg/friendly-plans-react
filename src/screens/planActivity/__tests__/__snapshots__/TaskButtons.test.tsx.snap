@@ -4,6 +4,7 @@ exports[`TaskButtons renders correctly 1`] = `
 <View
   style={
     Object {
+      "alignItems": "center",
       "flexDirection": "row",
     }
   }

@@ -9,7 +9,7 @@ export class PlanInput extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <Icon name="emoticon-happy-outline" size={24} color={palette.textInput} />
+        <Icon name="emoticon-happy-outline" size={24} color={palette.textInputPlaceholder} />
         <TextInput style={styles.textInput} placeholder={i18n.t('planActivity:planNamePlaceholder')} />
       </View>
     );
@@ -19,6 +19,7 @@ export class PlanInput extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    alignItems: 'center',
     maxWidth: '40%',
   },
   textInput: {

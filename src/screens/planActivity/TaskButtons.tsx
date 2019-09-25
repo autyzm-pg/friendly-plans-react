@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { i18n } from 'locale';
-import { palette } from 'styles';
+import { dimensions, palette } from 'styles';
 import { FlatButton, IconButton } from '../../components';
 
 export class TaskButtons extends React.PureComponent {
@@ -29,6 +29,7 @@ export class TaskButtons extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   buttonStyle: {
     marginRight: 20,
