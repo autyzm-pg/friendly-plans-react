@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { i18n } from 'locale';
-import { dimensions, palette } from 'styles';
+import { palette } from 'styles';
 import { FlatButton, IconButton } from '../../components';
 
 export class TaskButtons extends React.PureComponent {
