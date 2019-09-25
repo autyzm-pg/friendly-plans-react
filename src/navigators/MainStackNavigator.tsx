@@ -27,8 +27,12 @@ export const MainStackNavigator = createStackNavigator(
   },
   {
     headerLayoutPreset: 'left',
-    defaultNavigationOptions: () => ({
-      header: (headerProps: HeaderProps) => <Header {...headerProps} />,
-    }),
+    defaultNavigationOptions: ({ navigation }) => {
+      const { params } = navigation.state;
+
+      return {
+        header: (headerProps: HeaderProps) => <Header {...headerProps} student={params ? params.student : ''} />,
+      };
+    },
   },
 );

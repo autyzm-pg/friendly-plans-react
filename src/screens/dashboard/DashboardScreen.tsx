@@ -14,6 +14,8 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
   };
 
   render() {
+    const student = this.props.navigation.getParam('student');
+
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
