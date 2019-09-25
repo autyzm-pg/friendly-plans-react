@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { navigationMock } from 'helpers';
-import EmptyStudentPlans from '../EmptyStudentPlans';
+import { EmptyStudentPlans } from '../EmptyStudentPlans';
 
 describe('EmptyStydentPlans', () => {
   const props = {

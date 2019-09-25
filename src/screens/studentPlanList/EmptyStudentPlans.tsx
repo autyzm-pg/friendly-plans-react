@@ -7,7 +7,7 @@ import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';
 
-class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
+export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
   navigate = () => {
     this.props.navigation.navigate('Dashboard');
   };
