@@ -29,7 +29,7 @@ export const MainStackNavigator = createStackNavigator(
       const { params } = navigation.state;
 
       return {
-        header: (headerProps: HeaderProps) => <Header {...headerProps} student={params ? params.student : ''} />,
+        header: (headerProps: HeaderProps) => <Header {...headerProps} student={params ? params.student : {}} />,
       };
     },
   },
