@@ -15,14 +15,14 @@ export const typography = StyleSheet.create({
   headline4: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 34,
-    letterSpacing: 0.25,
+    letterSpacing: 0,
   },
   // used for some bigger inputs
   headline6: {
     fontFamily: fonts.sansSerif.medium,
     fontSize: 17,
     fontWeight: '400',
-    letterSpacing: 0.15,
+    letterSpacing: 0,
   },
   // used for view header
   title: {
@@ -40,7 +40,7 @@ export const typography = StyleSheet.create({
   button: {
     fontFamily: fonts.sansSerif.medium,
     fontSize: 14,
-    letterSpacing: 0.5,
+    letterSpacing: 0,
   },
   // used for some component texts
   body: {

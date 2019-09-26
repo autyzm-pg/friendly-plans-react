@@ -22,7 +22,7 @@ exports[`Button should match snapshot 1`] = `
         "color": "rgba(255, 255, 255, 1)",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
-        "letterSpacing": 0.5,
+        "letterSpacing": 0,
       },
       undefined,
     ]
