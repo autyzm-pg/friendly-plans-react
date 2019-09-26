@@ -1,17 +1,16 @@
 import { RNFirebase } from 'react-native-firebase';
 
-import { i18n } from '../locale';
 import { getPlanItemsRef, getPlanRef, getPlansRef } from './FirebaseRefProxy';
 import { PlanItem } from './PlanItem';
-import { Student } from './Student';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
 
 export class Plan implements SubscribableModel {
-  static create = (student: Student): Promise<RNFirebase.firestore.DocumentReference> =>
-    getPlansRef(student.id).add({
-      name: i18n.t('planList:planNamePlaceholder'),
-      studentId: student.id,
+  static create(studentId: string, name: string): Promise<RNFirebase.firestore.DocumentReference> {
+    return getPlansRef(studentId).add({
+      studentId,
+      name,
     });
+  }
 
   name!: string;
   id!: string;
