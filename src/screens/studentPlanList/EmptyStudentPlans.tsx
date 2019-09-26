@@ -9,7 +9,7 @@ import { CreatePlanButton } from './CreatePlanButton';
 
 export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
   navigate = () => {
-    this.props.navigation.navigate('Dashboard');
+    this.props.navigation.navigate('PlanActivity');
   };
 
   render() {

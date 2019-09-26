@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TextInput as BaseTextInput, TextInputProps } from 'react-native';
+import { StyleSheet, TextInput as BaseTextInput, TextInputProps, View } from 'react-native';
 
 import { palette, typography } from 'styles';
 
@@ -7,23 +7,27 @@ type Props = TextInputProps;
 
 export class TextInput extends React.PureComponent<Props> {
   render() {
+    const { style, ...inputProps } = this.props;
+
     return (
-      <BaseTextInput
-        style={[styles.input, this.props.style]}
-        placeholderTextColor={palette.textDisabled}
-        underlineColorAndroid={palette.primaryVariant}
-        {...this.props}
-      />
+      <View style={[styles.inputWrapper, style]}>
+        <BaseTextInput style={[styles.input]} placeholderTextColor={palette.textInputPlaceholder} {...inputProps} />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   input: {
-    height: 42,
+    height: 28,
     ...typography.subtitle1,
-    color: palette.textBlack,
+    color: palette.primaryVariant,
+    backgroundColor: palette.backgroundAdditional,
+    paddingVertical: 4,
+    borderBottomColor: palette.primary,
+    borderBottomWidth: 1,
+  },
+  inputWrapper: {
     flex: 1,
-    borderBottomColor: 'black',
   },
 });

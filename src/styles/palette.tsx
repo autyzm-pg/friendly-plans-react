@@ -14,6 +14,7 @@ export const palette = {
   textBlack: '#16107B',
   textWhite: 'rgba(255, 255, 255, 1)',
   textWhiteMuted: 'rgba(255, 255, 255, 0.6)',
+  textInputPlaceholder: '#C8CBFA',
   border: '#dedede',
   error: '#ff1d5c',
   underlay: 'rgba(0, 0, 0, 0.2)',

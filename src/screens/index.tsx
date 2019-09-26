@@ -12,3 +12,4 @@ export { RunPlanListScreen } from './runPlan/ListMode/RunPlanListScreen';
 export { RunSubPlanListScreen } from './runPlan/ListMode/RunSubPlanListScreen';
 export { RunPlanSlideScreen } from './runPlan/SlideMode/RunPlanSlideScreen';
 export { UpdatePlanSubItemScreen } from './updatePlanItem/UpdatePlanSubItemScreen';
+export { PlanActivityScreen } from './planActivity/PlanActivityScreen';
