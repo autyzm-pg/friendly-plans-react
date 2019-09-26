@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { NarrowScreenTemplate, Separator, StyledText } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
-import { palette, typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 import { SlideCardSwitch } from './SlideCardSwitch';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
@@ -51,10 +51,14 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
         <StyledText style={styles.studentName}>{student.name}</StyledText>
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
-        <StudentDisplaySettings student={student} />
-        <StudentTextSizeSettings student={student} />
+        <View style={styles.slidersContainer}>
+          <StudentDisplaySettings student={student} />
+          <StudentTextSizeSettings student={student} />
+        </View>
         <StudentTextCaseSettings student={student} />
         <SlideCardSwitch student={student} />
+        <Separator extraWide />
+        <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
       </NarrowScreenTemplate>
     );
   }
@@ -66,12 +70,15 @@ const styles = StyleSheet.create({
     color: palette.textDisabled,
   },
   taskViewLabel: {
-    marginVertical: 20,
+    marginVertical: dimensions.spacingSmall,
   },
   studentName: {
     ...typography.subtitle,
-    color: palette.textBlack,
-    marginTop: 16,
-    marginBottom: 24,
+    color: palette.textBody,
+    marginTop: dimensions.spacingMedium,
+    marginBottom: dimensions.spacingBig,
+  },
+  slidersContainer: {
+    paddingHorizontal: dimensions.spacingBig,
   },
 });

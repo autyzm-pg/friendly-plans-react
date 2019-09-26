@@ -39,10 +39,9 @@ export class StudentDisplaySettings extends PureComponent<Props> {
   render() {
     return (
       <FixedValueSlider
+        {...this.props}
         value={this.props.student.displaySettings}
         options={this.options}
-        iconLeft={{ name: 'image' }}
-        iconRight={{ name: 'format-list-bulleted' }}
         onSlidingComplete={this.onSlidingComplete}
       />
     );

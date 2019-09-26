@@ -8,7 +8,6 @@ export const palette = {
   background: '#FFFFFF',
   backgroundAdditional: '#F5F5FF',
   backgroundSurface: '#F0F0FD',
-  backgroundTinted: '#ECECFC',
   textBody: '#3C35A8',
   textDisabled: '#9B9B9B',
   textBlack: '#16107B',

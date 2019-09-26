@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: palette.backgroundTinted,
+    backgroundColor: palette.backgroundSurface,
   },
 });
