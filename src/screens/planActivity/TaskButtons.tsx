@@ -20,7 +20,7 @@ export class TaskButtons extends React.PureComponent {
           buttonStyle={styles.buttonStyle}
           titleStyle={styles.buttonTitle}
         />
-        <IconButton name="play" type="antdesign" size={36} color={palette.textDisabled} />
+        <IconButton name="play-circle" size={36} color={palette.textDisabled} />
       </View>
     );
   }

@@ -7,7 +7,7 @@ import { Icon, TextInput } from '../../components';
 
 export const PlanInput: SFC = () => (
   <View style={styles.container}>
-    <Icon name="emoticon-happy-outline" size={24} color={palette.textInputPlaceholder} />
+    <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
     <TextInput style={styles.textInput} placeholder={i18n.t('planActivity:planNamePlaceholder')} />
   </View>
 );

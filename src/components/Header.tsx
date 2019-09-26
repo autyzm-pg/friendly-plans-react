@@ -17,7 +17,10 @@ export class Header extends React.PureComponent<Props> {
     const { scene, student } = this.props;
     const { options } = scene.descriptor;
 
-    const headerTitle = (title: string) => `${student.name} / ${title}`;
+    const headerTitle = (title: string) => {
+      const studentPrefix = student ? `${student.name} / ` : '';
+      return `${studentPrefix}${title}`;
+    };
 
     if (options.headerTitle && options.headerTitle !== 'function') {
       return options.headerTitle;
