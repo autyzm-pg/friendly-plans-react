@@ -12,7 +12,7 @@ exports[`PlanInput renders correctly 1`] = `
 >
   <Icon
     color="#C8CBFA"
-    name="emoticon-happy-outline"
+    name="emoticon"
     size={24}
   />
   <TextInput
