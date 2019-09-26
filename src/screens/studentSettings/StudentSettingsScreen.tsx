@@ -6,6 +6,7 @@ import { NarrowScreenTemplate, Separator, StyledText } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import { AlarmSoundSettings } from './AlarmSoundSettings';
 import { SlideCardSwitch } from './SlideCardSwitch';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
@@ -58,7 +59,8 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
         <StudentTextCaseSettings student={student} />
         <SlideCardSwitch student={student} />
         <Separator extraWide />
-        <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
+        <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:soundSettings')}</StyledText>
+        <AlarmSoundSettings value={'Beep'} />
       </NarrowScreenTemplate>
     );
   }

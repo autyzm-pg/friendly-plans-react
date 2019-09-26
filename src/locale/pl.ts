@@ -39,6 +39,7 @@ const translations = {
   studentSettings: {
     studentName: 'Imię podopiecznego',
     taskView: 'Widok zadań',
+    soundSettings: 'Ustawienia dźwięku',
     screenTitle: 'Ustawienia podopiecznego',
     textSettingsSizeS: 'Rozmiar liter: S',
     textSettingsSizeM: 'Rozmiar liter: M',
@@ -51,6 +52,7 @@ const translations = {
     textList: 'Tylko tekst jako lista',
     uppercase: 'Wielkie litery',
     blockSwipe: "Blokada swipe'u",
+    alarmSound: 'Dźwięk alarmu',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
