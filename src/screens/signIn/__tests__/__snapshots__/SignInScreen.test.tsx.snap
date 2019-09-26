@@ -10,9 +10,9 @@ exports[`SignInScreen should match snapshot 1`] = `
     style={
       Object {
         "color": "#9B9B9B",
-        "fontFamily": "Rubik-Regular",
+        "fontFamily": "Rubik-Medium",
         "fontSize": 12,
-        "letterSpacing": 0.4,
+        "letterSpacing": 0,
         "marginTop": 4,
         "textAlign": "center",
       }
@@ -28,9 +28,9 @@ exports[`SignInScreen should match snapshot 1`] = `
     style={
       Object {
         "color": "#9B9B9B",
-        "fontFamily": "Rubik-Regular",
+        "fontFamily": "Rubik-Medium",
         "fontSize": 12,
-        "letterSpacing": 0.4,
+        "letterSpacing": 0,
         "marginTop": 20,
         "textAlign": "center",
       }

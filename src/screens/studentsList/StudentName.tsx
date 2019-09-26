@@ -26,7 +26,7 @@ const StudentName: SFC<Props> = ({ student, navigation }) => {
 
 const styles = StyleSheet.create({
   studentName: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.textBody,
     marginTop: dimensions.spacingSmall,
     marginBottom: dimensions.spacingSmall,

@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   label: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.textBlack,
   },
 });

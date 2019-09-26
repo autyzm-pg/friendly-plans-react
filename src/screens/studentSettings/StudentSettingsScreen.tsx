@@ -49,9 +49,7 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
       <NarrowScreenTemplate title={this.screenName} navigation={navigation}>
         <StyledText style={styles.label}>{i18n.t('studentSettings:studentName')}</StyledText>
         <StyledText style={styles.studentName}>{student.name}</StyledText>
-
         <Separator extraWide />
-
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
         <StudentDisplaySettings student={student} />
         <StudentTextSizeSettings student={student} />
@@ -64,14 +62,14 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
 
 const styles = StyleSheet.create({
   label: {
-    ...typography.body2,
+    ...typography.overline,
     color: palette.textDisabled,
   },
   taskViewLabel: {
     marginVertical: 20,
   },
   studentName: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.textBlack,
     marginTop: 16,
     marginBottom: 24,

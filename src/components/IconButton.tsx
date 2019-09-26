@@ -19,7 +19,7 @@ export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, ...prop
 
 const styles = StyleSheet.create({
   label: {
-    ...typography.body1,
+    ...typography.body,
     textAlign: 'center',
   },
   container: {

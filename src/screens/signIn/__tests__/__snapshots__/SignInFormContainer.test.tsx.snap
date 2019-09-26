@@ -149,9 +149,9 @@ exports[`SignInFormContainer should render form correctly 1`] = `
     title="forgot password?"
     titleStyle={
       Object {
-        "fontFamily": "Rubik-Regular",
+        "fontFamily": "Rubik-Medium",
         "fontSize": 12,
-        "letterSpacing": 0.4,
+        "letterSpacing": 0,
       }
     }
   />

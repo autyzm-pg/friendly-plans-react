@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     ...typography.headline6,
   },
   labelTextSizeM: {
-    ...typography.header,
+    ...typography.title,
   },
   labelTextSizeL: {
     ...typography.headline4,

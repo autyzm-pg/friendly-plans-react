@@ -20,7 +20,7 @@ export class TextInput extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   input: {
     height: 28,
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.primaryVariant,
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,

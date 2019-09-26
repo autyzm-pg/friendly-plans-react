@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   planName: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
   },
   planTypeIconContainer: {
     marginHorizontal: 16,
