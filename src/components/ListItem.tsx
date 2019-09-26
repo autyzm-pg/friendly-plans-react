@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.textBlack,
     marginBottom: 2,
   },
   subtitle: {
-    ...typography.body2,
+    ...typography.subtitle,
     color: palette.textDisabled,
   },
 });

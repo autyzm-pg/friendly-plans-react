@@ -41,12 +41,12 @@ export const StudentsList: SFC<Props> = ({ students }) => {
 
 const styles = StyleSheet.create({
   label: {
-    ...typography.body2,
+    ...typography.overline,
     color: palette.textDisabled,
     textTransform: 'uppercase',
   },
   studentName: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
     color: palette.textBody,
     marginTop: dimensions.spacingSmall,
     marginBottom: dimensions.spacingSmall,

@@ -105,6 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     color: palette.textBlack,
-    ...typography.header,
+    ...typography.title,
   },
 });

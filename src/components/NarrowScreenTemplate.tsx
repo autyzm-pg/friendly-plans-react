@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { getElevation, headerHeight, palette, typography } from 'styles';
+import { dimensions, getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
   headerText: {
     marginStart: 8,
     flex: 1,
-    ...typography.header,
+    ...typography.title,
     color: palette.textWhite,
   },
   contentContainer: {
     flex: 1,
     backgroundColor: palette.background,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
+    paddingVertical: dimensions.spacingMedium,
+    paddingHorizontal: dimensions.spacingBig,
   },
   footer: {
     flexDirection: 'row',

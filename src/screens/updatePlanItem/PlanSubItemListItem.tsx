@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   planName: {
-    ...typography.subtitle1,
+    ...typography.subtitle,
   },
   planTypeIconContainer: {
     marginHorizontal: 1,

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   headerText: {
     marginStart: 8,
     flex: 1,
-    ...typography.header,
+    ...typography.title,
     color: palette.textWhite,
   },
 });

@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     height: 42,
     justifyContent: 'center',
     paddingHorizontal: 16,
-    ...typography.body2,
+    ...typography.subtitle,
     color: palette.textBlack,
   },
   errorContainer: {
