@@ -5,12 +5,11 @@ import { PlanItem } from './PlanItem';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
 
 export class Plan implements SubscribableModel {
-  static create(studentId: string, name: string): Promise<RNFirebase.firestore.DocumentReference> {
-    return getPlansRef(studentId).add({
+  static create = (studentId: string, name: string): Promise<RNFirebase.firestore.DocumentReference> =>
+    getPlansRef(studentId).add({
       name,
       studentId,
     });
-  }
 
   name!: string;
   id!: string;
