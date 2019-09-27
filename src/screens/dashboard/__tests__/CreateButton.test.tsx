@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { CreateButton } from '../CreateButton';
+import { CreatePlanButton } from '../CreatePlanButton';
 
 describe('CreateButton', () => {
   it('renders correctly', () => {
-    const createButton = shallow(<CreateButton actionName="create" onPress={jest.fn()} />);
+    const createButton = shallow(<CreatePlanButton onPress={jest.fn()} />);
 
     expect(createButton).toMatchSnapshot();
   });

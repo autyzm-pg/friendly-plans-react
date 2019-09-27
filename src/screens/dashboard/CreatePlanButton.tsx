@@ -6,17 +6,16 @@ import { palette } from 'styles';
 
 interface Props {
   onPress: () => void;
-  actionName: string;
 }
 
-export class CreateButton extends React.PureComponent<Props> {
+export class CreatePlanButton extends React.PureComponent<Props> {
   render() {
     return (
       <FloatingAction
         overrideWithAction
         actions={[
           {
-            name: this.props.actionName,
+            name: 'create-plan',
             icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
           },
         ]}

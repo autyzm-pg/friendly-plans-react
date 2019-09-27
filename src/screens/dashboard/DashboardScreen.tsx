@@ -7,7 +7,7 @@ import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
 import { palette } from 'styles';
 import { StudentPlanList } from '../studentPlanList/StudentPlanList';
-import { CreateButton } from './CreateButton';
+import { CreatePlanButton } from './CreatePlanButton';
 
 export class DashboardScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
@@ -41,7 +41,7 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
         <FullScreenTemplate padded darkBackground>
           {student && <StudentPlanList student={student} />}
         </FullScreenTemplate>
-        {student && <CreateButton actionName="create student" onPress={Student.create} />}
+        {student && <CreatePlanButton onPress={Student.create} />}
       </View>
     );
   }
