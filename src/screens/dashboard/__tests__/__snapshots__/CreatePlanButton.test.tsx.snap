@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateButton renders correctly 1`] = `
+exports[`CreatePlanButton renders correctly 1`] = `
 <FloatingAction
   actions={
     Array [

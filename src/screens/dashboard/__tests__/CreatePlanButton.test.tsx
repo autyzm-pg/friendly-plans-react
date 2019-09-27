@@ -3,7 +3,7 @@ import React from 'react';
 
 import { CreatePlanButton } from '../CreatePlanButton';
 
-describe('CreateButton', () => {
+describe('CreatePlanButton', () => {
   it('renders correctly', () => {
     const createButton = shallow(<CreatePlanButton onPress={jest.fn()} />);
 
