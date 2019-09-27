@@ -1,14 +1,14 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { CreatePlanFloatButton } from '../CreatePlanFloatButton';
+import { FixedCreatePlanButton } from '../FixedCreatePlanButton';
 
-describe('CreatePlanFloatButton', () => {
+describe('FixedCreatePlanButton', () => {
   const props = {
     onPress: jest.fn(),
   };
 
   it('renders correctly', () => {
-    const createPlanFloatButton = shallow(<CreatePlanFloatButton {...props} />);
+    const createPlanFloatButton = shallow(<FixedCreatePlanButton {...props} />);
 
     expect(createPlanFloatButton).toMatchSnapshot();
   });

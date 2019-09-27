@@ -5,8 +5,8 @@ import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { FullScreenTemplate } from 'components';
 import { Plan, Student } from 'models';
 import { ModelSubscriber } from '../../models/ModelSubscriber';
-import { CreatePlanFloatButton } from './CreatePlanFloatButton';
 import EmptyStudentPlans from './EmptyStudentPlans';
+import { FixedCreatePlanButton } from './FixedCreatePlanButton';
 import StudentPlanListItem from './StudentPlanListItem';
 
 interface Props extends NavigationInjectedProps {
@@ -75,7 +75,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
             style={styles.contentContainer}
           />
         </FullScreenTemplate>
-        <CreatePlanFloatButton onPress={this.navigateToCreatePlan} />
+        <FixedCreatePlanButton onPress={this.navigateToCreatePlan} />
       </>
     );
   }
