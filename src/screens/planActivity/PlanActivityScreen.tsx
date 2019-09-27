@@ -1,17 +1,25 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
+import { i18n } from 'locale';
 import { dimensions, getElevation, palette } from 'styles';
 import { FullScreenTemplate } from '../../components';
 import { PlanInput } from './PlanInput';
 import { TaskButtons } from './TaskButtons';
 
-export class PlanActivityScreen extends React.PureComponent {
+export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps> {
+  static navigationOptions = {
+    title: i18n.t('planList:viewTitle'),
+  };
+
   render() {
+    const { id } = this.props.navigation.getParam('student');
+
     return (
       <FullScreenTemplate darkBackground>
         <View style={styles.container}>
-          <PlanInput />
+          <PlanInput studentId={id} />
           <TaskButtons />
         </View>
       </FullScreenTemplate>

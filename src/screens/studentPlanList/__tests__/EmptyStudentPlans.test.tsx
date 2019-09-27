@@ -9,12 +9,9 @@ describe('EmptyStydentPlans', () => {
     navigation: navigationMock,
   };
 
-  it('should navigate to `Dashboard` when `CreatePlanButton` press', () => {
+  it('renders correctly', () => {
     const emptyStudentPlans = shallow(<EmptyStudentPlans {...props} />);
 
-    const createPlanButton = emptyStudentPlans.find(`CreatePlanButton`);
-    createPlanButton.simulate('press');
-
-    expect(props.navigation.navigate).toBeCalledWith('PlanActivity');
+    expect(emptyStudentPlans).toMatchSnapshot();
   });
 });

@@ -25,7 +25,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       }
     }
   >
-    <Component />
+    <PlanInput />
     <TaskButtons />
   </View>
 </FullScreenTemplate>

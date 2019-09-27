@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyStydentPlans renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ECECFC",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <CreatePlanButton
+    onPress={[Function]}
+  />
+  <StyledText
+    style={
+      Object {
+        "color": "#b9b6ff",
+      }
+    }
+  >
+    lub
+  </StyledText>
+  <CopyPlanButton />
+</View>
+`;
