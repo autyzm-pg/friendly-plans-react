@@ -19,7 +19,7 @@ export class PlanInput extends React.PureComponent<Props, State> {
     text: '',
   };
 
-  handleBlur = () => Plan.create(this.props.studentId, this.state.text);
+  handleEndEditing = () => Plan.create(this.props.studentId, this.state.text);
 
   handleChangeText = (text: string) => this.setState({ text });
 
@@ -32,7 +32,7 @@ export class PlanInput extends React.PureComponent<Props, State> {
           placeholder={i18n.t('planActivity:planNamePlaceholder')}
           value={this.state.text}
           onChangeText={this.handleChangeText}
-          onBlur={this.handleBlur}
+          onEndEditing={this.handleEndEditing}
         />
       </View>
     );

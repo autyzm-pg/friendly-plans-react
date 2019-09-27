@@ -6,7 +6,7 @@ import { palette } from 'styles';
 
 interface Props {
   onPress: () => void;
-  actionsName: string;
+  actionName: string;
 }
 
 export class CreateButton extends React.PureComponent<Props> {
@@ -16,7 +16,7 @@ export class CreateButton extends React.PureComponent<Props> {
         overrideWithAction
         actions={[
           {
-            name: this.props.actionsName,
+            name: this.props.actionName,
             icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
           },
         ]}

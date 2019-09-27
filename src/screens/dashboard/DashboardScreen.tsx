@@ -25,24 +25,23 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
     this.modelSubscriber.unsubscribeCollectionUpdates();
   }
 
-  render() {
+  navigateToCreatePlan() {
     const student = this.props.navigation.getParam('student');
 
-    const navigateToCreatePlan = () =>
-      this.props.navigation.navigate('PlanActivity', {
-        student,
-      });
+    this.props.navigation.navigate('PlanActivity', {
+      student,
+    });
+  }
+
+  render() {
+    const student = this.props.navigation.getParam('student');
 
     return (
       <View style={styles.container}>
         <FullScreenTemplate padded darkBackground>
           {student && <StudentPlanList student={student} />}
         </FullScreenTemplate>
-        {student ? (
-          <CreateButton actionsName="create plan" onPress={navigateToCreatePlan} />
-        ) : (
-          <CreateButton actionsName="create student" onPress={Student.create} />
-        )}
+        {student && <CreateButton actionName="create student" onPress={Student.create} />}
       </View>
     );
   }
