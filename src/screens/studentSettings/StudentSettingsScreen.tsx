@@ -7,6 +7,7 @@ import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
 import { AlarmSoundSettings } from './AlarmSoundSettings';
+import { PlanDisplayPreview } from './PlanDisplayPreview';
 import { SlideCardSwitch } from './SlideCardSwitch';
 import { StudentDisplaySettings } from './StudentDisplaySettings';
 import { StudentTextCaseSettings } from './StudentTextCaseSettings';
@@ -46,12 +47,14 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
   render() {
     const { navigation } = this.props;
     const { student } = this.state;
+
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={navigation}>
         <StyledText style={styles.label}>{i18n.t('studentSettings:studentName')}</StyledText>
         <StyledText style={styles.studentName}>{student.name}</StyledText>
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
+        <PlanDisplayPreview />
         <View style={styles.slidersContainer}>
           <StudentDisplaySettings student={student} />
           <StudentTextSizeSettings student={student} />
