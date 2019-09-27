@@ -2,12 +2,10 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
 import { palette } from 'styles';
-import { StudentPlanList } from '../studentPlanList/StudentPlanList';
-import { CreatePlanButton } from './CreatePlanButton';
+import StudentPlanList from '../studentPlanList/StudentPlanList';
 
 export class DashboardScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
@@ -36,14 +34,7 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
   render() {
     const student = this.props.navigation.getParam('student');
 
-    return (
-      <View style={styles.container}>
-        <FullScreenTemplate padded darkBackground>
-          {student && <StudentPlanList student={student} />}
-        </FullScreenTemplate>
-        {student && <CreatePlanButton onPress={Student.create} />}
-      </View>
-    );
+    return <View style={styles.container}>{student && <StudentPlanList student={student} />}</View>;
   }
 }
 

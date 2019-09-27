@@ -8,7 +8,7 @@ interface Props {
   onPress: () => void;
 }
 
-export class CreatePlanButton extends React.PureComponent<Props> {
+export class CreatePlanFloatButton extends React.PureComponent<Props> {
   render() {
     return (
       <FloatingAction

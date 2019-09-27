@@ -1,12 +1,15 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
+import { FullScreenTemplate } from 'components';
 import { Plan, Student } from 'models';
 import { ModelSubscriber } from '../../models/ModelSubscriber';
+import { CreatePlanFloatButton } from './CreatePlanFloatButton';
 import EmptyStudentPlans from './EmptyStudentPlans';
 import StudentPlanListItem from './StudentPlanListItem';
 
-interface Props {
+interface Props extends NavigationInjectedProps {
   student: Student;
 }
 
@@ -45,6 +48,14 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
 
   renderItem = ({ item }: { item: Plan }) => <StudentPlanListItem plan={item} student={this.props.student} />;
 
+  navigateToCreatePlan = () => {
+    const student = this.props.navigation.getParam('student');
+
+    this.props.navigation.navigate('PlanActivity', {
+      student,
+    });
+  };
+
   render() {
     const { plans } = this.state;
 
@@ -53,14 +64,19 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
     }
 
     return (
-      <FlatList
-        data={this.state.plans}
-        renderItem={this.renderItem}
-        keyExtractor={this.extractKey}
-        numColumns={2}
-        columnWrapperStyle={styles.columnWrapper}
-        style={styles.contentContainer}
-      />
+      <>
+        <FullScreenTemplate padded darkBackground>
+          <FlatList
+            data={this.state.plans}
+            renderItem={this.renderItem}
+            keyExtractor={this.extractKey}
+            numColumns={2}
+            columnWrapperStyle={styles.columnWrapper}
+            style={styles.contentContainer}
+          />
+        </FullScreenTemplate>
+        <CreatePlanFloatButton onPress={this.navigateToCreatePlan} />
+      </>
     );
   }
 }
@@ -74,3 +90,5 @@ const styles = StyleSheet.create({
     marginEnd: 12,
   },
 });
+
+export default withNavigation(StudentPlanList);
