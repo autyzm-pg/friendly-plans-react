@@ -5,7 +5,7 @@ import { CreateButton } from '../CreateButton';
 
 describe('CreateButton', () => {
   it('renders correctly', () => {
-    const createButton = shallow(<CreateButton actionsName="create" onPress={jest.fn()} />);
+    const createButton = shallow(<CreateButton actionName="create" onPress={jest.fn()} />);
 
     expect(createButton).toMatchSnapshot();
   });
