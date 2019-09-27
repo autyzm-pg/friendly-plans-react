@@ -16,12 +16,15 @@ exports[`PlanInput renders correctly 1`] = `
     size={24}
   />
   <TextInput
+    onBlur={[Function]}
+    onChangeText={[Function]}
     placeholder="Type plan name"
     style={
       Object {
         "marginLeft": 8,
       }
     }
+    value=""
   />
 </View>
 `;
