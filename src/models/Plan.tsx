@@ -7,8 +7,8 @@ import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel
 export class Plan implements SubscribableModel {
   static create(studentId: string, name: string): Promise<RNFirebase.firestore.DocumentReference> {
     return getPlansRef(studentId).add({
-      studentId,
       name,
+      studentId,
     });
   }
 

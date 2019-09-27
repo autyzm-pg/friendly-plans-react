@@ -7,7 +7,7 @@ import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
 import { palette } from 'styles';
 import { StudentPlanList } from '../studentPlanList/StudentPlanList';
-import { CreateStudentButton } from './CreateStudentButton';
+import { CreatePlanButton } from './CreatePlanButton';
 
 export class DashboardScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
@@ -25,6 +25,12 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
     this.modelSubscriber.unsubscribeCollectionUpdates();
   }
 
+  navigate = (student: Student) => {
+    this.props.navigation.navigate('PlanActivity', {
+      student,
+    });
+  };
+
   render() {
     const student = this.props.navigation.getParam('student');
 
@@ -33,7 +39,7 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
         <FullScreenTemplate padded darkBackground>
           {student && <StudentPlanList student={student} />}
         </FullScreenTemplate>
-        <CreateStudentButton />
+        <CreatePlanButton onPress={this.navigate(student)} />
       </View>
     );
   }

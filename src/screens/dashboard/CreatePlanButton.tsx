@@ -1,27 +1,26 @@
 import React from 'react';
+import { FloatingAction } from 'react-native-floating-action';
 
-import { FlatButton } from 'components';
-import { i18n } from 'locale';
-import { Plan, Student } from 'models';
+import { Icon } from 'components';
+import { Student } from 'models';
 import { palette } from 'styles';
 
 interface Props {
-  student: Student;
+  onPress: () => void;
 }
 
 export class CreatePlanButton extends React.PureComponent<Props> {
-  createPlanForStudent = () => null;
-
   render() {
     return (
-      <FlatButton
-        title={i18n.t('planList:createPlan')}
-        icon={{
-          name: 'database-plus',
-          type: 'material-community',
-          color: palette.primaryVariant,
-        }}
-        onPress={this.createPlanForStudent}
+      <FloatingAction
+        overrideWithAction
+        actions={[
+          {
+            name: 'create student',
+            icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
+          },
+        ]}
+        onPressItem={this.props.onPress}
       />
     );
   }
