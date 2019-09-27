@@ -37,8 +37,6 @@ export class StudentTextSizeSettings extends React.PureComponent<Props> {
       <FixedValueSlider
         value={this.props.student.textSize}
         options={this.options}
-        iconLeft={{ name: 'format-text-variant', size: 24 }}
-        iconRight={{ name: 'format-text-variant', size: 36 }}
         onSlidingComplete={this.onSlidingComplete}
       />
     );
