@@ -1,4 +1,5 @@
 import { StyledText } from 'components';
+import { i18n } from 'locale';
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { dimensions, getElevation, palette, typography } from 'styles';
@@ -8,7 +9,7 @@ export const PlanDisplayPreview = () => {
     <View style={styles.previewContainer}>
       <View style={[styles.planCard, styles.frontPlanCard]}>
         <Image style={styles.planImage} source={require('../../assets/images/kids-playing.png')} />
-        <StyledText style={styles.planText}>Zagraj w papier, kamień, nożyce</StyledText>
+        <StyledText style={styles.planText}>{i18n.t('studentSettings:planCardPlacehorder')}</StyledText>
       </View>
       <View style={[styles.planCard, styles.beneathPlanCard]} />
     </View>

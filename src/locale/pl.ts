@@ -53,6 +53,7 @@ const translations = {
     uppercase: 'Wielkie litery',
     blockSwipe: "Blokada swipe'u",
     alarmSound: 'Dźwięk alarmu',
+    planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',

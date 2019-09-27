@@ -112,6 +112,7 @@ const translations = {
     uppercase: 'Uppercase letters',
     blockSwipe: 'Block swipe',
     alarmSound: 'Alarm sound',
+    planCardPlacehorder: "Let's play paper, rock, scissors",
   },
   studentsList: {
     screenTitle: 'Select student',
