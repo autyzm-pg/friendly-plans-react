@@ -2,10 +2,16 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { i18n } from 'locale';
+import { Plan } from 'models';
 import { palette } from 'styles';
-import { FlatButton, IconButton } from '../../components';
+import { FlatButton } from '../../components';
 
-export class TaskButtons extends React.PureComponent {
+interface Props {
+  plan: Plan;
+  disabled?: boolean;
+}
+
+export class TaskButtons extends React.PureComponent<Props> {
   render() {
     return (
       <View style={styles.container}>
@@ -14,13 +20,14 @@ export class TaskButtons extends React.PureComponent {
           icon={{
             name: 'shuffle',
             type: 'material-community-icons',
-            color: palette.textDisabled,
+            color: this.props.disabled ? palette.textDisabled : palette.primary,
             size: 22,
+            disabled: this.props.disabled,
+            disabledStyle: styles.iconDisabled,
           }}
+          disabled={this.props.disabled}
           buttonStyle={styles.buttonStyle}
-          titleStyle={styles.buttonTitle}
         />
-        <IconButton name="play-circle" size={36} color={palette.textDisabled} />
       </View>
     );
   }
@@ -31,11 +38,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  iconDisabled: {
+    backgroundColor: 'transparent',
+  },
   buttonStyle: {
     marginRight: 20,
   },
-  buttonTitle: {
-    color: palette.textDisabled,
-    textTransform: 'uppercase',
-  },
 });
+
+/*
+        <PlayButton disabled={this.props.disabled} plan={this.props.plan} size={50} />
+
+*/
