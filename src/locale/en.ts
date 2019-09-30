@@ -98,6 +98,7 @@ const translations = {
   studentSettings: {
     studentName: "Student's name",
     taskView: "Task's view",
+    soundSettings: 'Sound settings',
     screenTitle: "Student's settings",
     textSettingsSizeS: 'Font size: S',
     textSettingsSizeM: 'Font size: M',
@@ -110,6 +111,8 @@ const translations = {
     textList: 'Just text label as a list',
     uppercase: 'Uppercase letters',
     blockSwipe: 'Block swipe',
+    alarmSound: 'Alarm sound',
+    planCardPlacehorder: "Let's play paper, rock, scissors",
   },
   studentsList: {
     screenTitle: 'Select student',

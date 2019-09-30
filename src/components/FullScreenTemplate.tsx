@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   darkBackground: {
-    backgroundColor: palette.backgroundTinted,
+    backgroundColor: palette.backgroundSurface,
   },
   padded: {
     paddingHorizontal: 12,

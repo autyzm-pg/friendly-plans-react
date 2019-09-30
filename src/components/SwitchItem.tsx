@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Switch, View } from 'react-native';
 
-import { palette, typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 import { StyledText } from './StyledText';
 
 interface Props {
@@ -17,10 +17,11 @@ export class SwitchItem extends React.PureComponent<Props> {
       <View style={styles.container}>
         <StyledText style={styles.label}>{label}</StyledText>
         <Switch
+          style={styles.switch}
           value={value}
           onValueChange={onValueChange}
-          thumbColor={palette.primary}
-          trackColor={{ false: palette.backgroundTinted, true: palette.primaryLight }}
+          thumbColor={value ? palette.primary : palette.background}
+          trackColor={{ false: palette.backgroundAdditional, true: palette.backgroundAdditional }}
         />
       </View>
     );
@@ -32,11 +33,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: dimensions.spacingMedium,
     height: 40,
   },
   label: {
     ...typography.subtitle,
-    color: palette.textBlack,
+    color: palette.textBody,
+  },
+  switch: {
+    transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }],
   },
 });

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: palette.backgroundTinted,
+    backgroundColor: palette.backgroundSurface,
   },
   text: {
     color: palette.primaryLight,
