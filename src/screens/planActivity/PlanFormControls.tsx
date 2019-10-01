@@ -2,12 +2,12 @@ import { FormikProps } from 'formik';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import PlayButton from 'components';
+import PlayButton, { TextInput } from 'components';
+import { i18n } from 'locale';
 import { Plan } from 'models';
 import { dimensions, getElevation, palette } from 'styles';
 import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
-import { PlanNameInput } from './PlanNameInput';
 import { ShuffleButton } from './ShuffleButton';
 
 interface Props extends FormikProps<PlanFormData> {
@@ -21,7 +21,13 @@ export const PlanFormControls: SFC<Props> = ({ values, handleChange, isSubmittin
       {isSubmitting ? (
         <StyledText style={styles.styledText}>{values.planInput}</StyledText>
       ) : (
-        <PlanNameInput value={values.planInput} onChangeText={handleChange('planInput')} onEndEditing={submitForm} />
+        <TextInput
+          style={styles.textInput}
+          placeholder={i18n.t('planActivity:planNamePlaceholder')}
+          value={values.planInput}
+          onChangeText={handleChange('planInput')}
+          onEndEditing={submitForm}
+        />
       )}
     </View>
     <View style={styles.buttonContainer}>
@@ -53,6 +59,9 @@ const styles = StyleSheet.create({
   },
   styledText: {
     color: palette.textBlack,
-    marginLeft: 8,
+    marginLeft: dimensions.spacingSmall,
+  },
+  textInput: {
+    marginLeft: dimensions.spacingSmall,
   },
 });

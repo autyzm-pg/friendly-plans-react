@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { IconProps } from 'react-native-elements';
 
-import { palette, typography } from 'styles';
+import { typography } from 'styles';
 import { Icon } from './Icon';
 import { StyledText } from './StyledText';
 
