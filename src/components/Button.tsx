@@ -8,7 +8,6 @@ interface Props extends ButtonProps {
   backgroundColor?: string;
 }
 
-// @ts-ignore
 export const Button: SFC<Props> = ({ backgroundColor, ...props }) => (
   <ElementsButton
     {...props}

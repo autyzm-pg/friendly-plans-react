@@ -10,12 +10,14 @@ interface Props extends IconProps {
   label?: string;
 }
 
-export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, ...props }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.container, containerStyle]}>
-    <Icon {...props} />
-    {!!label && <StyledText style={styles.label}>{label}</StyledText>}
-  </TouchableOpacity>
-);
+export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disabled, ...props }) => {
+  return (
+    <TouchableOpacity disabled={disabled} onPress={onPress} style={[styles.container, containerStyle]}>
+      <Icon {...props} disabledStyle={styles.iconDisabled} />
+      {!!label && <StyledText style={styles.label}>{label}</StyledText>}
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   label: {
@@ -25,6 +27,9 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  iconDisabled: {
+    backgroundColor: 'transparent',
   },
 });
 

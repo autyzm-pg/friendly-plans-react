@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Card, Emoji, IconButton, StyledText } from 'components';
-import { ModelSubscriber, Plan, Student, StudentDisplayOption } from 'models';
+import PlayButton, { Card, Emoji, StyledText } from 'components';
+import { ModelSubscriber, Plan, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
 
 interface Props extends NavigationInjectedProps {
@@ -30,33 +30,9 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
     this.studentSubscriber.unsubscribeElementUpdates();
   }
 
-  navigateToUpdatePlan = () => {
-    this.props.navigation.navigate('UpdatePlan', {
-      plan: this.props.plan,
-      student: this.props.student,
-    });
-  };
-
-  navigateToRunPlan = () => {
-    switch (this.state.student.displaySettings) {
-      case StudentDisplayOption.LargeImageSlide:
-      case StudentDisplayOption.ImageWithTextSlide:
-      case StudentDisplayOption.TextSlide:
-        this.props.navigation.navigate('RunPlanSlide', {
-          plan: this.props.plan,
-          student: this.state.student,
-        });
-        break;
-      default:
-        this.props.navigation.navigate('RunPlanList', {
-          itemParent: this.props.plan,
-          student: this.state.student,
-        });
-    }
-  };
-
   render() {
     const { name } = this.props.plan;
+
     return (
       <View style={styles.container}>
         <Card style={styles.card}>
@@ -64,7 +40,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
             <Emoji symbol="🎸" />
             <StyledText style={styles.cardText}>{name}</StyledText>
           </View>
-          <IconButton name="play-circle" color={palette.secondary} size={50} onPress={this.navigateToRunPlan} />
+          <PlayButton plan={this.props.plan} size={50} />
         </Card>
       </View>
     );
