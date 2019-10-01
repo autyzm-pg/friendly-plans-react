@@ -11,6 +11,19 @@ export class Plan implements SubscribableModel {
       studentId,
     });
 
+  static async createPlan(studentId: string, name: string): Promise<Plan> {
+    const { id } = await getPlansRef(studentId).add({
+      name,
+      studentId,
+    });
+
+    return Object.assign(new Plan(), {
+      id,
+      name,
+      studentId,
+    });
+  }
+
   name!: string;
   id!: string;
   studentId!: string;

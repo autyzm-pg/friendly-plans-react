@@ -17,3 +17,4 @@ export { Separator } from './Separator';
 export { StyledText } from './StyledText';
 export { SwitchItem } from './SwitchItem';
 export { TextInput } from './TextInput';
+export { default } from './PlayButton';
