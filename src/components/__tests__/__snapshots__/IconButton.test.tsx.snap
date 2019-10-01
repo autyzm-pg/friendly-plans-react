@@ -16,12 +16,9 @@ exports[`IconButton should match snapshot 1`] = `
 >
   <Icon
     disabledStyle={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "backgroundColor": "transparent",
+      }
     }
     name="content-paste"
   />

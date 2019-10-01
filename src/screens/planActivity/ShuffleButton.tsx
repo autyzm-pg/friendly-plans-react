@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { i18n } from 'locale';
 import { FlatButton } from '../../components';
-import { palette } from '../../styles';
+import { dimensions, palette } from '../../styles';
 
 interface Props {
   disabled?: boolean;
@@ -15,21 +15,21 @@ export const ShuffleButton: SFC<Props> = ({ disabled }) => (
     icon={{
       name: 'shuffle',
       type: 'material-community-icons',
-      color: disabled ? palette.primary : palette.textDisabled,
+      color: disabled ? palette.textDisabled : palette.primary,
       size: 22,
-      disabled: !disabled,
-      disabledStyle: styles.buttonDisabled,
+      disabled,
+      disabledStyle: styles.iconDisabled,
     }}
-    disabled={!disabled}
+    disabled={disabled}
     buttonStyle={styles.button}
   />
 );
 
 const styles = StyleSheet.create({
   button: {
-    marginRight: 20,
+    marginRight: dimensions.spacingBig,
   },
-  buttonDisabled: {
+  iconDisabled: {
     backgroundColor: 'transparent',
   },
 });

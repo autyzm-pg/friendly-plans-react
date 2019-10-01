@@ -2,7 +2,7 @@ import { Formik, FormikProps } from 'formik';
 import React from 'react';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { ModelSubscriber, Plan } from 'models';
+import { Plan } from 'models';
 import { PlanFormControls } from './PlanFormControls';
 
 export interface PlanFormData {
@@ -18,8 +18,6 @@ const FORM_INITIAL_VALUES: PlanFormData = {
 };
 
 export class PlanForm extends React.PureComponent<NavigationInjectedProps, State> {
-  plansSubscriber: ModelSubscriber<Plan> = new ModelSubscriber();
-
   state: State = {
     plan: new Plan(),
   };
@@ -27,7 +25,7 @@ export class PlanForm extends React.PureComponent<NavigationInjectedProps, State
   async setPlanState(planInput: string) {
     const { id } = this.props.navigation.getParam('student');
 
-    const plan = await Plan.create(id, planInput);
+    const plan = await Plan.createPlan(id, planInput);
 
     this.setState({ plan });
   }

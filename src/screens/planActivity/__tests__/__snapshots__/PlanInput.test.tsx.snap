@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlanInput renders correctly 1`] = `
-<Fragment>
-  <TextInput
-    placeholder="Type plan name"
-    style={
-      Object {
-        "marginLeft": 8,
-      }
+exports[`PlanNameInput renders correctly 1`] = `
+<TextInput
+  placeholder="Type plan name"
+  style={
+    Object {
+      "marginLeft": 8,
     }
-    value="Music"
-  />
-</Fragment>
+  }
+  value="Music"
+/>
 `;

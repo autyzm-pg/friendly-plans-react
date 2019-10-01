@@ -10,8 +10,8 @@ export const FlatButton: SFC<ButtonProps> = props => (
     loadingProps={{ color: palette.primary }}
     buttonStyle={[styles.button, props.buttonStyle]}
     titleStyle={[styles.title, props.titleStyle]}
-    disabledStyle={[styles.buttonDisabled, props.disabledStyle]}
-    disabledTitleStyle={[styles.titleDisabled, props.disabledTitleStyle]}
+    disabledStyle={styles.buttonDisabled}
+    disabledTitleStyle={styles.titleDisabled}
   />
 );
 

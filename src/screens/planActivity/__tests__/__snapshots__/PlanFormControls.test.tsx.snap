@@ -37,7 +37,6 @@ exports[`PlanFormControls renders correctly 1`] = `
       size={24}
     />
     <Component
-      disabled={false}
       onEndEditing={[MockFunction]}
       value="Music"
     />
@@ -51,7 +50,7 @@ exports[`PlanFormControls renders correctly 1`] = `
     }
   >
     <Component
-      disabled={false}
+      disabled={true}
     />
     <Component
       disabled={true}

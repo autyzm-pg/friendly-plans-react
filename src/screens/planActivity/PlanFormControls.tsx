@@ -1,13 +1,13 @@
-import { FormikProps, withFormik } from 'formik';
+import { FormikProps } from 'formik';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import PlayButton from 'components';
 import { Plan } from 'models';
 import { dimensions, getElevation, palette } from 'styles';
-import { Icon } from '../../components';
+import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
-import { PlanInput } from './PlanInput';
+import { PlanNameInput } from './PlanNameInput';
 import { ShuffleButton } from './ShuffleButton';
 
 interface Props extends FormikProps<PlanFormData> {
@@ -18,15 +18,14 @@ export const PlanFormControls: SFC<Props> = ({ values, handleChange, isSubmittin
   <View style={styles.container}>
     <View style={styles.inputContainer}>
       <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-      <PlanInput
-        disabled={isSubmitting}
-        value={values.planInput}
-        onChangeText={handleChange('planInput')}
-        onEndEditing={submitForm}
-      />
+      {isSubmitting ? (
+        <StyledText style={styles.styledText}>{values.planInput}</StyledText>
+      ) : (
+        <PlanNameInput value={values.planInput} onChangeText={handleChange('planInput')} onEndEditing={submitForm} />
+      )}
     </View>
     <View style={styles.buttonContainer}>
-      <ShuffleButton disabled={isSubmitting} />
+      <ShuffleButton disabled={!isSubmitting} />
       <PlayButton plan={plan} disabled={!isSubmitting} size={50} />
     </View>
   </View>
@@ -51,5 +50,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  styledText: {
+    color: palette.textBlack,
+    marginLeft: 8,
   },
 });

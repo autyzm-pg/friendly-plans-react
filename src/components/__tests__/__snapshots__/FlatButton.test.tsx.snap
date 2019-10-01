@@ -13,20 +13,14 @@ exports[`FlatButton should match snapshot 1`] = `
     ]
   }
   disabledStyle={
-    Array [
-      Object {
-        "backgroundColor": "transparent",
-      },
-      undefined,
-    ]
+    Object {
+      "backgroundColor": "transparent",
+    }
   }
   disabledTitleStyle={
-    Array [
-      Object {
-        "color": "#9B9B9B",
-      },
-      undefined,
-    ]
+    Object {
+      "color": "#9B9B9B",
+    }
   }
   loadingProps={
     Object {

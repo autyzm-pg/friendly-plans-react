@@ -13,7 +13,7 @@ interface Props extends IconProps {
 export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disabled, ...props }) => {
   return (
     <TouchableOpacity disabled={disabled} onPress={onPress} style={[styles.container, containerStyle]}>
-      <Icon {...props} disabledStyle={[styles.iconDisabled, props.disabledStyle]} />
+      <Icon {...props} disabledStyle={styles.iconDisabled} />
       {!!label && <StyledText style={styles.label}>{label}</StyledText>}
     </TouchableOpacity>
   );

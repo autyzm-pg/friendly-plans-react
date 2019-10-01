@@ -4,14 +4,13 @@ exports[`ShuffleButton renders correctly 1`] = `
 <FlatButton
   buttonStyle={
     Object {
-      "marginRight": 20,
+      "marginRight": 24,
     }
   }
-  disabled={true}
   icon={
     Object {
-      "color": "#9B9B9B",
-      "disabled": true,
+      "color": "#6654EB",
+      "disabled": undefined,
       "disabledStyle": Object {
         "backgroundColor": "transparent",
       },

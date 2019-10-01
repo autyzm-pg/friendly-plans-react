@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { PlanInput } from '../PlanInput';
+import { PlanNameInput } from '../PlanNameInput';
 
-describe('PlanInput', () => {
+describe('PlanNameInput', () => {
   it('renders correctly', () => {
-    const planInput = shallow(<PlanInput value="Music" />);
+    const planNameInput = shallow(<PlanNameInput value="Music" />);
 
-    expect(planInput).toMatchSnapshot();
+    expect(planNameInput).toMatchSnapshot();
   });
 });
