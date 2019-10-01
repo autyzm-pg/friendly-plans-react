@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: palette.modalBackgroundOverlay,
   },
   container: {
-    flexGrow: 1,
+    flex: 1,
     width: 528,
     ...getElevation(4),
   },
@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
     color: palette.textWhite,
   },
   contentContainer: {
-    flex: 1,
     backgroundColor: palette.background,
     paddingVertical: dimensions.spacingMedium,
     paddingHorizontal: dimensions.spacingBig,
