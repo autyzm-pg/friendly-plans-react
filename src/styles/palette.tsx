@@ -5,6 +5,7 @@ export const palette = {
   primaryLight: '#b9b6ff',
   primaryDisabled: '#2096f1',
   secondary: '#FE9DCA',
+  break: '#FF984D',
   background: '#FFFFFF',
   backgroundAdditional: '#F5F5FF',
   backgroundSurface: '#F0F0FD',

@@ -5,6 +5,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { i18n } from 'locale';
 import { dimensions, getElevation, palette } from 'styles';
 import { FullScreenTemplate } from '../../components';
+import { FixedCreatePlanSubItemButton } from './FixedCreatePlanSubItemButton';
 import { PlanInput } from './PlanInput';
 import { TaskButtons } from './TaskButtons';
 
@@ -22,6 +23,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
           <PlanInput studentId={id} />
           <TaskButtons />
         </View>
+        <FixedCreatePlanSubItemButton />
       </FullScreenTemplate>
     );
   }
