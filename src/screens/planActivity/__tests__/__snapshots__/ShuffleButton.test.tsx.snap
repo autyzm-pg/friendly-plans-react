@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShuffleButton renders correctly 1`] = `
+<FlatButton
+  buttonStyle={
+    Object {
+      "marginRight": 20,
+    }
+  }
+  disabled={true}
+  icon={
+    Object {
+      "color": "#9B9B9B",
+      "disabled": true,
+      "disabledStyle": Object {
+        "backgroundColor": "transparent",
+      },
+      "name": "shuffle",
+      "size": 22,
+      "type": "material-community-icons",
+    }
+  }
+  title="Shuffle tasks"
+/>
+`;

@@ -2,10 +2,9 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Card, Emoji, StyledText } from 'components';
+import PlayButton, { Card, Emoji, StyledText } from 'components';
 import { ModelSubscriber, Plan, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
-import PlayButton from './PlayButton';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;

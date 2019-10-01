@@ -15,6 +15,14 @@ exports[`IconButton should match snapshot 1`] = `
   }
 >
   <Icon
+    disabledStyle={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
     name="content-paste"
   />
 </TouchableOpacity>

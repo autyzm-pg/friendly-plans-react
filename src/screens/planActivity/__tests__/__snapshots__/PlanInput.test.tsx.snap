@@ -1,30 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlanInput renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "maxWidth": "40%",
-    }
-  }
->
-  <Icon
-    color="#C8CBFA"
-    name="emoticon"
-    size={24}
-  />
+<Fragment>
   <TextInput
-    onChangeText={[Function]}
-    onEndEditing={[Function]}
     placeholder="Type plan name"
     style={
       Object {
         "marginLeft": 8,
       }
     }
-    value=""
+    value="Music"
   />
-</View>
+</Fragment>
 `;

@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { palette } from 'styles';
+
 import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';

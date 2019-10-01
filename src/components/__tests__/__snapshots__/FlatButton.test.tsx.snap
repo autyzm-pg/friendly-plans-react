@@ -12,6 +12,22 @@ exports[`FlatButton should match snapshot 1`] = `
       undefined,
     ]
   }
+  disabledStyle={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+      },
+      undefined,
+    ]
+  }
+  disabledTitleStyle={
+    Array [
+      Object {
+        "color": "#9B9B9B",
+      },
+      undefined,
+    ]
+  }
   loadingProps={
     Object {
       "color": "#6654EB",
@@ -25,6 +41,7 @@ exports[`FlatButton should match snapshot 1`] = `
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
         "letterSpacing": 0,
+        "textTransform": "uppercase",
       },
       undefined,
     ]

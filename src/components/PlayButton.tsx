@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { IconButton } from '../../components/IconButton';
-import { Plan, StudentDisplayOption } from '../../models';
-import { palette } from '../../styles';
+import { Plan, StudentDisplayOption } from '../models';
+import { palette } from '../styles';
+import { IconButton } from './IconButton';
 
 interface Props extends NavigationInjectedProps {
   plan: Plan;

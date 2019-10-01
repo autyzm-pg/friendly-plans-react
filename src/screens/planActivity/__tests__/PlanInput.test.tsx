@@ -4,7 +4,7 @@ import { PlanInput } from '../PlanInput';
 
 describe('PlanInput', () => {
   it('renders correctly', () => {
-    const planInput = shallow(<PlanInput studentId="123" />);
+    const planInput = shallow(<PlanInput value="Music" />);
 
     expect(planInput).toMatchSnapshot();
   });
