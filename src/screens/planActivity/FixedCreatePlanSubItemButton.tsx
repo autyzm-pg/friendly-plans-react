@@ -52,15 +52,12 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
 
   render() {
     return (
-      <>
-        <StyledText>{this.state.actionName}</StyledText>
-        <FloatingAction
-          color={palette.secondary}
-          actions={actions}
-          overlayColor="rgba(97, 91, 185, 1)"
-          onPressItem={this.onPressItem}
-        />
-      </>
+      <FloatingAction
+        color={palette.secondary}
+        actions={actions}
+        overlayColor="rgba(97, 91, 185, 1)"
+        onPressItem={this.onPressItem}
+      />
     );
   }
 }
