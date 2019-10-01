@@ -6,6 +6,7 @@ import { Header } from 'components';
 import {
   DashboardScreen,
   PlanActivityScreen,
+  PlanItemActivityScreen,
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
@@ -24,6 +25,7 @@ export const MainStackNavigator = createStackNavigator(
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
     RunSubPlanList: RunSubPlanListScreen,
+    PlanItemActivity: PlanItemActivityScreen,
   },
   {
     headerLayoutPreset: 'left',

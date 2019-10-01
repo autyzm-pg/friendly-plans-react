@@ -7,6 +7,8 @@ exports[`PlanActivityScreen renders correctly 1`] = `
   >
     <Component />
   </FullScreenTemplate>
-  <FixedCreatePlanSubItemButton />
+  <FixedCreatePlanSubItemButton
+    onPress={[Function]}
+  />
 </Fragment>
 `;
