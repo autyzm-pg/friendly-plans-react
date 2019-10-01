@@ -5,5 +5,6 @@ exports[`PlanActivityScreen renders correctly 1`] = `
   darkBackground={true}
 >
   <Component />
+  <FixedCreatePlanSubItemButton />
 </FullScreenTemplate>
 `;
