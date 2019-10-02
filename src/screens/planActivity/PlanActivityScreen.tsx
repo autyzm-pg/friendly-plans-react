@@ -13,10 +13,12 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   render() {
     return (
-      <FullScreenTemplate darkBackground>
-        <PlanForm />
+      <>
+        <FullScreenTemplate darkBackground>
+          <PlanForm />
+        </FullScreenTemplate>
         <FixedCreatePlanSubItemButton />
-      </FullScreenTemplate>
+      </>
     );
   }
 }

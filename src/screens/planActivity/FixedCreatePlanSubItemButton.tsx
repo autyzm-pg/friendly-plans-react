@@ -1,4 +1,5 @@
 import React from 'react';
+import { Animated, StyleSheet } from 'react-native';
 import { FloatingAction } from 'react-native-floating-action';
 
 import { Icon } from 'components';
@@ -51,6 +52,7 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
     actionName: '',
     isOpen: false,
   };
+  floatingAction = null;
 
   onPressItem = (name?: string) => {
     const actionName = name || 'create-task';
@@ -67,12 +69,12 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
     this.setState({ isOpen: false });
   };
 
-  render() {
+  renderFloatingActionButton = () => {
     return (
       <FloatingAction
         color={this.state.isOpen ? palette.secondary : palette.primaryVariant}
         actions={actions}
-        overlayColor={palette.modalBackgroundOverlay}
+        showBackground={false}
         onPressItem={this.onPressItem}
         floatingIcon={
           this.state.isOpen ? (
@@ -85,5 +87,23 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
         onClose={this.onClose}
       />
     );
+  };
+
+  render() {
+    return (
+      <>
+        {this.state.isOpen && <Animated.View style={[styles.overlay]} />}
+        {this.renderFloatingActionButton()}
+      </>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: palette.modalBackgroundOverlay,
+  },
+});
