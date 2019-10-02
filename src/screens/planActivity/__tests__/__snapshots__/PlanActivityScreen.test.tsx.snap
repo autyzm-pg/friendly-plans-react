@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlanActivityScreen renders correctly 1`] = `
-<FullScreenTemplate
-  darkBackground={true}
->
-  <Component />
+<Fragment>
+  <FullScreenTemplate
+    darkBackground={true}
+  >
+    <Component />
+  </FullScreenTemplate>
   <FixedCreatePlanSubItemButton />
-</FullScreenTemplate>
+</Fragment>
 `;
