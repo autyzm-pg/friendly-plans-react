@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import PlayButton, { TextInput } from 'components';
 import { i18n } from 'locale';
 import { Plan } from 'models';
-import { dimensions, getElevation, palette } from 'styles';
+import { dimensions, palette } from 'styles';
 import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: dimensions.spacingLarge,
     paddingRight: dimensions.spacingBig,
-    backgroundColor: palette.background,
-    ...getElevation(5),
+    borderBottomColor: palette.backgroundAdditional,
+    borderBottomWidth: 1,
   },
   inputContainer: {
     flexDirection: 'row',

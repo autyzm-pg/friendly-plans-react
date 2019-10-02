@@ -1,12 +1,15 @@
+import isEmpty from 'lodash.isempty';
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
 import { FloatingAction } from 'react-native-floating-action';
-import { palette } from 'styles';
+import { getElevation, palette } from 'styles';
 import PlanForm from './PlanForm';
-import { TasksTable } from './TaskTable';
+import { TableHeader } from './TableHeader';
+import { TaskTable } from './TaskTable';
 
 interface State {
   rowList: number[];
@@ -28,8 +31,11 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   render() {
     return (
       <>
-        <PlanForm />
-        <TasksTable rowList={this.state.rowList} />
+        <View style={styles.headerContainer}>
+          <PlanForm />
+          {!isEmpty(this.state.rowList) && <TableHeader />}
+        </View>
+        <TaskTable rowList={this.state.rowList} />
         <FloatingAction
           overrideWithAction
           actions={[
@@ -44,3 +50,10 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    ...getElevation(5),
+    backgroundColor: palette.background,
+  },
+});

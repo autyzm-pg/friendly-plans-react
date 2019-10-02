@@ -1,10 +1,8 @@
-import isEmpty from 'lodash.isempty';
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { dimensions, palette } from 'styles';
 import { ScrollContainer } from './ScrollContainer';
-import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 
 export const CELL_DIMENSIONS = {
@@ -22,24 +20,17 @@ interface Props {
   rowList: number[];
 }
 
-export class TasksTable extends React.PureComponent<Props> {
-  render() {
-    const { rowList } = this.props;
-
-    return (
-      <>
-        {!isEmpty(this.props.rowList) && <TableHeader />}
-        <ScrollContainer>
-          <View style={styles.container}>
-            {rowList.map((rowNumber, index) => (
-              <TableRow border={!(index === rowList.length - 1)} key={index} rowNumber={rowNumber + 1} />
-            ))}
-          </View>
-        </ScrollContainer>
-      </>
-    );
-  }
-}
+export const TaskTable: SFC<Props> = ({ rowList }) => (
+  <>
+    <ScrollContainer>
+      <View style={styles.container}>
+        {rowList.map((rowNumber, index) => (
+          <TableRow border={!(index === rowList.length - 1)} key={index} rowNumber={rowNumber + 1} />
+        ))}
+      </View>
+    </ScrollContainer>
+  </>
+);
 
 const styles = StyleSheet.create({
   container: {
