@@ -13,7 +13,7 @@ export const icons = {
 interface Props {
   checked: boolean;
   onPress: (value: boolean) => void;
-  title: string;
+  title?: string;
   children?: JSX.Element;
   error?: string;
 }
@@ -34,12 +34,18 @@ export class CheckboxInput extends React.PureComponent<Props> {
             name={checked ? icons.checked : icons.unchecked}
             containerStyle={styles.iconContainer}
           />
-          <View style={styles.contentContainer}>
-            <StyledText style={styles.label}>{title}</StyledText>
-            {children}
-          </View>
+          {title && (
+            <View style={styles.contentContainer}>
+              <StyledText style={styles.label}>{title}</StyledText>
+              {children}
+            </View>
+          )}
         </View>
-        <View style={styles.errorContainer}>{!!error && <StyledText style={styles.error}>{error}</StyledText>}</View>
+        {!!error && (
+          <View style={styles.errorContainer}>
+            <StyledText style={styles.error}>{error}</StyledText>
+          </View>
+        )}
       </>
     );
   }
