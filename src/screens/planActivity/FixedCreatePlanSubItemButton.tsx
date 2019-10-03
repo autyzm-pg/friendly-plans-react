@@ -4,39 +4,45 @@ import { FloatingAction } from 'react-native-floating-action';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
-import { fonts, palette } from 'styles';
+import { palette, typography } from 'styles';
+
+const actionNames = {
+  task: 'create-task',
+  interaction: 'create-interaction',
+  break: 'create-break',
+};
 
 const actions = [
   {
-    name: 'create-task',
+    name: actionNames.task,
     icon: <Icon name="layers" type="material" color={palette.primary} size={22} />,
     text: i18n.t('updatePlan:addTask'),
     position: 1,
     color: palette.background,
     textBackground: palette.primaryVariant,
-    textStyle: { fontSize: 12, fontFamily: fonts.sansSerif.medium },
+    textStyle: typography.caption,
     textElevation: 0,
     textColor: palette.textWhite,
   },
   {
-    name: 'create-interaction',
+    name: actionNames.interaction,
     icon: <Icon name="group" type="material" color={palette.secondary} size={22} />,
     text: i18n.t('updatePlan:addInteraction'),
     position: 2,
     color: palette.background,
     textBackground: palette.primaryVariant,
-    textStyle: { fontSize: 12, fontFamily: fonts.sansSerif.medium },
+    textStyle: typography.caption,
     textElevation: 0,
     textColor: palette.textWhite,
   },
   {
-    name: 'create-break',
+    name: actionNames.break,
     icon: <Icon name="notifications" type="material" color={palette.break} size={22} />,
     text: i18n.t('updatePlan:addBreak'),
     position: 3,
     color: palette.background,
     textBackground: palette.primaryVariant,
-    textStyle: { fontSize: 12, fontFamily: fonts.sansSerif.medium },
+    textStyle: typography.caption,
     textElevation: 0,
     textColor: palette.textWhite,
   },
@@ -52,10 +58,8 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
     actionName: '',
     isOpen: false,
   };
-  floatingAction = null;
 
-  onPressItem = (name?: string) => {
-    const actionName = name || 'create-task';
+  onPressItem = (actionName: string = actionNames.task) => {
     this.setState({
       actionName,
     });
@@ -69,23 +73,11 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
     this.setState({ isOpen: false });
   };
 
-  renderFloatingActionButton = () => {
-    return (
-      <FloatingAction
-        color={this.state.isOpen ? palette.secondary : palette.primaryVariant}
-        actions={actions}
-        showBackground={false}
-        onPressItem={this.onPressItem}
-        floatingIcon={
-          this.state.isOpen ? (
-            <Icon name="close" type="material" color={palette.textWhite} size={32} />
-          ) : (
-            <Icon name="add" type="material" color={palette.secondary} size={32} />
-          )
-        }
-        onOpen={this.onOpen}
-        onClose={this.onClose}
-      />
+  renderFloatingIcon = () => {
+    return this.state.isOpen ? (
+      <Icon name="close" type="material" color={palette.textWhite} size={32} />
+    ) : (
+      <Icon name="add" type="material" color={palette.secondary} size={32} />
     );
   };
 
@@ -93,7 +85,15 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State>
     return (
       <>
         {this.state.isOpen && <Animated.View style={[styles.overlay]} />}
-        {this.renderFloatingActionButton()}
+        <FloatingAction
+          color={this.state.isOpen ? palette.secondary : palette.primaryVariant}
+          actions={actions}
+          showBackground={false}
+          onPressItem={this.onPressItem}
+          floatingIcon={this.renderFloatingIcon()}
+          onOpen={this.onOpen}
+          onClose={this.onClose}
+        />
       </>
     );
   }
