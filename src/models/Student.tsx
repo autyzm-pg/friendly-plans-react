@@ -1,6 +1,5 @@
 import { RNFirebase } from 'react-native-firebase';
 
-import { i18n } from '../locale';
 import { getPlansRef, getStudentRef, getStudentsRef } from './FirebaseRefProxy';
 import { Plan } from './Plan';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
