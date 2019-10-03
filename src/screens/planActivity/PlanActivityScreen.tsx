@@ -3,6 +3,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { i18n } from 'locale';
 import { FullScreenTemplate } from '../../components';
+import { FixedCreatePlanSubItemButton } from './FixedCreatePlanSubItemButton';
 import PlanForm from './PlanForm';
 
 export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps> {
@@ -12,9 +13,12 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   render() {
     return (
-      <FullScreenTemplate darkBackground>
-        <PlanForm />
-      </FullScreenTemplate>
+      <>
+        <FullScreenTemplate darkBackground>
+          <PlanForm />
+        </FullScreenTemplate>
+        <FixedCreatePlanSubItemButton />
+      </>
     );
   }
 }
