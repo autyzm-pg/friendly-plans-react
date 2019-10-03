@@ -10,6 +10,7 @@ exports[`Button should match snapshot 1`] = `
     }
   >
     <IconButton
+      color="#6654EB"
       containerStyle={
         Object {
           "alignItems": "center",
@@ -18,7 +19,7 @@ exports[`Button should match snapshot 1`] = `
           "width": 40,
         }
       }
-      name="checkbox-marked-outline"
+      name="chevron-down-box"
       onPress={[Function]}
     />
     <View
@@ -41,13 +42,5 @@ exports[`Button should match snapshot 1`] = `
       </StyledText>
     </View>
   </View>
-  <View
-    style={
-      Object {
-        "height": 20,
-        "justifyContent": "center",
-      }
-    }
-  />
 </Fragment>
 `;

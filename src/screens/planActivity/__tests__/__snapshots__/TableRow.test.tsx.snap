@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableRow renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "row",
+        "height": 56,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3C35A8",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 14,
+          "letterSpacing": 0.5,
+        }
+      }
+    >
+      1
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <CheckboxInput
+      checked={true}
+      onPress={[Function]}
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 2,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3C35A8",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 14,
+          "letterSpacing": 0.5,
+        }
+      }
+    >
+      Bębenki afrykańskie
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <Icon
+      name="layers"
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 0.6,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3C35A8",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 14,
+          "letterSpacing": 0.5,
+        }
+      }
+    >
+      5
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 1.8,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#3C35A8",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 14,
+          "letterSpacing": 0.5,
+        }
+      }
+    >
+      15'
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <IconButton
+      color="#C8CBFA"
+      name="delete"
+      size={24}
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.7,
+        },
+      ]
+    }
+  >
+    <IconButton
+      name="pencil"
+      size={24}
+    />
+  </View>
+</View>
+`;

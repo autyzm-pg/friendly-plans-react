@@ -62,6 +62,15 @@ const translations = {
     next: 'Dalej',
     wait: 'Czekaj...',
   },
+  taskTable: {
+    number: '#',
+    name: 'Nazwa',
+    type: 'Typ',
+    section: 'Część',
+    time: 'Czas',
+    delete: 'Usuń',
+    edit: 'Edycja',
+  },
 };
 
 export default translations;

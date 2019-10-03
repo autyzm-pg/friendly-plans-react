@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskTableHeader renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "flexDirection": "row",
+      "height": 32,
+      "paddingHorizontal": "7%",
+      "paddingVertical": 9,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      #
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <Icon
+      color="#9B9B9B"
+      name="checkbox-blank-outline"
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 2,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      Name
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      Type
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 0.6,
+          "flexWrap": "nowrap",
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "flexWrap": "nowrap",
+        }
+      }
+    >
+      Part
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 1.8,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      Time
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      Delete
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.7,
+        },
+      ]
+    }
+  >
+    <StyledText>
+      Edit
+    </StyledText>
+  </View>
+</View>
+`;

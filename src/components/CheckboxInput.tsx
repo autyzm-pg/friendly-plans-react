@@ -6,7 +6,7 @@ import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
 export const icons = {
-  checked: 'checkbox-marked-outline',
+  checked: 'chevron-down-box',
   unchecked: 'checkbox-blank-outline',
 };
 
@@ -33,6 +33,7 @@ export class CheckboxInput extends React.PureComponent<Props> {
             onPress={this.onPress}
             name={checked ? icons.checked : icons.unchecked}
             containerStyle={styles.iconContainer}
+            color={checked ? palette.primary : palette.backgroundAdditional}
           />
           {title && (
             <View style={styles.contentContainer}>

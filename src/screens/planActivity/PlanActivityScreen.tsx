@@ -8,8 +8,8 @@ import { i18n } from 'locale';
 import { FloatingAction } from 'react-native-floating-action';
 import { getElevation, palette } from 'styles';
 import PlanForm from './PlanForm';
-import { TableHeader } from './TableHeader';
 import { TaskTable } from './TaskTable';
+import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
   rowList: number[];
@@ -33,7 +33,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
       <>
         <View style={styles.headerContainer}>
           <PlanForm />
-          {!isEmpty(this.state.rowList) && <TableHeader />}
+          {!isEmpty(this.state.rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={this.state.rowList} />
         <FloatingAction

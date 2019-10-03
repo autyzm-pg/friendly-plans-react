@@ -1,8 +1,8 @@
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { FullScreenTemplate } from 'components';
 import { dimensions, palette } from 'styles';
-import { ScrollContainer } from './ScrollContainer';
 import { TableRow } from './TableRow';
 
 export const CELL_DIMENSIONS = {
@@ -21,15 +21,13 @@ interface Props {
 }
 
 export const TaskTable: SFC<Props> = ({ rowList }) => (
-  <>
-    <ScrollContainer>
-      <View style={styles.container}>
-        {rowList.map((rowNumber, index) => (
-          <TableRow border={!(index === rowList.length - 1)} key={index} rowNumber={rowNumber + 1} />
-        ))}
-      </View>
-    </ScrollContainer>
-  </>
+  <FullScreenTemplate darkBackground>
+    <View style={styles.container}>
+      {rowList.map((rowNumber, index) => (
+        <TableRow border={!(index === rowList.length - 1)} key={index} rowNumber={rowNumber + 1} />
+      ))}
+    </View>
+  </FullScreenTemplate>
 );
 
 const styles = StyleSheet.create({
