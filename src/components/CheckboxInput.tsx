@@ -6,7 +6,7 @@ import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
 export const icons = {
-  checked: 'chevron-down-box',
+  checked: 'checkbox-marked',
   unchecked: 'checkbox-blank-outline',
 };
 

@@ -12,7 +12,7 @@ exports[`TaskTable renders correctly 1`] = `
         "borderBottomLeftRadius": 16,
         "borderBottomRightRadius": 16,
         "justifyContent": "center",
-        "marginHorizontal": "7%",
+        "marginHorizontal": "6%",
       }
     }
   >

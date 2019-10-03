@@ -66,7 +66,7 @@ const translations = {
     number: '#',
     name: 'Nazwa',
     type: 'Typ',
-    section: 'Część',
+    section: 'Części',
     time: 'Czas',
     delete: 'Usuń',
     edit: 'Edycja',

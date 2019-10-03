@@ -7,7 +7,7 @@ exports[`TaskTableHeader renders correctly 1`] = `
       "alignSelf": "stretch",
       "flexDirection": "row",
       "height": 32,
-      "paddingHorizontal": "7%",
+      "paddingHorizontal": "6%",
       "paddingVertical": 9,
     }
   }
@@ -26,7 +26,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       #
     </StyledText>
   </View>
@@ -47,6 +56,7 @@ exports[`TaskTableHeader renders correctly 1`] = `
     <Icon
       color="#9B9B9B"
       name="checkbox-blank-outline"
+      size={24}
     />
   </View>
   <View
@@ -62,7 +72,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       Name
     </StyledText>
   </View>
@@ -80,7 +99,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       Type
     </StyledText>
   </View>
@@ -101,7 +129,10 @@ exports[`TaskTableHeader renders correctly 1`] = `
     <StyledText
       style={
         Object {
-          "flexWrap": "nowrap",
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
         }
       }
     >
@@ -121,7 +152,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       Time
     </StyledText>
   </View>
@@ -139,7 +179,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       Delete
     </StyledText>
   </View>
@@ -157,7 +206,16 @@ exports[`TaskTableHeader renders correctly 1`] = `
       ]
     }
   >
-    <StyledText>
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
       Edit
     </StyledText>
   </View>

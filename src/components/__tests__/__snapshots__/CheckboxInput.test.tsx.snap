@@ -19,7 +19,7 @@ exports[`Button should match snapshot 1`] = `
           "width": 40,
         }
       }
-      name="chevron-down-box"
+      name="checkbox-marked"
       onPress={[Function]}
     />
     <View

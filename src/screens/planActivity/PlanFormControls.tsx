@@ -32,7 +32,7 @@ export const PlanFormControls: SFC<Props> = ({ values, handleChange, isSubmittin
     </View>
     <View style={styles.buttonContainer}>
       <ShuffleButton disabled={!isSubmitting} />
-      <PlayButton plan={plan} disabled={!isSubmitting} size={50} />
+      <PlayButton plan={plan} disabled={!isSubmitting} size={36} />
     </View>
   </View>
 );
