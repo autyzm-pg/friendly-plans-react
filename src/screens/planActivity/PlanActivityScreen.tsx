@@ -1,11 +1,11 @@
 import isEmpty from 'lodash.isempty';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { FloatingAction } from 'react-native-floating-action';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
-import { FloatingAction } from 'react-native-floating-action';
 import { getElevation, palette } from 'styles';
 import PlanForm from './PlanForm';
 import { TaskTable } from './TaskTable';
