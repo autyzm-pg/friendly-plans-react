@@ -10,6 +10,7 @@ interface Props {
 
 export const FixedCreatePlanButton: SFC<Props> = ({ onPress }) => (
   <FloatingAction
+    color={palette.primaryVariant}
     overrideWithAction
     actions={[
       {

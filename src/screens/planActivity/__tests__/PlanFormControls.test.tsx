@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import { navigationMock } from 'helpers';
 import React from 'react';
 import { PlanFormControls } from '../PlanFormControls';
 
@@ -10,6 +11,7 @@ describe('PlanFormControls', () => {
     },
     submitForm: jest.fn(),
     isSubmitting: false,
+    navigation: navigationMock,
   } as any;
 
   it('renders correctly', () => {

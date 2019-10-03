@@ -29,6 +29,8 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   render() {
+    const plan = this.props.navigation.getParam('plan');
+
     return (
       <>
         <View style={styles.headerContainer}>
@@ -36,16 +38,18 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
           {!isEmpty(this.state.rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={this.state.rowList} />
-        <FloatingAction
-          overrideWithAction
-          actions={[
-            {
-              name: 'create-plan',
-              icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
-            },
-          ]}
-          onPressItem={this.handleAddRow}
-        />
+        {plan && (
+          <FloatingAction
+            overrideWithAction
+            actions={[
+              {
+                name: 'create-plan',
+                icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
+              },
+            ]}
+            onPressItem={this.handleAddRow}
+          />
+        )}
       </>
     );
   }

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FixedCreatePlanSubItemButton renders correctly 1`] = `
+<Fragment>
+  <FloatingAction
+    actions={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "icon": <Icon
+            color="#6654EB"
+            name="layers"
+            size={22}
+            type="material"
+          />,
+          "name": "create-task",
+          "position": 1,
+          "text": "Add task",
+          "textBackground": "#4F3DD5",
+          "textColor": "rgba(255, 255, 255, 1)",
+          "textElevation": 0,
+          "textStyle": Object {
+            "fontFamily": "Rubik-Medium",
+            "fontSize": 12,
+            "letterSpacing": 0,
+          },
+        },
+        Object {
+          "color": "#FFFFFF",
+          "icon": <Icon
+            color="#FE9DCA"
+            name="group"
+            size={22}
+            type="material"
+          />,
+          "name": "create-interaction",
+          "position": 2,
+          "text": "Add interaction",
+          "textBackground": "#4F3DD5",
+          "textColor": "rgba(255, 255, 255, 1)",
+          "textElevation": 0,
+          "textStyle": Object {
+            "fontFamily": "Rubik-Medium",
+            "fontSize": 12,
+            "letterSpacing": 0,
+          },
+        },
+        Object {
+          "color": "#FFFFFF",
+          "icon": <Icon
+            color="#FF984D"
+            name="notifications"
+            size={22}
+            type="material"
+          />,
+          "name": "create-break",
+          "position": 3,
+          "text": "Add break",
+          "textBackground": "#4F3DD5",
+          "textColor": "rgba(255, 255, 255, 1)",
+          "textElevation": 0,
+          "textStyle": Object {
+            "fontFamily": "Rubik-Medium",
+            "fontSize": 12,
+            "letterSpacing": 0,
+          },
+        },
+      ]
+    }
+    actionsPaddingTopBottom={8}
+    animated={true}
+    buttonSize={56}
+    color="#4F3DD5"
+    dismissKeyboardOnPress={false}
+    distanceToEdge={30}
+    floatingIcon={
+      <Icon
+        color="#FE9DCA"
+        name="add"
+        size={32}
+        type="material"
+      />
+    }
+    iconColor="#fff"
+    iconHeight={15}
+    iconWidth={15}
+    listenKeyboard={false}
+    mainVerticalDistance={0}
+    onClose={[Function]}
+    onOpen={[Function]}
+    onPressItem={[Function]}
+    openOnMount={false}
+    overlayColor="rgba(68, 68, 68, 0.6)"
+    overrideWithAction={false}
+    position="right"
+    shadow={Object {}}
+    showBackground={false}
+    visible={true}
+  />
+</Fragment>
+`;

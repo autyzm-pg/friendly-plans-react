@@ -20,7 +20,7 @@ export const TaskTableHeader: SFC = () => (
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.type, alignItems: 'flex-start' }]}>
       <StyledText style={styles.text}>{i18n.t('taskTable:type')}</StyledText>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.section, flexWrap: 'nowrap' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.section }]}>
       <StyledText style={styles.text}>{i18n.t('taskTable:section')}</StyledText>
     </View>
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.time }]}>

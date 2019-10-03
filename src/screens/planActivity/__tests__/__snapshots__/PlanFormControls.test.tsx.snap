@@ -53,6 +53,7 @@ exports[`PlanFormControls renders correctly 1`] = `
     />
     <Component
       disabled={true}
+      plan="plan"
       size={36}
     />
   </View>
