@@ -7,21 +7,35 @@ import { StyleSheet } from 'react-native';
 import { fonts } from './fonts';
 
 export const typography = StyleSheet.create({
-  headline3: {
+  // TODO Precise the headline sizes in settings plan card preview and student view
+  headline1: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 48,
     letterSpacing: 0,
   },
-  headline4: {
+  headline2: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 34,
     letterSpacing: 0,
   },
-  // used for some bigger inputs
+  headline3: {
+    fontFamily: fonts.sansSerif.regular,
+    fontSize: 18,
+    letterSpacing: 0,
+  },
+  headline4: {
+    fontFamily: fonts.sansSerif.regular,
+    fontSize: 16,
+    letterSpacing: 0,
+  },
+  headline5: {
+    fontFamily: fonts.sansSerif.regular,
+    fontSize: 14,
+    letterSpacing: 0,
+  },
   headline6: {
-    fontFamily: fonts.sansSerif.medium,
-    fontSize: 17,
-    fontWeight: '400',
+    fontFamily: fonts.sansSerif.regular,
+    fontSize: 12,
     letterSpacing: 0,
   },
   // used for view header

@@ -54,7 +54,11 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
         <StyledText style={styles.studentName}>{student.name}</StyledText>
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
-        <PlanDisplayPreview />
+        <PlanDisplayPreview
+          displaySettings={student.displaySettings}
+          textSize={student.textSize}
+          isUpperCase={student.isUpperCase}
+        />
         <View style={styles.slidersContainer}>
           <StudentDisplaySettings student={student} />
           <StudentTextSizeSettings student={student} />
