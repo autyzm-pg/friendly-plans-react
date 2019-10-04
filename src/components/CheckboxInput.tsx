@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   label: {
     color: palette.textBlack,
@@ -67,12 +67,11 @@ const styles = StyleSheet.create({
   iconContainer: {
     height: 36,
     width: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   errorContainer: {
     height: 20,
-    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   error: {
     ...typography.caption,

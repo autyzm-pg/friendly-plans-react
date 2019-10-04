@@ -2,18 +2,18 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { FullScreenTemplate } from 'components';
-import { dimensions, palette } from 'styles';
+import { dimensions, getElevation, palette } from 'styles';
 import { TableRow } from './TableRow';
 
 export const CELL_DIMENSIONS = {
-  number: 0.5,
-  checkbox: 0.5,
-  name: 2.0,
+  number: 0.3,
+  checkbox: 0.3,
+  name: 1.7,
   type: 0.5,
-  section: 0.6,
-  time: 1.8,
-  delete: 0.5,
-  edit: 0.7,
+  section: 0.5,
+  time: 1.9,
+  delete: 0.4,
+  edit: 0.6,
 };
 
 interface Props {
@@ -38,5 +38,6 @@ const styles = StyleSheet.create({
     marginHorizontal: '6%',
     borderBottomLeftRadius: dimensions.spacingMedium,
     borderBottomRightRadius: dimensions.spacingMedium,
+    ...getElevation(1),
   },
 });

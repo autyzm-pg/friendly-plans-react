@@ -16,7 +16,7 @@ export const TableRow: SFC<Props> = ({ rowNumber, border }) => (
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.number, alignItems: 'center' }]}>
       <Text style={styles.text}>{rowNumber}</Text>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.checkbox, alignItems: 'center' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.checkbox }]}>
       <CheckboxInput checked onPress={noop} />
     </View>
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.name }]}>

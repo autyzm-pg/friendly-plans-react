@@ -125,7 +125,7 @@ const translations = {
     number: '#',
     name: 'Name',
     type: 'Type',
-    section: 'Part',
+    section: 'Parts',
     time: 'Time',
     delete: 'Delete',
     edit: 'Edit',
