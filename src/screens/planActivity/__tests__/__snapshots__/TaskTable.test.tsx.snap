@@ -11,8 +11,16 @@ exports[`TaskTable renders correctly 1`] = `
         "backgroundColor": "#FFFFFF",
         "borderBottomLeftRadius": 16,
         "borderBottomRightRadius": 16,
+        "elevation": 1,
         "justifyContent": "center",
         "marginHorizontal": "6%",
+        "shadowColor": "rgba(0, 0, 0, 0.7)",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.18000000000000002,
+        "shadowRadius": 1.5,
       }
     }
   >

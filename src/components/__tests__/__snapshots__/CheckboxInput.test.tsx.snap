@@ -13,9 +13,8 @@ exports[`Button should match snapshot 1`] = `
       color="#6654EB"
       containerStyle={
         Object {
-          "alignItems": "center",
+          "alignItems": "flex-start",
           "height": 36,
-          "justifyContent": "center",
           "width": 40,
         }
       }
@@ -25,7 +24,7 @@ exports[`Button should match snapshot 1`] = `
     <View
       style={
         Object {
-          "alignItems": "center",
+          "alignItems": "flex-start",
           "flex": 1,
           "flexDirection": "row",
         }
