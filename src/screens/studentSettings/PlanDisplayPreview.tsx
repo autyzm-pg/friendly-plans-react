@@ -1,17 +1,59 @@
 import { StyledText } from 'components';
 import { i18n } from 'locale';
-import React from 'react';
+import React, { SFC } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { dimensions, getElevation, palette, typography } from 'styles';
 
-export const PlanDisplayPreview = () => {
+import { PlanNameText } from '../../components/PlanNameText';
+import { StudentDisplayOption } from '../../models/Student';
+
+interface Props {
+  displaySettings: string;
+  textSize: string;
+  isUpperCase: boolean;
+}
+
+export const PlanDisplayPreview: SFC<Props> = ({ displaySettings, textSize, isUpperCase }) => {
+  const renderImage = () => {
+    if (displaySettings !== StudentDisplayOption.TextSlide && displaySettings !== StudentDisplayOption.TextList) {
+      return <Image style={styles.planImage} source={require('../../assets/images/kids-playing.png')} />;
+    }
+
+    return null;
+  };
+
+  const renderText = () => {
+    if (displaySettings !== StudentDisplayOption.LargeImageSlide) {
+      return (
+        <PlanNameText
+          planName={i18n.t('studentSettings:planCardPlacehorder')}
+          textSize={textSize}
+          isUpperCase={isUpperCase}
+          isSettingsPreview
+        />
+      );
+    }
+
+    return null;
+  };
+
+  const isListPreview =
+    displaySettings === StudentDisplayOption.ImageWithTextList || displaySettings === StudentDisplayOption.TextList;
+
+  const planCardStyles = [styles.planCard, isListPreview && styles.planCardList];
+  const firstCardStyles = [...planCardStyles, styles.firstPlanCard, isListPreview && styles.firstPlanCardList];
+  const secondCardStyles = [...planCardStyles, styles.secondPlanCard, isListPreview && styles.secondPlanCardList];
+
   return (
     <View style={styles.previewContainer}>
-      <View style={[styles.planCard, styles.frontPlanCard]}>
-        <Image style={styles.planImage} source={require('../../assets/images/kids-playing.png')} />
-        <StyledText style={styles.planText}>{i18n.t('studentSettings:planCardPlacehorder')}</StyledText>
+      <View style={firstCardStyles}>
+        {renderImage()}
+        <View style={styles.planText}>{renderText()}</View>
       </View>
-      <View style={[styles.planCard, styles.beneathPlanCard]} />
+      <View style={secondCardStyles}>
+        {renderImage()}
+        <View style={styles.planText}>{renderText()}</View>
+      </View>
     </View>
   );
 };
@@ -28,28 +70,45 @@ const styles = StyleSheet.create({
   planCard: {
     backgroundColor: palette.background,
     borderRadius: dimensions.spacingMedium,
-  },
-  frontPlanCard: {
-    ...getElevation(4),
-    paddingBottom: dimensions.spacingBig,
-    marginTop: dimensions.spacingMedium,
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: dimensions.spacingMedium,
+  },
+  planCardList: {
+    paddingLeft: dimensions.spacingMedium,
+    paddingRight: dimensions.spacingBig,
+    paddingTop: dimensions.spacingBig,
+  },
+  firstPlanCard: {
+    ...getElevation(4),
+    marginTop: dimensions.spacingMedium,
+    height: 210,
     width: 350,
     zIndex: 1,
   },
-  beneathPlanCard: {
+  firstPlanCardList: {
+    flexDirection: 'row',
+    height: 109,
+  },
+  secondPlanCard: {
     ...getElevation(3),
     height: 30,
     width: 320,
-    backgroundColor: palette.background,
     translateY: -22,
   },
+  secondPlanCardList: {
+    flexDirection: 'row',
+    height: 109,
+    width: 350,
+    marginTop: dimensions.spacingTiny,
+    marginBottom: dimensions.spacingMedium,
+    translateY: 0,
+  },
   planText: {
-    ...typography.body,
-    color: palette.textBody,
+    width: '70%',
   },
   planImage: {
-    height: 175,
-    width: 210,
+    flex: 1,
+    aspectRatio: 1,
   },
 });
