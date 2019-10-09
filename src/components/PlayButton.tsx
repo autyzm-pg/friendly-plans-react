@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { Plan, StudentDisplayOption } from '../models';
@@ -11,40 +11,42 @@ interface Props extends NavigationInjectedProps {
   size?: number;
 }
 
-export class PlayButton extends React.PureComponent<Props> {
-  navigateToRunPlan = () => {
-    const student = this.props.navigation.getParam('student');
+export const PlayButton: SFC<Props> = ({ plan, disabled, size, navigation }) => {
+  const navigateToRunPlan = () => {
+    if (plan) {
+      return runPlan();
+    }
+  };
+
+  const runPlan = () => {
+    const student = navigation.getParam('student');
 
     switch (student.displaySettings) {
       case StudentDisplayOption.LargeImageSlide:
       case StudentDisplayOption.ImageWithTextSlide:
       case StudentDisplayOption.TextSlide:
-        this.props.navigation.navigate('RunPlanSlide', {
-          plan: this.props.plan,
+        navigation.navigate('RunPlanSlide', {
+          plan,
           student,
         });
         break;
       default:
-        this.props.navigation.navigate('RunPlanList', {
-          itemParent: this.props.plan,
+        navigation.navigate('RunPlanList', {
+          itemParent: plan,
           student,
         });
     }
   };
 
-  render() {
-    const { disabled, size } = this.props;
-
-    return (
-      <IconButton
-        name="play-circle"
-        disabled={disabled}
-        size={size}
-        color={disabled ? palette.textDisabled : palette.secondary}
-        onPress={this.navigateToRunPlan}
-      />
-    );
-  }
-}
+  return (
+    <IconButton
+      name="play-circle"
+      disabled={disabled}
+      size={size}
+      color={disabled ? palette.textDisabled : palette.secondary}
+      onPress={navigateToRunPlan}
+    />
+  );
+};
 
 export default withNavigation(PlayButton);

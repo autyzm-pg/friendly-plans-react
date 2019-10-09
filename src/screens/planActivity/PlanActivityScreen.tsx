@@ -30,25 +30,25 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ rowList: [...this.state.rowList, this.state.rowList.length] });
   };
 
-  async createPlan(planInput: string) {
+  createPlan = async ({ planInput }: PlanFormData) => {
     const { id } = this.props.navigation.getParam('student');
 
     const plan = await Plan.createPlan(id, planInput);
 
     this.setState({ plan });
-  }
-
-  onSubmit = ({ planInput }: PlanFormData) => this.createPlan(planInput);
+  };
 
   render() {
+    const { plan, rowList } = this.state;
+
     return (
       <>
         <View style={styles.headerContainer}>
-          <PlanForm onSubmit={this.onSubmit} plan={this.state.plan} />
-          {!isEmpty(this.state.rowList) && <TaskTableHeader />}
+          <PlanForm onSubmit={this.createPlan} plan={plan} />
+          {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
-        <TaskTable rowList={this.state.rowList} />
-        {this.state.plan && (
+        <TaskTable rowList={rowList} />
+        {plan && (
           <FloatingAction
             overrideWithAction
             actions={[

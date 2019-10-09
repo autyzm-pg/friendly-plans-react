@@ -2,9 +2,8 @@ import PlayButton, { TextInput } from 'components';
 import { Formik, FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { Plan } from 'models';
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { dimensions, palette } from 'styles';
 import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
@@ -23,13 +22,13 @@ interface Props {
   plan?: Plan;
 }
 
-export class PlanForm extends React.PureComponent<Props> {
-  renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
+  const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-          {this.props.plan ? (
+          {plan ? (
             <StyledText style={styles.styledText}>{values.planInput}</StyledText>
           ) : (
             <TextInput
@@ -42,19 +41,15 @@ export class PlanForm extends React.PureComponent<Props> {
           )}
         </View>
         <View style={styles.buttonContainer}>
-          <ShuffleButton disabled={!this.props.plan} />
-          <PlayButton plan={this.props.plan} disabled={!this.props.plan} size={36} />
+          <ShuffleButton disabled={!plan} />
+          <PlayButton plan={plan} disabled={!plan} size={36} />
         </View>
       </View>
     );
   };
 
-  render() {
-    return (
-      <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={this.props.onSubmit} render={this.renderFormControls} />
-    );
-  }
-}
+  return <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={onSubmit} render={renderFormControls} />;
+};
 
 const styles = StyleSheet.create({
   container: {

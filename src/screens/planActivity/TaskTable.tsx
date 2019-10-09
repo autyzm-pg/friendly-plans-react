@@ -6,14 +6,14 @@ import { dimensions, getElevation, palette } from 'styles';
 import { TableRow } from './TableRow';
 
 export const CELL_DIMENSIONS = {
-  Number: 0.3,
-  Checkbox: 0.3,
-  Name: 1.7,
-  Type: 0.5,
-  Section: 0.5,
-  Time: 1.9,
-  Delete: 0.4,
-  Edit: 0.6,
+  NUMBER: 0.3,
+  CHECKBOX: 0.3,
+  NAME: 1.7,
+  TYPE: 0.5,
+  SECTION: 0.5,
+  TIME: 1.9,
+  DELETE: 0.4,
+  EDIT: 0.6,
 };
 
 interface Props {

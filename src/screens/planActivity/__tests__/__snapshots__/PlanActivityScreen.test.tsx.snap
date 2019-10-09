@@ -17,7 +17,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       }
     }
   >
-    <PlanForm
+    <Component
       onSubmit={[Function]}
     />
   </View>
