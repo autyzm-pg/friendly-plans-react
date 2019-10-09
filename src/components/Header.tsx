@@ -63,14 +63,14 @@ export class Header extends React.PureComponent<Props> {
           name="settings"
           type="material"
           color={palette.textWhite}
-          size={30}
+          size={24}
           containerStyle={styles.iconContainer}
           onPress={this.navigateToStudentSettings}
         />
         <IconButton
           name="people"
           type="material"
-          size={30}
+          size={24}
           color={palette.textWhite}
           containerStyle={styles.iconContainer}
           onPress={this.navigateToStudentsList}
