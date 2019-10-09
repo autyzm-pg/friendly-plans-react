@@ -3,9 +3,11 @@ import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { IconButton, NarrowScreenTemplate, TextInput } from 'components';
+import { i18n } from 'locale';
 import { Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
 import { FilterableStudentsList } from './FilterableStudentsList';
+
 interface Props extends NavigationInjectedProps {
   students: Student[];
 }
@@ -30,7 +32,7 @@ export class StudentsListSearchScreen extends React.PureComponent<Props, State> 
   renderSearchInput = () => (
     <TextInput
       style={styles.searchInput}
-      placeholder={'Wyszukaj'}
+      placeholder={i18n.t('studentsList:search')}
       hideUnderline
       onChangeText={this.onSearch}
       value={this.state.searchQuery}
