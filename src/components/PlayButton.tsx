@@ -13,12 +13,10 @@ interface Props extends NavigationInjectedProps {
 
 export const PlayButton: SFC<Props> = ({ plan, disabled, size, navigation }) => {
   const navigateToRunPlan = () => {
-    if (plan) {
-      return runPlan();
+    if (!plan) {
+      return;
     }
-  };
 
-  const runPlan = () => {
     const student = navigation.getParam('student');
 
     switch (student.displaySettings) {
