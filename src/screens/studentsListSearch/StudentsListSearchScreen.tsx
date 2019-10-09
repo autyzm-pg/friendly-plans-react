@@ -23,10 +23,22 @@ export class StudentsListSearchScreen extends React.PureComponent<Props, State> 
     this.setState({ searchQuery });
   };
 
+  onSearchInputClear = () => {
+    this.setState({ searchQuery: '' });
+  };
+
   renderSearchInput = () => (
-    <TextInput style={styles.searchInput} placeholder={'Wyszukaj'} hideUnderline onChangeText={this.onSearch} />
+    <TextInput
+      style={styles.searchInput}
+      placeholder={'Wyszukaj'}
+      hideUnderline
+      onChangeText={this.onSearch}
+      value={this.state.searchQuery}
+    />
   );
-  renderClearInputButton = () => <IconButton type="material" name="close" size={24} color={palette.textBody} />;
+  renderClearInputButton = () => (
+    <IconButton type="material" name="close" size={24} color={palette.textBody} onPress={this.onSearchInputClear} />
+  );
 
   render() {
     const { navigation } = this.props;

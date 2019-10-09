@@ -9,7 +9,12 @@ interface Props extends TextInputProps {
 
 export const TextInput: SFC<Props> = ({ hideUnderline, style, ...inputProps }) => (
   <View style={[styles.inputWrapper, style, hideUnderline ? {} : styles.inputUnderline]}>
-    <BaseTextInput style={[styles.input]} placeholderTextColor={palette.textInputPlaceholder} {...inputProps} />
+    <BaseTextInput
+      autoCorrect={false}
+      style={[styles.input]}
+      placeholderTextColor={palette.textInputPlaceholder}
+      {...inputProps}
+    />
   </View>
 );
 
