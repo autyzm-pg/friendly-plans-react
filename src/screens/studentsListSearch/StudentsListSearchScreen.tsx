@@ -2,29 +2,51 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { IconButton, NarrowScreenTemplate, Separator, StyledText } from 'components';
-import { i18n } from 'locale';
+import { IconButton, NarrowScreenTemplate, TextInput } from 'components';
 import { Student } from 'models';
-import { Text } from 'react-native-elements';
-import { palette, typography } from 'styles';
-
+import { dimensions, palette, typography } from 'styles';
+import { FilterableStudentsList } from './FilterableStudentsList';
 interface Props extends NavigationInjectedProps {
   students: Student[];
 }
 
-export class StudentsListSearchScreen extends React.PureComponent<Props> {
-  get screenName(): string {
-    return i18n.t('studentsList:screenTitle');
-  }
+interface State {
+  searchQuery: string;
+}
+
+export class StudentsListSearchScreen extends React.PureComponent<Props, State> {
+  state: State = {
+    searchQuery: '',
+  };
+
+  onSearch = (searchQuery: string) => {
+    this.setState({ searchQuery });
+  };
+
+  renderSearchInput = () => (
+    <TextInput style={styles.searchInput} placeholder={'Wyszukaj'} hideUnderline onChangeText={this.onSearch} />
+  );
+  renderClearInputButton = () => <IconButton type="material" name="close" size={24} color={palette.textBody} />;
 
   render() {
     const { navigation } = this.props;
     const students = navigation.getParam('students');
 
     return (
-      <NarrowScreenTemplate title={this.screenName} navigation={navigation} isSecondaryView>
-        <Text>test</Text>
+      <NarrowScreenTemplate
+        title={this.renderSearchInput()}
+        navigation={navigation}
+        buttons={this.renderClearInputButton()}
+        isSecondaryView
+      >
+        <FilterableStudentsList students={students} searchQuery={this.state.searchQuery} />
       </NarrowScreenTemplate>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  searchInput: {
+    marginHorizontal: dimensions.spacingTiny,
+  },
+});

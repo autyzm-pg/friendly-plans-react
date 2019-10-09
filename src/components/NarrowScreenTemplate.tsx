@@ -54,12 +54,18 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
       inputRange: [0, 1],
       outputRange: [height, 0],
     });
-    const { children, buttons } = this.props;
+    const { children, buttons, isSecondaryView } = this.props;
     return (
       <Animated.View style={[styles.overlay]}>
         <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
           <View style={[styles.header, this.getHeaderColor()]}>
-            <IconButton name="arrow-back" type="material" size={24} color={palette.textWhite} onPress={this.goBack} />
+            <IconButton
+              name="arrow-back"
+              type="material"
+              size={24}
+              color={isSecondaryView ? palette.textBody : palette.textWhite}
+              onPress={this.goBack}
+            />
             {this.renderTitle()}
             {buttons}
           </View>
