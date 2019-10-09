@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskTable renders correctly 1`] = `
+<FullScreenTemplate
+  darkBackground={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderBottomLeftRadius": 16,
+        "borderBottomRightRadius": 16,
+        "elevation": 1,
+        "justifyContent": "center",
+        "marginHorizontal": "6%",
+        "shadowColor": "rgba(0, 0, 0, 0.7)",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.18000000000000002,
+        "shadowRadius": 1.5,
+      }
+    }
+  >
+    <Component
+      border={false}
+      key="0"
+      rowNumber={2}
+    />
+  </View>
+</FullScreenTemplate>
+`;
