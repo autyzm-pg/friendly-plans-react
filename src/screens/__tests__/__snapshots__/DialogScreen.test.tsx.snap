@@ -63,7 +63,7 @@ exports[`DialogScreen should match snapshot 1`] = `
       Object {
         "fontFamily": "Rubik-Regular",
         "fontSize": 14,
-        "letterSpacing": 0.5,
+        "letterSpacing": 0,
         "textAlign": "center",
       }
     }

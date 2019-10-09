@@ -121,6 +121,15 @@ const translations = {
     next: 'Next',
     wait: 'Wait...',
   },
+  taskTable: {
+    number: '#',
+    name: 'Name',
+    type: 'Type',
+    section: 'Parts',
+    time: 'Time',
+    delete: 'Delete',
+    edit: 'Edit',
+  },
 };
 
 export default translations;
