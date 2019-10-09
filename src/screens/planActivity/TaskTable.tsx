@@ -6,14 +6,14 @@ import { dimensions, getElevation, palette } from 'styles';
 import { TableRow } from './TableRow';
 
 export const CELL_DIMENSIONS = {
-  number: 0.3,
-  checkbox: 0.3,
-  name: 1.7,
-  type: 0.5,
-  section: 0.5,
-  time: 1.9,
-  delete: 0.4,
-  edit: 0.6,
+  Number: 0.3,
+  Checkbox: 0.3,
+  Name: 1.7,
+  Type: 0.5,
+  Section: 0.5,
+  Time: 1.9,
+  Delete: 0.4,
+  Edit: 0.6,
 };
 
 interface Props {
@@ -24,7 +24,7 @@ export const TaskTable: SFC<Props> = ({ rowList }) => (
   <FullScreenTemplate darkBackground>
     <View style={styles.container}>
       {rowList.map((rowNumber, index) => (
-        <TableRow border={!(index === rowList.length - 1)} key={index} rowNumber={rowNumber + 1} />
+        <TableRow border={index !== rowList.length - 1} key={index} rowNumber={rowNumber + 1} />
       ))}
     </View>
   </FullScreenTemplate>
@@ -32,12 +32,12 @@ export const TaskTable: SFC<Props> = ({ rowList }) => (
 
 const styles = StyleSheet.create({
   container: {
+    ...getElevation(1),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: palette.background,
     marginHorizontal: '6%',
     borderBottomLeftRadius: dimensions.spacingMedium,
     borderBottomRightRadius: dimensions.spacingMedium,
-    ...getElevation(1),
   },
 });

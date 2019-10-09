@@ -6,13 +6,15 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
+import { Plan } from 'models';
 import { getElevation, palette } from 'styles';
-import PlanForm from './PlanForm';
+import { PlanForm, PlanFormData } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
   rowList: number[];
+  plan?: Plan;
 }
 
 export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -28,17 +30,25 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ rowList: [...this.state.rowList, this.state.rowList.length] });
   };
 
-  render() {
-    const plan = this.props.navigation.getParam('plan');
+  async createPlan(planInput: string) {
+    const { id } = this.props.navigation.getParam('student');
 
+    const plan = await Plan.createPlan(id, planInput);
+
+    this.setState({ plan });
+  }
+
+  onSubmit = ({ planInput }: PlanFormData) => this.createPlan(planInput);
+
+  render() {
     return (
       <>
         <View style={styles.headerContainer}>
-          <PlanForm />
+          <PlanForm onSubmit={this.onSubmit} plan={this.state.plan} />
           {!isEmpty(this.state.rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={this.state.rowList} />
-        {plan && (
+        {this.state.plan && (
           <FloatingAction
             overrideWithAction
             actions={[

@@ -13,28 +13,28 @@ interface Props {
 
 export const TableRow: SFC<Props> = ({ rowNumber, border }) => (
   <View style={[styles.row, border && styles.rowBorder]}>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.number, alignItems: 'center' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Number, alignItems: 'center' }]}>
       <Text style={styles.text}>{rowNumber}</Text>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.checkbox }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Checkbox }]}>
       <CheckboxInput checked onPress={noop} />
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.name }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Name }]}>
       <Text style={styles.text}>Bębenki afrykańskie</Text>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.type, alignItems: 'flex-start' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Type, alignItems: 'flex-start' }]}>
       <Icon name="layers" />
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.section }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Section }]}>
       <Text style={styles.text}>5</Text>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.time }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Time }]}>
       <Text style={styles.text}>15'</Text>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.delete, alignItems: 'flex-start' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Delete, alignItems: 'flex-start' }]}>
       <IconButton name="delete" size={24} color={palette.textInputPlaceholder} />
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.edit, alignItems: 'center' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.Edit, alignItems: 'center' }]}>
       <IconButton name="pencil" size={24} />
     </View>
   </View>

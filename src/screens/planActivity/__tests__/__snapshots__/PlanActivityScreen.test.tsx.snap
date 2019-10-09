@@ -17,44 +17,12 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       }
     }
   >
-    <Component />
+    <PlanForm
+      onSubmit={[Function]}
+    />
   </View>
   <Component
     rowList={Array []}
-  />
-  <FloatingAction
-    actions={
-      Array [
-        Object {
-          "icon": <Icon
-            color="#FE9DCA"
-            name="add"
-            size={32}
-            type="material"
-          />,
-          "name": "create-plan",
-        },
-      ]
-    }
-    actionsPaddingTopBottom={8}
-    animated={true}
-    buttonSize={56}
-    color="#1253bc"
-    dismissKeyboardOnPress={false}
-    distanceToEdge={30}
-    iconColor="#fff"
-    iconHeight={15}
-    iconWidth={15}
-    listenKeyboard={false}
-    mainVerticalDistance={0}
-    onPressItem={[Function]}
-    openOnMount={false}
-    overlayColor="rgba(68, 68, 68, 0.6)"
-    overrideWithAction={true}
-    position="right"
-    shadow={Object {}}
-    showBackground={true}
-    visible={true}
   />
 </Fragment>
 `;

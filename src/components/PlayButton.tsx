@@ -6,7 +6,7 @@ import { palette } from '../styles';
 import { IconButton } from './IconButton';
 
 interface Props extends NavigationInjectedProps {
-  plan: Plan;
+  plan?: Plan;
   disabled?: boolean;
   size?: number;
 }
