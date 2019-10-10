@@ -29,13 +29,6 @@ const translations = {
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
-  updatePlanItem: {
-    planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
-    taskComplexity: 'Proste/Złożone',
-    simpleTask: 'S',
-    complexTask: 'C',
-    addSubPlanItem: 'Dodaj',
-  },
   studentSettings: {
     studentName: 'Imię podopiecznego',
     taskView: 'Widok zadań',
