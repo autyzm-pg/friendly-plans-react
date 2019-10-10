@@ -1,11 +1,10 @@
-import PlayButton, { TextInput } from 'components';
+import { Dialog, IconButton, PlayButton, StyledText, TextInput } from 'components';
 import { Formik, FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { Plan } from 'models';
-import React, { SFC } from 'react';
+import React, { SFC, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { dimensions, palette } from 'styles';
-import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
@@ -23,11 +22,30 @@ interface Props {
 }
 
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
+  const [emojiModalVisibility, setEmojiModalVisibility] = useState(false);
+  const showEmojiModal = () => setEmojiModalVisibility(true);
+  const hideEmojiModal = () => setEmojiModalVisibility(false);
+
+  const renderEmojiModal = () => {
+    if (!emojiModalVisibility) {
+      return;
+    }
+
+    return (
+      <Dialog onPress={hideEmojiModal}>
+        <StyledText>Test emoji dialog</StyledText>
+      </Dialog>
+    );
+  };
+
+  console.log(emojiModalVisibility);
+
   const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
     return (
       <View style={styles.container}>
+        {renderEmojiModal()}
         <View style={styles.inputContainer}>
-          <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
+          <IconButton name="emoticon" size={24} color={palette.textInputPlaceholder} onPress={showEmojiModal} />
           {plan ? (
             <StyledText style={styles.styledText}>{values.planInput}</StyledText>
           ) : (

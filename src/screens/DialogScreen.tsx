@@ -4,7 +4,7 @@ import noop from 'lodash.noop';
 import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { ModalTemplate, StyledText } from 'components';
+import { Dialog, StyledText } from 'components';
 import { DialogProps } from 'models';
 import { typography } from 'styles';
 
@@ -34,10 +34,10 @@ export class DialogScreen extends React.PureComponent<NavigationInjectedProps, S
   render() {
     const { title, description, onPress, buttonTitle } = this.state;
     return (
-      <ModalTemplate onPress={onPress} navigation={this.props.navigation} buttonTitle={buttonTitle}>
+      <Dialog onPress={onPress} buttonTitle={buttonTitle}>
         <StyledText style={styles.title}>{title}</StyledText>
         <StyledText style={styles.description}>{description}</StyledText>
-      </ModalTemplate>
+      </Dialog>
     );
   }
 }

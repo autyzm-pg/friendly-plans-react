@@ -31,7 +31,6 @@ export const PlanNameText: SFC<Props> = ({
   textSize,
   isUpperCase = false,
   isSettingsPreview = false,
-  ...props
 }) => {
   const getTypography = () => {
     if (isSettingsPreview) {

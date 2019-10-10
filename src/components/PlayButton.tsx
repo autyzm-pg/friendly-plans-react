@@ -11,7 +11,7 @@ interface Props extends NavigationInjectedProps {
   size?: number;
 }
 
-export const PlayButton: SFC<Props> = ({ plan, disabled, size, navigation }) => {
+const Play: SFC<Props> = ({ plan, disabled, size, navigation }) => {
   const navigateToRunPlan = () => {
     if (!plan) {
       return;
@@ -47,4 +47,4 @@ export const PlayButton: SFC<Props> = ({ plan, disabled, size, navigation }) => 
   );
 };
 
-export default withNavigation(PlayButton);
+export const PlayButton = withNavigation(Play);

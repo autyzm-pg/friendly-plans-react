@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     color: palette.textWhite,
   },
   contentContainer: {
-    flex: 1,
     backgroundColor: palette.background,
     paddingVertical: dimensions.spacingMedium,
     paddingHorizontal: dimensions.spacingBig,

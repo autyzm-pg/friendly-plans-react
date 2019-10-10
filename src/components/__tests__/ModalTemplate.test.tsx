@@ -4,9 +4,9 @@ import { Text } from 'react-native';
 
 import { navigationMock } from 'helpers';
 import { i18n } from 'locale';
-import { ModalTemplate } from '../ModalTemplate';
+import { Dialog } from '../Dialog';
 
-describe('ModalTemplate', () => {
+describe('Dialog', () => {
   const content = <Text>content inside modal</Text>;
   const props = {
     onPress: jest.fn(),
@@ -15,12 +15,12 @@ describe('ModalTemplate', () => {
   };
 
   it('should match snapshot', () => {
-    const wrapper = shallow(<ModalTemplate {...props}>{content}</ModalTemplate>);
+    const wrapper = shallow(<Dialog {...props}>{content}</Dialog>);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should navigate back and call onPress on button press', () => {
-    const wrapper = shallow(<ModalTemplate {...props}>{content}</ModalTemplate>);
+    const wrapper = shallow(<Dialog {...props}>{content}</Dialog>);
     const button = wrapper.find(`FlatButton[title="${props.buttonTitle}"]`);
     expect(button).toExist();
     button.simulate('press');
@@ -30,7 +30,7 @@ describe('ModalTemplate', () => {
   });
 
   it('should navigate back and on cancel button press', () => {
-    const wrapper = shallow(<ModalTemplate {...props}>{content}</ModalTemplate>);
+    const wrapper = shallow(<Dialog {...props}>{content}</Dialog>);
     const button = wrapper.find(`FlatButton[title="${i18n.t('common:cancel')}"]`);
     expect(button).toExist();
     button.simulate('press');
@@ -39,7 +39,7 @@ describe('ModalTemplate', () => {
   });
 
   it('it should render with single button with okay label when no additional button provided', () => {
-    const wrapper = shallow(<ModalTemplate navigation={props.navigation}>{content}</ModalTemplate>);
+    const wrapper = shallow(<Dialog>{content}</Dialog>);
     const button = wrapper.find(`FlatButton[title="${i18n.t('common:ok')}"]`);
     expect(button).toExist();
   });

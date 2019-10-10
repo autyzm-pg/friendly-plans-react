@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
-import { NavigationRoute, NavigationScreenProp } from 'react-navigation';
+import { NavigationRoute, NavigationScreenProp, withNavigation } from 'react-navigation';
 
 import { i18n } from 'locale';
 import { palette } from 'styles';
@@ -17,7 +17,7 @@ interface State {
   backgroundAnimation: Animated.Value;
 }
 
-export class ModalTemplate extends React.PureComponent<Props, State> {
+class BaseDialog extends React.PureComponent<Props, State> {
   state = {
     backgroundAnimation: new Animated.Value(0),
   };
@@ -63,6 +63,8 @@ export class ModalTemplate extends React.PureComponent<Props, State> {
     );
   }
 }
+
+export const Dialog = withNavigation(BaseDialog);
 
 const styles = StyleSheet.create({
   container: {
