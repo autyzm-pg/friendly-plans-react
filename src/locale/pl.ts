@@ -37,6 +37,11 @@ const translations = {
     timerButton: 'Ustaw timer',
     taskNameForChild: 'Nazwij dla dziecka',
   },
+  updatePlan: {
+    addBreak: 'Dodaj przerwę',
+    addInteraction: 'Dodaj interakcję',
+    addTask: 'Dodaj zadanie',
+  },
   updatePlanItem: {
     planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
     taskComplexity: 'Proste/Złożone',
