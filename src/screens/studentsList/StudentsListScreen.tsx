@@ -5,7 +5,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { IconButton, NarrowScreenTemplate, Separator, StyledText } from 'components';
 import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
-import { palette, typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 import { StudentsList } from './StudentsList';
 
 interface State {
@@ -29,19 +29,43 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
     this.modelSubscriber.unsubscribeCollectionUpdates();
   }
 
+  navigateToStudentsSearch = () => {
+    this.props.navigation.navigate('StudentsListSearch', {
+      students: this.state.students,
+    });
+  };
+
   get screenName(): string {
     return i18n.t('studentsList:screenTitle');
   }
 
   renderHeaderButtons() {
     return (
-      <IconButton name="person-add" type="material" size={30} color={palette.textWhite} onPress={Student.create} />
+      <>
+        <IconButton
+          containerStyle={styles.iconContainer}
+          name="person-add"
+          type="material"
+          size={24}
+          color={palette.textWhite}
+          onPress={Student.create}
+        />
+        <IconButton
+          containerStyle={styles.iconContainer}
+          name="search"
+          type="material"
+          size={24}
+          color={palette.textWhite}
+          onPress={this.navigateToStudentsSearch}
+        />
+      </>
     );
   }
 
   render() {
     const { navigation } = this.props;
     const { students } = this.state;
+
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={navigation} buttons={this.renderHeaderButtons()}>
         <StudentsList students={students} />
@@ -50,4 +74,8 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  iconContainer: {
+    paddingHorizontal: dimensions.spacingSmall,
+  },
+});

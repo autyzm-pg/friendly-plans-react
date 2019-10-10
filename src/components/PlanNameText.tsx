@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, SFC } from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { StyledText } from 'components';

@@ -116,6 +116,7 @@ const translations = {
   },
   studentsList: {
     screenTitle: 'Select student',
+    search: 'Search',
   },
   runPlan: {
     next: 'Next',

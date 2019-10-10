@@ -6,12 +6,14 @@ import { dimensions, getElevation, headerHeight, palette, typography } from 'sty
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
-const { height } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT } = Dimensions.get('window');
+const MODAL_WIDTH = 528;
 
 interface Props extends NavigationInjectedProps {
   children?: React.ReactNode;
-  title: string;
+  title: React.ReactNode | string;
   buttons?: React.ReactNode;
+  isSecondaryView?: boolean;
 }
 
 export class NarrowScreenTemplate extends React.PureComponent<Props> {
@@ -34,18 +36,38 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
     setTimeout(() => this.props.navigation.goBack(), 200);
   };
 
+  getHeaderColor = () => ({
+    backgroundColor: this.props.isSecondaryView ? palette.backgroundAdditional : palette.primaryVariant,
+  });
+
+  renderTitle = () => {
+    const { title } = this.props;
+
+    if (typeof title === 'string') {
+      return <StyledText style={styles.headerText}>{title}</StyledText>;
+    }
+
+    return title;
+  };
+
   render() {
     const translateY = this.backgroundAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [height, 0],
+      outputRange: [WINDOW_HEIGHT, 0],
     });
-    const { children, title, buttons } = this.props;
+    const { children, buttons, isSecondaryView } = this.props;
     return (
       <Animated.View style={[styles.overlay]}>
         <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
-          <View style={styles.header}>
-            <IconButton name="arrow-back" type="material" size={24} color={palette.textWhite} onPress={this.goBack} />
-            <StyledText style={styles.headerText}>{title}</StyledText>
+          <View style={[styles.header, this.getHeaderColor()]}>
+            <IconButton
+              name="arrow-back"
+              type="material"
+              size={24}
+              color={isSecondaryView ? palette.textBody : palette.textWhite}
+              onPress={this.goBack}
+            />
+            {this.renderTitle()}
             {buttons}
           </View>
           <ScrollView bounces={false} alwaysBounceVertical={false} contentContainerStyle={styles.contentContainer}>
@@ -65,25 +87,25 @@ const styles = StyleSheet.create({
     backgroundColor: palette.modalBackgroundOverlay,
   },
   container: {
-    flex: 1,
-    width: 528,
     ...getElevation(4),
+    width: MODAL_WIDTH,
+    height: '100%',
   },
   header: {
     flexDirection: 'row',
     height: headerHeight,
     paddingHorizontal: 16,
-    backgroundColor: palette.primaryVariant,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   headerText: {
-    marginStart: 8,
     flex: 1,
+    marginStart: 8,
     ...typography.title,
     color: palette.textWhite,
   },
   contentContainer: {
+    flex: 1,
     backgroundColor: palette.background,
     paddingVertical: dimensions.spacingMedium,
     paddingHorizontal: dimensions.spacingBig,

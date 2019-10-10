@@ -1,7 +1,7 @@
 import { Animated, Easing } from 'react-native';
 import { createStackNavigator, NavigationSceneRendererProps } from 'react-navigation';
 
-import { DialogScreen, StudentSettingsScreen, StudentsListScreen } from 'screens';
+import { DialogScreen, StudentSettingsScreen, StudentsListScreen, StudentsListSearchScreen } from 'screens';
 import { AuthSwitchNavigator } from './AuthSwitchNavigator';
 
 /*
@@ -15,6 +15,7 @@ export const RootStackNavigator = createStackNavigator(
     Dialog: DialogScreen,
     StudentSettings: StudentSettingsScreen,
     StudentsList: StudentsListScreen,
+    StudentsListSearch: StudentsListSearchScreen,
   },
   {
     headerMode: 'none',

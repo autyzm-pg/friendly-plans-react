@@ -57,6 +57,7 @@ const translations = {
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
+    search: 'Wyszukaj',
   },
   runPlan: {
     next: 'Dalej',

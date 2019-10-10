@@ -1,11 +1,10 @@
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Separator, StyledText } from 'components';
+import { Separator, StudentListElement, StyledText } from 'components';
 import sortBy from 'lodash.sortby';
 import { Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
-import StudentName from './StudentName';
 
 interface Props {
   students: Student[];
@@ -23,7 +22,7 @@ export const StudentsList: SFC<Props> = ({ students }) => {
     const firstLetter = student.name.charAt(0).toLowerCase();
     const shouldRenderSeparator = !grouped[firstLetter] && !!Object.keys(grouped).length;
 
-    const studentEntry = <StudentName student={student} key={student.id} />;
+    const studentEntry = <StudentListElement student={student} key={student.id} />;
 
     grouped[firstLetter] = grouped[firstLetter]
       ? [...grouped[firstLetter], studentEntry]

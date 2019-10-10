@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { StyleSheet, TextInput as BaseTextInput, TextInputProps, View } from 'react-native';
 
 import { palette, typography } from 'styles';
 
-type Props = TextInputProps;
-
-export class TextInput extends React.PureComponent<Props> {
-  render() {
-    const { style, ...inputProps } = this.props;
-
-    return (
-      <View style={[styles.inputWrapper, style]}>
-        <BaseTextInput style={[styles.input]} placeholderTextColor={palette.textInputPlaceholder} {...inputProps} />
-      </View>
-    );
-  }
+interface Props extends TextInputProps {
+  hideUnderline?: boolean;
 }
+
+export const TextInput: SFC<Props> = ({ hideUnderline, style, ...inputProps }) => (
+  <View style={[styles.inputWrapper, style, hideUnderline ? {} : styles.inputUnderline]}>
+    <BaseTextInput
+      autoCorrect={false}
+      style={[styles.input]}
+      placeholderTextColor={palette.textInputPlaceholder}
+      {...inputProps}
+    />
+  </View>
+);
 
 const styles = StyleSheet.create({
   input: {
@@ -24,6 +25,8 @@ const styles = StyleSheet.create({
     color: palette.primaryVariant,
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,
+  },
+  inputUnderline: {
     borderBottomColor: palette.primary,
     borderBottomWidth: 1,
   },
