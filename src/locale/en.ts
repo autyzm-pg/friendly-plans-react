@@ -124,10 +124,20 @@ const translations = {
   },
   studentsList: {
     screenTitle: 'Select student',
+    search: 'Search',
   },
   runPlan: {
     next: 'Next',
     wait: 'Wait...',
+  },
+  taskTable: {
+    number: '#',
+    name: 'Name',
+    type: 'Type',
+    section: 'Parts',
+    time: 'Time',
+    delete: 'Delete',
+    edit: 'Edit',
   },
 };
 

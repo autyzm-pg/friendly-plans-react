@@ -70,10 +70,20 @@ const translations = {
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
+    search: 'Wyszukaj',
   },
   runPlan: {
     next: 'Dalej',
     wait: 'Czekaj...',
+  },
+  taskTable: {
+    number: '#',
+    name: 'Nazwa',
+    type: 'Typ',
+    section: 'Części',
+    time: 'Czas',
+    delete: 'Usuń',
+    edit: 'Edycja',
   },
 };
 

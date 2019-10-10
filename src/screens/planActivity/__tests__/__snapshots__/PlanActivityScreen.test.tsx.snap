@@ -1,14 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlanActivityScreen renders correctly 1`] = `
-<Fragment>
-  <FullScreenTemplate
-    darkBackground={true}
+<FullScreenTemplate
+  darkBackground={true}
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "elevation": 5,
+        "shadowColor": "rgba(0, 0, 0, 0.7)",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.22000000000000003,
+        "shadowRadius": 3.5,
+      }
+    }
   >
-    <Component />
-  </FullScreenTemplate>
+    <Component
+      onSubmit={[Function]}
+    />
+  </View>
+  <Component
+    rowList={Array []}
+  />
   <FixedCreatePlanSubItemButton
     onPress={[Function]}
   />
-</Fragment>
+</FullScreenTemplate>
 `;

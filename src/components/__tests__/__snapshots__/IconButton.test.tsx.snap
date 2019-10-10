@@ -8,6 +8,7 @@ exports[`IconButton should match snapshot 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "flexDirection": "row",
         "justifyContent": "center",
       },
       undefined,

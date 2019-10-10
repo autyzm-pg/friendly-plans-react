@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(StudentName);
+export const StudentListElement = withNavigation(StudentName);

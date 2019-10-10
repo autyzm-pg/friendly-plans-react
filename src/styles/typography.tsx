@@ -60,7 +60,7 @@ export const typography = StyleSheet.create({
   body: {
     fontFamily: fonts.sansSerif.regular,
     fontSize: 14,
-    letterSpacing: 0.5,
+    letterSpacing: 0,
   },
   // used for auth input labels, errors
   caption: {

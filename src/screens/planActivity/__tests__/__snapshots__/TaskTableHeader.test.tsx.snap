@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskTableHeader renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "flexDirection": "row",
+      "height": 32,
+      "paddingHorizontal": "6%",
+      "paddingVertical": 9,
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.3,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      #
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.3,
+        },
+      ]
+    }
+  >
+    <Icon
+      color="#9B9B9B"
+      name="checkbox-blank-outline"
+      size={24}
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 1.7,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Name
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Type
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 0.5,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Parts
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "flex": 1.9,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Time
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "flex-start",
+          "flex": 0.4,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Delete
+    </StyledText>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "stretch",
+          "justifyContent": "center",
+        },
+        Object {
+          "alignItems": "center",
+          "flex": 0.6,
+        },
+      ]
+    }
+  >
+    <StyledText
+      style={
+        Object {
+          "color": "#9B9B9B",
+          "fontFamily": "Rubik-Regular",
+          "fontSize": 12,
+          "letterSpacing": 0,
+        }
+      }
+    >
+      Edit
+    </StyledText>
+  </View>
+</View>
+`;
