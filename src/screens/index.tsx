@@ -14,3 +14,4 @@ export { RunPlanSlideScreen } from './runPlan/SlideMode/RunPlanSlideScreen';
 export { UpdatePlanSubItemScreen } from './updatePlanItem/UpdatePlanSubItemScreen';
 export { PlanActivityScreen } from './planActivity/PlanActivityScreen';
 export { PlanItemActivityScreen } from './planItemActivity/PlanItemActivityScreen';
+export { PlanItemSimpleTaskScreen } from './planItemActivity/PlanItemSimpleTaskScreen';

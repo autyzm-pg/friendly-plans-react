@@ -12,8 +12,12 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   navigateToCreateSubItem = (itemType: string) => {
-    this.props.navigation.navigate('PlanItemActivity', {
+    const student = this.props.navigation.getParam('student');
+    const plan = this.props.navigation.getParam('plan');
+    this.props.navigation.navigate('PlanItemSimpleTask', {
       itemType,
+      student,
+      plan,
     });
   };
 

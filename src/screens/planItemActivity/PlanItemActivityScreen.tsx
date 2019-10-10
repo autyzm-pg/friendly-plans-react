@@ -8,7 +8,7 @@ import { FullScreenTemplate, StyledText } from '../../components';
 
 export class PlanItemActivityScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
-    title: 'PlanItemActivity',
+    title: i18n.t('planItemActivity:viewTitleTask'),
   };
 
   render() {

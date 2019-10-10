@@ -29,6 +29,14 @@ const translations = {
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
+  planItemActivity: {
+    viewTitleTask: 'Zadanie',
+    viewTitleInteraction: 'Interakcja',
+    viewTitleBreak: 'Przerwa',
+    taskNamePlaceholder: 'Wpisz nazwę zadania',
+    timerButton: 'Ustaw timer',
+    taskNameForChild: 'Nazwij dla dziecka',
+  },
   updatePlanItem: {
     planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
     taskComplexity: 'Proste/Złożone',
