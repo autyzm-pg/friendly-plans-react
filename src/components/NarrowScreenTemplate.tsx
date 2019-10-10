@@ -6,7 +6,8 @@ import { dimensions, getElevation, headerHeight, palette, typography } from 'sty
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
-const { height } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT } = Dimensions.get('window');
+const MODAL_WIDTH = 528;
 
 interface Props extends NavigationInjectedProps {
   children?: React.ReactNode;
@@ -52,7 +53,7 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
   render() {
     const translateY = this.backgroundAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [height, 0],
+      outputRange: [WINDOW_HEIGHT, 0],
     });
     const { children, buttons, isSecondaryView } = this.props;
     return (
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
   },
   container: {
     ...getElevation(4),
-    width: 528,
+    width: MODAL_WIDTH,
     height: '100%',
   },
   header: {
