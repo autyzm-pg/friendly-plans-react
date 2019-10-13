@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { NarrowScreenTemplate, Separator, StyledText } from 'components';
+import { NarrowScreenTemplate, Separator, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
@@ -15,6 +15,7 @@ import { StudentTextSizeSettings } from './StudentTextSizeSettings';
 
 interface State {
   student: Student;
+  editModeOn: boolean;
 }
 
 export class StudentSettingsScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -24,6 +25,7 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     super(props);
     this.state = {
       student: props.navigation.getParam('student'),
+      editModeOn: false,
     };
   }
 
@@ -44,14 +46,38 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     });
   }
 
+  toggleEditMode = () => {
+    this.setState({
+      editModeOn: !this.state.editModeOn,
+    });
+  };
+
+  handleChange = (name: string) => {
+    this.state.student.update({ name });
+  };
+
   render() {
     const { navigation } = this.props;
-    const { student } = this.state;
+    const { student, editModeOn } = this.state;
 
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={navigation}>
         <StyledText style={styles.label}>{i18n.t('studentSettings:studentName')}</StyledText>
-        <StyledText style={styles.studentName}>{student.name}</StyledText>
+        {!editModeOn && (
+          <StyledText style={styles.studentName} onPress={this.toggleEditMode}>
+            {student.name}
+          </StyledText>
+        )}
+        {editModeOn && (
+          <TextInput
+            autoFocus
+            style={styles.textInput}
+            placeholder={i18n.t('studentSettings:studentNamePlaceholder')}
+            value={student.name}
+            onChangeText={this.handleChange}
+            onEndEditing={this.toggleEditMode}
+          />
+        )}
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
         <PlanDisplayPreview
@@ -89,5 +115,9 @@ const styles = StyleSheet.create({
   },
   slidersContainer: {
     paddingHorizontal: dimensions.spacingBig,
+  },
+  textInput: {
+    marginTop: dimensions.spacingMedium,
+    marginBottom: dimensions.spacingHuge,
   },
 });
