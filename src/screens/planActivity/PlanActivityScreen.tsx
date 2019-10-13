@@ -30,6 +30,18 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ rowList: [...this.state.rowList, this.state.rowList.length] });
   };
 
+  validatePlan = async ({ planInput }: PlanFormData): Promise<void> => {
+    const { id } = this.props.navigation.getParam('student');
+    const errors: any = {};
+
+    const doesPlanExist: boolean = await Plan.doesPlanExist(id, planInput);
+
+    if (doesPlanExist) {
+      errors.planInput = i18n.t('validation:dupliactedPlan');
+      throw errors;
+    }
+  };
+
   createPlan = async ({ planInput }: PlanFormData) => {
     const { id } = this.props.navigation.getParam('student');
 
@@ -44,7 +56,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     return (
       <>
         <View style={styles.headerContainer}>
-          <PlanForm onSubmit={this.createPlan} plan={plan} />
+          <PlanForm onSubmit={this.createPlan} plan={plan} onValidate={this.validatePlan} />
           {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={rowList} />

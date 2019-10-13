@@ -1,9 +1,9 @@
 import PlayButton, { TextInput } from 'components';
-import { Formik, FormikProps } from 'formik';
+import { ErrorMessage, Formik, FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import React, { SFC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { dimensions, palette } from 'styles';
 import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
@@ -19,11 +19,12 @@ const FORM_INITIAL_VALUES: PlanFormData = {
 
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
+  onValidate: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
-  const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
+  const renderFormControls = ({ values, handleChange, submitForm, errors }: FormikProps<PlanFormData>) => {
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -39,6 +40,9 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
               onEndEditing={submitForm}
             />
           )}
+          <Text style={styles.errorMessage}>
+            <ErrorMessage name="planInput" />
+          </Text>
         </View>
         <View style={styles.buttonContainer}>
           <ShuffleButton disabled={!plan} />
@@ -48,7 +52,9 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
     );
   };
 
-  return <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={onSubmit} render={renderFormControls} />;
+  return (
+    <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={onSubmit} render={renderFormControls} validate={onValidate} />
+  );
 };
 
 const styles = StyleSheet.create({
@@ -76,6 +82,10 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.spacingSmall,
   },
   textInput: {
+    marginLeft: dimensions.spacingSmall,
+  },
+  errorMessage: {
+    color: palette.error,
     marginLeft: dimensions.spacingSmall,
   },
 });
