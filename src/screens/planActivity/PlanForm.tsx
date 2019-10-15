@@ -15,20 +15,20 @@ export interface PlanFormData {
   planInput: string;
 }
 
-const initialValues: PlanFormData = {
-  planInput: '',
-};
-
-const validationSchema = Yup.object().shape({
-  planInput: Yup.string().required(),
-});
-
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
 }
 
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
+  const initialValues: PlanFormData = {
+    planInput: plan ? plan.name : '',
+  };
+
+  const validationSchema = Yup.object().shape({
+    planInput: Yup.string().required(),
+  });
+
   const renderFormControls = ({ values, setFieldValue, submitForm }: FormikProps<PlanFormData>) => {
     const handleChangeText = (value: string) => setFieldValue('planInput', value);
 
