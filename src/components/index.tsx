@@ -18,4 +18,5 @@ export { StudentListElement } from './StudentListElement';
 export { StyledText } from './StyledText';
 export { SwitchItem } from './SwitchItem';
 export { TextInput } from './TextInput';
+export { TextInputForm } from './TextInputForm';
 export { default } from './PlayButton';

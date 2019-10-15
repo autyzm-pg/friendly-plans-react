@@ -1,11 +1,11 @@
-import PlayButton, { TextInput } from 'components';
+import PlayButton, { Icon, TextInputForm } from 'components';
 import { Formik, FormikProps } from 'formik';
+
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import React, { SFC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { dimensions, palette } from 'styles';
-import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
@@ -23,22 +23,20 @@ interface Props {
 }
 
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
-  const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
+  const renderFormControls = ({ values, setFieldValue, submitForm }: FormikProps<PlanFormData>) => {
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-          {plan ? (
-            <StyledText style={styles.styledText}>{values.planInput}</StyledText>
-          ) : (
-            <TextInput
-              style={styles.textInput}
-              placeholder={i18n.t('planActivity:planNamePlaceholder')}
-              value={values.planInput}
-              onChangeText={handleChange('planInput')}
-              onEndEditing={submitForm}
-            />
-          )}
+          <TextInput
+            style={styles.inputContainer}
+            onChangeText={this.handleChange}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            hideUnderline={!this.state.isTouched && !isEmpty(value)}
+            isTouched={this.state.isTouched || isEmpty(value)}
+            {...this.props}
+          />
         </View>
         <View style={styles.buttonContainer}>
           <ShuffleButton disabled={!plan} />
@@ -79,3 +77,13 @@ const styles = StyleSheet.create({
     marginLeft: dimensions.spacingSmall,
   },
 });
+
+/*
+          <TextInputForm
+            name="planInput"
+            placeholder={i18n.t('planActivity:planNamePlaceholder')}
+            value={values.planInput}
+            onChange={setFieldValue}
+            onEndEditing={submitForm}
+          />
+*/
