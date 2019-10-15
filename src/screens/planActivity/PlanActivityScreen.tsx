@@ -32,10 +32,6 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   createPlan = async (name: string) => {
-    if (isEmpty(name)) {
-      return;
-    }
-
     const { id } = this.props.navigation.getParam('student');
 
     const plan = await Plan.createPlan(id, name);

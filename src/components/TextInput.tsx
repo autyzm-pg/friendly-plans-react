@@ -5,14 +5,14 @@ import { palette, typography } from 'styles';
 
 interface Props extends TextInputProps {
   hideUnderline?: boolean;
-  isTouched?: boolean;
+  isActive?: boolean;
 }
 
-export const TextInput: SFC<Props> = ({ hideUnderline, isTouched = true, style, ...inputProps }) => (
+export const TextInput: SFC<Props> = ({ hideUnderline, isActive = true, style, ...inputProps }) => (
   <View style={[styles.inputWrapper, style, hideUnderline ? {} : styles.inputUnderline]}>
     <BaseTextInput
       autoCorrect={false}
-      style={[styles.input, isTouched ? styles.inputTouched : styles.inputUnTouched]}
+      style={[styles.input, isActive ? styles.inputTouched : styles.inputUnTouched]}
       placeholderTextColor={palette.textInputPlaceholder}
       {...inputProps}
     />

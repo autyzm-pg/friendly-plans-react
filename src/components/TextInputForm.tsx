@@ -1,44 +1,33 @@
+import isEmpty from 'lodash.isempty';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { TextInputProps } from 'react-native';
 
 import { TextInput } from 'components';
-import isEmpty from 'lodash.isempty';
-import { dimensions } from 'styles';
 
 interface State {
-  isTouched: boolean;
+  isFocus: boolean;
 }
 
-export class TextInputForm extends React.PureComponent<any, State> {
+export class TextInputForm extends React.PureComponent<TextInputProps, State> {
   state: State = {
-    isTouched: false,
+    isFocus: false,
   };
 
-  handleChange = (value: string) => this.props.onChange(this.props.name, value);
+  handleFocus = () => this.setState({ isFocus: true });
 
-  handleFocus = () => this.setState({ isTouched: true });
-
-  handleBlur = () => this.setState({ isTouched: false });
+  handleBlur = () => this.setState({ isFocus: false });
 
   render() {
-    const { value } = this.props;
+    const isActive = !this.state.isFocus && !isEmpty(this.props.value);
 
     return (
       <TextInput
-        style={styles.inputContainer}
-        onChangeText={this.handleChange}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
-        hideUnderline={!this.state.isTouched && !isEmpty(value)}
-        isTouched={this.state.isTouched || isEmpty(value)}
+        hideUnderline={isActive}
+        isActive={!isActive}
         {...this.props}
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  inputContainer: {
-    marginLeft: dimensions.spacingMedium,
-  },
-});
