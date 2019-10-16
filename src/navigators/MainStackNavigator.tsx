@@ -11,18 +11,12 @@ import {
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
-  UpdatePlanItemScreen,
-  UpdatePlanScreen,
-  UpdatePlanSubItemScreen,
 } from 'screens';
 
 export const MainStackNavigator = createStackNavigator(
   {
     Dashboard: DashboardScreen,
     PlanActivity: PlanActivityScreen,
-    UpdatePlanItem: UpdatePlanItemScreen,
-    UpdatePlanSubItem: UpdatePlanSubItemScreen,
-    UpdatePlan: UpdatePlanScreen,
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
     RunSubPlanList: RunSubPlanListScreen,

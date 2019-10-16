@@ -96,13 +96,6 @@ const translations = {
     addTask: 'Add task',
     planItemNamePlaceholder: 'Enter Plan Item name...',
   },
-  updatePlanItem: {
-    planSubItemNamePlaceholder: 'Enter sub item name...',
-    taskComplexity: 'Simple/Complex',
-    simpleTask: 'S',
-    complexTask: 'C',
-    addSubPlanItem: 'Add',
-  },
   studentSettings: {
     studentName: "Student's name",
     taskView: "Task's view",

@@ -1,11 +1,12 @@
-import PlayButton, { TextInput } from 'components';
 import { Formik, FormikProps } from 'formik';
-import { i18n } from 'locale';
-import { Plan } from 'models';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
+import * as Yup from 'yup';
+
+import PlayButton, { Icon, TextInput } from 'components';
+import { i18n } from 'locale';
+import { Plan } from 'models';
 import { dimensions, palette } from 'styles';
-import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
@@ -13,32 +14,34 @@ export interface PlanFormData {
   planInput: string;
 }
 
-const FORM_INITIAL_VALUES: PlanFormData = {
-  planInput: '',
-};
-
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
 }
 
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
-  const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanFormData>) => {
+  const initialValues: PlanFormData = {
+    planInput: plan ? plan.name : '',
+  };
+
+  const validationSchema = Yup.object().shape({
+    planInput: Yup.string().required(),
+  });
+
+  const renderFormControls = ({ values, setFieldValue, submitForm }: FormikProps<PlanFormData>) => {
+    const handleChangeText = (value: string) => setFieldValue('planInput', value);
+
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-          {plan ? (
-            <StyledText style={styles.styledText}>{values.planInput}</StyledText>
-          ) : (
-            <TextInput
-              style={styles.textInput}
-              placeholder={i18n.t('planActivity:planNamePlaceholder')}
-              value={values.planInput}
-              onChangeText={handleChange('planInput')}
-              onEndEditing={submitForm}
-            />
-          )}
+          <TextInput
+            style={styles.input}
+            placeholder={i18n.t('planActivity:planNamePlaceholder')}
+            value={values.planInput}
+            onChangeText={handleChangeText}
+            onEndEditing={submitForm}
+          />
         </View>
         <View style={styles.buttonContainer}>
           <ShuffleButton disabled={!plan} />
@@ -48,7 +51,14 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
     );
   };
 
-  return <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={onSubmit} render={renderFormControls} />;
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+      render={renderFormControls}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
@@ -71,11 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  styledText: {
-    color: palette.textBlack,
-    marginLeft: dimensions.spacingSmall,
-  },
-  textInput: {
+  input: {
     marginLeft: dimensions.spacingSmall,
   },
 });

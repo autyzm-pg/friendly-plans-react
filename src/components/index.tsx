@@ -10,7 +10,6 @@ export { Header } from './Header';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { InputItem } from './InputItem';
-export { ListItem } from './ListItem';
 export { ModalTemplate } from './ModalTemplate';
 export { NarrowScreenTemplate } from './NarrowScreenTemplate';
 export { PlanNameText } from './PlanNameText';
