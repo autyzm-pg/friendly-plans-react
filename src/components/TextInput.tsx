@@ -57,14 +57,14 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     color: palette.textBlack,
   },
-  inputWrapper: {
-    flex: 1,
-  },
   inputUnderline: {
     borderBottomColor: palette.primary,
     borderBottomWidth: 1,
   },
   inputBackground: {
     backgroundColor: palette.backgroundAdditional,
+  },
+  inputWrapper: {
+    flex: 1,
   },
 });

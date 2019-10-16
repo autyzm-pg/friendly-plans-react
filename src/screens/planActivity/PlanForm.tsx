@@ -1,12 +1,11 @@
-import PlayButton, { Icon, TextInput } from 'components';
 import { Formik, FormikProps } from 'formik';
-
-import { i18n } from 'locale';
-import { Plan } from 'models';
 import React, { SFC } from 'react';
+import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { StyleSheet, View } from 'react-native';
+import PlayButton, { Icon, TextInput } from 'components';
+import { i18n } from 'locale';
+import { Plan } from 'models';
 import { dimensions, palette } from 'styles';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
