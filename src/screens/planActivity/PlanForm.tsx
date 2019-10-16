@@ -36,7 +36,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
           <TextInput
-            style={styles.input}
+            style={styles.textInput}
             placeholder={i18n.t('planActivity:planNamePlaceholder')}
             value={values.planInput}
             onChangeText={handleChangeText}
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  input: {
+  textInput: {
+    flex: 1,
     marginLeft: dimensions.spacingSmall,
   },
 });
