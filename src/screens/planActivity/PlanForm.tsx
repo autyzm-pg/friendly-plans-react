@@ -1,4 +1,4 @@
-import PlayButton, { Icon, TextInputForm } from 'components';
+import PlayButton, { Icon, TextInput } from 'components';
 import { Formik, FormikProps } from 'formik';
 
 import { i18n } from 'locale';
@@ -36,7 +36,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-          <TextInputForm
+          <TextInput
             style={styles.input}
             placeholder={i18n.t('planActivity:planNamePlaceholder')}
             value={values.planInput}
