@@ -47,6 +47,7 @@ const translations = {
     blockSwipe: "Blokada swipe'u",
     alarmSound: 'Dźwięk alarmu',
     planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
+    studentNamePlaceholder: 'Wpisz imię podopiecznego',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',

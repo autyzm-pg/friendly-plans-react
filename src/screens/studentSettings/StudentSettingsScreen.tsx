@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { NarrowScreenTemplate, Separator, StyledText } from 'components';
+import { NarrowScreenTemplate, Separator, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
@@ -44,6 +44,18 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     });
   }
 
+  handleChange = (name: string) => this.setState({ student: { ...this.state.student, name } });
+
+  handleEndEditing = () => {
+    const { student } = this.state;
+
+    if (!student.name) {
+      return;
+    }
+
+    this.state.student.update({ name: student.name });
+  };
+
   render() {
     const { navigation } = this.props;
     const { student } = this.state;
@@ -51,7 +63,13 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={navigation}>
         <StyledText style={styles.label}>{i18n.t('studentSettings:studentName')}</StyledText>
-        <StyledText style={styles.studentName}>{student.name}</StyledText>
+        <TextInput
+          style={styles.textInput}
+          placeholder={i18n.t('studentSettings:studentNamePlaceholder')}
+          value={student.name}
+          onChangeText={this.handleChange}
+          onEndEditing={this.handleEndEditing}
+        />
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:taskView')}</StyledText>
         <PlanDisplayPreview
@@ -81,13 +99,11 @@ const styles = StyleSheet.create({
   taskViewLabel: {
     marginVertical: dimensions.spacingSmall,
   },
-  studentName: {
-    ...typography.subtitle,
-    color: palette.textBody,
-    marginTop: dimensions.spacingMedium,
-    marginBottom: dimensions.spacingBig,
-  },
   slidersContainer: {
     paddingHorizontal: dimensions.spacingBig,
+  },
+  textInput: {
+    marginTop: dimensions.spacingSmall,
+    marginBottom: dimensions.spacingBig,
   },
 });

@@ -106,6 +106,7 @@ const translations = {
     blockSwipe: 'Block swipe',
     alarmSound: 'Alarm sound',
     planCardPlacehorder: "Let's play paper, rock, scissors",
+    studentNamePlaceholder: 'Type student name',
   },
   studentsList: {
     screenTitle: 'Select student',
