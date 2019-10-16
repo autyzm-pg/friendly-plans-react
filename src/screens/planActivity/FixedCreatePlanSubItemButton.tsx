@@ -4,17 +4,12 @@ import { FloatingAction } from 'react-native-floating-action';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
+import { PlanItemType } from 'models';
 import { palette, typography } from 'styles';
-
-const actionNames = {
-  task: 'create-task',
-  interaction: 'create-interaction',
-  break: 'create-break',
-};
 
 const actions = [
   {
-    name: actionNames.task,
+    name: PlanItemType.SimpleTask,
     icon: <Icon name="layers" type="material" color={palette.primary} size={22} />,
     text: i18n.t('updatePlan:addTask'),
     position: 1,
@@ -25,7 +20,7 @@ const actions = [
     textColor: palette.textWhite,
   },
   {
-    name: actionNames.interaction,
+    name: PlanItemType.Interaction,
     icon: <Icon name="group" type="material" color={palette.secondary} size={22} />,
     text: i18n.t('updatePlan:addInteraction'),
     position: 2,
@@ -36,7 +31,7 @@ const actions = [
     textColor: palette.textWhite,
   },
   {
-    name: actionNames.break,
+    name: PlanItemType.Break,
     icon: <Icon name="notifications" type="material" color={palette.break} size={22} />,
     text: i18n.t('updatePlan:addBreak'),
     position: 3,
@@ -63,7 +58,7 @@ export class FixedCreatePlanSubItemButton extends React.PureComponent<Props, Sta
     isOpen: false,
   };
 
-  onPressItem = (actionName: string = actionNames.task) => {
+  onPressItem = (actionName: string = PlanItemType.SimpleTask) => {
     this.props.onPress(actionName);
   };
 

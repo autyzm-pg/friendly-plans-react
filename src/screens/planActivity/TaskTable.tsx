@@ -2,6 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { FullScreenTemplate } from 'components';
+import { PlanItem } from 'models';
 import { dimensions, getElevation, palette } from 'styles';
 import { TableRow } from './TableRow';
 
@@ -17,14 +18,14 @@ export const CELL_DIMENSIONS = {
 };
 
 interface Props {
-  rowList: number[];
+  rowList: PlanItem[];
 }
 
 export const TaskTable: SFC<Props> = ({ rowList }) => (
   <FullScreenTemplate darkBackground>
     <View style={styles.container}>
-      {rowList.map((rowNumber, index) => (
-        <TableRow border={index !== rowList.length - 1} key={index} rowNumber={rowNumber + 1} />
+      {rowList.map((row, index) => (
+        <TableRow planItem={row} border={index !== rowList.length - 1} key={index} rowNumber={index + 1} />
       ))}
     </View>
   </FullScreenTemplate>

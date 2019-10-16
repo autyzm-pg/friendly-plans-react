@@ -15,14 +15,43 @@ export enum PlanItemType {
 }
 
 const PLAN_ITEMS_ICONS = {
-  task: 'layers',
+  simpleTask: 'layers',
+  complexTask: 'layers',
   break: 'bell',
   interaction: 'account-multiple',
 };
 
 export class PlanItem implements SubscribableModel, PlanElement {
-  static create = (plan: Plan, type: PlanItemType): Promise<RNFirebase.firestore.DocumentReference> =>
+  static create = (
+    plan: Plan,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+    type: PlanItemType,
+  ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+    });
+
+  static async createPlanItem(
+    plan: Plan,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+    type: PlanItemType,
+  ): Promise<PlanItem> {
+    const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+    });
+
+    return Object.assign(new PlanItem(), {
+      id,
       name: i18n.t('updatePlan:planItemNamePlaceholder'),
       studentId: plan.studentId,
       planId: plan.id,
@@ -30,6 +59,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       completed: false,
       lector: false,
     });
+  }
 
   id!: string;
   name!: string;
