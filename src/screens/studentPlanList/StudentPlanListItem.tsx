@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableHighlight, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import PlayButton, { Card, Emoji, StyledText } from 'components';
@@ -30,18 +30,29 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
     this.studentSubscriber.unsubscribeElementUpdates();
   }
 
+  navigateToUpdatePlan = () => {
+    const { student, plan } = this.props;
+
+    this.props.navigation.navigate('PlanActivity', {
+      student,
+      plan,
+    });
+  };
+
   render() {
     const { name } = this.props.plan;
 
     return (
       <View style={styles.container}>
-        <Card style={styles.card}>
-          <View style={styles.cardTextContainer}>
-            <Emoji symbol="🎸" />
-            <StyledText style={styles.cardText}>{name}</StyledText>
-          </View>
-          <PlayButton plan={this.props.plan} size={50} />
-        </Card>
+        <TouchableHighlight onPress={this.navigateToUpdatePlan} underlayColor="transparent">
+          <Card style={styles.card}>
+            <View style={styles.cardTextContainer}>
+              <Emoji symbol="🎸" />
+              <StyledText style={styles.cardText}>{name}</StyledText>
+            </View>
+            <PlayButton plan={this.props.plan} size={50} />
+          </Card>
+        </TouchableHighlight>
       </View>
     );
   }

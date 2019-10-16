@@ -14,7 +14,7 @@ import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
   rowList: number[];
-  plan?: Plan;
+  plan: Plan;
 }
 
 export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -24,19 +24,31 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   state: State = {
     rowList: [],
+    plan: this.props.navigation.getParam('plan'),
   };
 
   handleAddRow = () => {
     this.setState({ rowList: [...this.state.rowList, this.state.rowList.length] });
   };
 
-  createPlan = async ({ planInput }: PlanFormData) => {
+  createPlan = async (name: string) => {
     const { id } = this.props.navigation.getParam('student');
 
-    const plan = await Plan.createPlan(id, planInput);
+    const plan = await Plan.createPlan(id, name);
 
     this.setState({ plan });
   };
+
+  updatePlan = async (name: string) => {
+    await this.state.plan.update({
+      name,
+    });
+
+    this.setState({ plan: { ...this.state.plan, name } });
+  };
+
+  onSubmit = ({ planInput }: PlanFormData) =>
+    this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
 
   render() {
     const { plan, rowList } = this.state;
@@ -44,7 +56,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     return (
       <>
         <View style={styles.headerContainer}>
-          <PlanForm onSubmit={this.createPlan} plan={plan} />
+          <PlanForm onSubmit={this.onSubmit} plan={plan} />
           {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={rowList} />
