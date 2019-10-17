@@ -57,7 +57,7 @@ interface State {
   isOpen: boolean;
 }
 
-export class FixedCreatePlanSubItemButton extends React.PureComponent<Props, State> {
+export class FixedCreatePlanItemButton extends React.PureComponent<Props, State> {
   state: State = {
     actionName: '',
     isOpen: false,

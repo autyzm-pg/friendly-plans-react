@@ -6,7 +6,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import { getElevation, palette } from 'styles';
-import { FixedCreatePlanSubItemButton } from './FixedCreatePlanSubItemButton';
+import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
@@ -69,7 +69,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
           {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={rowList} />
-        {plan && <FixedCreatePlanSubItemButton onPress={this.navigateToCreatePlanItem} />}
+        {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );
   }
