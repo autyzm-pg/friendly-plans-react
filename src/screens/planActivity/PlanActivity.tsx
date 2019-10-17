@@ -79,7 +79,9 @@ class PlanActivity extends React.PureComponent<NavigationFocusInjectedProps, Sta
 
     const plan = await Plan.createPlan(id, name);
 
-    this.setState({ plan });
+    this.setState({ plan }, () => {
+      this.subscribeToPlanItems();
+    });
   };
 
   updatePlan = async (name: string) => {
