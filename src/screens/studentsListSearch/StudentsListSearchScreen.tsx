@@ -61,6 +61,7 @@ export class StudentsListSearchScreen extends React.PureComponent<Props, State> 
 
 const styles = StyleSheet.create({
   searchInput: {
+    flex: 1,
     marginHorizontal: dimensions.spacingTiny,
   },
 });
