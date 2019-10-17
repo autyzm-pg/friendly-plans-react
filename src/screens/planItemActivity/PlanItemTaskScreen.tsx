@@ -6,20 +6,24 @@ import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
 import { NavigationInjectedProps } from 'react-navigation';
 import { dimensions, getElevation, palette, typography } from 'styles';
+import { PlanItemComplexTask } from './PlanItemComplexTask';
+import { PlanItemSimpleTask } from './PlanItemSimpleTask';
 
 interface State {
   planItem: PlanItem;
-  itemType: PlanItemType;
+  taskType: PlanItemType;
 }
 
-export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
+export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
 
   state: State = {
     planItem: this.props.navigation.getParam('planItem') ? this.props.navigation.getParam('planItem') : new PlanItem(),
-    itemType: PlanItemType.SimpleTask,
+    taskType: this.props.navigation.getParam('planItem')
+      ? this.props.navigation.getParam('planItem').type
+      : PlanItemType.SimpleTask,
   };
 
   handleChangeText = (name: string) => {
@@ -30,11 +34,12 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
 
   changePlanItemType = (isSimpleTask: boolean) => {
     this.setState({
-      itemType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
+      taskType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
     });
   };
 
   render() {
+    const { planItem, taskType } = this.state;
     return (
       <FullScreenTemplate darkBackground>
         <View style={styles.subHeaderContainer}>
@@ -53,23 +58,11 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
           </View>
         </View>
         <Card style={styles.card}>
-          <View style={styles.imagePickerContainer}>
-            <View style={styles.imagePicker}>
-              <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
-            </View>
-            <StyledText>{this.state.itemType}</StyledText>
-            <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
-          </View>
-          <View style={styles.timerButton}>
-            <IconButton
-              name="alarm-off"
-              type="material"
-              label={i18n.t('planItemActivity:timerButton')}
-              containerStyle={styles.iconButtonContainer}
-              size={24}
-              color={palette.primaryVariant}
-            />
-          </View>
+          {taskType === PlanItemType.SimpleTask ? (
+            <PlanItemSimpleTask planItem={planItem} />
+          ) : (
+            <PlanItemComplexTask planItem={planItem} />
+          )}
         </Card>
       </FullScreenTemplate>
     );
