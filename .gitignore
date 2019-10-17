@@ -75,3 +75,6 @@ fastlane/report.xml
 *.keystore
 google-play-service-key.json
 
+# vscode
+.vscode/
+
