@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Card, Icon, IconButton, StyledText, TextInput } from 'components';
+import { Card, FullScreenTemplate, Icon, IconButton, StyledText } from 'components';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { NavigationInjectedProps } from 'react-navigation';
@@ -28,16 +28,11 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
   };
 
   render() {
-    const { planItem } = this.state;
     return (
-      <>
+      <FullScreenTemplate darkBackground>
         <View style={styles.subHeaderContainer}>
           <View>
-            <TextInput
-              placeholder={i18n.t('planActivity:planNamePlaceholder')}
-              value={planItem.name}
-              onChangeText={this.handleChangeText}
-            />
+            <StyledText style={styles.textInput}>{i18n.t('planItemActivity:taskNamePlaceholder')}</StyledText>
           </View>
           <View style={styles.buttonsContainer}>
             <SwitchIconButton firstIconName="layers" secondIconName="layers-clear" />
@@ -68,7 +63,7 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
             />
           </View>
         </Card>
-      </>
+      </FullScreenTemplate>
     );
   }
 }
@@ -79,10 +74,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: dimensions.spacingLarge,
-    paddingRight: dimensions.spacingBig,
+    paddingHorizontal: dimensions.spacingExtraLarge,
     backgroundColor: palette.background,
     ...getElevation(5),
+    borderBottomColor: palette.backgroundAdditional,
+    borderBottomWidth: 1,
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -90,20 +86,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   textInput: {
-    marginLeft: dimensions.spacingSmall,
+    ...typography.subtitle,
+    color: palette.textInputPlaceholder,
   },
   card: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginVertical: dimensions.spacingBig,
-    marginHorizontal: dimensions.spacingHuge,
-    height: '80%',
+    marginHorizontal: dimensions.spacingExtraLarge,
+    height: '78%',
   },
   iconButtonContainer: {
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,
-    paddingHorizontal: 12,
+    paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
   imagePicker: {
@@ -117,6 +114,7 @@ const styles = StyleSheet.create({
   imagePickerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: dimensions.spacingSmall,
   },
   imageInputText: {
     ...typography.taskInput,
