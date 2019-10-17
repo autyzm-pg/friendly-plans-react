@@ -48,21 +48,23 @@ const actions = [
   },
 ];
 
+interface Props {
+  onPress: (name: string) => void;
+}
+
 interface State {
   actionName: string;
   isOpen: boolean;
 }
 
-export class FixedCreatePlanSubItemButton extends React.PureComponent<{}, State> {
+export class FixedCreatePlanSubItemButton extends React.PureComponent<Props, State> {
   state: State = {
     actionName: '',
     isOpen: false,
   };
 
   onPressItem = (actionName: string = actionNames.task) => {
-    this.setState({
-      actionName,
-    });
+    this.props.onPress(actionName);
   };
 
   onOpen = () => {
