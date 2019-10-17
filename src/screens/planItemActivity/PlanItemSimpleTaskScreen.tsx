@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Card, FullScreenTemplate, Icon, IconButton, StyledText } from 'components';
+import { Card, FullScreenTemplate, Icon, IconButton, IconToggleButton, StyledText } from 'components';
 import { i18n } from 'locale';
-import { PlanItem } from 'models';
+import { PlanItem, PlanItemType } from 'models';
 import { NavigationInjectedProps } from 'react-navigation';
 import { dimensions, getElevation, palette, typography } from 'styles';
-import { SwitchIconButton } from './SwitchIconButton';
 
 interface State {
   planItem: PlanItem;
+  itemType: PlanItemType;
 }
 
 export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -19,11 +19,18 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
 
   state: State = {
     planItem: this.props.navigation.getParam('planItem') ? this.props.navigation.getParam('planItem') : new PlanItem(),
+    itemType: PlanItemType.SimpleTask,
   };
 
   handleChangeText = (name: string) => {
     this.setState({
       planItem: { ...this.state.planItem, name },
+    });
+  };
+
+  changePlanItemType = (isSimpleTask: boolean) => {
+    this.setState({
+      itemType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
     });
   };
 
@@ -35,7 +42,7 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
             <StyledText style={styles.textInput}>{i18n.t('planItemActivity:taskNamePlaceholder')}</StyledText>
           </View>
           <View style={styles.buttonsContainer}>
-            <SwitchIconButton firstIconName="layers" secondIconName="layers-clear" />
+            <IconToggleButton icons={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
             <IconButton
               name="mic-off"
               type="material"
@@ -50,6 +57,7 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
             <View style={styles.imagePicker}>
               <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
             </View>
+            <StyledText>{this.state.itemType}</StyledText>
             <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
           </View>
           <View style={styles.timerButton}>
