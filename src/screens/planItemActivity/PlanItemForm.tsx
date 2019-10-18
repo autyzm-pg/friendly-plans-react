@@ -55,7 +55,8 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
         <View style={styles.subHeaderContainer}>
           <View>
             <TextInput
-              style={styles.textInput}
+              style={styles.textInputContainer}
+              textStyle={styles.textInput}
               placeholder={i18n.t('planItemActivity:taskNamePlaceholder')}
               value={values.name}
               onChangeText={handleChange('name')}
@@ -115,7 +116,9 @@ const styles = StyleSheet.create({
   },
   textInput: {
     ...typography.subtitle,
-    color: palette.textInputPlaceholder,
+  },
+  textInputContainer: {
+    width: 288,
   },
   card: {
     flexDirection: 'row',
@@ -130,24 +133,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
-  },
-  imagePicker: {
-    borderRadius: 8,
-    borderColor: palette.backgroundSurface,
-    borderWidth: 1,
-    display: 'flex',
-    paddingHorizontal: 91,
-    paddingVertical: 67,
-  },
-  imagePickerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.spacingSmall,
-  },
-  imageInputText: {
-    ...typography.taskInput,
-    color: palette.textInputPlaceholder,
-    marginTop: 53,
   },
   timerButton: {
     position: 'absolute',
