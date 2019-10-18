@@ -21,15 +21,44 @@ const PLAN_ITEMS_ICONS = {
 };
 
 export class PlanItem implements SubscribableModel, PlanElement {
-  static create = (plan: Plan, type: PlanItemType): Promise<RNFirebase.firestore.DocumentReference> =>
+  static create = (
+    plan: Plan,
+    type: PlanItemType,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+  ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
-      name: i18n.t('updatePlan:planItemNamePlaceholder'),
+      name,
       studentId: plan.studentId,
       planId: plan.id,
       type,
       completed: false,
       lector: false,
     });
+
+  static async createPlanItem(
+    plan: Plan,
+    type: PlanItemType,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+  ): Promise<PlanItem> {
+    const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+    });
+
+    return Object.assign(new PlanItem(), {
+      id,
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+    });
+  }
 
   id!: string;
   name!: string;
