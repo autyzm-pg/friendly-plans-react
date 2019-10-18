@@ -6,6 +6,7 @@ import { IconButton } from './IconButton';
 
 interface Props {
   iconNames: string[];
+  secondButtonOn?: boolean;
   onPress: (value: boolean) => void;
 }
 
@@ -15,7 +16,7 @@ interface State {
 
 export class IconToggleButton extends React.PureComponent<Props, State> {
   state = {
-    isFirstButtonOn: true,
+    isFirstButtonOn: this.props.secondButtonOn ? false : true,
   };
 
   handlePressFirst = () => {

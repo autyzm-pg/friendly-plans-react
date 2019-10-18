@@ -8,7 +8,6 @@ import { PlanItemForm, PlanItemFormData } from './PlanItemForm';
 
 interface State {
   planItem: PlanItem;
-  taskType: PlanItemType;
 }
 
 export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -18,19 +17,6 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
 
   state: State = {
     planItem: this.props.navigation.getParam('planItem'),
-    taskType: PlanItemType.SimpleTask,
-  };
-
-  handleChangeText = (name: string) => {
-    this.setState({
-      planItem: { ...this.state.planItem, name },
-    });
-  };
-
-  changePlanItemType = (isSimpleTask: boolean) => {
-    this.setState({
-      taskType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
-    });
   };
 
   createPlanItem = async (name: string) => {

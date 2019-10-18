@@ -26,7 +26,7 @@ interface State {
 
 export class PlanItemForm extends React.PureComponent<Props, State> {
   state: State = {
-    taskType: PlanItemType.SimpleTask,
+    taskType: this.props.planItem ? this.props.planItem.type : PlanItemType.SimpleTask,
   };
 
   initialValues: PlanItemFormData = {
@@ -39,9 +39,27 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
     nameForChild: Yup.string(),
   });
 
-  changePlanItemType = (isSimpleTask: boolean) => {
+  isSimpleTask = (): boolean => {
+    const { planItem } = this.props;
+
+    if (!planItem) {
+      return true;
+    }
+    return planItem.type === PlanItemType.SimpleTask;
+  };
+
+  changePlanItemType = async (isSimpleTask: boolean) => {
+    const { planItem } = this.props;
+    const type = isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask;
+
+    if (planItem) {
+      await planItem.update({
+        type,
+      });
+    }
+
     this.setState({
-      taskType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
+      taskType: type,
     });
   };
 
@@ -60,10 +78,14 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
               onChangeText={handleChange('name')}
               onEndEditing={submitForm}
             />
-            {errors.name && touched.name ? <StyledText style={styles.errorMessage}>{errors.name}</StyledText> : null}
+            {errors.name && touched.name && <StyledText style={styles.errorMessage}>{errors.name}</StyledText>}
           </View>
           <View style={styles.buttonsContainer}>
-            <IconToggleButton iconNames={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
+            <IconToggleButton
+              iconNames={['layers-clear', 'layers']}
+              onPress={this.changePlanItemType}
+              secondButtonOn={!this.isSimpleTask()}
+            />
             <IconButton
               name="mic-off"
               type="material"
