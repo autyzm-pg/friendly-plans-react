@@ -1,9 +1,9 @@
 import { Formik, FormikProps } from 'formik';
-import React, { SFC } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { Card, IconButton, IconToggleButton, TextInput } from 'components';
+import { Card, IconButton, IconToggleButton, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
 import { dimensions, getElevation, palette, typography } from 'styles';
@@ -35,7 +35,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
   };
 
   validationSchema = Yup.object().shape({
-    name: Yup.string().required(),
+    name: Yup.string().required('Required!'),
     nameForChild: Yup.string(),
   });
 
@@ -46,7 +46,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
   };
 
   renderFormControls = (formikProps: FormikProps<PlanItemFormData>) => {
-    const { values, handleChange, submitForm } = formikProps;
+    const { values, handleChange, submitForm, errors, touched } = formikProps;
 
     return (
       <>
@@ -60,6 +60,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
               onChangeText={handleChange('name')}
               onEndEditing={submitForm}
             />
+            {errors.name && touched.name ? <StyledText style={styles.errorMessage}>{errors.name}</StyledText> : null}
           </View>
           <View style={styles.buttonsContainer}>
             <IconToggleButton iconNames={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
@@ -136,5 +137,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: dimensions.spacingBig,
     top: dimensions.spacingBig,
+  },
+  errorMessage: {
+    color: palette.error,
   },
 });
