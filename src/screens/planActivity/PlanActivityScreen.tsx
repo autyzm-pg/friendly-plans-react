@@ -1,13 +1,12 @@
 import isEmpty from 'lodash.isempty';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { FloatingAction } from 'react-native-floating-action';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { Icon } from 'components';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import { getElevation, palette } from 'styles';
+import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
@@ -50,6 +49,16 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   onSubmit = ({ planInput }: PlanFormData) =>
     this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
 
+  navigateToCreatePlanItem = async (itemType: string) => {
+    const student = this.props.navigation.getParam('student');
+    const plan = this.state.plan;
+
+    this.props.navigation.navigate('PlanItemSimpleTask', {
+      student,
+      plan,
+    });
+  };
+
   render() {
     const { plan, rowList } = this.state;
 
@@ -60,18 +69,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
           {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={rowList} />
-        {plan && (
-          <FloatingAction
-            overrideWithAction
-            actions={[
-              {
-                name: 'create-plan',
-                icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
-              },
-            ]}
-            onPressItem={this.handleAddRow}
-          />
-        )}
+        {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );
   }

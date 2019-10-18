@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { IconProps } from 'react-native-elements';
 
-import { typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 import { Icon } from './Icon';
 import { StyledText } from './StyledText';
 
@@ -21,12 +21,15 @@ export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disable
 
 const styles = StyleSheet.create({
   label: {
-    ...typography.body,
+    ...typography.caption,
     textAlign: 'center',
+    color: palette.primaryVariant,
+    marginLeft: dimensions.spacingTiny,
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   iconDisabled: {
     backgroundColor: 'transparent',

@@ -73,4 +73,10 @@ export const typography = StyleSheet.create({
     fontSize: 12,
     letterSpacing: 0,
   },
+  // used for input in simple task
+  taskInput: {
+    fontFamily: fonts.sansSerif.regular,
+    fontSize: 20,
+    letterSpacing: 0,
+  },
 });

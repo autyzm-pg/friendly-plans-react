@@ -78,6 +78,14 @@ const translations = {
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
+  planItemActivity: {
+    viewTitleTask: 'Task',
+    viewTitleInteraction: 'Interaction',
+    viewTitleBreak: 'Break',
+    taskNamePlaceholder: 'Type task name',
+    timerButton: 'Set up timer',
+    taskNameForChild: 'Type task name for child',
+  },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',
     removePlanTitle: 'Confirm',

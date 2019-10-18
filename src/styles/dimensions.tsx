@@ -5,4 +5,5 @@ export const dimensions = {
   spacingBig: 24,
   spacingLarge: 32,
   spacingHuge: 48,
+  spacingExtraLarge: 72,
 };
