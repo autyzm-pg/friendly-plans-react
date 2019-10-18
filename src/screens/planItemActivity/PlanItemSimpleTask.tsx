@@ -27,7 +27,8 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
             <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
           </View>
           <TextInput
-            style={styles.imageInputText}
+            style={styles.imageInputTextContainer}
+            textStyle={styles.imageInputText}
             placeholder={i18n.t('planItemActivity:taskNameForChild')}
             value={values.nameForChild}
             onChangeText={handleChange('nameForChild')}
@@ -69,10 +70,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: dimensions.spacingSmall,
   },
+  imageInputTextContainer: {
+    marginTop: 53,
+    width: 260,
+  },
   imageInputText: {
     ...typography.taskInput,
-    color: palette.textInputPlaceholder,
-    marginTop: 53,
+    textAlign: 'center',
   },
   timerButton: {
     position: 'absolute',

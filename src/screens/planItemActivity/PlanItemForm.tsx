@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Card, IconButton, IconToggleButton, TextInput } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
-import { NavigationInjectedProps } from 'react-navigation';
 import { dimensions, getElevation, palette, typography } from 'styles';
 import { PlanItemComplexTask } from './PlanItemComplexTask';
 import { PlanItemSimpleTask } from './PlanItemSimpleTask';
@@ -25,7 +24,6 @@ interface State {
   taskType: PlanItemType;
 }
 
-// export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
 export class PlanItemForm extends React.PureComponent<Props, State> {
   state: State = {
     taskType: PlanItemType.SimpleTask,
@@ -55,7 +53,8 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
         <View style={styles.subHeaderContainer}>
           <View>
             <TextInput
-              style={styles.textInput}
+              style={styles.textInputContainer}
+              textStyle={styles.textInput}
               placeholder={i18n.t('planItemActivity:taskNamePlaceholder')}
               value={values.name}
               onChangeText={handleChange('name')}
@@ -115,7 +114,9 @@ const styles = StyleSheet.create({
   },
   textInput: {
     ...typography.subtitle,
-    color: palette.textInputPlaceholder,
+  },
+  textInputContainer: {
+    width: 288,
   },
   card: {
     flexDirection: 'row',
@@ -130,24 +131,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
-  },
-  imagePicker: {
-    borderRadius: 8,
-    borderColor: palette.backgroundSurface,
-    borderWidth: 1,
-    display: 'flex',
-    paddingHorizontal: 91,
-    paddingVertical: 67,
-  },
-  imagePickerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.spacingSmall,
-  },
-  imageInputText: {
-    ...typography.taskInput,
-    color: palette.textInputPlaceholder,
-    marginTop: 53,
   },
   timerButton: {
     position: 'absolute',
