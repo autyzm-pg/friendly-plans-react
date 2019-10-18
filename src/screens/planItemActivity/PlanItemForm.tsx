@@ -3,10 +3,12 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { Card, IconButton, TextInput } from 'components';
+import { Card, IconButton, IconToggleButton, TextInput } from 'components';
 import { i18n } from 'locale';
-import { PlanItem } from 'models';
+import { PlanItem, PlanItemType } from 'models';
+import { NavigationInjectedProps } from 'react-navigation';
 import { dimensions, getElevation, palette, typography } from 'styles';
+import { PlanItemComplexTask } from './PlanItemComplexTask';
 import { PlanItemSimpleTask } from './PlanItemSimpleTask';
 
 export interface PlanItemFormData {
@@ -19,19 +21,35 @@ interface Props {
   planItem: PlanItem;
 }
 
-export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
-  const initialValues: PlanItemFormData = {
-    name: planItem ? planItem.name : '',
-    nameForChild: planItem ? planItem.nameForChild : '',
+interface State {
+  taskType: PlanItemType;
+}
+
+// export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
+export class PlanItemForm extends React.PureComponent<Props, State> {
+  state: State = {
+    taskType: PlanItemType.SimpleTask,
   };
 
-  const validationSchema = Yup.object().shape({
+  initialValues: PlanItemFormData = {
+    name: this.props.planItem ? this.props.planItem.name : '',
+    nameForChild: this.props.planItem ? this.props.planItem.nameForChild : '',
+  };
+
+  validationSchema = Yup.object().shape({
     name: Yup.string().required(),
     nameForChild: Yup.string(),
   });
 
-  const renderFormControls = (formikProps: FormikProps<PlanItemFormData>) => {
+  changePlanItemType = (isSimpleTask: boolean) => {
+    this.setState({
+      taskType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
+    });
+  };
+
+  renderFormControls = (formikProps: FormikProps<PlanItemFormData>) => {
     const { values, handleChange, submitForm } = formikProps;
+
     return (
       <>
         <View style={styles.subHeaderContainer}>
@@ -45,6 +63,7 @@ export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
             />
           </View>
           <View style={styles.buttonsContainer}>
+            <IconToggleButton iconNames={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
             <IconButton
               name="mic-off"
               type="material"
@@ -55,21 +74,27 @@ export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
           </View>
         </View>
         <Card style={styles.card}>
-          <PlanItemSimpleTask planItem={planItem} formikProps={formikProps} />
+          {this.state.taskType === PlanItemType.SimpleTask ? (
+            <PlanItemSimpleTask planItem={this.props.planItem} formikProps={formikProps} />
+          ) : (
+            <PlanItemComplexTask planItem={this.props.planItem} />
+          )}
         </Card>
       </>
     );
   };
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-      render={renderFormControls}
-    />
-  );
-};
+  render() {
+    return (
+      <Formik
+        initialValues={this.initialValues}
+        validationSchema={this.validationSchema}
+        onSubmit={this.props.onSubmit}
+        render={this.renderFormControls}
+      />
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   subHeaderContainer: {
