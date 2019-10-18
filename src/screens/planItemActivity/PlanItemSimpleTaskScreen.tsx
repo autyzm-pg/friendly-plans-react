@@ -70,13 +70,13 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
 
 const styles = StyleSheet.create({
   subHeaderContainer: {
+    ...getElevation(5),
     height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: dimensions.spacingExtraLarge,
     backgroundColor: palette.background,
-    ...getElevation(5),
     borderBottomColor: palette.backgroundAdditional,
     borderBottomWidth: 1,
   },
