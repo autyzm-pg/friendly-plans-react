@@ -53,7 +53,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     const student = this.props.navigation.getParam('student');
     const plan = this.state.plan;
 
-    this.props.navigation.navigate('PlanItemSimpleTask', {
+    this.props.navigation.navigate('PlanItemTask', {
       student,
       plan,
     });

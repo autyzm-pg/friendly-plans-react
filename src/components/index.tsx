@@ -9,6 +9,7 @@ export { FullScreenTemplate } from './FullScreenTemplate';
 export { Header } from './Header';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
+export { IconToggleButton } from './IconToggleButton';
 export { InputItem } from './InputItem';
 export { ModalTemplate } from './ModalTemplate';
 export { NarrowScreenTemplate } from './NarrowScreenTemplate';

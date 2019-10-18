@@ -1,24 +1,29 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Card, FullScreenTemplate, Icon, IconButton, StyledText } from 'components';
+import { Card, FullScreenTemplate, Icon, IconButton, IconToggleButton, StyledText } from 'components';
 import { i18n } from 'locale';
-import { PlanItem } from 'models';
+import { PlanItem, PlanItemType } from 'models';
 import { NavigationInjectedProps } from 'react-navigation';
 import { dimensions, getElevation, palette, typography } from 'styles';
-import { SwitchIconButton } from './SwitchIconButton';
+import { PlanItemComplexTask } from './PlanItemComplexTask';
+import { PlanItemSimpleTask } from './PlanItemSimpleTask';
 
 interface State {
   planItem: PlanItem;
+  taskType: PlanItemType;
 }
 
-export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
+export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
 
   state: State = {
     planItem: this.props.navigation.getParam('planItem') ? this.props.navigation.getParam('planItem') : new PlanItem(),
+    taskType: this.props.navigation.getParam('planItem')
+      ? this.props.navigation.getParam('planItem').type
+      : PlanItemType.SimpleTask,
   };
 
   handleChangeText = (name: string) => {
@@ -27,7 +32,14 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
     });
   };
 
+  changePlanItemType = (isSimpleTask: boolean) => {
+    this.setState({
+      taskType: isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask,
+    });
+  };
+
   render() {
+    const { planItem, taskType } = this.state;
     return (
       <FullScreenTemplate darkBackground>
         <View style={styles.subHeaderContainer}>
@@ -35,7 +47,7 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
             <StyledText style={styles.textInput}>{i18n.t('planItemActivity:taskNamePlaceholder')}</StyledText>
           </View>
           <View style={styles.buttonsContainer}>
-            <SwitchIconButton firstIconName="layers" secondIconName="layers-clear" />
+            <IconToggleButton iconNames={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
             <IconButton
               name="mic-off"
               type="material"
@@ -46,22 +58,11 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
           </View>
         </View>
         <Card style={styles.card}>
-          <View style={styles.imagePickerContainer}>
-            <View style={styles.imagePicker}>
-              <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
-            </View>
-            <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
-          </View>
-          <View style={styles.timerButton}>
-            <IconButton
-              name="alarm-off"
-              type="material"
-              label={i18n.t('planItemActivity:timerButton')}
-              containerStyle={styles.iconButtonContainer}
-              size={24}
-              color={palette.primaryVariant}
-            />
-          </View>
+          {taskType === PlanItemType.SimpleTask ? (
+            <PlanItemSimpleTask planItem={planItem} />
+          ) : (
+            <PlanItemComplexTask planItem={planItem} />
+          )}
         </Card>
       </FullScreenTemplate>
     );
@@ -70,13 +71,13 @@ export class PlanItemSimpleTaskScreen extends React.PureComponent<NavigationInje
 
 const styles = StyleSheet.create({
   subHeaderContainer: {
-    ...getElevation(5),
     height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: dimensions.spacingExtraLarge,
     backgroundColor: palette.background,
+    ...getElevation(5),
     borderBottomColor: palette.backgroundAdditional,
     borderBottomWidth: 1,
   },
