@@ -12,6 +12,7 @@ exports[`IconButton should match snapshot 1`] = `
         "justifyContent": "center",
       },
       undefined,
+      undefined,
     ]
   }
 >

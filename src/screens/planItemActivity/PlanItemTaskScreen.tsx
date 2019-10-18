@@ -47,7 +47,7 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
             <StyledText style={styles.textInput}>{i18n.t('planItemActivity:taskNamePlaceholder')}</StyledText>
           </View>
           <View style={styles.buttonsContainer}>
-            <IconToggleButton icons={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
+            <IconToggleButton iconNames={['layers-clear', 'layers']} onPress={this.changePlanItemType} />
             <IconButton
               name="mic-off"
               type="material"

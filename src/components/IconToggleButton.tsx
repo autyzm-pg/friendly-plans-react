@@ -1,40 +1,40 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { palette } from '../styles';
-import { Icon } from './Icon';
+import { getElevation, palette } from '../styles';
 import { IconButton } from './IconButton';
 
 interface Props {
-  icons: string[]; // icons name
+  iconNames: string[];
   onPress: (value: boolean) => void;
 }
 
 interface State {
-  isFirstOn: boolean;
+  isFirstButtonOn: boolean;
 }
 
 export class IconToggleButton extends React.PureComponent<Props, State> {
   state = {
-    isFirstOn: true,
+    isFirstButtonOn: true,
   };
 
   handlePressFirst = () => {
     this.setState({
-      isFirstOn: true,
+      isFirstButtonOn: true,
     });
     this.props.onPress(true);
   };
 
   handlePressSecond = () => {
     this.setState({
-      isFirstOn: false,
+      isFirstButtonOn: false,
     });
     this.props.onPress(false);
   };
 
   render() {
-    const [firstIcon, secondIcon] = this.props.icons;
+    const [firstIcon, secondIcon] = this.props.iconNames;
+    const { isFirstButtonOn } = this.state;
 
     return (
       <View style={styles.toggleButtonContainer}>
@@ -45,10 +45,8 @@ export class IconToggleButton extends React.PureComponent<Props, State> {
             onPress={this.handlePressFirst}
             size={24}
             color={palette.primaryVariant}
+            iconButtonStyle={isFirstButtonOn && [styles.buttonOn, styles.buttonLeft]}
           />
-          <View style={this.state.isFirstOn ? styles.buttonOn : styles.buttonOff}>
-            <Icon name={firstIcon} type="material" size={24} color={palette.primaryVariant} />
-          </View>
         </View>
         <View>
           <IconButton
@@ -57,10 +55,8 @@ export class IconToggleButton extends React.PureComponent<Props, State> {
             onPress={this.handlePressSecond}
             size={24}
             color={palette.primaryVariant}
+            iconButtonStyle={!isFirstButtonOn && [styles.buttonOn, styles.buttonRight]}
           />
-          <View style={!this.state.isFirstOn ? styles.buttonOn : styles.buttonOff}>
-            <Icon name={secondIcon} type="material" size={24} color={palette.primaryVariant} />
-          </View>
         </View>
       </View>
     );
@@ -80,25 +76,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   buttonOn: {
+    ...getElevation(4),
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    top: -10,
-    left: -10,
-    backgroundColor: 'rgba(255,255,255,0.6)',
+    top: -23,
+    backgroundColor: palette.background,
     width: 45,
     height: 45,
     borderRadius: 50,
-    elevation: 2,
-    shadowColor: palette.shadow,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
   },
-  buttonOff: {
-    display: 'none',
+  buttonLeft: {
+    left: -10,
+  },
+  buttonRight: {
+    right: -10,
   },
 });

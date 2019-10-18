@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 import { IconProps } from 'react-native-elements';
 
 import { dimensions, palette, typography } from 'styles';
@@ -8,11 +8,12 @@ import { StyledText } from './StyledText';
 
 interface Props extends IconProps {
   label?: string;
+  iconButtonStyle?: StyleProp<ViewStyle>;
 }
 
-export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disabled, ...props }) => {
+export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disabled, iconButtonStyle, ...props }) => {
   return (
-    <TouchableOpacity disabled={disabled} onPress={onPress} style={[styles.container, containerStyle]}>
+    <TouchableOpacity disabled={disabled} onPress={onPress} style={[styles.container, containerStyle, iconButtonStyle]}>
       <Icon {...props} disabledStyle={styles.iconDisabled} />
       {!!label && <StyledText style={styles.label}>{label}</StyledText>}
     </TouchableOpacity>
