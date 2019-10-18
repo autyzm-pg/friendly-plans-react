@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Icon, IconButton, StyledText } from 'components';
+import { Icon, IconButton, TextInput } from 'components';
+import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import { PlanItemFormData } from './PlanItemForm';
 
 interface Props {
   planItem: PlanItem;
+  formikProps: FormikProps<PlanItemFormData>;
 }
 
 export class PlanItemSimpleTask extends React.PureComponent<Props> {
@@ -16,13 +19,20 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
   };
 
   render() {
+    const { values, handleChange, submitForm } = this.props.formikProps;
     return (
       <>
         <View style={styles.imagePickerContainer}>
           <View style={styles.imagePicker}>
             <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
           </View>
-          <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
+          <TextInput
+            style={styles.imageInputText}
+            placeholder={i18n.t('planItemActivity:taskNameForChild')}
+            value={values.nameForChild}
+            onChangeText={handleChange('nameForChild')}
+            onEndEditing={submitForm}
+          />
         </View>
         <View style={styles.timerButton}>
           <IconButton

@@ -41,16 +41,18 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ planItem });
   };
 
-  updatePlanItem = async (name: string) => {
+  updatePlanItem = async (formData: PlanItemFormData) => {
+    const { name, nameForChild } = formData;
     await this.state.planItem.update({
       name,
+      nameForChild,
     });
 
-    this.setState({ planItem: { ...this.state.planItem, name } });
+    this.setState({ planItem: { ...this.state.planItem, name, nameForChild } });
   };
 
-  onSubmit = ({ name }: PlanItemFormData) =>
-    this.state.planItem ? this.updatePlanItem(name) : this.createPlanItem(name);
+  onSubmit = (formData: PlanItemFormData) =>
+    this.state.planItem ? this.updatePlanItem(formData) : this.createPlanItem(formData.name);
 
   render() {
     const { planItem } = this.state;

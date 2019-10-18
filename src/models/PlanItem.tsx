@@ -33,6 +33,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
+      nameForChild: i18n.t('planItemActivity.taskNameForChild'),
     });
 
   static async createPlanItem(
@@ -47,6 +48,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
+      nameForChild: i18n.t('planItemActivity.taskNameForChild'),
     });
 
     return Object.assign(new PlanItem(), {
@@ -57,6 +59,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
+      nameForChild: i18n.t('planItemActivity.taskNameForChild'),
     });
   }
 
@@ -69,6 +72,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
   time!: number;
   image!: string;
   lector!: boolean;
+  nameForChild!: string;
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];

@@ -11,6 +11,7 @@ import { PlanItemSimpleTask } from './PlanItemSimpleTask';
 
 export interface PlanItemFormData {
   name: string;
+  nameForChild: string;
 }
 
 interface Props {
@@ -21,13 +22,16 @@ interface Props {
 export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
   const initialValues: PlanItemFormData = {
     name: planItem ? planItem.name : '',
+    nameForChild: planItem ? planItem.nameForChild : '',
   };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required(),
+    nameForChild: Yup.string(),
   });
 
-  const renderFormControls = ({ values, handleChange, submitForm }: FormikProps<PlanItemFormData>) => {
+  const renderFormControls = (formikProps: FormikProps<PlanItemFormData>) => {
+    const { values, handleChange, submitForm } = formikProps;
     return (
       <>
         <View style={styles.subHeaderContainer}>
@@ -41,7 +45,6 @@ export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
             />
           </View>
           <View style={styles.buttonsContainer}>
-            {/* <IconToggleButton icons={['layers-clear', 'layers']} onPress={this.changePlanItemType} /> */}
             <IconButton
               name="mic-off"
               type="material"
@@ -52,12 +55,7 @@ export const PlanItemForm: SFC<Props> = ({ planItem, onSubmit }) => {
           </View>
         </View>
         <Card style={styles.card}>
-          {/* {taskType === PlanItemType.SimpleTask ? (
-            <PlanItemSimpleTask planItem={planItem} />
-          ) : (
-            <PlanItemComplexTask planItem={planItem} />
-          )} */}
-          <PlanItemSimpleTask planItem={planItem} />
+          <PlanItemSimpleTask planItem={planItem} formikProps={formikProps} />
         </Card>
       </>
     );
