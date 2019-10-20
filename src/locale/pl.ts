@@ -80,7 +80,7 @@ const translations = {
     edit: 'Edycja',
   },
   validation: {
-    dupliactedPlan: 'Plan o podanej nazwie już istnieje',
+    duplicatedPlan: 'Plan o podanej nazwie już istnieje',
     planNameRequired: 'Nazwa planu jest wymagana',
   },
 };

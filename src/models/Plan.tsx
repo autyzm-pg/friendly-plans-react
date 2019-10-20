@@ -11,7 +11,7 @@ export class Plan implements SubscribableModel {
       studentId,
     });
 
-  static async doesPlanExist(studentId: string, name: string): Promise<boolean> {
+  static async isPlanExist(studentId: string, name: string): Promise<boolean> {
     const plans: RNFirebase.firestore.QuerySnapshot = await getPlansRef(studentId)
       .where('name', '==', name)
       .get();

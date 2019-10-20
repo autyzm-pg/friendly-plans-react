@@ -18,7 +18,7 @@ const translations = {
     required: 'This field is required',
     passwordLength: 'Password is too short',
     acceptRequired: 'You need to accept our Terms of Use',
-    dupliactedPlan: 'Plan name already exists',
+    duplicatedPlan: 'Plan name already exists',
     planNameRequired: 'Plan name is required',
   },
   notifications: {
