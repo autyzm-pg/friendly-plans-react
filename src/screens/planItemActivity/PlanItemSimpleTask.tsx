@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Icon, IconButton, StyledText } from 'components';
+import { IconButton, StyledText } from 'components';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import ImagePicker from './ImagePicker';
 
 interface Props {
   planItem: PlanItem;
@@ -16,12 +17,11 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
   };
 
   render() {
+    const { planItem } = this.props;
     return (
       <>
         <View style={styles.imagePickerContainer}>
-          <View style={styles.imagePicker}>
-            <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
-          </View>
+          <ImagePicker planItem={planItem} />
           <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
         </View>
         <View style={styles.timerButton}>
@@ -45,14 +45,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
-  },
-  imagePicker: {
-    borderRadius: 8,
-    borderColor: palette.backgroundSurface,
-    borderWidth: 1,
-    display: 'flex',
-    paddingHorizontal: 91,
-    paddingVertical: 67,
   },
   imagePickerContainer: {
     justifyContent: 'center',
