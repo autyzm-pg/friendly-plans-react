@@ -1,20 +1,19 @@
 import isEmpty from 'lodash.isempty';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { FloatingAction } from 'react-native-floating-action';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { Icon } from 'components';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import { getElevation, palette } from 'styles';
+import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
   rowList: number[];
-  plan?: Plan;
+  plan: Plan;
 }
 
 export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -24,6 +23,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   state: State = {
     rowList: [],
+    plan: this.props.navigation.getParam('plan'),
   };
 
   handleAddRow = () => {
@@ -31,9 +31,13 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   validatePlan = async ({ planInput }: PlanFormData): Promise<void> => {
-    const { id } = this.props.navigation.getParam('student');
     const errors: any = {};
+    if (planInput === '') {
+      errors.planInput = i18n.t('validation:planNameRequired');
+      throw errors;
+    }
 
+    const { id } = this.props.navigation.getParam('student');
     const doesPlanExist: boolean = await Plan.doesPlanExist(id, planInput);
 
     if (doesPlanExist) {
@@ -42,12 +46,33 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     }
   };
 
-  createPlan = async ({ planInput }: PlanFormData) => {
+  createPlan = async (name: string) => {
     const { id } = this.props.navigation.getParam('student');
 
-    const plan = await Plan.createPlan(id, planInput);
+    const plan = await Plan.createPlan(id, name);
 
     this.setState({ plan });
+  };
+
+  updatePlan = async (name: string) => {
+    await this.state.plan.update({
+      name,
+    });
+
+    this.setState({ plan: { ...this.state.plan, name } });
+  };
+
+  onSubmit = ({ planInput }: PlanFormData) =>
+    this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
+
+  navigateToCreatePlanItem = async (itemType: string) => {
+    const student = this.props.navigation.getParam('student');
+    const plan = this.state.plan;
+
+    this.props.navigation.navigate('PlanItemTask', {
+      student,
+      plan,
+    });
   };
 
   render() {
@@ -56,22 +81,11 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     return (
       <>
         <View style={styles.headerContainer}>
-          <PlanForm onSubmit={this.createPlan} plan={plan} onValidate={this.validatePlan} />
+          <PlanForm onSubmit={this.onSubmit} plan={plan} onValidate={this.validatePlan} />
           {!isEmpty(rowList) && <TaskTableHeader />}
         </View>
         <TaskTable rowList={rowList} />
-        {plan && (
-          <FloatingAction
-            overrideWithAction
-            actions={[
-              {
-                name: 'create-plan',
-                icon: <Icon name="add" type="material" color={palette.secondary} size={32} />,
-              },
-            ]}
-            onPressItem={this.handleAddRow}
-          />
-        )}
+        {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );
   }

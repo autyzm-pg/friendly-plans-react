@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FixedCreatePlanSubItemButton renders correctly 1`] = `
+exports[`FixedCreatePlanItemButton renders correctly 1`] = `
 <Fragment>
   <FloatingAction
     actions={

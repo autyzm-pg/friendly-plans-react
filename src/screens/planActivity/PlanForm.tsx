@@ -1,21 +1,16 @@
-import PlayButton, { TextInput } from 'components';
+import PlayButton, { Icon, TextInput } from 'components';
 import { ErrorMessage, Formik, FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import React, { SFC } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { dimensions, palette } from 'styles';
-import { Icon, StyledText } from '../../components';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
 export interface PlanFormData {
   planInput: string;
 }
-
-const FORM_INITIAL_VALUES: PlanFormData = {
-  planInput: '',
-};
 
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
@@ -24,22 +19,24 @@ interface Props {
 }
 
 export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
-  const renderFormControls = ({ values, handleChange, submitForm, errors }: FormikProps<PlanFormData>) => {
+  const initialValues: PlanFormData = {
+    planInput: plan ? plan.name : '',
+  };
+
+  const renderFormControls = ({ values, setFieldValue, submitForm, errors }: FormikProps<PlanFormData>) => {
+    const handleChangeText = (value: string) => setFieldValue('planInput', value);
+
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
-          {plan ? (
-            <StyledText style={styles.styledText}>{values.planInput}</StyledText>
-          ) : (
-            <TextInput
-              style={styles.textInput}
-              placeholder={i18n.t('planActivity:planNamePlaceholder')}
-              value={values.planInput}
-              onChangeText={handleChange('planInput')}
-              onEndEditing={submitForm}
-            />
-          )}
+          <TextInput
+            style={styles.textInput}
+            placeholder={i18n.t('planActivity:planNamePlaceholder')}
+            value={values.planInput}
+            onChangeText={handleChangeText}
+            onEndEditing={submitForm}
+          />
           <Text style={styles.errorMessage}>
             <ErrorMessage name="planInput" />
           </Text>
@@ -52,9 +49,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
     );
   };
 
-  return (
-    <Formik initialValues={FORM_INITIAL_VALUES} onSubmit={onSubmit} render={renderFormControls} validate={onValidate} />
-  );
+  return <Formik initialValues={initialValues} onSubmit={onSubmit} render={renderFormControls} validate={onValidate} />;
 };
 
 const styles = StyleSheet.create({
@@ -77,11 +72,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  styledText: {
-    color: palette.textBlack,
-    marginLeft: dimensions.spacingSmall,
-  },
   textInput: {
+    flex: 1,
     marginLeft: dimensions.spacingSmall,
   },
   errorMessage: {

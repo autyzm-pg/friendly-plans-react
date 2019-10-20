@@ -20,10 +20,14 @@ exports[`PlanActivityScreen renders correctly 1`] = `
     <Component
       onSubmit={[Function]}
       onValidate={[Function]}
+      plan="plan"
     />
   </View>
   <Component
     rowList={Array []}
+  />
+  <FixedCreatePlanItemButton
+    onPress={[Function]}
   />
 </Fragment>
 `;

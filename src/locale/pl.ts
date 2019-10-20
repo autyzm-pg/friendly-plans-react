@@ -29,6 +29,19 @@ const translations = {
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
+  planItemActivity: {
+    viewTitleTask: 'Zadanie',
+    viewTitleInteraction: 'Interakcja',
+    viewTitleBreak: 'Przerwa',
+    taskNamePlaceholder: 'Wpisz nazwę zadania',
+    timerButton: 'Ustaw timer',
+    taskNameForChild: 'Nazwij dla dziecka',
+  },
+  updatePlan: {
+    addBreak: 'Dodaj przerwę',
+    addInteraction: 'Dodaj interakcję',
+    addTask: 'Dodaj zadanie',
+  },
   studentSettings: {
     studentName: 'Imię podopiecznego',
     taskView: 'Widok zadań',
@@ -47,6 +60,7 @@ const translations = {
     blockSwipe: "Blokada swipe'u",
     alarmSound: 'Dźwięk alarmu',
     planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
+    studentNamePlaceholder: 'Wpisz imię podopiecznego',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
@@ -67,6 +81,7 @@ const translations = {
   },
   validation: {
     dupliactedPlan: 'Plan o podanej nazwie już istnieje',
+    planNameRequired: 'Nazwa planu jest wymagana',
   },
 };
 

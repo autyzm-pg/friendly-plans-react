@@ -19,6 +19,7 @@ const translations = {
     passwordLength: 'Password is too short',
     acceptRequired: 'You need to accept our Terms of Use',
     dupliactedPlan: 'Plan name already exists',
+    planNameRequired: 'Plan name is required',
   },
   notifications: {
     channelName: 'Notifications',
@@ -79,6 +80,14 @@ const translations = {
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
   },
+  planItemActivity: {
+    viewTitleTask: 'Task',
+    viewTitleInteraction: 'Interaction',
+    viewTitleBreak: 'Break',
+    taskNamePlaceholder: 'Type task name',
+    timerButton: 'Set up timer',
+    taskNameForChild: 'Type task name for child',
+  },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',
     removePlanTitle: 'Confirm',
@@ -107,6 +116,7 @@ const translations = {
     blockSwipe: 'Block swipe',
     alarmSound: 'Alarm sound',
     planCardPlacehorder: "Let's play paper, rock, scissors",
+    studentNamePlaceholder: 'Type student name',
   },
   studentsList: {
     screenTitle: 'Select student',
