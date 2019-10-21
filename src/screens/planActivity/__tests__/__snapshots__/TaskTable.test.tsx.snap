@@ -27,7 +27,20 @@ exports[`TaskTable renders correctly 1`] = `
     <TableRow
       border={false}
       key="0"
-      planItem={1}
+      planItem={
+        PlanItem {
+          "changeType": [Function],
+          "complete": [Function],
+          "delete": [Function],
+          "getChildCollectionRef": [Function],
+          "getChildType": [Function],
+          "getIconName": [Function],
+          "getRef": [Function],
+          "isSimpleTask": [Function],
+          "isTask": [Function],
+          "update": [Function],
+        }
+      }
       rowNumber={1}
     />
   </View>
