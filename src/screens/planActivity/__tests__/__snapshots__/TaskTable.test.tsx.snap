@@ -24,10 +24,11 @@ exports[`TaskTable renders correctly 1`] = `
       }
     }
   >
-    <Component
+    <TableRow
       border={false}
       key="0"
-      rowNumber={2}
+      planItem={1}
+      rowNumber={1}
     />
   </View>
 </FullScreenTemplate>
