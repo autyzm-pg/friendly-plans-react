@@ -55,7 +55,9 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
     const plan = await Plan.createPlan(id, name);
 
-    this.setState({ plan });
+    this.setState({ plan }, () => {
+      this.subscribeToPlanItems();
+    });
   };
 
   updatePlan = async (name: string) => {
