@@ -30,7 +30,7 @@ export const ModalTrigger: SFC<Props> = ({ children, modalContent, title }) => {
   );
 
   return (
-    <View style={styles.modalTriggerContainer}>
+    <View style={styles.container}>
       <TouchableOpacity onPress={onOpen}>{children}</TouchableOpacity>
       {renderModal()}
     </View>
@@ -38,7 +38,7 @@ export const ModalTrigger: SFC<Props> = ({ children, modalContent, title }) => {
 };
 
 const styles = StyleSheet.create({
-  modalTriggerContainer: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

@@ -10,20 +10,20 @@ interface Props {
 }
 
 export const ImageAction: SFC<Props> = ({ children, title }) => (
-  <View style={styles.imageAction}>
-    <View style={styles.imageActionIcon}>{children}</View>
-    <StyledText style={styles.imageActionTitle}>{title}</StyledText>
+  <View style={styles.container}>
+    <View style={styles.icon}>{children}</View>
+    <StyledText style={styles.title}>{title}</StyledText>
   </View>
 );
 
 const styles = StyleSheet.create({
-  imageAction: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
   },
-  imageActionIcon: {
+  icon: {
     width: 52,
     height: 52,
     borderRadius: 16,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  imageActionTitle: {
+  title: {
     ...typography.overline,
     width: 64,
     justifyContent: 'center',
