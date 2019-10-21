@@ -1,10 +1,10 @@
 import isEmpty from 'lodash.isempty';
 import React from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { i18n } from 'locale';
-import { ModelSubscriber, Plan, PlanItem, PlanItemType } from 'models';
+import { ModelSubscriber, Plan, PlanItem } from 'models';
 import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData } from './PlanForm';
@@ -71,7 +71,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   onSubmit = ({ planInput }: PlanFormData) =>
     this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
 
-  navigateToCreatePlanItem = async (itemType: string) => {
+  navigateToCreatePlanItem = async () => {
     const plan = this.state.plan;
 
     this.props.navigation.navigate('PlanItemTask', {

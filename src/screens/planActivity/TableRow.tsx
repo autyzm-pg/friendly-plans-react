@@ -1,5 +1,5 @@
 import noop from 'lodash.noop';
-import React, { SFC } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { CheckboxInput, Icon, IconButton } from 'components';
