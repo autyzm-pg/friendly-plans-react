@@ -50,11 +50,9 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
 
   navigateToCreatePlanItem = async (itemType: string) => {
-    const student = this.props.navigation.getParam('student');
     const plan = this.state.plan;
 
     this.props.navigation.navigate('PlanItemTask', {
-      student,
       plan,
     });
   };

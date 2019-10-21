@@ -1,10 +1,18 @@
 import React from 'react';
-import { KeyboardAvoidingView, StyleSheet, TextInput as BaseTextInput, TextInputProps } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  StyleProp,
+  StyleSheet,
+  TextInput as BaseTextInput,
+  TextInputProps,
+  TextStyle,
+} from 'react-native';
 
 import { palette, typography } from 'styles';
 
 interface Props extends TextInputProps {
   hideUnderline?: boolean;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 interface State {
@@ -26,14 +34,14 @@ export class TextInput extends React.PureComponent<Props, State> {
 
   render() {
     const { isEditable } = this.state;
-    const { style, hideUnderline, ...inputProps } = this.props;
+    const { style, hideUnderline, textStyle, ...inputProps } = this.props;
 
     return (
       <KeyboardAvoidingView
         style={[style, !hideUnderline && isEditable && styles.inputUnderline, isEditable && styles.inputBackground]}
       >
         <BaseTextInput
-          style={styles.input}
+          style={[styles.input, textStyle]}
           placeholderTextColor={palette.textInputPlaceholder}
           autoCorrect={false}
           onFocus={this.handleFocus}
