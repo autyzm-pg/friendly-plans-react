@@ -38,7 +38,7 @@ export class TableRow extends React.PureComponent<Props> {
         <View style={[styles.cell, { flex: CELL_DIMENSIONS.NUMBER, alignItems: 'center' }]}>
           <Text style={styles.text}>{rowNumber}</Text>
         </View>
-        <View style={[styles.cell, { flex: CELL_DIMENSIONS.CHECKBOX }]}>
+        <View style={[styles.cell, { flex: CELL_DIMENSIONS.CHECKBOX, alignItems: 'center' }]}>
           <CheckboxInput checked onPress={noop} />
         </View>
         <View style={[styles.cell, { flex: CELL_DIMENSIONS.NAME }]}>
