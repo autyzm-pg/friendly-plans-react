@@ -42,21 +42,14 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
   isSimpleTask = (): boolean => {
     const { planItem } = this.props;
 
-    if (!planItem) {
-      return true;
-    }
-    return planItem.type === PlanItemType.SimpleTask;
+    return !planItem || planItem.isSimpleTask();
   };
 
   changePlanItemType = async (isSimpleTask: boolean) => {
     const { planItem } = this.props;
     const type = isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask;
 
-    if (planItem) {
-      await planItem.update({
-        type,
-      });
-    }
+    planItem.changeType(type);
 
     this.setState({
       taskType: type,
@@ -120,13 +113,13 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
 
 const styles = StyleSheet.create({
   subHeaderContainer: {
+    ...getElevation(5),
     height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: dimensions.spacingExtraLarge,
     backgroundColor: palette.background,
-    ...getElevation(5),
     borderBottomColor: palette.backgroundAdditional,
     borderBottomWidth: 1,
   },

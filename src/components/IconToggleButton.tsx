@@ -16,7 +16,7 @@ interface State {
 
 export class IconToggleButton extends React.PureComponent<Props, State> {
   state = {
-    isFirstButtonOn: this.props.secondButtonOn ? false : true,
+    isFirstButtonOn: !this.props.secondButtonOn,
   };
 
   handlePressFirst = () => {

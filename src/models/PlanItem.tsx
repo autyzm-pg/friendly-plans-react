@@ -79,8 +79,15 @@ export class PlanItem implements SubscribableModel, PlanElement {
   };
 
   isTask = (): boolean => this.type === PlanItemType.SimpleTask || this.type === PlanItemType.ComplexTask;
+  isSimpleTask = (): boolean => this.type === PlanItemType.SimpleTask;
   complete = () => {
     this.update({ completed: true });
+  };
+
+  changeType = (type: PlanItemType) => {
+    this.update({
+      type,
+    });
   };
 
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
