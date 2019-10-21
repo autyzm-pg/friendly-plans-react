@@ -12,6 +12,7 @@ export { IconButton } from './IconButton';
 export { IconToggleButton } from './IconToggleButton';
 export { InputItem } from './InputItem';
 export { ModalTemplate } from './ModalTemplate';
+export { ModalTrigger } from './ModalTrigger';
 export { NarrowScreenTemplate } from './NarrowScreenTemplate';
 export { PlanNameText } from './PlanNameText';
 export { Separator } from './Separator';
