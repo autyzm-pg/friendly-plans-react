@@ -7,6 +7,7 @@ import { palette } from 'styles';
 import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';
+import { DashboardBackground } from './DashboardBackground';
 
 export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
   navigate = () => {
@@ -20,6 +21,7 @@ export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedPro
   render() {
     return (
       <View style={styles.container}>
+        <DashboardBackground />
         <CreatePlanButton onPress={this.navigate} />
         <StyledText style={styles.text}>{i18n.t('planList:conjunction')}</StyledText>
         <CopyPlanButton />
