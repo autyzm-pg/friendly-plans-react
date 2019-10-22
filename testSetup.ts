@@ -9,4 +9,11 @@ jest.mock('Platform', () => {
   return Platform;
 });
 
+jest.mock('models/ModelSubscriber', () => ({
+  ModelSubscriber: jest.fn().mockImplementation(() => ({
+    subscribeCollectionUpdates: jest.fn(),
+    unsubscribeCollectionUpdates: jest.fn(),
+  })),
+}));
+
 configure({ adapter: new Adapter() });
