@@ -85,6 +85,11 @@ const translations = {
     taskNamePlaceholder: 'Type task name',
     timerButton: 'Set up timer',
     taskNameForChild: 'Type task name for child',
+    addImage: 'Add image',
+    imageActionTakePhoto: 'Take a photo',
+    imageActionLibrary: 'Browse from library',
+    imageActionBrowse: 'Browse from device',
+    imageLibraryTitle: 'Image Library',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',

@@ -6,6 +6,7 @@ import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import ImagePicker from './ImagePicker';
 import { PlanItemFormData } from './PlanItemForm';
 
 interface Props {
@@ -23,9 +24,7 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
     return (
       <>
         <View style={styles.imagePickerContainer}>
-          <View style={styles.imagePicker}>
-            <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
-          </View>
+          <ImagePicker planItem={this.props.planItem} />
           <TextInput
             style={styles.imageInputTextContainer}
             textStyle={styles.imageInputText}
@@ -56,14 +55,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
-  },
-  imagePicker: {
-    borderRadius: 8,
-    borderColor: palette.backgroundSurface,
-    borderWidth: 1,
-    display: 'flex',
-    paddingHorizontal: 91,
-    paddingVertical: 67,
   },
   imagePickerContainer: {
     justifyContent: 'center',

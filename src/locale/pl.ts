@@ -36,6 +36,11 @@ const translations = {
     taskNamePlaceholder: 'Wpisz nazwę zadania',
     timerButton: 'Ustaw timer',
     taskNameForChild: 'Nazwij dla dziecka',
+    addImage: 'Dodaj obrazek',
+    imageActionTakePhoto: 'Zrób zdjęcie',
+    imageActionLibrary: 'Wybierz z biblioteki',
+    imageActionBrowse: 'Dodaj z urządzenia',
+    imageLibraryTitle: 'Biblioteka zdjęć',
   },
   updatePlan: {
     addBreak: 'Dodaj przerwę',
