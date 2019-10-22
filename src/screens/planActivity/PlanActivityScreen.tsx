@@ -7,7 +7,7 @@ import { i18n } from 'locale';
 import { Plan } from 'models';
 import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
-import { PlanForm, PlanFormData } from './PlanForm';
+import { PlanForm, PlanFormData, PlanFormError } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
 
@@ -31,7 +31,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   validatePlan = async ({ planInput }: PlanFormData): Promise<void> => {
-    const errors: any = {};
+    const errors: PlanFormError = {};
     if (planInput === '') {
       errors.planInput = i18n.t('validation:planNameRequired');
       throw errors;

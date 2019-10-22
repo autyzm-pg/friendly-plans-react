@@ -12,6 +12,10 @@ export interface PlanFormData {
   planInput: string;
 }
 
+export interface PlanFormError {
+  planInput?: string;
+}
+
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   onValidate: (planFormData: PlanFormData) => Promise<void>;
