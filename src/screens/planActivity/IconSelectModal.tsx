@@ -4,34 +4,8 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { dimensions } from 'styles';
 
+import { EMOJIS_LIST } from '../../assets/emojis';
 import { EmojiButton } from './EmojiButton';
-
-const EMOJIS_LIST = [
-  '🎸',
-  '🍬',
-  '🏃🏻‍',
-  '💪',
-  '🥯',
-  '🏕️',
-  '🙄',
-  '🎸',
-  '🍬',
-  '🏃🏻‍',
-  '💪',
-  '🥯',
-  '🏕️',
-  '🙄',
-  '🎸',
-  '🍬',
-  '🏃🏻‍',
-  '💪',
-  '🥯',
-  '🏕️',
-  '🙄',
-  '🥯',
-  '🏕️',
-  '🙄',
-];
 
 interface Props extends NavigationInjectedProps {
   onEmojiSelect: (emoji: string) => void;

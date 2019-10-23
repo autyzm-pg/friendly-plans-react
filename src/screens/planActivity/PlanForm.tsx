@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
 import { i18n } from 'locale';
 import { Plan } from 'models';
-import { NavigationService } from 'services';
 import { dimensions, palette } from 'styles';
+import { DEFAULT_EMOJI } from '../../assets/emojis';
 import { IconSelectModal } from './IconSelectModal';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
@@ -25,7 +25,7 @@ interface Props {
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
-    emoji: plan ? plan.emoji : '',
+    emoji: plan ? plan.emoji : DEFAULT_EMOJI,
   };
 
   const validationSchema = Yup.object().shape({

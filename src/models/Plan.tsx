@@ -1,10 +1,9 @@
 import { RNFirebase } from 'react-native-firebase';
 
+import { DEFAULT_EMOJI } from '../assets/emojis';
 import { getPlanItemsRef, getPlanRef, getPlansRef } from './FirebaseRefProxy';
 import { PlanItem } from './PlanItem';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
-
-const DEFAULT_EMOJI = '🎸';
 
 export class Plan implements SubscribableModel {
   static create = (studentId: string, name: string): Promise<RNFirebase.firestore.DocumentReference> =>
