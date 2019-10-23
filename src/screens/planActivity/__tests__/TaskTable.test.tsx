@@ -6,7 +6,7 @@ import { TaskTable } from '../TaskTable';
 
 describe('TaskTable', () => {
   it('renders correctly', () => {
-    const taskTable = shallow(<TaskTable rowList={[new PlanItem()]} />);
+    const taskTable = shallow(<TaskTable planItemList={[new PlanItem()]} />);
 
     expect(taskTable).toMatchSnapshot();
   });

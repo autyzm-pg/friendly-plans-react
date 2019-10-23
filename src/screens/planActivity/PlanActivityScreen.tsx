@@ -89,7 +89,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
           <PlanForm onSubmit={this.onSubmit} plan={plan} />
           {!isEmpty(planItemList) && <TaskTableHeader />}
         </View>
-        <TaskTable rowList={planItemList} />
+        <TaskTable planItemList={planItemList} />
         {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );

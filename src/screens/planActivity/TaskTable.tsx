@@ -18,14 +18,14 @@ export const CELL_DIMENSIONS = {
 };
 
 interface Props {
-  rowList: PlanItem[];
+  planItemList: PlanItem[];
 }
 
-export const TaskTable: SFC<Props> = ({ rowList }) => (
+export const TaskTable: SFC<Props> = ({ planItemList }) => (
   <FullScreenTemplate darkBackground>
     <View style={styles.container}>
-      {rowList.map((row, index) => (
-        <TableRow planItem={row} border={index !== rowList.length - 1} key={index} rowNumber={index + 1} />
+      {planItemList.map((planItem, index) => (
+        <TableRow planItem={planItem} border={index !== planItemList.length - 1} key={index} rowNumber={index + 1} />
       ))}
     </View>
   </FullScreenTemplate>
