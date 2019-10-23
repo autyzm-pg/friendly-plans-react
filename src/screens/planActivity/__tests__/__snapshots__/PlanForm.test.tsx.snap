@@ -5,6 +5,7 @@ exports[`PlanFormControls renders correctly 1`] = `
   enableReinitialize={false}
   initialValues={
     Object {
+      "emoji": undefined,
       "planInput": undefined,
     }
   }
@@ -26,6 +27,7 @@ exports[`PlanFormControls renders correctly 1`] = `
       "_exclusive": Object {},
       "_mutate": undefined,
       "_nodes": Array [
+        "emoji",
         "planInput",
       ],
       "_options": Object {
@@ -39,6 +41,30 @@ exports[`PlanFormControls renders correctly 1`] = `
         "refs": Map {},
       },
       "fields": Object {
+        "emoji": StringSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_deps": Array [],
+          "_exclusive": Object {},
+          "_mutate": undefined,
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "string",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "tests": Array [],
+          "transforms": Array [
+            [Function],
+          ],
+        },
         "planInput": StringSchema {
           "_blacklist": RefSet {
             "list": Set {},

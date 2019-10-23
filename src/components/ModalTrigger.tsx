@@ -1,13 +1,13 @@
 import { i18n } from 'locale';
-import React, { SFC, useState } from 'react';
+import React, { ReactElement, SFC, useState } from 'react';
 import { Modal, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { dimensions, getElevation, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
 interface Props {
-  children?: JSX.Element;
-  modalContent: JSX.Element;
+  children?: ReactElement;
+  modalContent: ReactElement;
   title: string;
 }
 
@@ -22,27 +22,28 @@ export const ModalTrigger: SFC<Props> = ({ children, modalContent, title }) => {
       <View style={styles.modalOverlay}>
         <View style={styles.modalInsideView}>
           <StyledText style={styles.modalTitle}>{i18n.t('planItemActivity:addImage')}</StyledText>
-          <IconButton name="close" type="material" onPress={onClose} iconButtonStyle={styles.closeModalIcon} />
-          {modalContent}
+          <IconButton
+            name="close"
+            type="material"
+            color={palette.textBody}
+            onPress={onClose}
+            iconButtonStyle={styles.closeModalIcon}
+          />
+          {React.cloneElement(modalContent, { closeModal: onClose })}
         </View>
       </View>
     </Modal>
   );
 
   return (
-    <View style={styles.container}>
+    <>
       <TouchableOpacity onPress={onOpen}>{children}</TouchableOpacity>
       {renderModal()}
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   modalOverlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: palette.modalBackgroundOverlay,
@@ -54,13 +55,13 @@ const styles = StyleSheet.create({
     backgroundColor: palette.background,
     width: 438,
     borderRadius: 16,
-    paddingHorizontal: dimensions.spacingBig,
-    paddingVertical: dimensions.spacingLarge,
+    paddingVertical: dimensions.spacingBig,
+    paddingHorizontal: dimensions.spacingLarge,
   },
   closeModalIcon: {
     position: 'absolute',
-    top: dimensions.spacingLarge,
-    right: dimensions.spacingBig,
+    top: dimensions.spacingBig,
+    right: dimensions.spacingLarge,
   },
   modalTitle: {
     ...typography.subtitle,
