@@ -3,15 +3,18 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import PlayButton, { Icon, TextInput } from 'components';
+import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
 import { i18n } from 'locale';
 import { Plan } from 'models';
 import { dimensions, palette } from 'styles';
+import { DEFAULT_EMOJI } from '../../assets/emojis';
+import { IconSelectModal } from './IconSelectModal';
 import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
 export interface PlanFormData {
   planInput: string;
+  emoji: string;
 }
 
 interface Props {
@@ -22,19 +25,31 @@ interface Props {
 export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
+    emoji: plan ? plan.emoji : DEFAULT_EMOJI,
   };
 
   const validationSchema = Yup.object().shape({
     planInput: Yup.string().required(),
+    emoji: Yup.string(),
   });
 
   const renderFormControls = ({ values, setFieldValue, submitForm }: FormikProps<PlanFormData>) => {
     const handleChangeText = (value: string) => setFieldValue('planInput', value);
+    const updateEmoji = async (emoji: string) => {
+      await setFieldValue('emoji', emoji);
+      submitForm();
+    };
 
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
+          {plan ? (
+            <ModalTrigger title={'Wybierz ikonę'} modalContent={<IconSelectModal onEmojiSelect={updateEmoji} />}>
+              <Emoji symbol={values.emoji} />
+            </ModalTrigger>
+          ) : (
+            <Icon name="emoticon" size={24} color={palette.textInputPlaceholder} />
+          )}
           <TextInput
             style={styles.textInput}
             placeholder={i18n.t('planActivity:planNamePlaceholder')}

@@ -40,14 +40,14 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { name } = this.props.plan;
+    const { emoji, name } = this.props.plan;
 
     return (
       <View style={styles.container}>
         <TouchableHighlight onPress={this.navigateToUpdatePlan} underlayColor="transparent">
           <Card style={styles.card}>
             <View style={styles.cardTextContainer}>
-              <Emoji symbol="🎸" />
+              <Emoji symbol={emoji} />
               <StyledText style={styles.cardText}>{name}</StyledText>
             </View>
             <PlayButton plan={this.props.plan} size={50} />
