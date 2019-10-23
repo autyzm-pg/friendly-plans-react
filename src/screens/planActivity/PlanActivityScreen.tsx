@@ -60,16 +60,17 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     });
   };
 
-  updatePlan = async (name: string) => {
+  updatePlan = async (name: string, emoji: string) => {
     await this.state.plan.update({
       name,
+      emoji,
     });
 
     this.setState({ plan: { ...this.state.plan, name } });
   };
 
-  onSubmit = ({ planInput }: PlanFormData) =>
-    this.state.plan ? this.updatePlan(planInput) : this.createPlan(planInput);
+  onSubmit = ({ planInput, emoji }: PlanFormData) =>
+    this.state.plan ? this.updatePlan(planInput, emoji) : this.createPlan(planInput);
 
   navigateToCreatePlanItem = async () => {
     const plan = this.state.plan;
