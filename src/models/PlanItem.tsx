@@ -25,8 +25,8 @@ export class PlanItem implements SubscribableModel, PlanElement {
   static create = (
     plan: Plan,
     type: PlanItemType,
-    lastItemOrder: number,
     name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+    lastItemOrder: number,
   ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
       name,
@@ -35,14 +35,15 @@ export class PlanItem implements SubscribableModel, PlanElement {
       type,
       completed: false,
       lector: false,
-      order: lastItemOrder + 1,
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
+      order: lastItemOrder + 1,
     });
 
   static async createPlanItem(
     plan: Plan,
     type: PlanItemType,
     name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+    lastItemOrder: number,
   ): Promise<PlanItem> {
     const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
       name,
@@ -52,6 +53,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       completed: false,
       lector: false,
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
+      order: lastItemOrder + 1,
     });
 
     return Object.assign(new PlanItem(), {
@@ -63,6 +65,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       completed: false,
       lector: false,
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
+      order: lastItemOrder + 1,
     });
   }
 
@@ -75,8 +78,8 @@ export class PlanItem implements SubscribableModel, PlanElement {
   time!: number;
   image!: string;
   lector!: boolean;
-  order!: number;
   nameForChild!: string;
+  order!: number;
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];
