@@ -14,8 +14,6 @@ exports[`Button should match snapshot 1`] = `
       containerStyle={
         Object {
           "alignItems": "flex-start",
-          "height": 36,
-          "width": 40,
         }
       }
       name="checkbox-marked"

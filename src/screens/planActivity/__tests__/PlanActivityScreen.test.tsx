@@ -4,6 +4,13 @@ import React from 'react';
 import { navigationMock } from 'helpers';
 import { PlanActivityScreen } from '../PlanActivityScreen';
 
+jest.mock('models/ModelSubscriber', () => ({
+  ModelSubscriber: jest.fn().mockImplementation(() => ({
+    subscribeCollectionUpdates: jest.fn(),
+    unsubscribeCollectionUpdates: jest.fn(),
+  })),
+}));
+
 describe('PlanActivityScreen', () => {
   const props = {
     navigation: navigationMock,

@@ -15,7 +15,8 @@ export enum PlanItemType {
 }
 
 const PLAN_ITEMS_ICONS = {
-  task: 'layers',
+  simpleTask: 'layers-clear',
+  complexTask: 'layers',
   break: 'bell',
   interaction: 'account-multiple',
 };
