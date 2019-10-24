@@ -24,8 +24,8 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     if (!planItemList.length) {
       return 0;
     }
-    const lastItem = planItemList[planItemList.length - 1];
-    return lastItem.order;
+    const { order } = planItemList[planItemList.length - 1];
+    return order;
   };
 
   createPlanItem = async (name: string) => {
