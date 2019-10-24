@@ -1,14 +1,14 @@
 import { Formik, FormikProps } from 'formik';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { Card, IconButton, IconToggleButton, StyledText, TextInput } from 'components';
+import { IconButton, IconToggleButton, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
 import { dimensions, getElevation, palette, typography } from 'styles';
-import { PlanItemComplexTask } from './PlanItemComplexTask';
-import { PlanItemSimpleTask } from './PlanItemSimpleTask';
+import { ComplexTask } from './ComplexTask';
+import { SimpleTask } from './SimpleTask';
 
 export interface PlanItemFormData {
   name: string;
@@ -88,13 +88,13 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
             />
           </View>
         </View>
-        <Card style={styles.card}>
-          {this.state.taskType === PlanItemType.SimpleTask ? (
-            <PlanItemSimpleTask planItem={this.props.planItem} formikProps={formikProps} />
-          ) : (
-            <PlanItemComplexTask planItem={this.props.planItem} />
-          )}
-        </Card>
+        {this.state.taskType === PlanItemType.SimpleTask ? (
+          <SafeAreaView style={styles.simpleTaskContainer}>
+            <SimpleTask planItem={this.props.planItem} formikProps={formikProps} />
+          </SafeAreaView>
+        ) : (
+          <ComplexTask planItem={this.props.planItem} formikProps={formikProps} />
+        )}
       </>
     );
   };
@@ -134,24 +134,18 @@ const styles = StyleSheet.create({
   textInputContainer: {
     width: 288,
   },
-  card: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    marginVertical: dimensions.spacingBig,
-    marginHorizontal: dimensions.spacingExtraLarge,
-    height: '78%',
-  },
   iconButtonContainer: {
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
-  timerButton: {
-    position: 'absolute',
-    right: dimensions.spacingBig,
-    top: dimensions.spacingBig,
+  simpleTaskContainer: {
+    flexDirection: 'row',
+    height: '90%',
+    backgroundColor: palette.backgroundSurface,
+    paddingHorizontal: dimensions.spacingExtraLarge,
+    paddingTop: dimensions.spacingBig,
   },
   errorMessage: {
     color: palette.error,

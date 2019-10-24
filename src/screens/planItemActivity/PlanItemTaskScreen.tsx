@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
 import { NavigationInjectedProps } from 'react-navigation';
@@ -42,10 +41,7 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
 
   render() {
     const { planItem } = this.state;
-    return (
-      <FullScreenTemplate darkBackground>
-        <PlanItemForm planItem={planItem} onSubmit={this.onSubmit} />
-      </FullScreenTemplate>
-    );
+
+    return <PlanItemForm planItem={planItem} onSubmit={this.onSubmit} />;
   }
 }

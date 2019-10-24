@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Icon, IconButton, ModalTrigger, StyledText } from 'components';
+import { Icon, IconButton, ModalTrigger } from 'components';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette } from 'styles';
