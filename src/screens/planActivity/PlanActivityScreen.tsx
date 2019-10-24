@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { i18n } from 'locale';
-import { Plan } from 'models';
+import { ModelSubscriber, Plan, PlanItem } from 'models';
 import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData } from './PlanForm';
@@ -12,8 +12,8 @@ import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
-  rowList: number[];
   plan: Plan;
+  planItemList: PlanItem[];
 }
 
 export class PlanActivityScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -22,20 +22,42 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   state: State = {
-    rowList: [],
+    planItemList: [],
     plan: this.props.navigation.getParam('plan'),
   };
 
-  handleAddRow = () => {
-    this.setState({ rowList: [...this.state.rowList, this.state.rowList.length] });
-  };
+  planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
+
+  subscribeToPlanItems() {
+    this.planItemsSubscriber.subscribeCollectionUpdates(this.state.plan, (planItemList: PlanItem[]) =>
+      this.setState({ planItemList }),
+    );
+  }
+
+  unsubscribeToPlanItems() {
+    this.planItemsSubscriber.unsubscribeCollectionUpdates();
+  }
+
+  componentDidMount() {
+    if (this.state.plan) {
+      this.subscribeToPlanItems();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.plan) {
+      this.unsubscribeToPlanItems();
+    }
+  }
 
   createPlan = async (name: string) => {
     const { id } = this.props.navigation.getParam('student');
 
     const plan = await Plan.createPlan(id, name);
 
-    this.setState({ plan });
+    this.setState({ plan }, () => {
+      this.subscribeToPlanItems();
+    });
   };
 
   updatePlan = async (name: string, emoji: string) => {
@@ -50,24 +72,25 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   onSubmit = ({ planInput, emoji }: PlanFormData) =>
     this.state.plan ? this.updatePlan(planInput, emoji) : this.createPlan(planInput);
 
-  navigateToCreatePlanItem = async (itemType: string) => {
-    const plan = this.state.plan;
+  navigateToCreatePlanItem = async () => {
+    const { plan, planItemList } = this.state;
 
     this.props.navigation.navigate('PlanItemTask', {
       plan,
+      planItemList,
     });
   };
 
   render() {
-    const { plan, rowList } = this.state;
+    const { plan, planItemList } = this.state;
 
     return (
       <>
         <View style={styles.headerContainer}>
           <PlanForm onSubmit={this.onSubmit} plan={plan} />
-          {!isEmpty(rowList) && <TaskTableHeader />}
+          {!isEmpty(planItemList) && <TaskTableHeader />}
         </View>
-        <TaskTable rowList={rowList} />
+        <TaskTable planItemList={planItemList} />
         {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );

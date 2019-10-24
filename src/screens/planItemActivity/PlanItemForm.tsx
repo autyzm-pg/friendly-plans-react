@@ -49,7 +49,9 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
     const { planItem } = this.props;
     const type = isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask;
 
-    planItem.changeType(type);
+    if (planItem) {
+      planItem.changeType(type);
+    }
 
     this.setState({
       taskType: type,

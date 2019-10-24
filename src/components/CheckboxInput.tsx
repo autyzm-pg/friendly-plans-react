@@ -65,8 +65,6 @@ const styles = StyleSheet.create({
     color: palette.textBlack,
   },
   iconContainer: {
-    height: 36,
-    width: 40,
     alignItems: 'flex-start',
   },
   errorContainer: {
