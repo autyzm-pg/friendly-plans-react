@@ -55,7 +55,6 @@ exports[`TableRow renders correctly 1`] = `
     }
   >
     <CheckboxInput
-      checked={true}
       onPress={[Function]}
     />
   </View>

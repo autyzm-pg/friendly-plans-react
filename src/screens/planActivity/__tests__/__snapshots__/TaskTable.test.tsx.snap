@@ -38,6 +38,7 @@ exports[`TaskTable renders correctly 1`] = `
           "getRef": [Function],
           "isSimpleTask": [Function],
           "isTask": [Function],
+          "setComplete": [Function],
           "update": [Function],
         }
       }
