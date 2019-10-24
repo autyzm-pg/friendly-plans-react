@@ -6,7 +6,7 @@ import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
-import ImagePicker from './ImagePicker';
+import { ImagePicker } from './ImagePicker';
 import { PlanItemFormData } from './PlanItemForm';
 
 interface Props {

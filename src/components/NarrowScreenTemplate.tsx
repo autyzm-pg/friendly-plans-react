@@ -7,6 +7,7 @@ import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
 const { height: WINDOW_HEIGHT } = Dimensions.get('window');
+const CONTAINER_HEIGHT = WINDOW_HEIGHT - headerHeight;
 const MODAL_WIDTH = 528;
 
 interface Props extends NavigationInjectedProps {
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     color: palette.textWhite,
   },
   contentContainer: {
-    flex: 1,
+    minHeight: CONTAINER_HEIGHT,
     backgroundColor: palette.background,
     paddingVertical: dimensions.spacingMedium,
     paddingHorizontal: dimensions.spacingBig,
