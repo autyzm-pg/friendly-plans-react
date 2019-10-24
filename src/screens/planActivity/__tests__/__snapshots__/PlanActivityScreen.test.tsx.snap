@@ -24,7 +24,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
     />
   </View>
   <Component
-    rowList={Array []}
+    planItemList={Array []}
   />
   <FixedCreatePlanItemButton
     onPress={[Function]}

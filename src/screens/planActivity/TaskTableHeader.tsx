@@ -11,7 +11,7 @@ export const TaskTableHeader: SFC = () => (
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.NUMBER, alignItems: 'center' }]}>
       <StyledText style={styles.text}>{i18n.t('taskTable:number')}</StyledText>
     </View>
-    <View style={[styles.cell, { flex: CELL_DIMENSIONS.CHECKBOX, alignItems: 'flex-start' }]}>
+    <View style={[styles.cell, { flex: CELL_DIMENSIONS.CHECKBOX, alignItems: 'center' }]}>
       <Icon size={24} name="checkbox-blank-outline" color={palette.textDisabled} />
     </View>
     <View style={[styles.cell, { flex: CELL_DIMENSIONS.NAME }]}>

@@ -1,13 +1,17 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { Icon, IconButton, StyledText } from 'components';
+import { Icon, IconButton, TextInput } from 'components';
+import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
+import { ImagePicker } from './ImagePicker';
+import { PlanItemFormData } from './PlanItemForm';
 
 interface Props {
   planItem: PlanItem;
+  formikProps: FormikProps<PlanItemFormData>;
 }
 
 export class PlanItemSimpleTask extends React.PureComponent<Props> {
@@ -16,13 +20,19 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
   };
 
   render() {
+    const { values, handleChange, submitForm } = this.props.formikProps;
     return (
       <>
         <View style={styles.imagePickerContainer}>
-          <View style={styles.imagePicker}>
-            <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
-          </View>
-          <StyledText style={styles.imageInputText}>{i18n.t('planItemActivity:taskNameForChild')}</StyledText>
+          <ImagePicker planItem={this.props.planItem} />
+          <TextInput
+            style={styles.imageInputTextContainer}
+            textStyle={styles.imageInputText}
+            placeholder={i18n.t('planItemActivity:taskNameForChild')}
+            value={values.nameForChild}
+            onChangeText={handleChange('nameForChild')}
+            onEndEditing={submitForm}
+          />
         </View>
         <View style={styles.timerButton}>
           <IconButton
@@ -46,23 +56,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
-  imagePicker: {
-    borderRadius: 8,
-    borderColor: palette.backgroundSurface,
-    borderWidth: 1,
-    display: 'flex',
-    paddingHorizontal: 91,
-    paddingVertical: 67,
-  },
   imagePickerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: dimensions.spacingSmall,
   },
+  imageInputTextContainer: {
+    marginTop: 53,
+    width: 260,
+  },
   imageInputText: {
     ...typography.taskInput,
-    color: palette.textInputPlaceholder,
-    marginTop: 53,
+    textAlign: 'center',
   },
   timerButton: {
     position: 'absolute',
