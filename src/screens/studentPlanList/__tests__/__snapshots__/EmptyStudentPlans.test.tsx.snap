@@ -11,6 +11,7 @@ exports[`EmptyStydentPlans renders correctly 1`] = `
     }
   }
 >
+  <DashboardBackground />
   <CreatePlanButton
     onPress={[Function]}
   />
