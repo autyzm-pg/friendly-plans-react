@@ -5,30 +5,32 @@ import { Header } from 'components';
 
 import {
   DashboardScreen,
+  ImageLibraryScreen,
+  PlanActivityScreen,
+  PlanItemTaskScreen,
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
-  StudentListScreen,
-  UpdatePlanItemScreen,
-  UpdatePlanScreen,
-  UpdatePlanSubItemScreen,
 } from 'screens';
 
 export const MainStackNavigator = createStackNavigator(
   {
     Dashboard: DashboardScreen,
-    UpdatePlanItem: UpdatePlanItemScreen,
-    UpdatePlanSubItem: UpdatePlanSubItemScreen,
-    UpdatePlan: UpdatePlanScreen,
+    PlanActivity: PlanActivityScreen,
     RunPlanList: RunPlanListScreen,
     RunPlanSlide: RunPlanSlideScreen,
     RunSubPlanList: RunSubPlanListScreen,
-    StudentList: StudentListScreen,
+    PlanItemTask: PlanItemTaskScreen,
+    ImageLibrary: ImageLibraryScreen,
   },
   {
     headerLayoutPreset: 'left',
-    defaultNavigationOptions: () => ({
-      header: (headerProps: HeaderProps) => <Header {...headerProps} />,
-    }),
+    defaultNavigationOptions: ({ navigation }) => {
+      const { params } = navigation.state;
+
+      return {
+        header: (headerProps: HeaderProps) => <Header {...headerProps} student={params ? params.student : {}} />,
+      };
+    },
   },
 );

@@ -8,14 +8,20 @@ exports[`IconButton should match snapshot 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "flexDirection": "row",
         "justifyContent": "center",
-        "padding": 8,
       },
+      undefined,
       undefined,
     ]
   }
 >
   <Icon
+    disabledStyle={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
     name="content-paste"
   />
 </TouchableOpacity>

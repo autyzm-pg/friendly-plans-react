@@ -1,6 +1,5 @@
 import { RNFirebase } from 'react-native-firebase';
 
-import { i18n } from '../locale';
 import { getPlansRef, getStudentRef, getStudentsRef } from './FirebaseRefProxy';
 import { Plan } from './Plan';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
@@ -20,10 +19,15 @@ export enum StudentTextSizeOption {
   ExtraLarge = 'xl',
 }
 
+const getRandomStudentName = () => {
+  const names = ['Adrian', 'Adam K.', 'Czarek', 'Czesiu', 'Filipek', 'Grzesiu', 'Gracjanek', 'Kamil'];
+  return names[Math.floor(Math.random() * names.length)];
+};
+
 export class Student implements SubscribableModel {
   static create = (): Promise<RNFirebase.firestore.DocumentReference> =>
     getStudentsRef().add({
-      name: i18n.t('studentList:studentNamePlaceholder'),
+      name: getRandomStudentName(),
     });
 
   name!: string;

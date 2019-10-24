@@ -20,8 +20,8 @@ export class ResetPasswordScreen extends React.PureComponent {
 
 const styles = StyleSheet.create({
   guideText: {
-    ...typography.body1,
-    color: palette.textBlackMuted,
+    ...typography.body,
+    color: palette.textDisabled,
     marginVertical: 8,
     textAlign: 'center',
   },

@@ -10,6 +10,8 @@ export const FlatButton: SFC<ButtonProps> = props => (
     loadingProps={{ color: palette.primary }}
     buttonStyle={[styles.button, props.buttonStyle]}
     titleStyle={[styles.title, props.titleStyle]}
+    disabledStyle={styles.buttonDisabled}
+    disabledTitleStyle={styles.titleDisabled}
   />
 );
 
@@ -19,10 +21,17 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'transparent',
     elevation: 0,
-    height: 44,
+    height: 36,
   },
   title: {
-    color: palette.primaryDark,
+    color: palette.primary,
+    textTransform: 'uppercase',
     ...typography.button,
+  },
+  buttonDisabled: {
+    backgroundColor: 'transparent',
+  },
+  titleDisabled: {
+    color: palette.textDisabled,
   },
 });

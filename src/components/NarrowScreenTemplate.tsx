@@ -2,16 +2,19 @@ import React from 'react';
 import { Animated, Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { getElevation, headerHeight, palette, typography } from 'styles';
+import { dimensions, getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
-const { height } = Dimensions.get('window');
+const { height: WINDOW_HEIGHT } = Dimensions.get('window');
+const CONTAINER_HEIGHT = WINDOW_HEIGHT - headerHeight;
+const MODAL_WIDTH = 528;
 
 interface Props extends NavigationInjectedProps {
   children?: React.ReactNode;
-  title: string;
+  title: React.ReactNode | string;
   buttons?: React.ReactNode;
+  isSecondaryView?: boolean;
 }
 
 export class NarrowScreenTemplate extends React.PureComponent<Props> {
@@ -34,18 +37,38 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
     setTimeout(() => this.props.navigation.goBack(), 200);
   };
 
+  getHeaderColor = () => ({
+    backgroundColor: this.props.isSecondaryView ? palette.backgroundAdditional : palette.primaryVariant,
+  });
+
+  renderTitle = () => {
+    const { title } = this.props;
+
+    if (typeof title === 'string') {
+      return <StyledText style={styles.headerText}>{title}</StyledText>;
+    }
+
+    return title;
+  };
+
   render() {
     const translateY = this.backgroundAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [height, 0],
+      outputRange: [WINDOW_HEIGHT, 0],
     });
-    const { children, title, buttons } = this.props;
+    const { children, buttons, isSecondaryView } = this.props;
     return (
       <Animated.View style={[styles.overlay]}>
         <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
-          <View style={styles.header}>
-            <IconButton name="arrow-back" type="material" size={24} color={palette.textWhite} onPress={this.goBack} />
-            <StyledText style={styles.headerText}>{title}</StyledText>
+          <View style={[styles.header, this.getHeaderColor()]}>
+            <IconButton
+              name="arrow-back"
+              type="material"
+              size={24}
+              color={isSecondaryView ? palette.textBody : palette.textWhite}
+              onPress={this.goBack}
+            />
+            {this.renderTitle()}
             {buttons}
           </View>
           <ScrollView bounces={false} alwaysBounceVertical={false} contentContainerStyle={styles.contentContainer}>
@@ -65,29 +88,28 @@ const styles = StyleSheet.create({
     backgroundColor: palette.modalBackgroundOverlay,
   },
   container: {
-    flexGrow: 1,
-    width: 528,
     ...getElevation(4),
+    width: MODAL_WIDTH,
+    height: '100%',
   },
   header: {
     flexDirection: 'row',
     height: headerHeight,
     paddingHorizontal: 16,
-    backgroundColor: palette.primaryDark,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   headerText: {
-    marginStart: 8,
     flex: 1,
-    ...typography.header,
+    marginStart: 8,
+    ...typography.title,
     color: palette.textWhite,
   },
   contentContainer: {
-    flex: 1,
+    minHeight: CONTAINER_HEIGHT,
     backgroundColor: palette.background,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
+    paddingVertical: dimensions.spacingMedium,
+    paddingHorizontal: dimensions.spacingBig,
   },
   footer: {
     flexDirection: 'row',

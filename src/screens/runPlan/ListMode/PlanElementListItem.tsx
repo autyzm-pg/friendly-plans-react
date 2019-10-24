@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight, View, ViewStyle } from 'react-native';
 
-import { Card } from 'components';
+import { Card, PlanNameText } from 'components';
 import { Plan, PlanItem, PlanItemType, Student } from 'models';
 import { palette } from 'styles';
 import { PlanElement } from '../../../models/PlanElement';
 import { NavigationService } from '../../../services';
-import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
@@ -59,11 +58,10 @@ export class PlanElementListItem extends React.PureComponent<Props> {
       <TouchableHighlight underlayColor={palette.underlay} style={styles.touchable} onPress={this.handlePress()}>
         <Card style={this.container()}>
           <View style={this.container()}>
-            <PlanItemName
-              planItemName={this.props.item.name}
+            <PlanNameText
+              planName={this.props.item.name}
               isUpperCase={this.props.student.isUpperCase}
               textSize={this.props.student.textSize}
-              textColor={this.nameTextColor()}
             />
             {this.isTimerAvailableForElement() ? <PlanItemTimer itemTime={this.props.item.time} /> : null}
           </View>
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
     alignContent: 'space-between',
   },
   containerCompleted: {
-    backgroundColor: palette.primaryDark,
+    backgroundColor: palette.primaryVariant,
     flex: 6,
     flexDirection: 'row',
     alignContent: 'space-between',

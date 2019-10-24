@@ -7,24 +7,35 @@ exports[`FlatButton should match snapshot 1`] = `
       Object {
         "backgroundColor": "transparent",
         "elevation": 0,
-        "height": 44,
+        "height": 36,
       },
       undefined,
     ]
   }
+  disabledStyle={
+    Object {
+      "backgroundColor": "transparent",
+    }
+  }
+  disabledTitleStyle={
+    Object {
+      "color": "#9B9B9B",
+    }
+  }
   loadingProps={
     Object {
-      "color": "#4F3DD5",
+      "color": "#6654EB",
     }
   }
   title="flat button"
   titleStyle={
     Array [
       Object {
-        "color": "#4b39ba",
+        "color": "#6654EB",
         "fontFamily": "Rubik-Medium",
         "fontSize": 14,
-        "letterSpacing": 1.25,
+        "letterSpacing": 0,
+        "textTransform": "uppercase",
       },
       undefined,
     ]

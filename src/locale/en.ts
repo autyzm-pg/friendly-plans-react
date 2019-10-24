@@ -1,4 +1,8 @@
 const translations = {
+  planActivity: {
+    planNamePlaceholder: 'Type plan name',
+    shuffleTasks: 'Shuffle tasks',
+  },
   common: {
     cancel: 'Cancel',
     ok: 'OK',
@@ -69,8 +73,23 @@ const translations = {
   },
   planList: {
     viewTitle: 'All Plans',
-    createPlan: 'Add a Plan',
-    planNamePlaceholder: 'Enter Plan name...',
+    createPlan: 'Add new plan',
+    copyPlan: 'Copy existing plan',
+    conjunction: 'lub',
+    planNamePlaceholder: 'Muzykowanie',
+  },
+  planItemActivity: {
+    viewTitleTask: 'Task',
+    viewTitleInteraction: 'Interaction',
+    viewTitleBreak: 'Break',
+    taskNamePlaceholder: 'Type task name',
+    timerButton: 'Set up timer',
+    taskNameForChild: 'Type task name for child',
+    addImage: 'Add image',
+    imageActionTakePhoto: 'Take a photo',
+    imageActionLibrary: 'Browse from library',
+    imageActionBrowse: 'Browse from device',
+    imageLibraryTitle: 'Image Library',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',
@@ -82,16 +101,10 @@ const translations = {
     addTask: 'Add task',
     planItemNamePlaceholder: 'Enter Plan Item name...',
   },
-  updatePlanItem: {
-    planSubItemNamePlaceholder: 'Enter sub item name...',
-    taskComplexity: 'Simple/Complex',
-    simpleTask: 'S',
-    complexTask: 'C',
-    addSubPlanItem: 'Add',
-  },
   studentSettings: {
     studentName: "Student's name",
     taskView: "Task's view",
+    soundSettings: 'Sound settings',
     screenTitle: "Student's settings",
     textSettingsSizeS: 'Font size: S',
     textSettingsSizeM: 'Font size: M',
@@ -104,10 +117,26 @@ const translations = {
     textList: 'Just text label as a list',
     uppercase: 'Uppercase letters',
     blockSwipe: 'Block swipe',
+    alarmSound: 'Alarm sound',
+    planCardPlacehorder: "Let's play paper, rock, scissors",
+    studentNamePlaceholder: 'Type student name',
+  },
+  studentsList: {
+    screenTitle: 'Select student',
+    search: 'Search',
   },
   runPlan: {
     next: 'Next',
     wait: 'Wait...',
+  },
+  taskTable: {
+    number: '#',
+    name: 'Name',
+    type: 'Type',
+    section: 'Parts',
+    time: 'Time',
+    delete: 'Delete',
+    edit: 'Edit',
   },
 };
 

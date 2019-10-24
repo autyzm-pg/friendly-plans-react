@@ -15,7 +15,8 @@ export enum PlanItemType {
 }
 
 const PLAN_ITEMS_ICONS = {
-  task: 'layers',
+  simpleTask: 'layers-clear',
+  complexTask: 'layers',
   break: 'bell',
   interaction: 'account-multiple',
 };
@@ -25,16 +26,45 @@ export class PlanItem implements SubscribableModel, PlanElement {
     plan: Plan,
     type: PlanItemType,
     lastItemOrder: number,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
   ): Promise<RNFirebase.firestore.DocumentReference> =>
     getPlanItemsRef(plan.studentId, plan.id).add({
-      name: i18n.t('updatePlan:planItemNamePlaceholder'),
+      name,
       studentId: plan.studentId,
       planId: plan.id,
       type,
       completed: false,
       lector: false,
       order: lastItemOrder + 1,
+      nameForChild: i18n.t('planItemActivity:taskNameForChild'),
     });
+
+  static async createPlanItem(
+    plan: Plan,
+    type: PlanItemType,
+    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+  ): Promise<PlanItem> {
+    const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+      nameForChild: i18n.t('planItemActivity:taskNameForChild'),
+    });
+
+    return Object.assign(new PlanItem(), {
+      id,
+      name,
+      studentId: plan.studentId,
+      planId: plan.id,
+      type,
+      completed: false,
+      lector: false,
+      nameForChild: i18n.t('planItemActivity:taskNameForChild'),
+    });
+  }
 
   id!: string;
   name!: string;
@@ -46,14 +76,22 @@ export class PlanItem implements SubscribableModel, PlanElement {
   image!: string;
   lector!: boolean;
   order!: number;
+  nameForChild!: string;
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];
   };
 
   isTask = (): boolean => this.type === PlanItemType.SimpleTask || this.type === PlanItemType.ComplexTask;
+  isSimpleTask = (): boolean => this.type === PlanItemType.SimpleTask;
   complete = () => {
     this.update({ completed: true });
+  };
+
+  changeType = (type: PlanItemType) => {
+    this.update({
+      type,
+    });
   };
 
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);

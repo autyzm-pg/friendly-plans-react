@@ -82,7 +82,7 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.backgroundTinted,
+    backgroundColor: palette.backgroundSurface,
   },
   slide: {
     flex: 1,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: palette.primaryDark,
+    backgroundColor: palette.primaryVariant,
   },
   buttonText: {
     color: palette.textWhite,
@@ -105,6 +105,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     color: palette.textBlack,
-    ...typography.header,
+    ...typography.title,
   },
 });

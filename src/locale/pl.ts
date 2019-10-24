@@ -1,4 +1,8 @@
 const translations = {
+  planActivity: {
+    planNamePlaceholder: 'Wpisz nazwę planu',
+    shuffleTasks: 'Tasuj zadania',
+  },
   common: {
     cancel: 'Anuluj',
   },
@@ -20,17 +24,33 @@ const translations = {
   },
   planList: {
     viewTitle: 'Wszystkie plany',
+    createPlan: 'DODAJ NOWY PLAN',
+    copyPlan: 'SKOPIUJ ISTNIEJĄCY PLAN',
+    conjunction: 'lub',
+    planNamePlaceholder: 'Muzykowanie',
   },
-  updatePlanItem: {
-    planSubItemNamePlaceholder: 'Wprowadź nazwę podzadania...',
-    taskComplexity: 'Proste/Złożone',
-    simpleTask: 'S',
-    complexTask: 'C',
-    addSubPlanItem: 'Dodaj',
+  planItemActivity: {
+    viewTitleTask: 'Zadanie',
+    viewTitleInteraction: 'Interakcja',
+    viewTitleBreak: 'Przerwa',
+    taskNamePlaceholder: 'Wpisz nazwę zadania',
+    timerButton: 'Ustaw timer',
+    taskNameForChild: 'Nazwij dla dziecka',
+    addImage: 'Dodaj obrazek',
+    imageActionTakePhoto: 'Zrób zdjęcie',
+    imageActionLibrary: 'Wybierz z biblioteki',
+    imageActionBrowse: 'Dodaj z urządzenia',
+    imageLibraryTitle: 'Biblioteka zdjęć',
+  },
+  updatePlan: {
+    addBreak: 'Dodaj przerwę',
+    addInteraction: 'Dodaj interakcję',
+    addTask: 'Dodaj zadanie',
   },
   studentSettings: {
     studentName: 'Imię podopiecznego',
     taskView: 'Widok zadań',
+    soundSettings: 'Ustawienia dźwięku',
     screenTitle: 'Ustawienia podopiecznego',
     textSettingsSizeS: 'Rozmiar liter: S',
     textSettingsSizeM: 'Rozmiar liter: M',
@@ -43,10 +63,26 @@ const translations = {
     textList: 'Tylko tekst jako lista',
     uppercase: 'Wielkie litery',
     blockSwipe: "Blokada swipe'u",
+    alarmSound: 'Dźwięk alarmu',
+    planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
+    studentNamePlaceholder: 'Wpisz imię podopiecznego',
+  },
+  studentsList: {
+    screenTitle: 'Wybór podopiecznego',
+    search: 'Wyszukaj',
   },
   runPlan: {
     next: 'Dalej',
     wait: 'Czekaj...',
+  },
+  taskTable: {
+    number: '#',
+    name: 'Nazwa',
+    type: 'Typ',
+    section: 'Części',
+    time: 'Czas',
+    delete: 'Usuń',
+    edit: 'Edycja',
   },
 };
 

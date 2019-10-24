@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FixedCreatePlanButton renders correctly 1`] = `
+<FloatingAction
+  actions={
+    Array [
+      Object {
+        "icon": <Icon
+          color="#FE9DCA"
+          name="add"
+          size={32}
+          type="material"
+        />,
+        "name": "create-plan",
+      },
+    ]
+  }
+  actionsPaddingTopBottom={8}
+  animated={true}
+  buttonSize={56}
+  color="#4F3DD5"
+  dismissKeyboardOnPress={false}
+  distanceToEdge={30}
+  iconColor="#fff"
+  iconHeight={15}
+  iconWidth={15}
+  listenKeyboard={false}
+  mainVerticalDistance={0}
+  onPressItem={[MockFunction]}
+  openOnMount={false}
+  overlayColor="rgba(68, 68, 68, 0.6)"
+  overrideWithAction={true}
+  position="right"
+  shadow={Object {}}
+  showBackground={true}
+  visible={true}
+/>
+`;

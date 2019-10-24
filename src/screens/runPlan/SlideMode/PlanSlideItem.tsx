@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
+import { PlanNameText } from 'components';
 import { PlanItem, StudentDisplayOption } from 'models';
 import { palette } from 'styles';
-import { PlanItemName } from '../PlanItemName';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
@@ -39,11 +39,10 @@ export class PlanSlideItem extends React.PureComponent<Props> {
           </View>
         )}
         {this.showText && (
-          <PlanItemName
-            planItemName={this.props.planItem.name}
+          <PlanNameText
+            planName={this.props.planItem.name}
             isUpperCase={this.props.isUpperCase}
             textSize={this.props.textSize}
-            textColor={styles.nameTextColor}
           />
         )}
         {!!this.props.planItem.time ? <PlanItemTimer itemTime={this.props.planItem.time} /> : null}

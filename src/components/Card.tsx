@@ -1,7 +1,7 @@
 import React from 'react';
 import { RegisteredStyle, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { palette } from 'styles';
+import { dimensions, palette } from 'styles';
 
 interface Props {
   children?: React.ReactNode;
@@ -17,7 +17,6 @@ export class Card extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 8,
     elevation: 2,
     shadowColor: palette.shadow,
     shadowOffset: {
@@ -26,8 +25,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
-    borderRadius: 8,
+    borderRadius: dimensions.spacingSmall,
     backgroundColor: palette.background,
-    padding: 24,
+    paddingVertical: dimensions.spacingSmall,
+    paddingHorizontal: dimensions.spacingBig,
   },
 });

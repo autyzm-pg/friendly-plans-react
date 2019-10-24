@@ -37,8 +37,6 @@ This project is using React Native without Expo - make sure to set up your local
 [official guide by Facebook](https://facebook.github.io/react-native/docs/getting-started.html).
 Both iOS and Android platforms are supported, although Android platform has a priority.
 
-Developer guide can be found in [GUIDE.md](GUIDE.md). 
-
 ## License
 The project is developing by people who want to make other people's life easier. Because of this Friendly Plans is going to be free to use, download and develop for everybody, forever.
 Except as otherwise noted, this software is licensed under the [GNU General Public License, v3](https://www.gnu.org/licenses/gpl-3.0.txt)

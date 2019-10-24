@@ -1,31 +1,39 @@
 import React, { SFC } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 import { IconProps } from 'react-native-elements';
 
-import { typography } from 'styles';
+import { dimensions, palette, typography } from 'styles';
 import { Icon } from './Icon';
 import { StyledText } from './StyledText';
 
 interface Props extends IconProps {
   label?: string;
+  iconButtonStyle?: StyleProp<ViewStyle>;
 }
 
-export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, ...props }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.container, containerStyle]}>
-    <Icon {...props} />
-    {!!label && <StyledText style={styles.label}>{label}</StyledText>}
-  </TouchableOpacity>
-);
+export const IconButton: SFC<Props> = ({ onPress, containerStyle, label, disabled, iconButtonStyle, ...props }) => {
+  return (
+    <TouchableOpacity disabled={disabled} onPress={onPress} style={[styles.container, containerStyle, iconButtonStyle]}>
+      <Icon {...props} disabledStyle={styles.iconDisabled} />
+      {!!label && <StyledText style={styles.label}>{label}</StyledText>}
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   label: {
-    ...typography.body1,
+    ...typography.caption,
     textAlign: 'center',
+    color: palette.primaryVariant,
+    marginLeft: dimensions.spacingTiny,
   },
   container: {
-    padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
+  },
+  iconDisabled: {
+    backgroundColor: 'transparent',
   },
 });
 

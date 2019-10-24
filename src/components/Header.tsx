@@ -2,34 +2,52 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { HeaderProps } from 'react-navigation';
 
+import { Student } from 'models';
 import { NavigationService } from 'services';
-import { getElevation, headerHeight, palette, typography } from 'styles';
+import { dimensions, getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
-type Props = HeaderProps;
+interface Props extends HeaderProps {
+  student: Student;
+}
 
 export class Header extends React.PureComponent<Props> {
   get title() {
-    const { scene } = this.props;
+    const { scene, student } = this.props;
     const { options } = scene.descriptor;
-    return typeof options.headerTitle !== 'function' && options.headerTitle !== undefined
-      ? options.headerTitle
-      : options.title !== undefined
-      ? options.title
-      : scene.route.routeName;
+
+    const headerTitle = (title: string) => {
+      const studentPrefix = student ? `${student.name} / ` : '';
+      return `${studentPrefix}${title}`;
+    };
+
+    if (options.headerTitle && options.headerTitle !== 'function') {
+      return options.headerTitle;
+    }
+
+    return headerTitle(options.title || scene.route.routeName);
   }
 
   openDrawer = () => this.props.navigation.openDrawer();
 
-  goBack = () => NavigationService.goBack(); // this.props.navigation didn't worked
+  goBack = () => NavigationService.goBack();
+
+  navigateToStudentsList = () => {
+    NavigationService.navigate('StudentsList');
+  };
+
+  navigateToStudentSettings = () => {
+    NavigationService.navigate('StudentSettings', {
+      student: this.props.student,
+    });
+  };
 
   get isRoot(): boolean {
     return this.props.navigation.state.routes.length <= 1;
   }
 
   render() {
-    const {} = this.props;
     return (
       <View style={styles.container}>
         <IconButton
@@ -41,6 +59,22 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
+        <IconButton
+          name="settings"
+          type="material"
+          color={palette.textWhite}
+          size={24}
+          containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentSettings}
+        />
+        <IconButton
+          name="people"
+          type="material"
+          size={24}
+          color={palette.textWhite}
+          containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentsList}
+        />
       </View>
     );
   }
@@ -48,20 +82,20 @@ export class Header extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
+    ...getElevation(4),
     height: headerHeight,
     paddingHorizontal: 16,
-    backgroundColor: palette.primary,
-    ...getElevation(4),
+    backgroundColor: palette.primaryVariant,
     flexDirection: 'row',
     alignItems: 'center',
   },
   iconContainer: {
-    padding: 8,
+    margin: dimensions.spacingSmall,
   },
   headerText: {
     marginStart: 8,
     flex: 1,
-    ...typography.header,
+    ...typography.title,
     color: palette.textWhite,
   },
 });

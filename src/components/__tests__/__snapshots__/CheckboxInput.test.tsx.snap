@@ -10,21 +10,19 @@ exports[`Button should match snapshot 1`] = `
     }
   >
     <IconButton
+      color="#6654EB"
       containerStyle={
         Object {
-          "alignItems": "center",
-          "height": 36,
-          "justifyContent": "center",
-          "width": 40,
+          "alignItems": "flex-start",
         }
       }
-      name="checkbox-marked-outline"
+      name="checkbox-marked"
       onPress={[Function]}
     />
     <View
       style={
         Object {
-          "alignItems": "center",
+          "alignItems": "flex-start",
           "flex": 1,
           "flexDirection": "row",
         }
@@ -41,13 +39,5 @@ exports[`Button should match snapshot 1`] = `
       </StyledText>
     </View>
   </View>
-  <View
-    style={
-      Object {
-        "height": 20,
-        "justifyContent": "center",
-      }
-    }
-  />
 </Fragment>
 `;
