@@ -19,7 +19,7 @@ export const getPlanItemRef = (
   planItemId: string,
 ): RNFirebase.firestore.DocumentReference => getPlanItemsRef(studentId, planId).doc(planItemId);
 
-export const getPlanItemsRef = (studentId: string, planId: string): any =>
+export const getPlanItemsRef = (studentId: string, planId: string): RNFirebase.firestore.CollectionReference =>
   getPlanRef(studentId, planId).collection('planItems');
 
 export const getPlanRef = (studentId: string, planId: string): RNFirebase.firestore.DocumentReference =>
