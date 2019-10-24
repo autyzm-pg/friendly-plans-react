@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
+import { FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Plan, PlanItem } from 'models';
 import { getElevation, palette } from 'styles';
@@ -85,11 +86,13 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
     return (
       <>
-        <View style={styles.headerContainer}>
-          <PlanForm onSubmit={this.onSubmit} plan={plan} />
-          {!isEmpty(planItemList) && <TaskTableHeader />}
-        </View>
-        <TaskTable planItemList={planItemList} />
+        <FullScreenTemplate>
+          <View style={styles.headerContainer}>
+            <PlanForm onSubmit={this.onSubmit} plan={plan} />
+            {!isEmpty(planItemList) && <TaskTableHeader />}
+          </View>
+          <TaskTable planItemList={planItemList} />
+        </FullScreenTemplate>
         {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
     );

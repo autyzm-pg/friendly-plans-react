@@ -104,8 +104,6 @@ export class FixedCreatePlanItemButton extends React.PureComponent<Props, State>
 const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: palette.modalBackgroundOverlay,
   },
 });
