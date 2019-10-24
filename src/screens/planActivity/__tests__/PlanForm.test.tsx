@@ -10,6 +10,7 @@ describe('PlanFormControls', () => {
     navigation: navigationMock,
     onSubmit: jest.fn(),
     plan: new Plan(),
+    onValidate: jest.fn(),
   };
 
   it('renders correctly', () => {

@@ -1,7 +1,6 @@
-import { Formik, FormikProps } from 'formik';
+import { ErrorMessage, Formik, FormikProps } from 'formik';
 import React, { SFC } from 'react';
-import { StyleSheet, View } from 'react-native';
-import * as Yup from 'yup';
+import { StyleSheet, Text, View } from 'react-native';
 
 import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
 import { i18n } from 'locale';
@@ -17,21 +16,21 @@ export interface PlanFormData {
   emoji: string;
 }
 
+export interface PlanFormError {
+  planInput?: string;
+}
+
 interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
+  onValidate: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
     emoji: plan ? plan.emoji : DEFAULT_EMOJI,
   };
-
-  const validationSchema = Yup.object().shape({
-    planInput: Yup.string().required(),
-    emoji: Yup.string(),
-  });
 
   const renderFormControls = ({ values, setFieldValue, submitForm }: FormikProps<PlanFormData>) => {
     const handleChangeText = (value: string) => setFieldValue('planInput', value);
@@ -57,6 +56,9 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
             onChangeText={handleChangeText}
             onEndEditing={submitForm}
           />
+          <Text style={styles.errorMessage}>
+            <ErrorMessage name="planInput" />
+          </Text>
         </View>
         <View style={styles.buttonContainer}>
           <ShuffleButton disabled={!plan} />
@@ -66,14 +68,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit }) => {
     );
   };
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-      render={renderFormControls}
-    />
-  );
+  return <Formik initialValues={initialValues} onSubmit={onSubmit} render={renderFormControls} validate={onValidate} />;
 };
 
 const styles = StyleSheet.create({
@@ -98,6 +93,10 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
+    marginLeft: dimensions.spacingSmall,
+  },
+  errorMessage: {
+    color: palette.error,
     marginLeft: dimensions.spacingSmall,
   },
 });

@@ -13,6 +13,14 @@ export class Plan implements SubscribableModel {
       emoji: DEFAULT_EMOJI,
     });
 
+  static async isPlanExist(studentId: string, name: string): Promise<boolean> {
+    const plans: RNFirebase.firestore.QuerySnapshot = await getPlansRef(studentId)
+      .where('name', '==', name)
+      .get();
+
+    return !plans.empty;
+  }
+
   static async createPlan(studentId: string, name: string): Promise<Plan> {
     const { id } = await getPlansRef(studentId).add({
       name,

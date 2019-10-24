@@ -18,6 +18,8 @@ const translations = {
     required: 'This field is required',
     passwordLength: 'Password is too short',
     acceptRequired: 'You need to accept our Terms of Use',
+    duplicatedPlan: 'Plan name already exists',
+    planNameRequired: 'Plan name is required',
   },
   notifications: {
     channelName: 'Notifications',
