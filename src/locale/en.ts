@@ -126,6 +126,8 @@ const translations = {
   studentsList: {
     screenTitle: 'Select student',
     search: 'Search',
+    dashboard: 'Student dashboard',
+    createStudent: 'Create student',
   },
   runPlan: {
     next: 'Next',
