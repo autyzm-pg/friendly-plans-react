@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Icon, IconButton, ModalTrigger, StyledText } from 'components';
+import { Icon, IconButton, ModalTrigger } from 'components';
 import { i18n } from 'locale';
 import noop from 'lodash.noop';
 import { PlanItem } from 'models';
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     borderColor: palette.backgroundSurface,
-    paddingHorizontal: 91,
+    paddingHorizontal: 85,
     paddingVertical: 67,
   },
 });
