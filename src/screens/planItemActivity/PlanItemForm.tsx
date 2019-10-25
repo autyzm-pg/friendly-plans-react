@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: dimensions.spacingExtraLarge,
+    paddingHorizontal: dimensions.spacingHuge,
     backgroundColor: palette.background,
     borderBottomColor: palette.backgroundAdditional,
     borderBottomWidth: 1,
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: '90%',
     backgroundColor: palette.backgroundSurface,
-    paddingHorizontal: dimensions.spacingExtraLarge,
+    paddingHorizontal: dimensions.spacingHuge,
     paddingTop: dimensions.spacingBig,
   },
   errorMessage: {

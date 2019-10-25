@@ -39,14 +39,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     height: '94%',
-    paddingHorizontal: dimensions.spacingExtraLarge,
+    paddingHorizontal: dimensions.spacingHuge,
     paddingTop: dimensions.spacingBig,
   },
   complexTask: {
-    flexGrow: 1.1,
+    flexGrow: 3,
   },
   simpleTask: {
-    flexGrow: 3,
+    flexGrow: 7,
     marginTop: 3,
     marginLeft: dimensions.spacingMedium,
   },
