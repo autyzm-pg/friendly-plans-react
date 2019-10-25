@@ -62,14 +62,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
-  imagePickerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.spacingSmall,
-  },
   imageInputTextContainer: {
     marginTop: 53,
-    width: 260,
+    width: 240,
   },
   imageInputText: {
     ...typography.taskInput,

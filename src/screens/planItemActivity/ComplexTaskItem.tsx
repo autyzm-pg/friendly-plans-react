@@ -8,33 +8,40 @@ interface Props {
   name: string;
   image: string;
   time: string;
+  selected?: boolean;
 }
 
-export const ComplexTaskItem: SFC<Props> = ({ name, image, time }) => (
-  <Card style={styles.card}>
-    <View style={styles.leftContainer}>
-      <IconButton name="eye-outline" size={24} color={palette.primary} />
-      <IconButton name="delete" size={24} color={palette.textInputPlaceholder} />
-    </View>
-    <View style={styles.rightContainer}>
-      <View style={styles.timeContainer}>
-        <StyledText style={styles.time}>{time}</StyledText>
+export const ComplexTaskItem: SFC<Props> = ({ name, image, time, selected = false }) => (
+  <View style={styles.container}>
+    <Card style={styles.card}>
+      <View style={[styles.leftContainer, selected && styles.backgroundPrimary]}>
+        <IconButton name="eye-outline" size={24} color={selected ? palette.textWhite : palette.primary} />
+        <IconButton name="delete" size={24} color={palette.textInputPlaceholder} />
       </View>
-      <View style={styles.taskContainer}>
-        <StyledText>{image}</StyledText>
-        <StyledText style={styles.name}>{name}</StyledText>
+      <View style={styles.rightContainer}>
+        <View style={styles.timeContainer}>
+          <StyledText style={styles.time}>{time}</StyledText>
+        </View>
+        <View style={styles.taskContainer}>
+          <StyledText>{image}</StyledText>
+          <StyledText style={styles.name}>{name}</StyledText>
+        </View>
       </View>
-    </View>
-  </Card>
+    </Card>
+  </View>
 );
 
 const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 3,
+    marginTop: 3,
+    marginBottom: dimensions.spacingMedium,
+  },
   card: {
     flexDirection: 'row',
     width: '100%',
     paddingVertical: 0,
     paddingHorizontal: 0,
-    marginBottom: dimensions.spacingMedium,
     height: 144,
   },
   leftContainer: {
@@ -67,5 +74,8 @@ const styles = StyleSheet.create({
     ...typography.headline6,
     color: palette.textBody,
     marginTop: dimensions.spacingBig,
+  },
+  backgroundPrimary: {
+    backgroundColor: palette.primary,
   },
 });
