@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { Icon, IconButton, TextInput } from 'components';
+import { Card, IconButton, TextInput } from 'components';
 import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
@@ -12,9 +12,10 @@ import { PlanItemFormData } from './PlanItemForm';
 interface Props {
   planItem: PlanItem;
   formikProps: FormikProps<PlanItemFormData>;
+  style?: StyleProp<ViewStyle>;
 }
 
-export class PlanItemSimpleTask extends React.PureComponent<Props> {
+export class SimpleTask extends React.PureComponent<Props> {
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
@@ -22,8 +23,8 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
   render() {
     const { values, handleChange, submitForm } = this.props.formikProps;
     return (
-      <>
-        <View style={styles.imagePickerContainer}>
+      <SafeAreaView style={this.props.style}>
+        <Card style={[styles.container]}>
           <ImagePicker planItem={this.props.planItem} />
           <TextInput
             style={styles.imageInputTextContainer}
@@ -33,37 +34,39 @@ export class PlanItemSimpleTask extends React.PureComponent<Props> {
             onChangeText={handleChange('nameForChild')}
             onEndEditing={submitForm}
           />
-        </View>
-        <View style={styles.timerButton}>
-          <IconButton
-            name="alarm-off"
-            type="material"
-            label={i18n.t('planItemActivity:timerButton')}
-            containerStyle={styles.iconButtonContainer}
-            size={24}
-            color={palette.primaryVariant}
-          />
-        </View>
-      </>
+          <View style={styles.timerButton}>
+            <IconButton
+              name="alarm-off"
+              type="material"
+              label={i18n.t('planItemActivity:timerButton')}
+              containerStyle={styles.iconButtonContainer}
+              size={24}
+              color={palette.primaryVariant}
+            />
+          </View>
+        </Card>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: dimensions.spacingBig,
+    paddingBottom: dimensions.spacingHuge,
+    height: '90%',
+  },
   iconButtonContainer: {
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
-  imagePickerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: dimensions.spacingSmall,
-  },
   imageInputTextContainer: {
     marginTop: 53,
-    width: 260,
+    width: 240,
   },
   imageInputText: {
     ...typography.taskInput,

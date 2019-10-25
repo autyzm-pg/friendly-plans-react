@@ -1,14 +1,14 @@
 import { Formik, FormikProps } from 'formik';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
-import { Card, IconButton, IconToggleButton, StyledText, TextInput } from 'components';
+import { IconButton, IconToggleButton, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemType } from 'models';
 import { dimensions, getElevation, palette, typography } from 'styles';
-import { PlanItemComplexTask } from './PlanItemComplexTask';
-import { PlanItemSimpleTask } from './PlanItemSimpleTask';
+import { ComplexTask } from './ComplexTask';
+import { SimpleTask } from './SimpleTask';
 
 export interface PlanItemFormData {
   name: string;
@@ -90,13 +90,11 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
             />
           </View>
         </View>
-        <Card style={styles.card}>
-          {this.state.taskType === PlanItemType.SimpleTask ? (
-            <PlanItemSimpleTask planItem={this.props.planItem} formikProps={formikProps} />
-          ) : (
-            <PlanItemComplexTask planItem={this.props.planItem} />
-          )}
-        </Card>
+        {this.state.taskType === PlanItemType.SimpleTask ? (
+          <SimpleTask style={styles.simpleTaskContainer} planItem={this.props.planItem} formikProps={formikProps} />
+        ) : (
+          <ComplexTask planItem={this.props.planItem} formikProps={formikProps} />
+        )}
       </>
     );
   };
@@ -120,7 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: dimensions.spacingExtraLarge,
+    paddingHorizontal: dimensions.spacingHuge,
     backgroundColor: palette.background,
     borderBottomColor: palette.backgroundAdditional,
     borderBottomWidth: 1,
@@ -136,24 +134,19 @@ const styles = StyleSheet.create({
   textInputContainer: {
     width: 288,
   },
-  card: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    marginVertical: dimensions.spacingBig,
-    marginHorizontal: dimensions.spacingExtraLarge,
-    height: '78%',
-  },
   iconButtonContainer: {
     backgroundColor: palette.backgroundAdditional,
     paddingVertical: 4,
     paddingHorizontal: dimensions.spacingSmall,
     borderRadius: 8,
   },
-  timerButton: {
-    position: 'absolute',
-    right: dimensions.spacingBig,
-    top: dimensions.spacingBig,
+  simpleTaskContainer: {
+    flexDirection: 'row',
+    height: '100%',
+    backgroundColor: palette.backgroundSurface,
+    paddingHorizontal: dimensions.spacingHuge,
+    paddingTop: dimensions.spacingBig,
+    paddingBottom: dimensions.spacingHuge,
   },
   errorMessage: {
     color: palette.error,

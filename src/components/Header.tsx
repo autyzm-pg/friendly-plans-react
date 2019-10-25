@@ -12,6 +12,8 @@ interface Props extends HeaderProps {
   student: Student;
 }
 
+const DASHBOARD = 'Dashboard';
+
 export class Header extends React.PureComponent<Props> {
   get title() {
     const { scene, student } = this.props;
@@ -47,18 +49,17 @@ export class Header extends React.PureComponent<Props> {
     return this.props.navigation.state.routes.length <= 1;
   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <IconButton
-          name={this.isRoot ? 'menu' : 'arrow-back'}
-          type="material"
-          onPress={this.isRoot ? this.openDrawer : this.goBack}
-          size={24}
-          color={palette.textWhite}
-          containerStyle={styles.iconContainer}
-        />
-        <StyledText style={styles.headerText}>{this.title as string}</StyledText>
+  isDashboard() {
+    const { routes } = this.props.navigation.state;
+
+    const { routeName } = routes[routes.length - 1];
+
+    return routeName === DASHBOARD;
+  }
+
+  renderButtons() {
+    return this.isDashboard() ? (
+      <>
         <IconButton
           name="settings"
           type="material"
@@ -75,6 +76,23 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
           onPress={this.navigateToStudentsList}
         />
+      </>
+    ) : null;
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <IconButton
+          name={this.isRoot ? 'menu' : 'arrow-back'}
+          type="material"
+          onPress={this.isRoot ? this.openDrawer : this.goBack}
+          size={24}
+          color={palette.textWhite}
+          containerStyle={styles.iconContainer}
+        />
+        <StyledText style={styles.headerText}>{this.title as string}</StyledText>
+        {this.renderButtons()}
       </View>
     );
   }
