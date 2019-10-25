@@ -33,7 +33,7 @@ export class CheckboxInput extends React.PureComponent<Props> {
             onPress={this.onPress}
             name={checked ? icons.checked : icons.unchecked}
             containerStyle={styles.iconContainer}
-            color={checked ? palette.primary : palette.backgroundAdditional}
+            color={checked ? palette.primary : palette.textInputPlaceholder}
           />
           {title && (
             <View style={styles.contentContainer}>

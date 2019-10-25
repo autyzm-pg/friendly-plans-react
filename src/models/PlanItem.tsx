@@ -91,6 +91,10 @@ export class PlanItem implements SubscribableModel, PlanElement {
     this.update({ completed: true });
   };
 
+  setComplete = (completed: boolean) => {
+    this.update({ completed });
+  };
+
   changeType = (type: PlanItemType) => {
     this.update({
       type,

@@ -1,4 +1,3 @@
-import noop from 'lodash.noop';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -25,13 +24,17 @@ export const TableRow: React.FunctionComponent<Props> = ({ rowNumber, planItem, 
     planItem.delete();
   };
 
+  const handleCheckboxChange = () => {
+    planItem.setComplete(!planItem.completed);
+  };
+
   return (
     <View style={[styles.row, border && styles.rowBorder]}>
       <View style={[styles.cell, { flex: CELL_DIMENSIONS.NUMBER, alignItems: 'center' }]}>
         <Text style={styles.text}>{rowNumber}</Text>
       </View>
       <View style={[styles.cell, { flex: CELL_DIMENSIONS.CHECKBOX, alignItems: 'center' }]}>
-        <CheckboxInput checked onPress={noop} />
+        <CheckboxInput checked={planItem.completed} onPress={handleCheckboxChange} />
       </View>
       <View style={[styles.cell, { flex: CELL_DIMENSIONS.NAME }]}>
         <Text style={styles.text}>{planItem.name}</Text>
