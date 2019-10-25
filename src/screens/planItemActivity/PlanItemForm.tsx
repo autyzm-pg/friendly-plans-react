@@ -91,9 +91,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
           </View>
         </View>
         {this.state.taskType === PlanItemType.SimpleTask ? (
-          <SafeAreaView style={styles.simpleTaskContainer}>
-            <SimpleTask planItem={this.props.planItem} formikProps={formikProps} />
-          </SafeAreaView>
+          <SimpleTask style={styles.simpleTaskContainer} planItem={this.props.planItem} formikProps={formikProps} />
         ) : (
           <ComplexTask planItem={this.props.planItem} formikProps={formikProps} />
         )}
@@ -144,10 +142,11 @@ const styles = StyleSheet.create({
   },
   simpleTaskContainer: {
     flexDirection: 'row',
-    height: '90%',
+    height: '100%',
     backgroundColor: palette.backgroundSurface,
     paddingHorizontal: dimensions.spacingHuge,
     paddingTop: dimensions.spacingBig,
+    paddingBottom: dimensions.spacingHuge,
   },
   errorMessage: {
     color: palette.error,

@@ -43,11 +43,12 @@ const styles = StyleSheet.create({
     paddingTop: dimensions.spacingBig,
   },
   complexTask: {
-    flexGrow: 3,
+    flexGrow: 7,
   },
   simpleTask: {
-    flexGrow: 7,
+    flexGrow: 8,
     marginTop: 3,
     marginLeft: dimensions.spacingMedium,
+    paddingBottom: dimensions.spacingLarge,
   },
 });

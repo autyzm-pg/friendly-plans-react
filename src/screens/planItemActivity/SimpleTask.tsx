@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { Card, IconButton, TextInput } from 'components';
 import { FormikProps } from 'formik';
@@ -23,27 +23,29 @@ export class SimpleTask extends React.PureComponent<Props> {
   render() {
     const { values, handleChange, submitForm } = this.props.formikProps;
     return (
-      <Card style={[styles.container, this.props.style]}>
-        <ImagePicker planItem={this.props.planItem} />
-        <TextInput
-          style={styles.imageInputTextContainer}
-          textStyle={styles.imageInputText}
-          placeholder={i18n.t('planItemActivity:taskNameForChild')}
-          value={values.nameForChild}
-          onChangeText={handleChange('nameForChild')}
-          onEndEditing={submitForm}
-        />
-        <View style={styles.timerButton}>
-          <IconButton
-            name="alarm-off"
-            type="material"
-            label={i18n.t('planItemActivity:timerButton')}
-            containerStyle={styles.iconButtonContainer}
-            size={24}
-            color={palette.primaryVariant}
+      <SafeAreaView style={this.props.style}>
+        <Card style={[styles.container]}>
+          <ImagePicker planItem={this.props.planItem} />
+          <TextInput
+            style={styles.imageInputTextContainer}
+            textStyle={styles.imageInputText}
+            placeholder={i18n.t('planItemActivity:taskNameForChild')}
+            value={values.nameForChild}
+            onChangeText={handleChange('nameForChild')}
+            onEndEditing={submitForm}
           />
-        </View>
-      </Card>
+          <View style={styles.timerButton}>
+            <IconButton
+              name="alarm-off"
+              type="material"
+              label={i18n.t('planItemActivity:timerButton')}
+              containerStyle={styles.iconButtonContainer}
+              size={24}
+              color={palette.primaryVariant}
+            />
+          </View>
+        </Card>
+      </SafeAreaView>
     );
   }
 }
