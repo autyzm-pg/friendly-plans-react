@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { Card, IconButton, TextInput } from 'components';
 import { FormikProps } from 'formik';
@@ -12,7 +12,7 @@ import { PlanItemFormData } from './PlanItemForm';
 interface Props {
   planItem: PlanItem;
   formikProps: FormikProps<PlanItemFormData>;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 export class SimpleTask extends React.PureComponent<Props> {
