@@ -59,14 +59,16 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
-        <IconButton
-          name="settings"
-          type="material"
-          color={palette.textWhite}
-          size={24}
-          containerStyle={styles.iconContainer}
-          onPress={this.navigateToStudentSettings}
-        />
+        {this.props.student && (
+          <IconButton
+            name="settings"
+            type="material"
+            color={palette.textWhite}
+            size={24}
+            containerStyle={styles.iconContainer}
+            onPress={this.navigateToStudentSettings}
+          />
+        )}
         <IconButton
           name="people"
           type="material"
