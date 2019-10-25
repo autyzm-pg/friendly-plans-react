@@ -8,7 +8,7 @@ import { i18n } from 'locale';
 import { ModelSubscriber, Plan, PlanItem } from 'models';
 import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
-import { PlanForm, PlanFormData } from './PlanForm';
+import { PlanForm, PlanFormData, PlanFormError } from './PlanForm';
 import { TaskTable } from './TaskTable';
 import { TaskTableHeader } from './TaskTableHeader';
 
@@ -51,6 +51,22 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     }
   }
 
+  validatePlan = async ({ planInput }: PlanFormData): Promise<void> => {
+    const errors: PlanFormError = {};
+    if (planInput === '') {
+      errors.planInput = i18n.t('validation:planNameRequired');
+      throw errors;
+    }
+
+    const { id } = this.props.navigation.getParam('student');
+    const isPlanExist: boolean = await Plan.isPlanExist(id, planInput);
+
+    if (isPlanExist) {
+      errors.planInput = i18n.t('validation:duplicatedPlan');
+      throw errors;
+    }
+  };
+
   createPlan = async (name: string) => {
     const { id } = this.props.navigation.getParam('student');
 
@@ -74,10 +90,11 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.state.plan ? this.updatePlan(planInput, emoji) : this.createPlan(planInput);
 
   navigateToCreatePlanItem = async () => {
-    const plan = this.state.plan;
+    const { plan, planItemList } = this.state;
 
     this.props.navigation.navigate('PlanItemTask', {
       plan,
+      planItemList,
     });
   };
 
@@ -88,7 +105,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
       <>
         <FullScreenTemplate>
           <View style={styles.headerContainer}>
-            <PlanForm onSubmit={this.onSubmit} plan={plan} />
+            <PlanForm onSubmit={this.onSubmit} plan={plan} onValidate={this.validatePlan} />
             {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
           <TaskTable planItemList={planItemList} />

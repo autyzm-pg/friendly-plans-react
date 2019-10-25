@@ -19,10 +19,19 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     planItem: this.props.navigation.getParam('planItem'),
   };
 
+  getLastItemOrder = (): number => {
+    const planItemList = this.props.navigation.getParam('planItemList');
+    if (!planItemList.length) {
+      return 0;
+    }
+    const { order } = planItemList[planItemList.length - 1];
+    return order;
+  };
+
   createPlanItem = async (name: string) => {
     const plan = this.props.navigation.getParam('plan');
 
-    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, name);
+    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, name, this.getLastItemOrder());
 
     this.setState({ planItem });
   };

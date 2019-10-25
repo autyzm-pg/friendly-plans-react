@@ -84,6 +84,10 @@ const translations = {
     delete: 'Usuń',
     edit: 'Edycja',
   },
+  validation: {
+    duplicatedPlan: 'Plan o podanej nazwie już istnieje',
+    planNameRequired: 'Nazwa planu jest wymagana',
+  },
 };
 
 export default translations;
