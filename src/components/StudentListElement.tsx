@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { StyledText } from 'components';
-import { Student } from 'models';
+import { AuthUser, Student } from 'models';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { dimensions, palette, typography } from 'styles';
 
@@ -11,7 +11,8 @@ interface Props extends NavigationInjectedProps {
 }
 
 const StudentName: SFC<Props> = ({ student, navigation }) => {
-  const setCurrentStudent = () => {
+  const setCurrentStudent = async () => {
+    await AuthUser.getAuthenticatedUser().setCurrentStudent(student.id);
     navigation.navigate('Dashboard', {
       student,
     });
