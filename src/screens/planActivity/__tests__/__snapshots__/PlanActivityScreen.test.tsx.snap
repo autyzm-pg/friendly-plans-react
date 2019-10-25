@@ -19,6 +19,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       }
     >
       <Component
+        handleTouch={[Function]}
         onSubmit={[Function]}
         onValidate={[Function]}
         plan="plan"

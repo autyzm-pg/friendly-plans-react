@@ -1,44 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FlatButton should match snapshot 1`] = `
-<ForwardRef(Themed.Button)
-  buttonStyle={
-    Array [
+<TouchableOpacity
+  activeOpacity={0.2}
+>
+  <ForwardRef(Themed.Button)
+    buttonStyle={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "elevation": 0,
+          "height": 36,
+        },
+        undefined,
+      ]
+    }
+    disabledStyle={
       Object {
         "backgroundColor": "transparent",
-        "elevation": 0,
-        "height": 36,
-      },
-      undefined,
-    ]
-  }
-  disabledStyle={
-    Object {
-      "backgroundColor": "transparent",
+      }
     }
-  }
-  disabledTitleStyle={
-    Object {
-      "color": "#9B9B9B",
+    disabledTitleStyle={
+      Object {
+        "color": "#9B9B9B",
+      }
     }
-  }
-  loadingProps={
-    Object {
-      "color": "#6654EB",
-    }
-  }
-  title="flat button"
-  titleStyle={
-    Array [
+    loadingProps={
       Object {
         "color": "#6654EB",
-        "fontFamily": "Rubik-Medium",
-        "fontSize": 14,
-        "letterSpacing": 0,
-        "textTransform": "uppercase",
-      },
-      undefined,
-    ]
-  }
-/>
+      }
+    }
+    title="flat button"
+    titleStyle={
+      Array [
+        Object {
+          "color": "#6654EB",
+          "fontFamily": "Rubik-Medium",
+          "fontSize": 14,
+          "letterSpacing": 0,
+          "textTransform": "uppercase",
+        },
+        undefined,
+      ]
+    }
+  />
+</TouchableOpacity>
 `;
