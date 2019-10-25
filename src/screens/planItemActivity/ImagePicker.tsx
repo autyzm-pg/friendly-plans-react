@@ -1,28 +1,52 @@
-import React, { SFC } from 'react';
+import React, { PureComponent } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { Image } from 'react-native-elements';
+import { ImagePickerResponse } from 'react-native-image-picker';
 
-import { Icon, IconButton, ModalTrigger } from 'components';
+import { Icon, ModalTrigger } from 'components';
 import { i18n } from 'locale';
-import noop from 'lodash.noop';
 import { PlanItem } from 'models';
-import { dimensions, palette } from 'styles';
-import { ImageAction } from './ImageAction';
+import { palette } from 'styles';
 import { ImagePickerModal } from './ImagePickerModal';
 
 interface Props {
   planItem: PlanItem;
 }
+interface State {
+  imageUri: string;
+}
 
-export const ImagePicker: SFC<Props> = ({ planItem }) => (
-  <View style={styles.container}>
-    <ModalTrigger modalContent={<ImagePickerModal planItem={planItem} />} title={i18n.t('planItemActivity:addImage')}>
-      <View style={styles.imagePicker}>
-        <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
+export class ImagePicker extends PureComponent<Props, State> {
+  state = {
+    imageUri: this.props.planItem.image,
+  };
+
+  updateImage = (image: ImagePickerResponse) => {
+    const imageUri = `data:${image.type};base64,${image.data}`;
+    this.props.planItem.update({ image: imageUri });
+    this.setState({ imageUri });
+  };
+
+  render() {
+    const { planItem } = this.props;
+    return (
+      <View style={styles.container}>
+        <ModalTrigger
+          modalContent={<ImagePickerModal planItem={planItem} updateImage={this.updateImage} />}
+          title={i18n.t('planItemActivity:addImage')}
+        >
+          <View style={styles.imagePicker}>
+            {planItem && planItem.image ? (
+              <Image source={{ uri: this.state.imageUri }} style={styles.image} />
+            ) : (
+              <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />
+            )}
+          </View>
+        </ModalTrigger>
       </View>
-    </ModalTrigger>
-  </View>
-);
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -36,5 +60,10 @@ const styles = StyleSheet.create({
     borderColor: palette.backgroundSurface,
     paddingHorizontal: 85,
     paddingVertical: 67,
+  },
+  image: {
+    flex: 1,
+    width: 100,
+    height: 100,
   },
 });
