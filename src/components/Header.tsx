@@ -92,7 +92,7 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
-        {this.renderButtons}
+        {this.renderButtons()}
       </View>
     );
   }
