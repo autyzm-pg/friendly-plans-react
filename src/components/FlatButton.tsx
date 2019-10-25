@@ -1,18 +1,24 @@
 import React, { SFC } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Button as ElementsButton, ButtonProps } from 'react-native-elements';
 
 import { palette, typography } from 'styles';
 
-export const FlatButton: SFC<ButtonProps> = props => (
-  <ElementsButton
-    {...props}
-    loadingProps={{ color: palette.primary }}
-    buttonStyle={[styles.button, props.buttonStyle]}
-    titleStyle={[styles.title, props.titleStyle]}
-    disabledStyle={styles.buttonDisabled}
-    disabledTitleStyle={styles.titleDisabled}
-  />
+interface Props extends ButtonProps {
+  handlePress?: () => void;
+}
+
+export const FlatButton: SFC<Props> = props => (
+  <TouchableOpacity onPress={props.handlePress}>
+    <ElementsButton
+      {...props}
+      loadingProps={{ color: palette.primary }}
+      buttonStyle={[styles.button, props.buttonStyle]}
+      titleStyle={[styles.title, props.titleStyle]}
+      disabledStyle={styles.buttonDisabled}
+      disabledTitleStyle={styles.titleDisabled}
+    />
+  </TouchableOpacity>
 );
 
 FlatButton.displayName = 'FlatButton';

@@ -7,10 +7,12 @@ import { dimensions, palette } from '../../styles';
 
 interface Props {
   disabled?: boolean;
+  handleTouch?: () => void;
 }
 
-export const ShuffleButton: SFC<Props> = ({ disabled }) => (
+export const ShuffleButton: SFC<Props> = ({ disabled, handleTouch }) => (
   <FlatButton
+    onPress={handleTouch}
     title={i18n.t('planActivity:shuffleTasks')}
     icon={{
       name: 'shuffle',

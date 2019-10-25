@@ -1,5 +1,5 @@
 import { ErrorMessage, Formik, FormikProps } from 'formik';
-import React, { SFC } from 'react';
+import React, { SFC, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
@@ -24,9 +24,10 @@ interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   onValidate: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
+  handleTouch?: () => void;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate, handleTouch }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
     emoji: plan ? plan.emoji : DEFAULT_EMOJI,
@@ -61,7 +62,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <ShuffleButton disabled={!plan} />
+          <ShuffleButton handleTouch={handleTouch} disabled={!plan} />
           <PlayButton plan={plan} disabled={!plan} size={36} />
         </View>
       </View>

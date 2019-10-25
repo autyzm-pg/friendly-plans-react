@@ -98,6 +98,22 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     });
   };
 
+  shuffleTasks = () => {
+    const tasks = [...this.state.planItemList];
+    let currentIndex = tasks.length;
+    let temporaryValue;
+    let randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = tasks[currentIndex];
+      tasks[currentIndex] = tasks[randomIndex];
+      tasks[randomIndex] = temporaryValue;
+    }
+    const sortedTasks = tasks.map((planItem: PlanItem, index: number) => ({ ...planItem, order: index }));
+    sortedTasks.forEach(({ order, update }: PlanItem) => update({ order }));
+  };
+
   render() {
     const { plan, planItemList } = this.state;
 
@@ -105,7 +121,12 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
       <>
         <FullScreenTemplate>
           <View style={styles.headerContainer}>
-            <PlanForm onSubmit={this.onSubmit} plan={plan} onValidate={this.validatePlan} />
+            <PlanForm
+              handleTouch={this.shuffleTasks}
+              onSubmit={this.onSubmit}
+              plan={plan}
+              onValidate={this.validatePlan}
+            />
             {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
           <TaskTable planItemList={planItemList} />
