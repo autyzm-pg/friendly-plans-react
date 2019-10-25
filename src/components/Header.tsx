@@ -12,6 +12,8 @@ interface Props extends HeaderProps {
   student: Student;
 }
 
+const DASHBOARD = 'Dashboard';
+
 export class Header extends React.PureComponent<Props> {
   get title() {
     const { scene, student } = this.props;
@@ -47,13 +49,36 @@ export class Header extends React.PureComponent<Props> {
     return this.props.navigation.state.routes.length <= 1;
   }
 
-  isDashboard = () => {
+  isDashboard() {
     const { routes } = this.props.navigation.state;
 
     const { routeName } = routes[routes.length - 1];
 
-    return routeName === 'Dashboard';
-  };
+    return routeName === DASHBOARD;
+  }
+
+  renderButtons() {
+    return this.isDashboard() ? (
+      <>
+        <IconButton
+          name="settings"
+          type="material"
+          color={palette.textWhite}
+          size={24}
+          containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentSettings}
+        />
+        <IconButton
+          name="people"
+          type="material"
+          size={24}
+          color={palette.textWhite}
+          containerStyle={styles.iconContainer}
+          onPress={this.navigateToStudentsList}
+        />
+      </>
+    ) : null;
+  }
 
   render() {
     return (
@@ -67,26 +92,7 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
-        {this.isDashboard() && (
-          <>
-            <IconButton
-              name="settings"
-              type="material"
-              color={palette.textWhite}
-              size={24}
-              containerStyle={styles.iconContainer}
-              onPress={this.navigateToStudentSettings}
-            />
-            <IconButton
-              name="people"
-              type="material"
-              size={24}
-              color={palette.textWhite}
-              containerStyle={styles.iconContainer}
-              onPress={this.navigateToStudentsList}
-            />
-          </>
-        )}
+        {this.renderButtons}
       </View>
     );
   }
