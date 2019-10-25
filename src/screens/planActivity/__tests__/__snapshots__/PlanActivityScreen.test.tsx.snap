@@ -2,30 +2,32 @@
 
 exports[`PlanActivityScreen renders correctly 1`] = `
 <Fragment>
-  <View
-    style={
-      Object {
-        "backgroundColor": "#FFFFFF",
-        "elevation": 5,
-        "shadowColor": "rgba(0, 0, 0, 0.7)",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.22000000000000003,
-        "shadowRadius": 3.5,
+  <FullScreenTemplate>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+          "elevation": 5,
+          "shadowColor": "rgba(0, 0, 0, 0.7)",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.22000000000000003,
+          "shadowRadius": 3.5,
+        }
       }
-    }
-  >
+    >
+      <Component
+        onSubmit={[Function]}
+        onValidate={[Function]}
+        plan="plan"
+      />
+    </View>
     <Component
-      onSubmit={[Function]}
-      onValidate={[Function]}
-      plan="plan"
+      planItemList={Array []}
     />
-  </View>
-  <Component
-    planItemList={Array []}
-  />
+  </FullScreenTemplate>
   <FixedCreatePlanItemButton
     onPress={[Function]}
   />
