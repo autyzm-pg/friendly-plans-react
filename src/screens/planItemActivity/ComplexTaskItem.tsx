@@ -15,8 +15,13 @@ export const ComplexTaskItem: SFC<Props> = ({ name, image, time, selected = fals
   <View style={styles.container}>
     <Card style={styles.card}>
       <View style={[styles.leftContainer, selected && styles.backgroundPrimary]}>
-        <IconButton name="eye-outline" size={24} color={selected ? palette.textWhite : palette.primary} />
-        <IconButton name="delete" size={24} color={palette.textInputPlaceholder} />
+        <IconButton
+          type="material"
+          name="visibility"
+          size={24}
+          color={selected ? palette.textWhite : palette.primary}
+        />
+        <IconButton type="material" name="delete" size={24} color={palette.textInputPlaceholder} />
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.timeContainer}>
