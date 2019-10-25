@@ -47,6 +47,14 @@ export class Header extends React.PureComponent<Props> {
     return this.props.navigation.state.routes.length <= 1;
   }
 
+  isDashboard = () => {
+    const { routes } = this.props.navigation.state;
+
+    const { routeName } = routes[routes.length - 1];
+
+    return routeName === 'Dashboard';
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -59,22 +67,26 @@ export class Header extends React.PureComponent<Props> {
           containerStyle={styles.iconContainer}
         />
         <StyledText style={styles.headerText}>{this.title as string}</StyledText>
-        <IconButton
-          name="settings"
-          type="material"
-          color={palette.textWhite}
-          size={24}
-          containerStyle={styles.iconContainer}
-          onPress={this.navigateToStudentSettings}
-        />
-        <IconButton
-          name="people"
-          type="material"
-          size={24}
-          color={palette.textWhite}
-          containerStyle={styles.iconContainer}
-          onPress={this.navigateToStudentsList}
-        />
+        {this.isDashboard() && (
+          <>
+            <IconButton
+              name="settings"
+              type="material"
+              color={palette.textWhite}
+              size={24}
+              containerStyle={styles.iconContainer}
+              onPress={this.navigateToStudentSettings}
+            />
+            <IconButton
+              name="people"
+              type="material"
+              size={24}
+              color={palette.textWhite}
+              containerStyle={styles.iconContainer}
+              onPress={this.navigateToStudentsList}
+            />
+          </>
+        )}
       </View>
     );
   }
