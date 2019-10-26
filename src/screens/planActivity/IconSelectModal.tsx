@@ -1,4 +1,4 @@
-import noop from 'lodash.noop';
+import { noop } from 'lodash';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';

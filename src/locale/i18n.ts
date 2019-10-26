@@ -1,21 +1,26 @@
-import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
-import DeviceInfo from 'react-native-device-info';
+import i18n, { LanguageDetectorModule } from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { getLocales } from 'react-native-localize';
 
 import en from './en';
 import pl from './pl';
 
-const languageDetector = {
+const languageDetector: LanguageDetectorModule = {
   type: 'languageDetector',
-  async: false,
-  detect: () => DeviceInfo.getDeviceLocale(),
-  init: () => null,
-  cacheUserLanguage: () => null,
+  init(services, detectorOptions, i18nextOptions) {
+    /* use services and options */
+  },
+  detect() {
+    return getLocales()[0].languageCode;
+  },
+  cacheUserLanguage(lng) {
+    /* cache language */
+  },
 };
 
 i18n
   .use(languageDetector)
-  .use(reactI18nextModule)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     resources: {

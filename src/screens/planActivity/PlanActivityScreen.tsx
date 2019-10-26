@@ -1,4 +1,4 @@
-import isEmpty from 'lodash.isempty';
+import { isEmpty } from 'lodash';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';

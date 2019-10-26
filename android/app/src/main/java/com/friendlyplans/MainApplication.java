@@ -1,32 +1,20 @@
 package com.friendlyplans;
 
 import android.app.Application;
+import android.content.Context;
 
-import java.util.Arrays;
-import java.util.List;
-
+import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.horcrux.svg.SvgPackage;
-import com.imagepicker.ImagePickerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
-
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.dylanvann.fastimage.FastImageViewPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-
+import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -38,22 +26,13 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
-            return Arrays.<ReactPackage>asList(
-                    new MainReactPackage(),
-            new SvgPackage(),
-            new ImagePickerPackage(),
-                    new ReactNativeConfigPackage(),
-                    new FastImageViewPackage(),
-                    new RNDeviceInfo(),
-                    new VectorIconsPackage(),
-                    new RNFirebasePackage(),
-                    new SplashScreenReactPackage(),
-                    new RNGestureHandlerPackage(),
-                    new RNFirebaseAuthPackage(),
-                    new RNFirebaseCrashlyticsPackage(),
-                    new RNFirebaseAnalyticsPackage(),
-                    new RNFirebaseFirestorePackage()
-            );
+            @SuppressWarnings("UnnecessaryLocalVariable")
+            List<ReactPackage> packages = new PackageList(this).getPackages();
+            packages.add(new RNFirebaseAuthPackage());
+            packages.add(new RNFirebaseCrashlyticsPackage());
+            packages.add(new RNFirebaseAnalyticsPackage());
+            packages.add(new RNFirebaseFirestorePackage());
+            return packages;
         }
 
         @Override
