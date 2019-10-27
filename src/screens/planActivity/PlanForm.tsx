@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
 import { i18n } from 'locale';
-import { Plan, PlanItem } from 'models';
+import { Plan } from 'models';
 import { dimensions, palette } from 'styles';
 import { DEFAULT_EMOJI } from '../../assets/emojis';
 import { IconSelectModal } from './IconSelectModal';
