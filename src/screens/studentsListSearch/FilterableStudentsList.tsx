@@ -9,7 +9,9 @@ interface Props {
 }
 
 export const FilterableStudentsList: SFC<Props> = ({ students, searchQuery }) => {
-  const filteredStudents: Student[] = students.filter(student => student.name.match(new RegExp(searchQuery, 'i')));
+  const filteredStudents: Student[] = students
+    .filter(student => student.name.match(new RegExp(searchQuery, 'i')))
+    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
 
   return (
     <View>
