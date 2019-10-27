@@ -98,6 +98,16 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     });
   };
 
+  shuffleDisabled(): boolean {
+    const { planItemList } = this.state;
+
+    if (planItemList) {
+      return !(planItemList.filter((item: PlanItem) => item.completed !== true).length > 1);
+    }
+
+    return true;
+  }
+
   render() {
     const { plan, planItemList } = this.state;
 
@@ -105,7 +115,12 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
       <>
         <FullScreenTemplate>
           <View style={styles.headerContainer}>
-            <PlanForm onSubmit={this.onSubmit} plan={plan} onValidate={this.validatePlan} />
+            <PlanForm
+              onSubmit={this.onSubmit}
+              plan={plan}
+              onValidate={this.validatePlan}
+              shuffleDisabled={this.shuffleDisabled()}
+            />
             {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
           <TaskTable planItemList={planItemList} />

@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import PlayButton, { Emoji, Icon, ModalTrigger, TextInput } from 'components';
 import { i18n } from 'locale';
-import { Plan } from 'models';
+import { Plan, PlanItem } from 'models';
 import { dimensions, palette } from 'styles';
 import { DEFAULT_EMOJI } from '../../assets/emojis';
 import { IconSelectModal } from './IconSelectModal';
@@ -24,9 +24,10 @@ interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   onValidate: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
+  shuffleDisabled: boolean;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate, shuffleDisabled }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
     emoji: plan ? plan.emoji : DEFAULT_EMOJI,
@@ -61,7 +62,7 @@ export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate }) => {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <ShuffleButton disabled={!plan} />
+          <ShuffleButton disabled={shuffleDisabled} />
           <PlayButton plan={plan} disabled={!plan} size={36} />
         </View>
       </View>
