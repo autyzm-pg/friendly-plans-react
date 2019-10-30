@@ -11,6 +11,7 @@ import {
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
+  StudentsDashboard,
 } from 'screens';
 
 export const MainStackNavigator = createStackNavigator(
@@ -22,6 +23,7 @@ export const MainStackNavigator = createStackNavigator(
     RunSubPlanList: RunSubPlanListScreen,
     PlanItemTask: PlanItemTaskScreen,
     ImageLibrary: ImageLibraryScreen,
+    StudentsDashboard,
   },
   {
     headerLayoutPreset: 'left',
@@ -29,7 +31,9 @@ export const MainStackNavigator = createStackNavigator(
       const { params } = navigation.state;
 
       return {
-        header: (headerProps: HeaderProps) => <Header {...headerProps} student={params ? params.student : {}} />,
+        header: (headerProps: HeaderProps) => (
+          <Header {...headerProps} student={params && params.student ? params.student : undefined} />
+        ),
       };
     },
   },

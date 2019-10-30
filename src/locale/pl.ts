@@ -71,6 +71,8 @@ const translations = {
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
     search: 'Wyszukaj',
+    dashboard: 'Studenci',
+    createStudent: 'Stwórz studenta',
   },
   runPlan: {
     next: 'Dalej',
