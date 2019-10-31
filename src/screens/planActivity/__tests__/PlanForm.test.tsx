@@ -11,6 +11,7 @@ describe('PlanFormControls', () => {
     onSubmit: jest.fn(),
     plan: new Plan(),
     onValidate: jest.fn(),
+    shuffleDisabled: false,
   };
 
   it('renders correctly', () => {

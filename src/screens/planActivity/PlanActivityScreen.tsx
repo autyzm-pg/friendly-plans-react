@@ -1,3 +1,4 @@
+import every from 'lodash.every';
 import isEmpty from 'lodash.isempty';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -98,6 +99,21 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     });
   };
 
+  shuffleDisabled(): boolean {
+    const { planItemList } = this.state;
+
+    return !planItemList || planItemList.length < 2;
+  }
+
+  playDisabled(): boolean {
+    const { planItemList } = this.state;
+    if (!planItemList) {
+      return true;
+    }
+
+    return every(planItemList, 'completed');
+  }
+
   render() {
     const { plan, planItemList } = this.state;
 
@@ -105,7 +121,13 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
       <>
         <FullScreenTemplate>
           <View style={styles.headerContainer}>
-            <PlanForm onSubmit={this.onSubmit} plan={plan} onValidate={this.validatePlan} />
+            <PlanForm
+              onSubmit={this.onSubmit}
+              plan={plan}
+              onValidate={this.validatePlan}
+              shuffleDisabled={this.shuffleDisabled()}
+              playDisabled={this.playDisabled()}
+            />
             {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
           <TaskTable planItemList={planItemList} />
