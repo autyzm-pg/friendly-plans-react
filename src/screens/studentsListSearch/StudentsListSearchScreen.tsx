@@ -38,9 +38,15 @@ export class StudentsListSearchScreen extends React.PureComponent<Props, State> 
       value={this.state.searchQuery}
     />
   );
-  renderClearInputButton = () => (
-    <IconButton type="material" name="close" size={24} color={palette.textBody} onPress={this.onSearchInputClear} />
-  );
+  renderClearInputButton = () => {
+    if (!this.state.searchQuery) {
+      return null;
+    }
+
+    return (
+      <IconButton type="material" name="close" size={24} color={palette.textBody} onPress={this.onSearchInputClear} />
+    );
+  };
 
   render() {
     const { navigation } = this.props;
