@@ -1023,6 +1023,13 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/lodash.every@^4.6.6":
+  version "4.6.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.every/-/lodash.every-4.6.6.tgz#90d4d5394b8d8ec9b066f58d62fe12ac36b8627d"
+  integrity sha512-eZC30bvV8GtmVUcMMhdAS+C2VgmkLMhnLyjTlf2lsPxhiquHfr/f0EnlX20l4xQWXG3B7H+OTSoWPqONyCeD2Q==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.isempty@^4.4.6":
   version "4.4.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.isempty/-/lodash.isempty-4.4.6.tgz#48a5576985727d9b85d59a60199d6b11ac756a3e"
@@ -1034,13 +1041,6 @@
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.noop/-/lodash.noop-3.0.6.tgz#2be7ceeabe21af841c76b57b6ff12bb04b7ad21f"
   integrity sha512-cleVuzJRs1YQXkxgnFzo/GlSlXOiD83VZW9oibsm1+gKXF3ioXFzBDZPpwTJCxh9lB/D+zodEvZtqeolhuPKZg==
-  dependencies:
-    "@types/lodash" "*"
-
-"@types/lodash.some@^4.6.6":
-  version "4.6.6"
-  resolved "https://registry.yarnpkg.com/@types/lodash.some/-/lodash.some-4.6.6.tgz#6b79f350f7031aee8d93edde3e5b5e8147d9b74b"
-  integrity sha512-7MNJlK+WU2udp6QhxWDp3e05cjYq1v34JMpVVucal7XcZSlC1mZS3Gvdo/z/rL9CZgXXhoGvXerkfT+B8AfZEg==
   dependencies:
     "@types/lodash" "*"
 
@@ -4325,6 +4325,11 @@ lodash.escape@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.escape/-/lodash.escape-4.0.1.tgz#c9044690c21e04294beaa517712fded1fa88de98"
 
+lodash.every@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.every/-/lodash.every-4.6.0.tgz#eb89984bebc4364279bb3aefbbd1ca19bfa6c6a7"
+  integrity sha1-64mYS+vENkJ5uzrvu9HKGb+mxqc=
+
 lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
@@ -4381,11 +4386,6 @@ lodash.padend@^4.1.0:
 lodash.padstart@^4.1.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.padstart/-/lodash.padstart-4.6.1.tgz#d2e3eebff0d9d39ad50f5cbd1b52a7bce6bb611b"
-
-lodash.some@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
-  integrity sha1-G7nzFO9ri63tE7VJFpsqlF62jk0=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"

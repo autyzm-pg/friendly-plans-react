@@ -1,5 +1,5 @@
+import every from 'lodash.every';
 import isEmpty from 'lodash.isempty';
-import some from 'lodash.some';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
@@ -101,11 +101,17 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   shuffleDisabled(): boolean {
     const { planItemList } = this.state;
+
+    return !planItemList || planItemList.length < 2;
+  }
+
+  playDisabled(): boolean {
+    const { planItemList } = this.state;
     if (!planItemList) {
       return true;
     }
 
-    return some(planItemList, 'completed');
+    return every(planItemList, 'completed');
   }
 
   render() {
@@ -120,6 +126,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
               plan={plan}
               onValidate={this.validatePlan}
               shuffleDisabled={this.shuffleDisabled()}
+              playDisabled={this.playDisabled()}
             />
             {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
