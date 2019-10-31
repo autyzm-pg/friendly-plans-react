@@ -24,10 +24,10 @@ interface Props {
   onSubmit: (planFormData: PlanFormData) => Promise<void>;
   onValidate: (planFormData: PlanFormData) => Promise<void>;
   plan?: Plan;
-  shuffleDisabled: boolean;
+  shuffleDisabled?: boolean;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate, shuffleDisabled }) => {
+export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate, shuffleDisabled = false }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : '',
     emoji: plan ? plan.emoji : DEFAULT_EMOJI,

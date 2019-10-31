@@ -17,11 +17,13 @@
   "dependencies": {
     "@types/lodash.isempty": "^4.4.6",
     "@types/lodash.noop": "^3.0.6",
+    "@types/lodash.some": "^4.6.6",
     "@types/lodash.sortby": "^4.7.6",
     "formik": "^1.5.7",
     "i18next": "^15.0.7",
     "lodash.isempty": "^4.4.0",
     "lodash.noop": "^3.0.1",
+    "lodash.some": "^4.6.0",
     "lodash.sortby": "^4.7.0",
     "react": "16.8.6",
     "react-i18next": "^9.0.2",

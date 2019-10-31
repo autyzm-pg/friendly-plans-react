@@ -1,4 +1,5 @@
 import isEmpty from 'lodash.isempty';
+import some from 'lodash.some';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
@@ -100,12 +101,11 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   shuffleDisabled(): boolean {
     const { planItemList } = this.state;
-
-    if (planItemList) {
-      return !(planItemList.filter((item: PlanItem) => item.completed !== true).length > 1);
+    if (!planItemList) {
+      return true;
     }
 
-    return true;
+    return some(planItemList, 'completed');
   }
 
   render() {
