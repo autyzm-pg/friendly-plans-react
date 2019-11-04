@@ -59,15 +59,21 @@ export class PlanElementList extends React.PureComponent<Props, State> {
     );
   }
 
-  renderItem = ({ item, index }: { item: PlanElement; index: number }) => (
-    <PlanElementListItem
-      student={this.state.student}
-      itemParent={this.props.itemParent}
-      item={item}
-      index={index}
-      currentTaskIndex={this.completedPlanItemCounter()}
-    />
-  );
+  renderItem = ({ item, index }: { item: PlanElement; index: number }) => {
+    if (item.completed) {
+      return null;
+    }
+
+    return (
+      <PlanElementListItem
+        student={this.state.student}
+        itemParent={this.props.itemParent}
+        item={item}
+        index={index}
+        currentTaskIndex={this.completedPlanItemCounter()}
+      />
+    );
+  };
 
   extractKey = (planElement: PlanElement) => planElement.id;
 

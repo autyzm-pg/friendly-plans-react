@@ -15,7 +15,11 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
 
   componentDidMount() {
     this.modelSubscriber.subscribeCollectionUpdates(AuthUser.getAuthenticatedUser(), (students: Student[]) => {
-      this.props.navigation.setParams({ student: students[0] });
+      if (students.length === 0) {
+        this.props.navigation.navigate('StudentsDashboard');
+      } else {
+        this.props.navigation.setParams({ student: students[0] });
+      }
     });
   }
 

@@ -66,10 +66,13 @@ const translations = {
     alarmSound: 'Dźwięk alarmu',
     planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
     studentNamePlaceholder: 'Wpisz imię podopiecznego',
+    removeStudent: 'Usuń studenta',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
     search: 'Wyszukaj',
+    dashboard: 'Studenci',
+    createStudent: 'Stwórz studenta',
   },
   runPlan: {
     next: 'Dalej',

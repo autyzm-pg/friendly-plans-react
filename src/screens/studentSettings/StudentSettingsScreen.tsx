@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { NarrowScreenTemplate, Separator, StyledText, TextInput } from 'components';
+import { FlatButton, NarrowScreenTemplate, Separator, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
@@ -56,6 +56,11 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     this.state.student.update({ name: student.name });
   };
 
+  handleRemoveStudent = async () => {
+    await this.state.student.delete();
+    this.props.navigation.goBack();
+  };
+
   render() {
     const { navigation } = this.props;
     const { student } = this.state;
@@ -86,6 +91,14 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:soundSettings')}</StyledText>
         <AlarmSoundSettings value={'Beep'} />
+        <Separator extraWide />
+        <View>
+          <FlatButton
+            title={i18n.t('studentSettings:removeStudent')}
+            titleStyle={styles.removeStudentButton}
+            onPress={this.handleRemoveStudent}
+          />
+        </View>
       </NarrowScreenTemplate>
     );
   }
@@ -105,5 +118,8 @@ const styles = StyleSheet.create({
   textInput: {
     marginTop: dimensions.spacingSmall,
     marginBottom: dimensions.spacingBig,
+  },
+  removeStudentButton: {
+    color: palette.textBody,
   },
 });

@@ -122,10 +122,13 @@ const translations = {
     alarmSound: 'Alarm sound',
     planCardPlacehorder: "Let's play paper, rock, scissors",
     studentNamePlaceholder: 'Type student name',
+    removeStudent: 'Remove student',
   },
   studentsList: {
     screenTitle: 'Select student',
     search: 'Search',
+    dashboard: 'Student dashboard',
+    createStudent: 'Create student',
   },
   runPlan: {
     next: 'Next',

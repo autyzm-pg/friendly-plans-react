@@ -22,6 +22,8 @@ exports[`PlanActivityScreen renders correctly 1`] = `
         onSubmit={[Function]}
         onValidate={[Function]}
         plan="plan"
+        playDisabled={true}
+        shuffleDisabled={true}
       />
     </View>
     <Component
