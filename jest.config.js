@@ -10,6 +10,11 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   preset: 'react-native',
+  haste: {
+    defaultPlatform: 'ios',
+    platforms: ['android', 'ios', 'native'],
+    providesModuleNodeModules: ['react-native'],
+  },
   setupFilesAfterEnv: ['<rootDir>/testSetup.ts'],
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {

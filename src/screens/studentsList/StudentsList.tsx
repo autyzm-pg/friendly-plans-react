@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Separator, StudentListElement, StyledText } from 'components';
-import sortBy from 'lodash.sortby';
+import { sortBy } from 'lodash';
 import { Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
 

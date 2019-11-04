@@ -1,6 +1,6 @@
 import React from 'react';
 
-import noop from 'lodash.noop';
+import { noop } from 'lodash';
 import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 

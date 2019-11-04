@@ -1,13 +1,10 @@
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Icon, IconButton, ModalTrigger } from 'components';
+import { Icon, ModalTrigger } from 'components';
 import { i18n } from 'locale';
-import noop from 'lodash.noop';
 import { PlanItem } from 'models';
-import { dimensions, palette } from 'styles';
-import { ImageAction } from './ImageAction';
+import { palette } from 'styles';
 import { ImagePickerModal } from './ImagePickerModal';
 
 interface Props {
