@@ -12,7 +12,7 @@ class StudentsDasboard extends React.PureComponent<NavigationInjectedProps> {
     title: i18n.t('studentsList:dashboard'),
   };
 
-  handleStudentCreate = () => {
+  handleNavigateToCreateStudent = () => {
     this.props.navigation.navigate('StudentSettings', {
       createStudent: true,
     });
@@ -22,7 +22,7 @@ class StudentsDasboard extends React.PureComponent<NavigationInjectedProps> {
     return (
       <View style={styles.container}>
         <DashboardBackground />
-        <CreateStudentButton onPress={this.handleStudentCreate} />
+        <CreateStudentButton onPress={this.handleNavigateToCreateStudent} />
       </View>
     );
   }

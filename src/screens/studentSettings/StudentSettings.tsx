@@ -51,7 +51,7 @@ class StudentSettings extends React.PureComponent<NavigationInjectedProps, State
     this.state.student.update({ name: student.name });
   };
 
-  handleRemoveStudent = async () => this.state.student.delete().then(() => this.props.navigation.goBack());
+  handleRemoveStudent = () => this.state.student.delete().then(() => this.props.navigation.goBack());
 
   render() {
     const { student } = this.state;

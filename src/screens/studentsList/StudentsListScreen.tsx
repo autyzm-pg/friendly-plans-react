@@ -39,7 +39,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
     return i18n.t('studentsList:screenTitle');
   }
 
-  handleCreateUser = () => {
+  handleNavigateToCreateStudent = () => {
     this.props.navigation.navigate('StudentSettings', {
       createStudent: true,
     });
@@ -54,7 +54,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
           type="material"
           size={24}
           color={palette.textWhite}
-          onPress={this.handleCreateUser}
+          onPress={this.handleNavigateToCreateStudent}
         />
         <IconButton
           containerStyle={styles.iconContainer}
