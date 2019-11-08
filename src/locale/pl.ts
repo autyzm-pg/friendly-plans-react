@@ -51,7 +51,8 @@ const translations = {
     studentName: 'Imię podopiecznego',
     taskView: 'Widok zadań',
     soundSettings: 'Ustawienia dźwięku',
-    screenTitle: 'Ustawienia podopiecznego',
+    settingsTitle: 'Ustawienia podopiecznego',
+    createStudentTitle: 'Stwórz Studenta',
     textSettingsSizeS: 'Rozmiar liter: S',
     textSettingsSizeM: 'Rozmiar liter: M',
     textSettingsSizeL: 'Rozmiar liter: L',
@@ -67,6 +68,7 @@ const translations = {
     planCardPlacehorder: 'Zagraj w papier, kamień, nożyce',
     studentNamePlaceholder: 'Wpisz imię podopiecznego',
     removeStudent: 'Usuń studenta',
+    createStudent: 'Dodaj Studenta',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',

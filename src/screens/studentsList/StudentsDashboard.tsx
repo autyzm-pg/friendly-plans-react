@@ -3,12 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { palette } from 'styles';
 
-import { CreateStudentButton } from './CreateStudentButton';
-
-import { DashboardBackground } from '../studentPlanList/DashboardBackground';
-
 import { i18n } from 'locale';
-import { Student } from 'models';
+import { DashboardBackground } from '../studentPlanList/DashboardBackground';
+import { CreateStudentButton } from './CreateStudentButton';
 
 class StudentsDasboard extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
@@ -16,8 +13,8 @@ class StudentsDasboard extends React.PureComponent<NavigationInjectedProps> {
   };
 
   handleStudentCreate = () => {
-    Student.create().then(() => {
-      this.props.navigation.navigate('Dashboard');
+    this.props.navigation.navigate('StudentSettings', {
+      createStudent: true,
     });
   };
 
