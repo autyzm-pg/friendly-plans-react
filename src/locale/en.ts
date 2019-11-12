@@ -107,7 +107,8 @@ const translations = {
     studentName: "Student's name",
     taskView: "Task's view",
     soundSettings: 'Sound settings',
-    screenTitle: "Student's settings",
+    settingsTitle: "Student's settings",
+    createStudentTitle: 'Create Student',
     textSettingsSizeS: 'Font size: S',
     textSettingsSizeM: 'Font size: M',
     textSettingsSizeL: 'Font size: L',
@@ -123,6 +124,7 @@ const translations = {
     planCardPlacehorder: "Let's play paper, rock, scissors",
     studentNamePlaceholder: 'Type student name',
     removeStudent: 'Remove student',
+    createStudent: 'Create Student',
   },
   studentsList: {
     screenTitle: 'Select student',

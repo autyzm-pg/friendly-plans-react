@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { IconButton, NarrowScreenTemplate, Separator, StyledText } from 'components';
+import { IconButton, NarrowScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
-import { dimensions, palette, typography } from 'styles';
+import { dimensions, palette } from 'styles';
 import { StudentsList } from './StudentsList';
 
 interface State {
@@ -39,6 +39,12 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
     return i18n.t('studentsList:screenTitle');
   }
 
+  handleNavigateToCreateStudent = () => {
+    this.props.navigation.navigate('StudentSettings', {
+      createStudent: true,
+    });
+  };
+
   renderHeaderButtons() {
     return (
       <>
@@ -48,7 +54,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
           type="material"
           size={24}
           color={palette.textWhite}
-          onPress={Student.create}
+          onPress={this.handleNavigateToCreateStudent}
         />
         <IconButton
           containerStyle={styles.iconContainer}
