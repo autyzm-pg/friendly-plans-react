@@ -60,7 +60,10 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     }
 
     const { id } = this.props.navigation.getParam('student');
-    const isPlanExist: boolean = await Plan.isPlanExist(id, planInput);
+
+    const { id: planId } = { ...this.state.plan };
+
+    const isPlanExist: boolean = await Plan.isPlanExist(id, planInput, planId);
 
     if (isPlanExist) {
       errors.planInput = i18n.t('validation:duplicatedPlan');

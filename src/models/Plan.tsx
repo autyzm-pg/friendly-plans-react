@@ -1,3 +1,4 @@
+import isEmpty from 'lodash.isempty';
 import { RNFirebase } from 'react-native-firebase';
 
 import { DEFAULT_EMOJI } from '../assets/emojis';
@@ -13,12 +14,14 @@ export class Plan implements SubscribableModel {
       emoji: DEFAULT_EMOJI,
     });
 
-  static async isPlanExist(studentId: string, name: string): Promise<boolean> {
-    const plans: RNFirebase.firestore.QuerySnapshot = await getPlansRef(studentId)
+  static async isPlanExist(studentId: string, name: string, planId?: string): Promise<boolean> {
+    const { docs }: RNFirebase.firestore.QuerySnapshot = await getPlansRef(studentId)
       .where('name', '==', name)
       .get();
 
-    return !plans.empty;
+    const plans = docs.filter(({ id }) => id !== planId);
+
+    return !isEmpty(plans);
   }
 
   static async createPlan(studentId: string, name: string): Promise<Plan> {
