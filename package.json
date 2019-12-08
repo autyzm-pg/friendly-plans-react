@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint-fix": "tslint --fix --project .",
     "lint": "tslint --project .",
+    "lint:fix": "tslint --fix --project .",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
     "prettier:check": "prettier --list-different \"**/*.{js,ts,tsx}\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -14,7 +14,8 @@
     "typescript:check": "tsc --noEmit",
     "pre-commit": "lint-staged",
     "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "postinstall": "yarn jetify"
   },
   "dependencies": {
     "formik": "^1.5.7",
