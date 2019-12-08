@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { HeaderProps } from 'react-navigation';
 
 import { Student } from 'models';
+import { Route } from 'navigation';
 import { NavigationService } from 'services';
 import { dimensions, getElevation, headerHeight, palette, typography } from 'styles';
 import { IconButton } from './IconButton';
@@ -36,11 +37,11 @@ export class Header extends React.PureComponent<Props> {
   goBack = () => NavigationService.goBack();
 
   navigateToStudentsList = () => {
-    NavigationService.navigate('StudentsList');
+    NavigationService.navigate(Route.StudentsList);
   };
 
   navigateToStudentSettings = () => {
-    NavigationService.navigate('StudentSettings', {
+    NavigationService.navigate(Route.StudentSettings, {
       student: this.props.student,
     });
   };

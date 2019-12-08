@@ -4,12 +4,13 @@ import firebase from 'react-native-firebase';
 import { DrawerItem, DrawerItems, DrawerItemsProps, SafeAreaView } from 'react-navigation';
 
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 
 type Props = DrawerItemsProps;
 
 export class DrawerContent extends React.PureComponent<Props> {
   openSignOutDialog = () => {
-    this.props.navigation.navigate('Dialog', {
+    this.props.navigation.navigate(Route.Dialog, {
       title: i18n.t('settings:signOutTitle'),
       description: i18n.t('settings:signOutSubtitle'),
       onPress: this.signOut,
@@ -19,7 +20,7 @@ export class DrawerContent extends React.PureComponent<Props> {
 
   signOut = async () => {
     await firebase.auth().signOut();
-    this.props.navigation.navigate('Unauthenticated');
+    this.props.navigation.navigate(Route.Unauthenticated);
   };
 
   onItemPress = ({ route, focused }: DrawerItem) => {

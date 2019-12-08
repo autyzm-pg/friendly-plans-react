@@ -4,6 +4,7 @@ import firebase from 'react-native-firebase';
 import * as Yup from 'yup';
 
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 import { NavigationService } from 'services';
 import { SignInForm } from './SignInForm';
 
@@ -39,10 +40,10 @@ export class SignInFormContainer extends React.PureComponent<{}, State> {
     this.setState({ loading: true });
     try {
       await firebase.auth().signInWithEmailAndPassword(values.email, values.password);
-      NavigationService.navigate('Authenticated');
+      NavigationService.navigate(Route.Authenticated);
     } catch (error) {
       this.setState({ loading: false });
-      NavigationService.navigate('Dialog', {
+      NavigationService.navigate(Route.Dialog, {
         title: i18n.t('common:error'),
         description: error.message,
       });
@@ -50,7 +51,7 @@ export class SignInFormContainer extends React.PureComponent<{}, State> {
   };
 
   navigateToResetPassword = () => {
-    NavigationService.navigate('ResetPassword');
+    NavigationService.navigate(Route.ResetPassword);
   };
 
   render() {

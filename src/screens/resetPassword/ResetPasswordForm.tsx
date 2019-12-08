@@ -6,7 +6,8 @@ import * as Yup from 'yup';
 
 import { Button, InputItem } from 'components';
 import { i18n } from 'locale';
-import { NavigationService } from '../../services';
+import { Route } from 'navigation';
+import { NavigationService } from 'services';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -35,7 +36,7 @@ export class ResetPasswordForm extends React.PureComponent<{}, State> {
     try {
       await firebase.auth().sendPasswordResetEmail(values.email);
       Alert.alert(i18n.t('common:success'), i18n.t('resetPassword:resetPasswordSuccess'));
-      NavigationService.navigate('SignIn');
+      NavigationService.navigate(Route.SignIn);
     } catch (error) {
       if (error.code === 'auth/user-not-found') {
         Alert.alert(i18n.t('common:error'), i18n.t('resetPassword:userNotFound'));

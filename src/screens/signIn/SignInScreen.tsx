@@ -4,12 +4,13 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { FlatButton, FullScreenTemplate, StyledText } from 'components';
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 import { palette, typography } from 'styles';
 import { SignInAsAnonymousButton } from './SignInAsAnonymousButton';
 import { SignInFormContainer } from './SignInFormContainer';
 
 export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
-  navigateToSignUp = () => this.props.navigation.navigate('SignUp');
+  navigateToSignUp = () => this.props.navigation.navigate(Route.SignUp);
 
   render() {
     return (

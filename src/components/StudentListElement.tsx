@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { StyledText } from 'components';
 import { AuthUser, Student } from 'models';
+import { Route } from 'navigation';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { dimensions, palette, typography } from 'styles';
 
@@ -13,7 +14,7 @@ interface Props extends NavigationInjectedProps {
 const StudentName: SFC<Props> = ({ student, navigation }) => {
   const setCurrentStudent = async () => {
     await AuthUser.getAuthenticatedUser().setCurrentStudent(student.id);
-    navigation.navigate('Dashboard', {
+    navigation.navigate(Route.Dashboard, {
       student,
     });
   };

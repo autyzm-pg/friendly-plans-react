@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { palette } from 'styles';
 
+import { Route } from 'navigation';
 import { StyledText } from '../../components';
 import { CopyPlanButton } from './CopyPlanButton';
 import { CreatePlanButton } from './CreatePlanButton';
@@ -13,7 +14,7 @@ export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedPro
   navigate = () => {
     const student = this.props.navigation.getParam('student');
 
-    this.props.navigation.navigate('PlanActivity', {
+    this.props.navigation.navigate(Route.PlanActivity, {
       student,
     });
   };

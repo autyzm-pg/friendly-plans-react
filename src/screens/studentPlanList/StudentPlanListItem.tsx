@@ -4,6 +4,7 @@ import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import PlayButton, { Card, Emoji, StyledText } from 'components';
 import { ModelSubscriber, Plan, Student } from 'models';
+import { Route } from 'navigation';
 import { dimensions, palette, typography } from 'styles';
 
 interface Props extends NavigationInjectedProps {
@@ -33,7 +34,7 @@ export class StudentPlanListItem extends React.PureComponent<Props, State> {
   navigateToUpdatePlan = () => {
     const { student, plan } = this.props;
 
-    this.props.navigation.navigate('PlanActivity', {
+    this.props.navigation.navigate(Route.PlanActivity, {
       student,
       plan,
     });

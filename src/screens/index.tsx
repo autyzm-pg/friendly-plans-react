@@ -13,4 +13,4 @@ export { RunPlanSlideScreen } from './runPlan/SlideMode/RunPlanSlideScreen';
 export { PlanActivityScreen } from './planActivity/PlanActivityScreen';
 export { PlanItemTaskScreen } from './planItemActivity/PlanItemTaskScreen';
 export { ImageLibraryScreen } from './planItemActivity/ImageLibraryScreen';
-export { default as StudentsDashboard } from './studentsList/StudentsDashboard';
+export { CreateFirstStudentScreen } from './studentsList/CreateFirstStudentScreen';

@@ -3,8 +3,8 @@ import { FlatList, StyleSheet } from 'react-native';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
-import { Plan, Student } from 'models';
-import { ModelSubscriber } from '../../models/ModelSubscriber';
+import { ModelSubscriber, Plan, Student } from 'models';
+import { Route } from 'navigation';
 import EmptyStudentPlans from './EmptyStudentPlans';
 import { FixedCreatePlanButton } from './FixedCreatePlanButton';
 import StudentPlanListItem from './StudentPlanListItem';
@@ -51,7 +51,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
   navigateToCreatePlan = () => {
     const student = this.props.navigation.getParam('student');
 
-    this.props.navigation.navigate('PlanActivity', {
+    this.props.navigation.navigate(Route.PlanActivity, {
       student,
     });
   };

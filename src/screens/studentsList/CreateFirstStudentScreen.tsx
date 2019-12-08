@@ -1,19 +1,20 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { NavigationInjectedProps } from 'react-navigation';
 import { palette } from 'styles';
 
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 import { DashboardBackground } from '../studentPlanList/DashboardBackground';
 import { CreateStudentButton } from './CreateStudentButton';
 
-class StudentsDasboard extends React.PureComponent<NavigationInjectedProps> {
+export class CreateFirstStudentScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
     title: i18n.t('studentsList:dashboard'),
   };
 
   handleNavigateToCreateStudent = () => {
-    this.props.navigation.navigate('StudentSettings', {
+    this.props.navigation.navigate(Route.StudentSettings, {
       createStudent: true,
     });
   };
@@ -40,5 +41,3 @@ const styles = StyleSheet.create({
     color: palette.primaryLight,
   },
 });
-
-export default withNavigation(StudentsDasboard);

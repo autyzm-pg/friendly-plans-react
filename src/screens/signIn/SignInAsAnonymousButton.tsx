@@ -4,6 +4,7 @@ import firebase from 'react-native-firebase';
 
 import { FlatButton } from 'components';
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 import { NavigationService } from 'services';
 
 interface State {
@@ -29,7 +30,7 @@ export class SignInAsAnonymousButton extends React.PureComponent<{}, State> {
     this.setState({ loading: true });
     try {
       await firebase.auth().signInAnonymously();
-      NavigationService.navigate('Authenticated');
+      NavigationService.navigate(Route.Authenticated);
     } catch (error) {
       Alert.alert(i18n.t('common:error'), error.message);
     }

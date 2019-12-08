@@ -4,6 +4,7 @@ import { createStackNavigator, HeaderProps } from 'react-navigation';
 import { Header } from 'components';
 
 import {
+  CreateFirstStudentScreen,
   DashboardScreen,
   ImageLibraryScreen,
   PlanActivityScreen,
@@ -11,19 +12,19 @@ import {
   RunPlanListScreen,
   RunPlanSlideScreen,
   RunSubPlanListScreen,
-  StudentsDashboard,
 } from 'screens';
+import { Route } from './routes';
 
 export const MainStackNavigator = createStackNavigator(
   {
-    Dashboard: DashboardScreen,
-    PlanActivity: PlanActivityScreen,
-    RunPlanList: RunPlanListScreen,
-    RunPlanSlide: RunPlanSlideScreen,
-    RunSubPlanList: RunSubPlanListScreen,
-    PlanItemTask: PlanItemTaskScreen,
-    ImageLibrary: ImageLibraryScreen,
-    StudentsDashboard,
+    [Route.Dashboard]: DashboardScreen,
+    [Route.PlanActivity]: PlanActivityScreen,
+    [Route.RunPlanList]: RunPlanListScreen,
+    [Route.RunPlanSlide]: RunPlanSlideScreen,
+    [Route.RunSubPlanList]: RunSubPlanListScreen,
+    [Route.PlanItemTask]: PlanItemTaskScreen,
+    [Route.ImageLibrary]: ImageLibraryScreen,
+    [Route.CreateFirstStudent]: CreateFirstStudentScreen,
   },
   {
     headerLayoutPreset: 'left',
