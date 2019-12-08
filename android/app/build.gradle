@@ -139,8 +139,8 @@ android {
         applicationId project.env.get("PACKAGE_NAME")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode project.env.get("APP_VERSION_CODE").toInteger()
-        versionName project.env.get("APP_VERSION_NAME")
+        versionCode project.env.get("CURRENT_PROJECT_VERSION").toInteger()
+        versionName project.env.get("MARKETING_VERSION")
         multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
