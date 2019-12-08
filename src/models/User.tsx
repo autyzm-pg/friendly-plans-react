@@ -21,4 +21,11 @@ export class AuthUser implements SubscribableModel {
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => getStudentsRef(this.id);
   getChildType: () => ParameterlessConstructor<SubscribableModel> = () => Student;
   getRef: () => RNFirebase.firestore.DocumentReference = () => getUserRef(this.id);
+  getCurrentStudent = () =>
+    this.getRef()
+      .get()
+      .then((doc: any) => {
+        return doc.data() ? doc.data().currentStudent.studentId : '';
+      });
+  setCurrentStudent = (studentId: string) => this.getRef().set({ currentStudent: { studentId } });
 }
