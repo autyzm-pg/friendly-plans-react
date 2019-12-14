@@ -68,6 +68,9 @@ const translations = {
   },
   studentList: {
     createStudent: 'Add a Student',
+    screenTitle: 'Select student',
+    search: 'Search',
+    dashboard: 'Student dashboard',
     studentNamePlaceholder: 'Enter Student name...',
     removeStudentTitle: 'Confirm',
     removeStudentDescription:
@@ -125,12 +128,6 @@ const translations = {
     studentNamePlaceholder: 'Type student name',
     removeStudent: 'Remove student',
     createStudent: 'Create Student',
-  },
-  studentsList: {
-    screenTitle: 'Select student',
-    search: 'Search',
-    dashboard: 'Student dashboard',
-    createStudent: 'Create student',
   },
   runPlan: {
     next: 'Next',

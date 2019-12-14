@@ -10,7 +10,7 @@ import { CreateStudentButton } from './CreateStudentButton';
 
 export class CreateFirstStudentScreen extends React.PureComponent<NavigationInjectedProps> {
   static navigationOptions = {
-    title: i18n.t('studentsList:dashboard'),
+    title: i18n.t('studentList:dashboard'),
   };
 
   handleNavigateToCreateStudent = () => {

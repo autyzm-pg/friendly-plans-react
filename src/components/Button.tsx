@@ -6,13 +6,15 @@ import { dimensions, palette, typography } from 'styles';
 
 interface Props extends ButtonProps {
   backgroundColor?: string;
+  isUppercase?: boolean;
 }
 
-export const Button: SFC<Props> = ({ backgroundColor, ...props }) => (
+export const Button: SFC<Props> = ({ backgroundColor, isUppercase, icon, ...props }) => (
   <ElementsButton
     {...props}
-    buttonStyle={[styles.button, { backgroundColor }, props.buttonStyle]}
-    titleStyle={[styles.title, props.titleStyle]}
+    icon={icon}
+    buttonStyle={[styles.button, !!icon && styles.buttonWithIcon, { backgroundColor }, props.buttonStyle]}
+    titleStyle={[styles.title, !!icon && styles.titleWithIcon, isUppercase && styles.uppercase, props.titleStyle]}
   />
 );
 
@@ -26,8 +28,17 @@ const styles = StyleSheet.create({
     elevation: 0,
     height: 36,
   },
+  buttonWithIcon: {
+    paddingRight: dimensions.spacingMedium,
+  },
   title: {
     ...typography.button,
     color: palette.textWhite,
+  },
+  titleWithIcon: {
+    marginLeft: 3,
+  },
+  uppercase: {
+    textTransform: 'uppercase',
   },
 });

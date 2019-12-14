@@ -37,7 +37,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   get screenName(): string {
-    return i18n.t('studentsList:screenTitle');
+    return i18n.t('studentList:screenTitle');
   }
 
   handleNavigateToCreateStudent = () => {

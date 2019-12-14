@@ -1,8 +1,7 @@
 import { Button } from 'components';
 import { i18n } from 'locale';
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { dimensions, palette } from 'styles';
+import { palette } from 'styles';
 
 interface Props {
   onPress: () => void;
@@ -12,29 +11,16 @@ export class CreateStudentButton extends React.PureComponent<Props> {
   render() {
     return (
       <Button
-        title={i18n.t('studentsList:createStudent')}
+        title={i18n.t('studentList:createStudent')}
         icon={{
-          name: 'addfile',
-          type: 'antdesign',
+          name: 'account-plus',
+          type: 'material-community',
           color: palette.textWhite,
-          size: 13,
+          size: 20,
         }}
-        buttonStyle={styles.button}
+        isUppercase
         onPress={this.props.onPress}
-        titleStyle={styles.title}
       />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  button: {
-    paddingVertical: dimensions.spacingSmall,
-    paddingRight: 15,
-    margin: 22,
-  },
-  title: {
-    marginLeft: 3,
-    textTransform: 'uppercase',
-  },
-});
