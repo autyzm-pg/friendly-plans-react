@@ -1,21 +1,36 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { BackHandler, StyleSheet, View } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
 import { FlatButton, NarrowScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
 import { Route } from 'navigation';
 import { palette } from 'styles';
-import { StudentPanel } from './StudentPanel';
+import { StudentPanel } from '../studentSettings/StudentPanel';
 
 interface State {
   student: Student;
 }
 
-class CreateStudent extends React.PureComponent<NavigationInjectedProps, State> {
+export class StudentCreateScreen extends React.PureComponent<NavigationInjectedProps, State> {
   state = {
     student: new Student(),
+  };
+
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonPressAndroid);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonPressAndroid);
+  }
+
+  handleBackButtonPressAndroid = () => {
+    if (!this.props.navigation.isFocused()) {
+      return false;
+    }
+    return !this.canNavigateBack;
   };
 
   handleChange = (name: string) => this.setState({ student: { ...this.state.student, name } });
@@ -30,11 +45,19 @@ class CreateStudent extends React.PureComponent<NavigationInjectedProps, State> 
     );
   };
 
+  get canNavigateBack(): boolean {
+    return this.props.navigation.getParam('canNavigateBack') !== false;
+  }
+
   render() {
     const { student } = this.state;
 
     return (
-      <NarrowScreenTemplate title={i18n.t('studentSettings:createStudentTitle')} navigation={this.props.navigation}>
+      <NarrowScreenTemplate
+        canNavigateBack={this.canNavigateBack}
+        title={i18n.t('studentSettings:createStudentTitle')}
+        navigation={this.props.navigation}
+      >
         <StudentPanel student={student} handleChangeName={this.handleChange}>
           <View>
             <FlatButton
@@ -54,5 +77,3 @@ const styles = StyleSheet.create({
     color: palette.textBody,
   },
 });
-
-export default withNavigation(CreateStudent);

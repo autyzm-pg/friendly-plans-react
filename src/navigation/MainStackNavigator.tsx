@@ -4,7 +4,6 @@ import { createStackNavigator, HeaderProps } from 'react-navigation';
 import { Header } from 'components';
 
 import {
-  CreateFirstStudentScreen,
   DashboardScreen,
   ImageLibraryScreen,
   PlanActivityScreen,
@@ -24,7 +23,6 @@ export const MainStackNavigator = createStackNavigator(
     [Route.RunSubPlanList]: RunSubPlanListScreen,
     [Route.PlanItemTask]: PlanItemTaskScreen,
     [Route.ImageLibrary]: ImageLibraryScreen,
-    [Route.CreateFirstStudent]: CreateFirstStudentScreen,
   },
   {
     headerLayoutPreset: 'left',

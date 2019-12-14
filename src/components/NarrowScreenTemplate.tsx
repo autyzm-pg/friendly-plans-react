@@ -15,9 +15,14 @@ interface Props extends NavigationInjectedProps {
   title: React.ReactNode | string;
   buttons?: React.ReactNode;
   isSecondaryView?: boolean;
+  canNavigateBack: boolean;
 }
 
 export class NarrowScreenTemplate extends React.PureComponent<Props> {
+  static defaultProps = {
+    canNavigateBack: true,
+  };
+
   backgroundAnimation = new Animated.Value(0);
 
   componentDidMount() {
@@ -56,18 +61,20 @@ export class NarrowScreenTemplate extends React.PureComponent<Props> {
       inputRange: [0, 1],
       outputRange: [WINDOW_HEIGHT, 0],
     });
-    const { children, buttons, isSecondaryView } = this.props;
+    const { children, buttons, isSecondaryView, canNavigateBack } = this.props;
     return (
       <Animated.View style={[styles.overlay]}>
         <Animated.View style={[styles.container, { transform: [{ translateY }] }]}>
           <View style={[styles.header, this.getHeaderColor()]}>
-            <IconButton
-              name="arrow-back"
-              type="material"
-              size={24}
-              color={isSecondaryView ? palette.textBody : palette.textWhite}
-              onPress={this.goBack}
-            />
+            {canNavigateBack && (
+              <IconButton
+                name="arrow-back"
+                type="material"
+                size={24}
+                color={isSecondaryView ? palette.textBody : palette.textWhite}
+                onPress={this.goBack}
+              />
+            )}
             {this.renderTitle()}
             {buttons}
           </View>

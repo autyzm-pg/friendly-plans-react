@@ -21,7 +21,7 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
         const currentStudent = students.find((student: Student) => student.id === studentId);
         this.props.navigation.setParams({ student: currentStudent });
       } else {
-        this.props.navigation.navigate(Route.CreateFirstStudent);
+        this.props.navigation.navigate(Route.StudentCreate, { canNavigateBack: false });
       }
     });
   }
