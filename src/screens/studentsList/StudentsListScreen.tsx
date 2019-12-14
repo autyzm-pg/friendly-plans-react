@@ -5,6 +5,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { IconButton, NarrowScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
+import { Route } from 'navigation';
 import { dimensions, palette } from 'styles';
 import { StudentsList } from './StudentsList';
 
@@ -30,7 +31,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
   }
 
   navigateToStudentsSearch = () => {
-    this.props.navigation.navigate('StudentsListSearch', {
+    this.props.navigation.navigate(Route.StudentsListSearch, {
       students: this.state.students,
     });
   };
@@ -40,7 +41,7 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
   }
 
   handleNavigateToCreateStudent = () => {
-    this.props.navigation.navigate('StudentSettings', {
+    this.props.navigation.navigate(Route.StudentSettings, {
       createStudent: true,
     });
   };

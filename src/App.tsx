@@ -4,9 +4,9 @@ import { Platform, StatusBar } from 'react-native';
 import { createAppContainer, NavigationContainerComponent, SafeAreaView } from 'react-navigation';
 
 import { i18n } from 'locale';
+import { RootStackNavigator } from 'navigation';
 import { AnalyticsService, NavigationService } from 'services';
 import { statusBarHeight } from 'styles';
-import { RootStackNavigator } from './navigators/RootStackNavigator';
 
 // Set status bar height on Android to support windowTranslucentStatus style
 /* istanbul ignore next */

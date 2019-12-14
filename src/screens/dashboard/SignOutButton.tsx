@@ -4,17 +4,18 @@ import firebase from 'react-native-firebase';
 
 import { Icon } from 'components';
 import { i18n } from 'locale';
+import { Route } from 'navigation';
 import { NavigationService } from 'services';
 import { palette } from 'styles';
 
 export class SignOutButton extends React.PureComponent {
   signOut = async () => {
     await firebase.auth().signOut();
-    NavigationService.navigate('Unauthenticated');
+    NavigationService.navigate(Route.Unauthenticated);
   };
 
   openSignOutDialog = () => {
-    NavigationService.navigate('Dialog', {
+    NavigationService.navigate(Route.Dialog, {
       title: i18n.t('settings:signOutTitle'),
       description: i18n.t('settings:signOutSubtitle'),
       onPress: this.signOut,

@@ -2,6 +2,7 @@ import { IconButton } from 'components';
 import { i18n } from 'locale';
 import { noop } from 'lodash';
 import { PlanItem } from 'models';
+import { Route } from 'navigation';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationService } from 'services';
@@ -16,7 +17,7 @@ interface Props {
 export const ImagePickerModal: SFC<Props> = ({ closeModal = noop, planItem }) => {
   const navigateToImageLibrary = () => {
     closeModal();
-    NavigationService.navigate('ImageLibrary', {
+    NavigationService.navigate(Route.ImageLibrary, {
       planItem,
     });
   };

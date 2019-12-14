@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, TouchableHighlight, View, ViewStyle } from 'react-native';
 
 import { Card, PlanNameText } from 'components';
-import { Plan, PlanItem, PlanItemType, Student } from 'models';
+import { Plan, PlanElement, PlanItem, PlanItemType, Student } from 'models';
+import { Route } from 'navigation';
+import { NavigationService } from 'services';
 import { palette } from 'styles';
-import { PlanElement } from '../../../models/PlanElement';
-import { NavigationService } from '../../../services';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
@@ -32,7 +32,7 @@ export class PlanElementListItem extends React.PureComponent<Props> {
   };
 
   navigateToRunPlanSubItemsList = () => {
-    NavigationService.navigate('RunSubPlanList', {
+    NavigationService.navigate(Route.RunSubPlanList, {
       itemParent: this.props.item,
       student: this.props.student,
       onGoBack: () => {

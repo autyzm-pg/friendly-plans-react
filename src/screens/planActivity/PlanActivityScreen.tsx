@@ -7,6 +7,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { FullScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, Plan, PlanItem } from 'models';
+import { Route } from 'navigation';
 import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData, PlanFormError } from './PlanForm';
@@ -96,7 +97,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   navigateToCreatePlanItem = async () => {
     const { plan, planItemList } = this.state;
 
-    this.props.navigation.navigate('PlanItemTask', {
+    this.props.navigation.navigate(Route.PlanItemTask, {
       plan,
       planItemList,
     });

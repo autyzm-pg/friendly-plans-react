@@ -5,6 +5,7 @@ import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { FlatButton, NarrowScreenTemplate } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
+import { Route } from 'navigation';
 import { palette } from 'styles';
 import { StudentPanel } from './StudentPanel';
 
@@ -23,7 +24,7 @@ class CreateStudent extends React.PureComponent<NavigationInjectedProps, State> 
     const { name } = this.state.student;
 
     Student.create(name).then(() =>
-      this.props.navigation.navigate('Dashboard', {
+      this.props.navigation.navigate(Route.Dashboard, {
         student: this.state.student,
       }),
     );

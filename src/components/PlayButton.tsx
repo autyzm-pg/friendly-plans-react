@@ -1,8 +1,9 @@
 import React, { SFC } from 'react';
 import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-import { Plan, StudentDisplayOption } from '../models';
-import { palette } from '../styles';
+import { Plan, StudentDisplayOption } from 'models';
+import { Route } from 'navigation';
+import { palette } from 'styles';
 import { IconButton } from './IconButton';
 
 interface Props extends NavigationInjectedProps {
@@ -23,13 +24,13 @@ export const PlayButton: SFC<Props> = ({ plan, disabled, size, navigation }) => 
       case StudentDisplayOption.LargeImageSlide:
       case StudentDisplayOption.ImageWithTextSlide:
       case StudentDisplayOption.TextSlide:
-        navigation.navigate('RunPlanSlide', {
+        navigation.navigate(Route.RunPlanSlide, {
           plan,
           student,
         });
         break;
       default:
-        navigation.navigate('RunPlanList', {
+        navigation.navigate(Route.RunPlanList, {
           itemParent: plan,
           student,
         });

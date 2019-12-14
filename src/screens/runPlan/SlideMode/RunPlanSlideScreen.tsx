@@ -5,6 +5,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { Card, FlatButton, StyledText } from 'components';
 import { i18n } from 'locale';
 import { ModelSubscriber, PlanItem, Student } from 'models';
+import { Route } from 'navigation';
 import { palette, typography } from 'styles';
 import { PlanSlideItem } from './PlanSlideItem';
 
@@ -46,7 +47,7 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
     if (this.state.pageNumber + 1 < this.state.planItems.length) {
       this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
     } else {
-      this.props.navigation.navigate('Dashboard');
+      this.props.navigation.navigate(Route.Dashboard);
     }
   };
 

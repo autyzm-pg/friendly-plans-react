@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { CheckboxInput, Icon, IconButton } from 'components';
 import { PlanItem } from 'models';
+import { Route } from 'navigation';
 import { NavigationService } from 'services';
 import { palette, typography } from 'styles';
 import { CELL_DIMENSIONS } from './TaskTable';
@@ -15,7 +16,7 @@ interface Props {
 
 export const TableRow: React.FunctionComponent<Props> = ({ rowNumber, planItem, border }) => {
   const navigateToPlanItemUpdate = () => {
-    NavigationService.navigate('PlanItemTask', {
+    NavigationService.navigate(Route.PlanItemTask, {
       planItem,
     });
   };

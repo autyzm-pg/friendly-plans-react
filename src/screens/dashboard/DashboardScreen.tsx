@@ -4,6 +4,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 
 import { i18n } from 'locale';
 import { AuthUser, ModelSubscriber, Student } from 'models';
+import { Route } from 'navigation';
 import { palette } from 'styles';
 import StudentPlanList from '../studentPlanList/StudentPlanList';
 
@@ -20,7 +21,7 @@ export class DashboardScreen extends React.PureComponent<NavigationInjectedProps
         const currentStudent = students.find((student: Student) => student.id === studentId);
         this.props.navigation.setParams({ student: currentStudent });
       } else {
-        this.props.navigation.navigate('StudentsDashboard');
+        this.props.navigation.navigate(Route.CreateFirstStudent);
       }
     });
   }

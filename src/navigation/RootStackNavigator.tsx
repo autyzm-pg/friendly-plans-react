@@ -3,6 +3,7 @@ import { createStackNavigator, NavigationSceneRendererProps } from 'react-naviga
 
 import { DialogScreen, StudentSettingsScreen, StudentsListScreen, StudentsListSearchScreen } from 'screens';
 import { AuthSwitchNavigator } from './AuthSwitchNavigator';
+import { Route } from './routes';
 
 /*
  * This is the outermost navigator. All routes listed here will be accessible
@@ -11,11 +12,11 @@ import { AuthSwitchNavigator } from './AuthSwitchNavigator';
  * */
 export const RootStackNavigator = createStackNavigator(
   {
-    Home: AuthSwitchNavigator,
-    Dialog: DialogScreen,
-    StudentSettings: StudentSettingsScreen,
-    StudentsList: StudentsListScreen,
-    StudentsListSearch: StudentsListSearchScreen,
+    [Route.Root]: AuthSwitchNavigator,
+    [Route.Dialog]: DialogScreen,
+    [Route.StudentSettings]: StudentSettingsScreen,
+    [Route.StudentsList]: StudentsListScreen,
+    [Route.StudentsListSearch]: StudentsListSearchScreen,
   },
   {
     headerMode: 'none',
