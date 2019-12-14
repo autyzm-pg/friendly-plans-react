@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint-fix": "tslint --fix --project .",
     "lint": "tslint --project .",
+    "lint:fix": "tslint --fix --project .",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
     "prettier:check": "prettier --list-different \"**/*.{js,ts,tsx}\"",
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -14,14 +14,15 @@
     "typescript:check": "tsc --noEmit",
     "pre-commit": "lint-staged",
     "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "ios": "react-native run-ios",
+    "postinstall": "yarn jetify"
   },
   "dependencies": {
     "formik": "^1.5.7",
     "i18next": "^18.0.0",
     "react": "^16.11.0",
     "react-i18next": "^11.0.0",
-    "react-native": "^0.61.2",
+    "react-native": "^0.61.5",
     "@types/lodash.every": "^4.6.6",
     "@types/lodash.isempty": "^4.4.6",
     "@types/lodash.noop": "^3.0.6",
@@ -30,7 +31,7 @@
     "lodash.isempty": "^4.4.0",
     "lodash.noop": "^3.0.1",
     "lodash.sortby": "^4.7.0",
-    "react-native-config": "^0.11.7",
+    "react-native-config": "^0.12.0",
     "react-native-elements": "1.2.0",
     "react-native-fast-image": "^7.0.2",
     "react-native-firebase": "^5.5.6",

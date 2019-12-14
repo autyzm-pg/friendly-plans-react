@@ -39,7 +39,6 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
 
 # fastlane
 #
@@ -55,7 +54,6 @@ buck-out/
 # Bundle artifact, apps
 *.jsbundle
 *.apk
-*.ipa
 output.json
 
 # Cocoapods
@@ -75,3 +73,5 @@ fastlane/report.xml
 *.keystore
 google-play-service-key.json
 
+# react-native-config codegen
+ios/tmp.xcconfig
