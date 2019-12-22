@@ -29,7 +29,7 @@ export const RootStackNavigator = createStackNavigator(
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,
-    navigationOptions: {
+    defaultNavigationOptions: {
       gesturesEnabled: false,
     },
     transitionConfig: /* istanbul ignore next */ () => ({
