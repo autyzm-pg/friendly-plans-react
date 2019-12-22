@@ -25,7 +25,7 @@ export class AuthUser implements SubscribableModel {
     this.getRef()
       .get()
       .then((doc: any) => {
-        return doc.data() ? doc.data().currentStudent.studentId : '';
+        return doc.data() ? doc.data().currentStudentId : '';
       });
-  setCurrentStudent = (studentId: string) => this.getRef().set({ currentStudent: { studentId } });
+  setCurrentStudent = (studentId: string) => this.getRef().set({ currentStudentId: studentId });
 }

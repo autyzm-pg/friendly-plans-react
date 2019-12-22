@@ -1,12 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FlatButton, NarrowScreenTemplate } from 'components';
+import { NarrowScreenTemplate, StudentSettings } from 'components';
 import { i18n } from 'locale';
-import { ModelSubscriber, Student } from 'models';
-import { palette } from 'styles';
-import { StudentPanel } from './StudentPanel';
+import { AuthUser, ModelSubscriber, Student, StudentData } from 'models';
 
 interface State {
   student: Student;
@@ -39,45 +36,20 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
     });
   }
 
-  handleChange = (name: string) => this.setState({ student: { ...this.state.student, name } });
+  removeStudent = () =>
+    this.state.student.delete().then(async () => {
+      await AuthUser.getAuthenticatedUser().setCurrentStudent('');
+      this.props.navigation.goBack();
+    });
 
-  handleEndEditing = () => {
-    const { student } = this.state;
-
-    if (!student.name) {
-      return;
-    }
-
-    this.state.student.update({ name: student.name });
-  };
-
-  handleRemoveStudent = () => this.state.student.delete().then(() => this.props.navigation.goBack());
+  updateStudent = (data: StudentData) => this.state.student.update(data);
 
   render() {
     const { student } = this.state;
-
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={this.props.navigation}>
-        <StudentPanel
-          student={student}
-          handleChangeName={this.handleChange}
-          handleEndEditingName={this.handleEndEditing}
-        >
-          <View>
-            <FlatButton
-              title={i18n.t('studentSettings:removeStudent')}
-              titleStyle={styles.studentButton}
-              onPress={this.handleRemoveStudent}
-            />
-          </View>
-        </StudentPanel>
+        <StudentSettings student={student} onStudentRemove={this.removeStudent} onStudentUpdate={this.updateStudent} />
       </NarrowScreenTemplate>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  studentButton: {
-    color: palette.textBody,
-  },
-});

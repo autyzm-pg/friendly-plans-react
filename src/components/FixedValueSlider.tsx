@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Slider } from 'react-native-elements';
+import { IconProps, Slider } from 'react-native-elements';
 
 import { dimensions, palette, typography } from 'styles';
+import { Icon } from './Icon';
 import { StyledText } from './StyledText';
 
 interface Option {
@@ -13,7 +14,9 @@ interface Option {
 interface Props {
   options: Option[];
   value: string;
-  onSlidingComplete: (value: string) => void;
+  onSlidingComplete: (value: any) => void;
+  iconLeft?: IconProps;
+  iconRight?: IconProps;
 }
 
 interface State {
@@ -36,11 +39,16 @@ export class FixedValueSlider extends React.PureComponent<Props, State> {
   setIndex = (index: number) => this.setState({ index });
 
   render() {
-    const { options } = this.props;
+    const { iconLeft, iconRight, options } = this.props;
     return (
       <View style={styles.container}>
         <StyledText style={styles.label}>{options[this.state.index].label}</StyledText>
         <View style={styles.sliderContainer}>
+          {!!iconLeft && (
+            <View style={styles.iconContainer}>
+              <Icon size={32} color={palette.primary} {...iconLeft} />
+            </View>
+          )}
           <View style={styles.sliderInnerContainer}>
             <View style={styles.pointsContainer}>
               {options.map((_, index) => (
@@ -61,6 +69,11 @@ export class FixedValueSlider extends React.PureComponent<Props, State> {
               minimumTrackTintColor="transparent"
             />
           </View>
+          {!!iconRight && (
+            <View style={styles.iconContainer}>
+              <Icon size={24} color={palette.primary} {...iconRight} />
+            </View>
+          )}
         </View>
       </View>
     );
@@ -121,6 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: palette.background,
   },
   iconContainer: {
+    opacity: 0.4,
     width: 48,
     justifyContent: 'center',
     alignItems: 'center',

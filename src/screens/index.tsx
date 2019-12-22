@@ -3,7 +3,7 @@ export { SignInScreen } from './signIn/SignInScreen';
 export { DialogScreen } from './DialogScreen';
 export { SignUpScreen } from './signUp/SignUpScreen';
 export { ResetPasswordScreen } from './resetPassword/ResetPasswordScreen';
-export { DashboardScreen } from './dashboard/DashboardScreen';
+export { default as DashboardScreen } from './dashboard/DashboardScreen';
 export { StudentSettingsScreen } from './studentSettings/StudentSettingsScreen';
 export { StudentsListScreen } from './studentsList/StudentsListScreen';
 export { StudentsListSearchScreen } from './studentsListSearch/StudentsListSearchScreen';

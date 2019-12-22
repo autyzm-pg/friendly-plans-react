@@ -2,13 +2,14 @@ import React, { PureComponent } from 'react';
 
 import { FixedValueSlider } from 'components';
 import { i18n } from 'locale';
-import { Student, StudentDisplayOption } from 'models';
+import { StudentDisplayOption } from 'models';
 
 interface Props {
-  student: Student;
+  value: StudentDisplayOption;
+  onValueChange: (displaySettings: StudentDisplayOption) => void;
 }
 
-export class StudentDisplaySettings extends PureComponent<Props> {
+export class DisplaySetting extends PureComponent<Props> {
   options = [
     {
       value: StudentDisplayOption.LargeImageSlide,
@@ -32,17 +33,14 @@ export class StudentDisplaySettings extends PureComponent<Props> {
     },
   ];
 
-  onSlidingComplete = (displaySettings: string) => {
-    this.props.student.update({ displaySettings });
-  };
-
   render() {
     return (
       <FixedValueSlider
-        {...this.props}
-        value={this.props.student.displaySettings}
+        value={this.props.value}
         options={this.options}
-        onSlidingComplete={this.onSlidingComplete}
+        onSlidingComplete={this.props.onValueChange}
+        iconLeft={{ name: 'image', size: 26 }}
+        iconRight={{ name: 'format-list-bulleted', size: 26 }}
       />
     );
   }

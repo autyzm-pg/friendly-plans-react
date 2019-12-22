@@ -1,13 +1,11 @@
 import React from 'react';
-import { BackHandler, StyleSheet, View } from 'react-native';
+import { BackHandler } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FlatButton, NarrowScreenTemplate } from 'components';
+import { NarrowScreenTemplate, StudentSettings } from 'components';
 import { i18n } from 'locale';
-import { Student } from 'models';
+import { AuthUser, Student, StudentData } from 'models';
 import { Route } from 'navigation';
-import { palette } from 'styles';
-import { StudentPanel } from '../studentSettings/StudentPanel';
 
 interface State {
   student: Student;
@@ -33,16 +31,10 @@ export class StudentCreateScreen extends React.PureComponent<NavigationInjectedP
     return !this.canNavigateBack;
   };
 
-  handleChange = (name: string) => this.setState({ student: { ...this.state.student, name } });
-
-  handleCreateStudent = () => {
-    const { name } = this.state.student;
-
-    Student.create(name).then(() =>
-      this.props.navigation.navigate(Route.Dashboard, {
-        student: this.state.student,
-      }),
-    );
+  createStudent = async (data: StudentData) => {
+    const student = await Student.create(data);
+    await AuthUser.getAuthenticatedUser().setCurrentStudent(student.id);
+    this.props.navigation.navigate(Route.Dashboard);
   };
 
   get canNavigateBack(): boolean {
@@ -51,29 +43,14 @@ export class StudentCreateScreen extends React.PureComponent<NavigationInjectedP
 
   render() {
     const { student } = this.state;
-
     return (
       <NarrowScreenTemplate
         canNavigateBack={this.canNavigateBack}
         title={i18n.t('studentSettings:createStudentTitle')}
         navigation={this.props.navigation}
       >
-        <StudentPanel student={student} handleChangeName={this.handleChange}>
-          <View>
-            <FlatButton
-              title={i18n.t('studentSettings:createStudent')}
-              titleStyle={styles.studentButton}
-              onPress={this.handleCreateStudent}
-            />
-          </View>
-        </StudentPanel>
+        <StudentSettings student={student} onStudentCreate={this.createStudent} />
       </NarrowScreenTemplate>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  studentButton: {
-    color: palette.textBody,
-  },
-});

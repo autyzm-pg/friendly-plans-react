@@ -19,20 +19,33 @@ export enum StudentTextSizeOption {
   ExtraLarge = 'xl',
 }
 
-export class Student implements SubscribableModel {
-  static create = (name: string): Promise<RNFirebase.firestore.DocumentReference> =>
-    getStudentsRef().add({
-      name,
-    });
+export interface StudentData {
+  name: string;
+  displaySettings: StudentDisplayOption;
+  textSize: StudentTextSizeOption;
+  isUpperCase: boolean;
+  isSwipeBlocked: boolean;
+}
 
-  name!: string;
+export class Student implements SubscribableModel, StudentData {
+  static create = (data: StudentData): Promise<RNFirebase.firestore.DocumentReference> => getStudentsRef().add(data);
+
   id!: string;
-  displaySettings!: StudentDisplayOption;
-  textSize!: StudentTextSizeOption;
-  isUpperCase!: boolean;
-  isSwipeBlocked!: boolean;
+  name: string;
+  displaySettings: StudentDisplayOption;
+  textSize: StudentTextSizeOption;
+  isUpperCase: boolean;
+  isSwipeBlocked: boolean;
 
-  update = (changes: object) => getStudentRef(this.id).update(changes);
+  constructor() {
+    this.name = '';
+    this.displaySettings = StudentDisplayOption.ImageWithTextSlide;
+    this.textSize = StudentTextSizeOption.Large;
+    this.isUpperCase = false;
+    this.isSwipeBlocked = false;
+  }
+
+  update = (changes: Partial<StudentData>) => getStudentRef(this.id).update(changes);
   delete = (): Promise<void> => getStudentRef(this.id).delete();
 
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () => getPlansRef(this.id);

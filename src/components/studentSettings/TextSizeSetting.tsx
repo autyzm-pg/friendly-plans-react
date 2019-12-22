@@ -2,13 +2,14 @@ import React from 'react';
 
 import { FixedValueSlider } from 'components';
 import { i18n } from 'locale';
-import { Student, StudentTextSizeOption } from 'models';
+import { StudentTextSizeOption } from 'models';
 
 interface Props {
-  student: Student;
+  value: StudentTextSizeOption;
+  onValueChange: (displaySettings: StudentTextSizeOption) => void;
 }
 
-export class StudentTextSizeSettings extends React.PureComponent<Props> {
+export class TextSizeSetting extends React.PureComponent<Props> {
   options = [
     {
       value: StudentTextSizeOption.Small,
@@ -28,16 +29,14 @@ export class StudentTextSizeSettings extends React.PureComponent<Props> {
     },
   ];
 
-  onSlidingComplete = (textSize: string) => {
-    this.props.student.update({ textSize });
-  };
-
   render() {
     return (
       <FixedValueSlider
-        value={this.props.student.textSize}
+        value={this.props.value}
         options={this.options}
-        onSlidingComplete={this.onSlidingComplete}
+        onSlidingComplete={this.props.onValueChange}
+        iconLeft={{ name: 'format-text', size: 22 }}
+        iconRight={{ name: 'format-text', size: 34 }}
       />
     );
   }

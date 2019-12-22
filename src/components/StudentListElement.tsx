@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 
 import { StyledText } from 'components';
 import { AuthUser, Student } from 'models';
@@ -20,13 +20,17 @@ const StudentName: SFC<Props> = ({ student, navigation }) => {
   };
 
   return (
-    <StyledText style={styles.studentName} onPress={setCurrentStudent}>
-      {student.name}
-    </StyledText>
+    <TouchableHighlight style={styles.touchable} underlayColor={palette.underlay} onPress={setCurrentStudent}>
+      <StyledText style={styles.studentName}>{student.name}</StyledText>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
+  touchable: {
+    marginHorizontal: -dimensions.spacingBig,
+    paddingHorizontal: dimensions.spacingBig,
+  },
   studentName: {
     ...typography.subtitle,
     color: palette.textBody,

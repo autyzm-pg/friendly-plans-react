@@ -9,6 +9,7 @@ exports[`Button should match snapshot 1`] = `
         "elevation": 0,
         "height": 36,
       },
+      false,
       Object {
         "backgroundColor": "blue",
       },
@@ -24,6 +25,8 @@ exports[`Button should match snapshot 1`] = `
         "fontSize": 14,
         "letterSpacing": 0,
       },
+      false,
+      undefined,
       undefined,
     ]
   }

@@ -61,14 +61,16 @@ export class Header extends React.PureComponent<Props> {
   renderButtons() {
     return this.isDashboard() ? (
       <>
-        <IconButton
-          name="settings"
-          type="material"
-          color={palette.textWhite}
-          size={24}
-          containerStyle={styles.iconContainer}
-          onPress={this.navigateToStudentSettings}
-        />
+        {this.props.student && (
+          <IconButton
+            name="settings"
+            type="material"
+            color={palette.textWhite}
+            size={24}
+            containerStyle={styles.iconContainer}
+            onPress={this.navigateToStudentSettings}
+          />
+        )}
         <IconButton
           name="people"
           type="material"
