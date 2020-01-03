@@ -11,7 +11,7 @@ import { CreatePlanButton } from './CreatePlanButton';
 import { DashboardBackground } from './DashboardBackground';
 
 export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedProps> {
-  navigate = () => {
+  navigateToPlanActivity = () => {
     const student = this.props.navigation.getParam('student');
 
     this.props.navigation.navigate(Route.PlanActivity, {
@@ -23,7 +23,7 @@ export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedPro
     return (
       <View style={styles.container}>
         <DashboardBackground />
-        <CreatePlanButton onPress={this.navigate} />
+        <CreatePlanButton onPress={this.navigateToPlanActivity} />
         <StyledText style={styles.text}>{i18n.t('planList:conjunction')}</StyledText>
         <CopyPlanButton />
       </View>

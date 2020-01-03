@@ -1,7 +1,13 @@
 import { Animated, Easing } from 'react-native';
 import { createStackNavigator, NavigationSceneRendererProps } from 'react-navigation';
 
-import { DialogScreen, StudentSettingsScreen, StudentsListScreen, StudentsListSearchScreen } from 'screens';
+import {
+  DialogScreen,
+  StudentCreateScreen,
+  StudentSettingsScreen,
+  StudentsListScreen,
+  StudentsListSearchScreen,
+} from 'screens';
 import { AuthSwitchNavigator } from './AuthSwitchNavigator';
 import { Route } from './routes';
 
@@ -15,6 +21,7 @@ export const RootStackNavigator = createStackNavigator(
     [Route.Root]: AuthSwitchNavigator,
     [Route.Dialog]: DialogScreen,
     [Route.StudentSettings]: StudentSettingsScreen,
+    [Route.StudentCreate]: StudentCreateScreen,
     [Route.StudentsList]: StudentsListScreen,
     [Route.StudentsListSearch]: StudentsListSearchScreen,
   },
@@ -22,7 +29,7 @@ export const RootStackNavigator = createStackNavigator(
     headerMode: 'none',
     mode: 'modal',
     transparentCard: true,
-    navigationOptions: {
+    defaultNavigationOptions: {
       gesturesEnabled: false,
     },
     transitionConfig: /* istanbul ignore next */ () => ({

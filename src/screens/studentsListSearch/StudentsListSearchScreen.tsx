@@ -5,7 +5,7 @@ import { NavigationInjectedProps } from 'react-navigation';
 import { IconButton, NarrowScreenTemplate, TextInput } from 'components';
 import { i18n } from 'locale';
 import { Student } from 'models';
-import { dimensions, palette, typography } from 'styles';
+import { dimensions, palette } from 'styles';
 import { FilterableStudentsList } from './FilterableStudentsList';
 
 interface Props extends NavigationInjectedProps {
@@ -32,7 +32,7 @@ export class StudentsListSearchScreen extends React.PureComponent<Props, State> 
   renderSearchInput = () => (
     <TextInput
       style={styles.searchInput}
-      placeholder={i18n.t('studentsList:search')}
+      placeholder={i18n.t('studentList:search')}
       hideUnderline
       onChangeText={this.onSearch}
       value={this.state.searchQuery}

@@ -68,6 +68,9 @@ const translations = {
   },
   studentList: {
     createStudent: 'Add a Student',
+    screenTitle: 'Select student',
+    search: 'Search',
+    dashboard: 'Student dashboard',
     studentNamePlaceholder: 'Enter Student name...',
     removeStudentTitle: 'Confirm',
     removeStudentDescription:
@@ -108,7 +111,7 @@ const translations = {
     taskView: "Task's view",
     soundSettings: 'Sound settings',
     settingsTitle: "Student's settings",
-    createStudentTitle: 'Create Student',
+    createStudentTitle: 'Create a Student',
     textSettingsSizeS: 'Font size: S',
     textSettingsSizeM: 'Font size: M',
     textSettingsSizeL: 'Font size: L',
@@ -122,14 +125,8 @@ const translations = {
     blockSwipe: 'Block swipe',
     alarmSound: 'Alarm sound',
     planCardPlacehorder: "Let's play paper, rock, scissors",
-    studentNamePlaceholder: 'Type student name',
+    studentNamePlaceholder: 'Enter student name',
     removeStudent: 'Remove student',
-    createStudent: 'Create Student',
-  },
-  studentsList: {
-    screenTitle: 'Select student',
-    search: 'Search',
-    dashboard: 'Student dashboard',
     createStudent: 'Create student',
   },
   runPlan: {

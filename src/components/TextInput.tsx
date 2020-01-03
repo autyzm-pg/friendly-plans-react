@@ -38,7 +38,12 @@ export class TextInput extends React.PureComponent<Props, State> {
 
     return (
       <KeyboardAvoidingView
-        style={[style, !hideUnderline && isEditable && styles.inputUnderline, isEditable && styles.inputBackground]}
+        style={[
+          styles.container,
+          style,
+          !hideUnderline && isEditable && styles.inputUnderline,
+          isEditable && styles.inputBackground,
+        ]}
       >
         <BaseTextInput
           style={[styles.input, textStyle]}
@@ -54,15 +59,19 @@ export class TextInput extends React.PureComponent<Props, State> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'transparent',
+  },
   input: {
     height: 28,
     ...typography.subtitle,
     paddingVertical: 4,
     color: palette.textBlack,
+    borderBottomColor: 'transparent',
   },
   inputUnderline: {
     borderBottomColor: palette.primary,
-    borderBottomWidth: 1,
   },
   inputBackground: {
     backgroundColor: palette.backgroundAdditional,

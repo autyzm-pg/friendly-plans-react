@@ -9,7 +9,7 @@ interface Props {
   onChange?: (value: boolean) => void;
 }
 
-export const AlarmSoundSettings: SFC<Props> = ({ value, onChange }) => (
+export const AlarmSoundSetting: SFC<Props> = ({ value, onChange }) => (
   <View style={styles.container}>
     <StyledText style={styles.label}>{i18n.t('studentSettings:alarmSound')}</StyledText>
     <View style={styles.soundPickerContainer}>

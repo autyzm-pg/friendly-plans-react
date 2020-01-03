@@ -8,6 +8,7 @@ export enum Route {
   Root = 'Root',
   Dialog = 'Dialog',
   StudentSettings = 'StudentSettings',
+  StudentCreate = 'StudentCreate',
   StudentsList = 'StudentsList',
   StudentsListSearch = 'StudentsListSearch',
   // MainStackNavigator
@@ -18,7 +19,6 @@ export enum Route {
   RunSubPlanList = 'RunSubPlanList',
   PlanItemTask = 'PlanItemTask',
   ImageLibrary = 'ImageLibrary',
-  CreateFirstStudent = 'CreateFirstStudent',
   // UnauthenticatedStackNavigator
   SignIn = 'SignIn',
   SignUp = 'SignUp',

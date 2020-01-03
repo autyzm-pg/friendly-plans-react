@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { BackHandler, StyleSheet } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { IconButton, NarrowScreenTemplate } from 'components';
@@ -24,11 +24,20 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
     this.modelSubscriber.subscribeCollectionUpdates(AuthUser.getAuthenticatedUser(), (students: Student[]) =>
       this.setState({ students }),
     );
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonPressAndroid);
   }
 
   componentWillUnmount() {
     this.modelSubscriber.unsubscribeCollectionUpdates();
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonPressAndroid);
   }
+
+  handleBackButtonPressAndroid = () => {
+    if (!this.props.navigation.isFocused()) {
+      return false;
+    }
+    return !this.canNavigateBack;
+  };
 
   navigateToStudentsSearch = () => {
     this.props.navigation.navigate(Route.StudentsListSearch, {
@@ -37,13 +46,11 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   get screenName(): string {
-    return i18n.t('studentsList:screenTitle');
+    return i18n.t('studentList:screenTitle');
   }
 
   handleNavigateToCreateStudent = () => {
-    this.props.navigation.navigate(Route.StudentSettings, {
-      createStudent: true,
-    });
+    this.props.navigation.navigate(Route.StudentCreate);
   };
 
   renderHeaderButtons() {
@@ -69,12 +76,21 @@ export class StudentsListScreen extends React.PureComponent<NavigationInjectedPr
     );
   }
 
+  get canNavigateBack(): boolean {
+    return this.props.navigation.getParam('canNavigateBack') !== false;
+  }
+
   render() {
     const { navigation } = this.props;
     const { students } = this.state;
 
     return (
-      <NarrowScreenTemplate title={this.screenName} navigation={navigation} buttons={this.renderHeaderButtons()}>
+      <NarrowScreenTemplate
+        canNavigateBack={this.canNavigateBack}
+        title={this.screenName}
+        navigation={navigation}
+        buttons={this.renderHeaderButtons()}
+      >
         <StudentsList students={students} />
       </NarrowScreenTemplate>
     );

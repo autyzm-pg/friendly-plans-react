@@ -1,10 +1,10 @@
 import { i18n } from 'locale';
 import React, { SFC } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import { dimensions, getElevation, palette } from 'styles';
 
-import { PlanNameText } from '../../components/PlanNameText';
-import { StudentDisplayOption } from '../../models/Student';
+import { StudentDisplayOption } from 'models';
+import { dimensions, getElevation, palette } from 'styles';
+import { PlanNameText } from '../PlanNameText';
 
 interface Props {
   displaySettings: string;
