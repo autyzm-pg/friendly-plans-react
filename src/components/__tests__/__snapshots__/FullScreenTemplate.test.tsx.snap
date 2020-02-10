@@ -9,6 +9,7 @@ exports[`FullScreenTemplate should match snapshot 1`] = `
         "flex": 1,
       },
       undefined,
+      undefined,
     ]
   }
 >

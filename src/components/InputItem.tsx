@@ -6,9 +6,10 @@ import { IconButton } from './IconButton';
 import { StyledText } from './StyledText';
 
 interface Props extends TextInputProps {
-  label: string;
+  label?: string;
   error?: string;
   touched?: boolean;
+  styleContainer?: object;
 }
 
 interface State {
@@ -40,11 +41,11 @@ export class InputItem extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { label, error, touched, style, secureTextEntry } = this.props;
+    const { label, error, touched, style, secureTextEntry, styleContainer } = this.props;
     return (
       <View>
-        <StyledText style={styles.label}>{label}</StyledText>
-        <View style={styles.inputContainer}>
+        {!!label && <StyledText style={styles.label}>{label}</StyledText>}
+        <View style={[styles.inputContainer, styleContainer]}>
           <BaseTextInput
             {...this.props}
             style={[styles.input, style]}
@@ -52,9 +53,9 @@ export class InputItem extends React.PureComponent<Props, State> {
           />
           {this.renderSecureTextSwitch()}
         </View>
-        <View style={styles.errorContainer}>
-          {!!error && touched && <StyledText style={styles.error}>{error}</StyledText>}
-        </View>
+        {!!error && (
+          <View style={styles.errorContainer}>{touched && <StyledText style={styles.error}>{error}</StyledText>}</View>
+        )}
       </View>
     );
   }

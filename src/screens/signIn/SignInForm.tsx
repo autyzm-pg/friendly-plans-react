@@ -4,7 +4,8 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button, FlatButton, InputItem } from 'components';
 import { i18n } from 'locale';
-import { typography } from 'styles';
+import { palette, typography } from 'styles';
+
 import { SignInFormData } from './SignInFormContainer';
 
 interface Props extends FormikProps<SignInFormData> {
@@ -23,11 +24,13 @@ export class SignInForm extends React.PureComponent<Props> {
           value={values.email}
           error={errors.email}
           touched={touched.email}
-          label={i18n.t('common:email')}
+          placeholder={i18n.t('common:email')}
           autoCapitalize="none"
           keyboardType="email-address"
           textContentType="emailAddress"
           blurOnSubmit
+          style={styles.input}
+          styleContainer={styles.inputContainer}
         />
 
         <InputItem
@@ -36,10 +39,12 @@ export class SignInForm extends React.PureComponent<Props> {
           value={values.password}
           error={errors.password}
           touched={touched.password}
-          label={i18n.t('common:password')}
+          placeholder={i18n.t('common:password')}
           secureTextEntry
           textContentType="password"
           blurOnSubmit
+          style={styles.input}
+          styleContainer={styles.inputContainer}
         />
 
         <FlatButton
@@ -55,6 +60,7 @@ export class SignInForm extends React.PureComponent<Props> {
           title={i18n.t('signIn:signInButton')}
           containerStyle={styles.button}
           loading={loading}
+          buttonStyle={styles.button}
         />
       </View>
     );
@@ -62,9 +68,13 @@ export class SignInForm extends React.PureComponent<Props> {
 }
 
 const styles = StyleSheet.create({
-  button: {
+  buttonContainer: {
     marginTop: 8,
     marginBottom: 20,
+  },
+  button: {
+    borderRadius: 12,
+    height: 44,
   },
   resetPasswordTitle: {
     ...typography.caption,
@@ -75,6 +85,12 @@ const styles = StyleSheet.create({
   },
   resetPasswordContainer: {
     top: -8,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
+  },
+  inputContainer: { borderWidth: 0, marginBottom: 12 },
+  input: {
+    backgroundColor: palette.background,
+    borderRadius: 12,
+    height: 44,
   },
 });

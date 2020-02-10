@@ -39,11 +39,4 @@ describe('SignUpForm', () => {
     instance.navigateToTermsOfUse();
     expect(spy).toBeCalledWith('TermsOfUse');
   });
-
-  it('should set field value on check terms of use', () => {
-    const wrapper = shallow(<SignUpForm {...props} />);
-    const instance = wrapper.instance() as SignUpForm;
-    instance.checkTermsofUse(true);
-    expect(props.setFieldValue).toBeCalledWith('termsAccepted', true);
-  });
 });

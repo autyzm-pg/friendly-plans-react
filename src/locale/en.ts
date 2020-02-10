@@ -8,10 +8,12 @@ const translations = {
     ok: 'OK',
     yes: 'Yes',
     email: 'Email address',
+    name: 'Your Name',
     password: 'Password',
     error: 'Error',
     success: 'Success',
     unknownError: 'Unknown error occured',
+    addImage: 'Add Image',
   },
   validation: {
     email: 'Must be a valid email',

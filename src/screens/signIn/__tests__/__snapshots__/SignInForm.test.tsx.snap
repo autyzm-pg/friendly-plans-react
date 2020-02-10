@@ -7,7 +7,20 @@ exports[`SignInForm should match snapshot 1`] = `
     blurOnSubmit={true}
     error=""
     keyboardType="email-address"
-    label="Email address"
+    placeholder="Email address"
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="emailAddress"
     touched={false}
     value="email@domain.com"
@@ -15,8 +28,21 @@ exports[`SignInForm should match snapshot 1`] = `
   <InputItem
     blurOnSubmit={true}
     error=""
-    label="Password"
+    placeholder="Password"
     secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="password"
     touched={false}
     value="topsecretpassword"
@@ -30,7 +56,7 @@ exports[`SignInForm should match snapshot 1`] = `
     }
     containerStyle={
       Object {
-        "alignSelf": "flex-end",
+        "alignSelf": "center",
         "top": -8,
       }
     }
@@ -43,12 +69,18 @@ exports[`SignInForm should match snapshot 1`] = `
       }
     }
   />
-  <Component
+  <Button
     backgroundColor="#6654EB"
+    buttonStyle={
+      Object {
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
     containerStyle={
       Object {
-        "marginBottom": 20,
-        "marginTop": 8,
+        "borderRadius": 12,
+        "height": 44,
       }
     }
     onPress={[MockFunction]}

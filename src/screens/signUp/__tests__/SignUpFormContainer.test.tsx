@@ -46,7 +46,8 @@ describe('SignUpFormContainer', () => {
     const data = {
       email: 'email@domain.com',
       password: 'topsecretpa$$w0rd',
-      termsAccepted: true,
+      name: 'test name',
+      imageUrl: '',
     };
     const spy = jest.spyOn(NavigationService, 'navigate').mockImplementation(jest.fn());
     await instance.onSubmit(data);
@@ -60,7 +61,8 @@ describe('SignUpFormContainer', () => {
     const data = {
       email: 'email@domain.com',
       password: 'topsecretpa$$w0rd',
-      termsAccepted: true,
+      name: 'test name',
+      imageUrl: '',
     };
     // @ts-ignore
     firebase.auth = jest.fn().mockImplementationOnce(() => ({

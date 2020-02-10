@@ -20,4 +20,5 @@ export const palette = {
   underlay: 'rgba(0, 0, 0, 0.2)',
   modalBackgroundOverlay: 'rgba(34, 41, 150, 0.8)',
   shadow: 'rgba(0, 0, 0, 0.7)',
+  welcomeBackground: '#F0F0FD',
 };

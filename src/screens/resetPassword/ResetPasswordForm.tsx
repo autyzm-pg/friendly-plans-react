@@ -67,10 +67,12 @@ export class ResetPasswordForm extends React.PureComponent<{}, State> {
           value={values.email}
           error={errors.email}
           touched={touched.email}
-          label={i18n.t('common:email')}
+          placeholder={i18n.t('common:email')}
           autoCapitalize="none"
           keyboardType="email-address"
           textContentType="emailAddress"
+          style={styles.input}
+          styleContainer={styles.inputContainer}
           blurOnSubmit
         />
         <Button
@@ -86,8 +88,17 @@ export class ResetPasswordForm extends React.PureComponent<{}, State> {
 const styles = StyleSheet.create({
   container: {
     marginTop: 40,
+    alignItems: 'center',
   },
   button: {
     marginTop: 8,
+    width: 272,
+    height: 44,
+  },
+  inputContainer: { borderWidth: 0, marginBottom: 12, width: 272 },
+  input: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    height: 44,
   },
 });

@@ -88,5 +88,9 @@
 	<false/>
 	<key>firebase_crashlytics_collection_enabled</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The App would like to have access to the Photo Library to change profile picture.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The App would like to have access to the Camera to change profile picture.</string>
 </dict>
 </plist>

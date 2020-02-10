@@ -5,6 +5,8 @@ const translations = {
   },
   common: {
     cancel: 'Anuluj',
+    name: 'Twoja nazwa',
+    addImage: 'Dodaj logo',
   },
   signIn: {
     signIn: 'Zaloguj się',

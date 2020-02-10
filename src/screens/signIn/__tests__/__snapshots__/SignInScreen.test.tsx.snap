@@ -2,42 +2,57 @@
 
 exports[`SignInScreen should match snapshot 1`] = `
 <FullScreenTemplate
-  narrow={true}
+  extraStyles={
+    Object {
+      "backgroundColor": "#F0F0FD",
+    }
+  }
   padded={true}
 >
-  <SignInFormContainer />
-  <StyledText
+  <SignInBackground />
+  <View
     style={
       Object {
-        "color": "#9B9B9B",
-        "fontFamily": "Rubik-Medium",
-        "fontSize": 12,
-        "letterSpacing": 0,
-        "marginTop": 4,
-        "textAlign": "center",
+        "alignSelf": "center",
+        "marginHorizontal": "auto",
+        "width": 272,
       }
     }
   >
-    don't have an account?
-  </StyledText>
-  <FlatButton
-    onPress={[Function]}
-    title="Sign up"
-  />
-  <StyledText
-    style={
-      Object {
-        "color": "#9B9B9B",
-        "fontFamily": "Rubik-Medium",
-        "fontSize": 12,
-        "letterSpacing": 0,
-        "marginTop": 20,
-        "textAlign": "center",
+    <StyledText
+      style={
+        Object {
+          "color": "#6654EB",
+          "fontSize": 48,
+          "marginBottom": 48,
+        }
       }
-    }
-  >
-    you can also
-  </StyledText>
-  <SignInAsAnonymousButton />
+    >
+      Friendly Plan 
+    </StyledText>
+    <SignInFormContainer />
+    <Button
+      backgroundColor="#FFFFFF"
+      buttonStyle={
+        Object {
+          "borderRadius": 12,
+          "height": 44,
+        }
+      }
+      containerStyle={
+        Object {
+          "marginBottom": 20,
+          "marginTop": 8,
+        }
+      }
+      onPress={[Function]}
+      title="Sign Up"
+      titleStyle={
+        Object {
+          "color": "#6654EB",
+        }
+      }
+    />
+  </View>
 </FullScreenTemplate>
 `;

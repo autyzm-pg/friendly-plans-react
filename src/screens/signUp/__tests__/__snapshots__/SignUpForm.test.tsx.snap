@@ -1,13 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignUpForm should match snapshot 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "width": 272,
+    }
+  }
+>
+  <InputItem
+    autoCapitalize="none"
+    blurOnSubmit={true}
+    keyboardType="email-address"
+    placeholder="Your Name"
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
+    textContentType="name"
+  />
+  <LoadImageButton
+    openPicker={[Function]}
+  />
   <InputItem
     autoCapitalize="none"
     blurOnSubmit={true}
     error=""
     keyboardType="email-address"
-    label="Email address"
+    placeholder="Email address"
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="emailAddress"
     touched={true}
     value="email@domain.com"
@@ -15,35 +58,33 @@ exports[`SignUpForm should match snapshot 1`] = `
   <InputItem
     blurOnSubmit={true}
     error=""
-    label="Password"
+    placeholder="Password"
     secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="password"
     touched={true}
     value="topsecretpassword"
   />
-  <CheckboxInput
-    checked={true}
-    error=""
-    onPress={[Function]}
-    title="I accept "
-  >
-    <TouchableOpacity
-      activeOpacity={0.2}
-      onPress={[Function]}
-    >
-      <StyledText
-        style={
-          Object {
-            "color": "#6654EB",
-          }
-        }
-      >
-        Terms of Use
-      </StyledText>
-    </TouchableOpacity>
-  </CheckboxInput>
-  <Component
+  <Button
     backgroundColor="#6654EB"
+    buttonStyle={
+      Object {
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
     containerStyle={
       Object {
         "marginBottom": 20,
