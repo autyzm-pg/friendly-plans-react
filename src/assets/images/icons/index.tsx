@@ -9,3 +9,4 @@ export { LeafNavyBlue } from './LeafNavyBlue';
 export { LeafNavyBlueSmall } from './LeafNavyBlueSmall';
 export { LeafOrange } from './LeafOrange';
 export { LeafPink } from './LeafPink';
+export { EllipseBlueBig } from './EllipseBlueBig';

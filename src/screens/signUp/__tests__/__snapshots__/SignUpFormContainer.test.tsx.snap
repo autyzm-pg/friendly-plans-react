@@ -6,6 +6,8 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
   initialValues={
     Object {
       "email": "",
+      "imageUrl": "",
+      "name": "",
       "password": "",
       "termsAccepted": false,
     }
@@ -28,7 +30,7 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
       "_exclusive": Object {},
       "_mutate": undefined,
       "_nodes": Array [
-        "termsAccepted",
+        "name",
         "password",
         "email",
       ],
@@ -73,6 +75,34 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
             [Function],
           ],
         },
+        "name": StringSchema {
+          "_blacklist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "_conditions": Array [],
+          "_deps": Array [],
+          "_exclusive": Object {
+            "required": true,
+          },
+          "_mutate": undefined,
+          "_options": Object {
+            "abortEarly": true,
+            "recursive": true,
+          },
+          "_type": "string",
+          "_typeError": [Function],
+          "_whitelist": RefSet {
+            "list": Set {},
+            "refs": Map {},
+          },
+          "tests": Array [
+            [Function],
+          ],
+          "transforms": Array [
+            [Function],
+          ],
+        },
         "password": StringSchema {
           "_blacklist": RefSet {
             "list": Set {},
@@ -103,37 +133,6 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
             [Function],
           ],
         },
-        "termsAccepted": BooleanSchema {
-          "_blacklist": RefSet {
-            "list": Set {},
-            "refs": Map {},
-          },
-          "_conditions": Array [],
-          "_deps": Array [],
-          "_exclusive": Object {
-            "required": true,
-          },
-          "_mutate": undefined,
-          "_options": Object {
-            "abortEarly": true,
-            "recursive": true,
-          },
-          "_type": "boolean",
-          "_typeError": [Function],
-          "_whitelist": RefSet {
-            "list": Set {
-              true,
-            },
-            "refs": Map {},
-          },
-          "_whitelistError": [Function],
-          "tests": Array [
-            [Function],
-          ],
-          "transforms": Array [
-            [Function],
-          ],
-        },
       },
       "tests": Array [],
       "transforms": Array [
@@ -145,13 +144,57 @@ exports[`SignUpFormContainer should match snapshot 1`] = `
 `;
 
 exports[`SignUpFormContainer should render form correctly 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "width": 272,
+    }
+  }
+>
+  <InputItem
+    autoCapitalize="none"
+    blurOnSubmit={true}
+    keyboardType="email-address"
+    placeholder="Your Name"
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
+    textContentType="name"
+  />
+  <LoadImageButton
+    loading={false}
+    openPicker={[Function]}
+  />
   <InputItem
     autoCapitalize="none"
     blurOnSubmit={true}
     error=""
     keyboardType="email-address"
-    label="Email address"
+    placeholder="Email address"
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="emailAddress"
     touched={true}
     value="email@domain.com"
@@ -159,35 +202,33 @@ exports[`SignUpFormContainer should render form correctly 1`] = `
   <InputItem
     blurOnSubmit={true}
     error=""
-    label="Password"
+    placeholder="Password"
     secureTextEntry={true}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
+    styleContainer={
+      Object {
+        "borderWidth": 0,
+        "marginBottom": 12,
+      }
+    }
     textContentType="password"
     touched={true}
     value="topsecretpassword"
   />
-  <CheckboxInput
-    checked={true}
-    error=""
-    onPress={[Function]}
-    title="I accept "
-  >
-    <TouchableOpacity
-      activeOpacity={0.2}
-      onPress={[Function]}
-    >
-      <StyledText
-        style={
-          Object {
-            "color": "#6654EB",
-          }
-        }
-      >
-        Terms of Use
-      </StyledText>
-    </TouchableOpacity>
-  </CheckboxInput>
-  <Component
+  <Button
     backgroundColor="#6654EB"
+    buttonStyle={
+      Object {
+        "borderRadius": 12,
+        "height": 44,
+      }
+    }
     containerStyle={
       Object {
         "marginBottom": 20,

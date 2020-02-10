@@ -22,6 +22,8 @@ Button.defaultProps = {
   backgroundColor: palette.primary,
 };
 
+Button.displayName = 'Button';
+
 const styles = StyleSheet.create({
   button: {
     borderRadius: dimensions.spacingMedium,

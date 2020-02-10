@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
-import { FlatButton, FullScreenTemplate, StyledText } from 'components';
+import { Button, FullScreenTemplate, StyledText } from 'components';
 import { i18n } from 'locale';
 import { Route } from 'navigation';
 import { palette, typography } from 'styles';
-import { SignInAsAnonymousButton } from './SignInAsAnonymousButton';
+
+import { SignInBackground } from './SignInBackground';
 import { SignInFormContainer } from './SignInFormContainer';
 
 export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
@@ -14,20 +15,27 @@ export class SignInScreen extends React.PureComponent<NavigationInjectedProps> {
 
   render() {
     return (
-      <FullScreenTemplate padded narrow>
-        <SignInFormContainer />
-
-        <StyledText style={styles.signUpTip}>{i18n.t('signIn:signUpTip')}</StyledText>
-        <FlatButton onPress={this.navigateToSignUp} title={i18n.t('signUp:signUpButton')} />
-
-        <StyledText style={styles.anonymousTip}>{i18n.t('signIn:anonymousTip')}</StyledText>
-        <SignInAsAnonymousButton />
+      <FullScreenTemplate padded extraStyles={styles.fullScreen}>
+        <SignInBackground />
+        <View style={styles.container}>
+          <StyledText style={styles.title}>Friendly Plan </StyledText>
+          <SignInFormContainer />
+          <Button
+            onPress={this.navigateToSignUp}
+            title={i18n.t('signUp:signUp')}
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.titleButton}
+            backgroundColor={palette.background}
+            buttonStyle={styles.button}
+          />
+        </View>
       </FullScreenTemplate>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: { width: 272, marginHorizontal: 'auto', alignSelf: 'center' },
   signUpTip: {
     ...typography.caption,
     color: palette.textDisabled,
@@ -39,5 +47,24 @@ const styles = StyleSheet.create({
     color: palette.textDisabled,
     textAlign: 'center',
     marginTop: 20,
+  },
+  fullScreen: {
+    backgroundColor: palette.welcomeBackground,
+  },
+  buttonContainer: {
+    marginTop: 8,
+    marginBottom: 20,
+  },
+  button: {
+    borderRadius: 12,
+    height: 44,
+  },
+  title: {
+    color: palette.primary,
+    fontSize: 48,
+    marginBottom: 48,
+  },
+  titleButton: {
+    color: palette.primary,
   },
 });

@@ -17,12 +17,15 @@ exports[`InputItem should match snapshot 1`] = `
   </StyledText>
   <View
     style={
-      Object {
-        "borderColor": "#dedede",
-        "borderRadius": 4,
-        "borderWidth": 1,
-        "height": 44,
-      }
+      Array [
+        Object {
+          "borderColor": "#dedede",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "height": 44,
+        },
+        undefined,
+      ]
     }
   >
     <TextInput
@@ -46,13 +49,5 @@ exports[`InputItem should match snapshot 1`] = `
       underlineColorAndroid="transparent"
     />
   </View>
-  <View
-    style={
-      Object {
-        "height": 26,
-        "justifyContent": "center",
-      }
-    }
-  />
 </View>
 `;

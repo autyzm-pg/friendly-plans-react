@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SignUpScreen should match snapshot 1`] = `
-<FullScreenTemplate
-  narrow={true}
-  padded={true}
->
-  <SignUpFormContainer />
-</FullScreenTemplate>
+<Fragment>
+  <FullScreenTemplate
+    extraStyles={
+      Object {
+        "backgroundColor": "#F0F0FD",
+        "paddingVertical": 37,
+      }
+    }
+    narrow={true}
+    padded={true}
+  >
+    <SignUpFormContainer />
+  </FullScreenTemplate>
+  <SignUpBackground />
+</Fragment>
 `;

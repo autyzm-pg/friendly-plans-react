@@ -5,18 +5,22 @@ import * as Yup from 'yup';
 
 import { i18n } from 'locale';
 import { Route } from 'navigation';
-import { NavigationService } from 'services';
+import { FirebaseService, NavigationService } from 'services';
+
 import { SignUpForm } from './SignUpForm';
 
 export interface SignUpFormData {
   email: string;
   password: string;
-  termsAccepted: boolean;
+  name: string;
+  imageUrl: string;
 }
 
 const initialValues = {
   email: '',
   password: '',
+  name: '',
+  imageUrl: '',
   termsAccepted: false,
 };
 
@@ -27,9 +31,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, i18n.t('validation:passwordLength'))
     .required(i18n.t('validation:required')),
-  termsAccepted: Yup.boolean()
-    .required(i18n.t('validation:acceptRequired'))
-    .oneOf([true], i18n.t('validation:acceptRequired')),
+  name: Yup.string().required(i18n.t('validation:required')),
 });
 
 interface State {
@@ -57,7 +59,14 @@ export class SignUpFormContainer extends React.PureComponent<{}, State> {
   onSubmit = async (values: SignUpFormData) => {
     this.setState({ loading: true });
     try {
-      await firebase.auth().createUserWithEmailAndPassword(values.email, values.password);
+      const userCredentials = await firebase.auth().createUserWithEmailAndPassword(values.email, values.password);
+      if (userCredentials.user) {
+        userCredentials.user.updateProfile({ displayName: values.name });
+
+        if (values.imageUrl) {
+          await FirebaseService.updateUserImage(values.imageUrl);
+        }
+      }
       NavigationService.navigate(Route.Authenticated);
     } catch (error) {
       this.setState({ loading: false });

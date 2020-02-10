@@ -8,13 +8,14 @@ interface Props {
   padded?: boolean;
   narrow?: boolean;
   darkBackground?: boolean;
+  extraStyles?: object;
 }
 
 export class FullScreenTemplate extends React.PureComponent<Props> {
   render() {
-    const { children, padded, narrow, darkBackground } = this.props;
+    const { children, padded, narrow, darkBackground, extraStyles } = this.props;
     return (
-      <SafeAreaView style={[styles.safeArea, darkBackground && styles.darkBackground]}>
+      <SafeAreaView style={[styles.safeArea, darkBackground && styles.darkBackground, extraStyles]}>
         <ScrollView
           contentContainerStyle={[styles.contentContainer, padded && styles.padded, narrow && styles.narrowContainer]}
         >
