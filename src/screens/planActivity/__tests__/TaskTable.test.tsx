@@ -4,9 +4,14 @@ import React from 'react';
 import { PlanItem } from 'models';
 import { TaskTable } from '../TaskTable';
 
+const props = {
+  planItemList: [new PlanItem()],
+  handlePlanListOrderChanged: jest.fn(),
+};
+
 describe('TaskTable', () => {
   it('renders correctly', () => {
-    const taskTable = shallow(<TaskTable planItemList={[new PlanItem()]} />);
+    const taskTable = shallow(<TaskTable {...props} />);
 
     expect(taskTable).toMatchSnapshot();
   });

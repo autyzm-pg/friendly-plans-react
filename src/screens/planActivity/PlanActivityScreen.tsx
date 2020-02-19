@@ -1,7 +1,7 @@
 import every from 'lodash.every';
-import isEmpty from 'lodash.isempty';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { DragEndParams } from 'react-native-draggable-flatlist';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { FullScreenTemplate } from 'components';
@@ -12,7 +12,6 @@ import { getElevation, palette } from 'styles';
 import { FixedCreatePlanItemButton } from './FixedCreatePlanItemButton';
 import { PlanForm, PlanFormData, PlanFormError } from './PlanForm';
 import { TaskTable } from './TaskTable';
-import { TaskTableHeader } from './TaskTableHeader';
 
 interface State {
   plan: Plan;
@@ -118,12 +117,17 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     return every(planItemList, 'completed');
   }
 
+  handlePlanListOrderChanged = ({ data }: DragEndParams<PlanItem>) => {
+    const planItemListRightOrder = data.map((item, index) => ({ ...item, order: index + 1 }));
+    planItemListRightOrder.forEach(item => item.setOrder(item.order));
+    this.setState({ planItemList: planItemListRightOrder });
+  };
+
   render() {
     const { plan, planItemList } = this.state;
-
     return (
       <>
-        <FullScreenTemplate>
+        <FullScreenTemplate extraStyles={styles.fullScreen}>
           <View style={styles.headerContainer}>
             <PlanForm
               onSubmit={this.onSubmit}
@@ -132,9 +136,8 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
               shuffleDisabled={this.shuffleDisabled()}
               playDisabled={this.playDisabled()}
             />
-            {!isEmpty(planItemList) && <TaskTableHeader />}
           </View>
-          <TaskTable planItemList={planItemList} />
+          <TaskTable planItemList={planItemList} handlePlanListOrderChanged={this.handlePlanListOrderChanged} />
         </FullScreenTemplate>
         {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>
@@ -146,5 +149,9 @@ const styles = StyleSheet.create({
   headerContainer: {
     ...getElevation(5),
     backgroundColor: palette.background,
+  },
+  fullScreen: {
+    paddingHorizontal: 24,
+    backgroundColor: palette.backgroundSurface,
   },
 });

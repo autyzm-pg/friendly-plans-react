@@ -2,7 +2,14 @@
 
 exports[`PlanActivityScreen renders correctly 1`] = `
 <Fragment>
-  <FullScreenTemplate>
+  <FullScreenTemplate
+    extraStyles={
+      Object {
+        "backgroundColor": "#F0F0FD",
+        "paddingHorizontal": 24,
+      }
+    }
+  >
     <View
       style={
         Object {
@@ -27,6 +34,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       />
     </View>
     <Component
+      handlePlanListOrderChanged={[Function]}
       planItemList={Array []}
     />
   </FullScreenTemplate>

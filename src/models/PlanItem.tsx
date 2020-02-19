@@ -80,6 +80,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
   lector!: boolean;
   nameForChild!: string;
   order!: number;
+  pressed?: boolean;
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];
@@ -91,6 +92,9 @@ export class PlanItem implements SubscribableModel, PlanElement {
     this.update({ completed: true });
   };
 
+  setOrder = (order: number) => {
+    this.update({ order });
+  };
   setComplete = (completed: boolean) => {
     this.update({ completed });
   };

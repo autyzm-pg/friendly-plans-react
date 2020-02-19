@@ -1,35 +1,45 @@
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
+import DraggableFlatList, { DragEndParams, RenderItemParams } from 'react-native-draggable-flatlist';
 
 import { FullScreenTemplate } from 'components';
 import { PlanItem } from 'models';
 import { dimensions, getElevation, palette } from 'styles';
 import { TableRow } from './TableRow';
 
-export const CELL_DIMENSIONS = {
-  NUMBER: 0.3,
-  CHECKBOX: 0.3,
-  NAME: 1.7,
-  TYPE: 0.5,
-  SECTION: 0.5,
-  TIME: 1.9,
-  DELETE: 0.4,
-  EDIT: 0.6,
-};
-
 interface Props {
   planItemList: PlanItem[];
+  handlePlanListOrderChanged: (planItemList: DragEndParams<PlanItem>) => void;
 }
 
-export const TaskTable: SFC<Props> = ({ planItemList }) => (
-  <FullScreenTemplate darkBackground>
-    <View style={styles.container}>
-      {planItemList.map((planItem, index) => (
-        <TableRow planItem={planItem} border={index !== planItemList.length - 1} key={index} rowNumber={index + 1} />
-      ))}
-    </View>
-  </FullScreenTemplate>
-);
+export const TaskTable: SFC<Props> = ({ planItemList, handlePlanListOrderChanged }) => {
+  const data = planItemList.map(item => ({ ...item, key: item.id, label: item.name }));
+  const renderItem = ({ item, index, drag }: RenderItemParams<PlanItem>) => {
+    return (
+      <View style={styles.tableContainer}>
+        <TableRow
+          planItem={item}
+          border={index !== planItemList.length - 1}
+          key={index}
+          rowNumber={index ? index + 1 : 0}
+          drag={drag}
+        />
+      </View>
+    );
+  };
+
+  const keyExtractor = (item: PlanItem) => `draggable-item-${item.id}`;
+  return (
+    <FullScreenTemplate darkBackground extraStyles={styles.fullScreen}>
+      <DraggableFlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        onDragEnd={handlePlanListOrderChanged}
+      />
+    </FullScreenTemplate>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -40,5 +50,18 @@ const styles = StyleSheet.create({
     marginHorizontal: '6%',
     borderBottomLeftRadius: dimensions.spacingMedium,
     borderBottomRightRadius: dimensions.spacingMedium,
+  },
+  fullScreen: {
+    marginTop: 10,
+  },
+  tableContainer: {
+    backgroundColor: palette.background,
+    marginBottom: 16,
+    borderRadius: 16,
+    shadowColor: palette.shadowPurple,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1,
+    elevation: 5,
   },
 });
