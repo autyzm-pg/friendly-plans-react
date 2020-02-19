@@ -15,7 +15,7 @@ module.exports = {
     platforms: ['android', 'ios', 'native'],
     providesModuleNodeModules: ['react-native'],
   },
-  setupFilesAfterEnv: ['<rootDir>/testSetup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/testSetup.ts', '<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js'],
   testPathIgnorePatterns: ['/node_modules/'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',

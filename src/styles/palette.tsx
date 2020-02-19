@@ -12,6 +12,7 @@ export const palette = {
   textBody: '#3C35A8',
   textDisabled: '#9B9B9B',
   textBlack: '#16107B',
+  textGray: '#4E4E4E',
   textWhite: 'rgba(255, 255, 255, 1)',
   textWhiteMuted: 'rgba(255, 255, 255, 0.6)',
   textInputPlaceholder: '#C8CBFA',
@@ -21,4 +22,5 @@ export const palette = {
   modalBackgroundOverlay: 'rgba(34, 41, 150, 0.8)',
   shadow: 'rgba(0, 0, 0, 0.7)',
   welcomeBackground: '#F0F0FD',
+  shadowPurple: '#1E169423',
 };

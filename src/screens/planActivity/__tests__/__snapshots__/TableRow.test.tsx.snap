@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableRow renders correctly 1`] = `
-<View
+<TouchableOpacity
+  activeOpacity={0.2}
+  onLongPress={[MockFunction]}
   style={
     Array [
       Object {
+        "alignItems": "center",
         "alignSelf": "stretch",
         "flexDirection": "row",
-        "height": 56,
+        "height": 64,
+        "paddingHorizontal": 24,
       },
       undefined,
     ]
@@ -15,43 +19,9 @@ exports[`TableRow renders correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 0.3,
-        },
-      ]
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#3C35A8",
-          "fontFamily": "Rubik-Regular",
-          "fontSize": 14,
-          "letterSpacing": 0,
-        }
+      Object {
+        "marginRight": 15,
       }
-    >
-      1
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 0.3,
-        },
-      ]
     }
   >
     <CheckboxInput
@@ -60,108 +30,53 @@ exports[`TableRow renders correctly 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "flex": 1.7,
-        },
-      ]
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#3C35A8",
-          "fontFamily": "Rubik-Regular",
-          "fontSize": 14,
-          "letterSpacing": 0,
-        }
+      Object {
+        "marginRight": 10,
       }
-    />
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "alignItems": "flex-start",
-          "flex": 0.5,
-        },
-      ]
     }
   >
     <Icon
       type="material"
     />
   </View>
-  <View
+  <Text
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "flex": 0.5,
-        },
-      ]
+      Object {
+        "color": "#4E4E4E",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 14,
+        "letterSpacing": 0,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#3C35A8",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 14,
+        "letterSpacing": 0,
+      }
     }
   >
-    <Text
-      style={
-        Object {
-          "color": "#3C35A8",
-          "fontFamily": "Rubik-Regular",
-          "fontSize": 14,
-          "letterSpacing": 0,
-        }
-      }
-    >
-      5
-    </Text>
-  </View>
-  <View
+     (5)
+  </Text>
+  <Text
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "flex": 1.9,
-        },
-      ]
+      Object {
+        "color": "#3C35A8",
+        "fontFamily": "Rubik-Regular",
+        "fontSize": 14,
+        "letterSpacing": 0,
+      }
     }
-  >
-    <Text
-      style={
-        Object {
-          "color": "#3C35A8",
-          "fontFamily": "Rubik-Regular",
-          "fontSize": 14,
-          "letterSpacing": 0,
-        }
-      }
-    />
-  </View>
+  />
   <View
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "alignItems": "flex-start",
-          "flex": 0.4,
-        },
-      ]
+      Object {
+        "position": "absolute",
+        "right": 38,
+      }
     }
   >
     <IconButton
@@ -173,16 +88,10 @@ exports[`TableRow renders correctly 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
-          "alignSelf": "stretch",
-          "justifyContent": "center",
-        },
-        Object {
-          "alignItems": "center",
-          "flex": 0.6,
-        },
-      ]
+      Object {
+        "position": "absolute",
+        "right": 80,
+      }
     }
   >
     <IconButton
@@ -191,5 +100,5 @@ exports[`TableRow renders correctly 1`] = `
       size={24}
     />
   </View>
-</View>
+</TouchableOpacity>
 `;
