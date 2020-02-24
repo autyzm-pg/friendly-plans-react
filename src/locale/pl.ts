@@ -7,6 +7,7 @@ const translations = {
     cancel: 'Anuluj',
     name: 'Twoja nazwa',
     addImage: 'Dodaj logo',
+    confirm: 'Potwierdzać',
   },
   signIn: {
     signIn: 'Zaloguj się',
@@ -30,6 +31,9 @@ const translations = {
     copyPlan: 'SKOPIUJ ISTNIEJĄCY PLAN',
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
+    deletePlan: 'Usuń plan',
+    deletePlanDescription:
+      'Usunięcie planu jest nieodwracalne. Oznacza to również usunięcie wszystkich jego elementów.',
   },
   planItemActivity: {
     viewTitleTask: 'Zadanie',
