@@ -50,7 +50,6 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
 
   render() {
     const { planItem } = this.state;
-
     return <PlanItemForm planItem={planItem} onSubmit={this.onSubmit} />;
   }
 }

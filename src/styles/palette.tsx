@@ -4,6 +4,7 @@ export const palette = {
   primaryVariant: '#4F3DD5',
   primaryLight: '#b9b6ff',
   primaryDisabled: '#2096f1',
+  purpleLightGray: '#DCDAFC',
   secondary: '#FE9DCA',
   break: '#FF984D',
   background: '#FFFFFF',
