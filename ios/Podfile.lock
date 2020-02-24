@@ -356,7 +356,7 @@ PODS:
     - Fabric
     - Firebase/Core
     - React
-  - RNGestureHandler (1.5.0):
+  - RNGestureHandler (1.5.6):
     - React
   - RNImageCropPicker (0.26.2):
     - QBImagePickerController
@@ -573,7 +573,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
-  RNGestureHandler: a4ddde1ffc6e590c8127b8b7eabfdade45475c74
+  RNGestureHandler: 911d3b110a7a233a34c4f800e7188a84b75319c6
   RNImageCropPicker: 9d1a7eea4f8368fc479cbd2bf26459bd3c74d9aa
   RNLocalize: 07eb7a91d10021cdf59d80061ebf3adb8a5b5688
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c

@@ -14,6 +14,7 @@ const translations = {
     success: 'Success',
     unknownError: 'Unknown error occured',
     addImage: 'Add Image',
+    confirm: 'Confirm',
   },
   validation: {
     email: 'Must be a valid email',
@@ -84,6 +85,8 @@ const translations = {
     copyPlan: 'Copy existing plan',
     conjunction: 'lub',
     planNamePlaceholder: 'Muzykowanie',
+    deletePlan: 'Delete Plan',
+    deletePlanDescription: 'Deleting a plan is irreversible. It also means deleting all of its elements.',
   },
   planItemActivity: {
     viewTitleTask: 'Task',
