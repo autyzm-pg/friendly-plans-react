@@ -105,6 +105,10 @@ export class PlanItem implements SubscribableModel, PlanElement {
     });
   };
 
+  setTimer = (type: number) => {
+    this.update({ type });
+  };
+
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
   delete = (): Promise<void> => getPlanItemRef(this.studentId, this.planId, this.id).delete();
 

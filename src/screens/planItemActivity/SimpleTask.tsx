@@ -1,13 +1,14 @@
 import React from 'react';
 import { SafeAreaView, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
-import { Card, IconButton, TextInput } from 'components';
+import { Card, IconButton, ModalTrigger, TextInput } from 'components';
 import { FormikProps } from 'formik';
 import { i18n } from 'locale';
 import { PlanItem } from 'models';
 import { dimensions, palette, typography } from 'styles';
 import { ImagePicker } from './ImagePicker';
 import { PlanItemFormData } from './PlanItemForm';
+import { TimeSlider } from './TimeSlider';
 
 interface Props {
   planItem: PlanItem;
@@ -20,8 +21,13 @@ export class SimpleTask extends React.PureComponent<Props> {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
 
+  handleConfirmTimer = (time: number) => {
+    this.props.formikProps.setFieldValue('time', time);
+  };
+
   render() {
     const { values, handleChange, submitForm } = this.props.formikProps;
+
     return (
       <SafeAreaView style={this.props.style}>
         <Card style={[styles.container]}>
@@ -34,15 +40,22 @@ export class SimpleTask extends React.PureComponent<Props> {
             onChangeText={handleChange('nameForChild')}
             onEndEditing={submitForm}
           />
+
           <View style={styles.timerButton}>
-            <IconButton
-              name="alarm-off"
-              type="material"
-              label={i18n.t('planItemActivity:timerButton')}
-              containerStyle={styles.iconButtonContainer}
-              size={24}
-              color={palette.primaryVariant}
-            />
+            <ModalTrigger
+              title={i18n.t('simpleTask:setTimer')}
+              modalContent={<TimeSlider min={1} max={60} onConfirm={this.handleConfirmTimer} />}
+            >
+              <IconButton
+                name="alarm-off"
+                type="material"
+                label={i18n.t('planItemActivity:timerButton')}
+                containerStyle={styles.iconButtonContainer}
+                size={24}
+                color={palette.primaryVariant}
+                disabled
+              />
+            </ModalTrigger>
           </View>
         </Card>
       </SafeAreaView>

@@ -40,6 +40,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
   validationSchema = Yup.object().shape({
     name: Yup.string().required('Required!'),
     nameForChild: Yup.string(),
+    time: Yup.number(),
   });
 
   isSimpleTask = (): boolean => {

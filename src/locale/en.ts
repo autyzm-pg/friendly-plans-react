@@ -6,6 +6,7 @@ const translations = {
   },
   common: {
     cancel: 'Cancel',
+    confirm: 'Confirm',
     ok: 'OK',
     yes: 'Yes',
     email: 'Email address',
@@ -15,7 +16,6 @@ const translations = {
     success: 'Success',
     unknownError: 'Unknown error occured',
     addImage: 'Add Image',
-    confirm: 'Confirm',
   },
   validation: {
     email: 'Must be a valid email',
@@ -42,6 +42,9 @@ const translations = {
     signUpButton: 'Sign up',
     accept: 'I accept ',
     termsOfUse: 'Terms of Use',
+  },
+  simpleTask: {
+    setTimer: 'Set the duration of the exercise',
   },
   resetPassword: {
     resetPassword: 'Reset password',
