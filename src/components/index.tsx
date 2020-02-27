@@ -21,4 +21,5 @@ export { StyledText } from './StyledText';
 export { SwitchItem } from './SwitchItem';
 export { TextInput } from './TextInput';
 export { default } from './PlayButton';
+export { Slider } from './Slider';
 export { StudentSettings } from './studentSettings/StudentSettings';

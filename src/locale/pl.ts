@@ -10,6 +10,9 @@ const translations = {
     addImage: 'Dodaj logo',
     confirm: 'Potwierdzać',
   },
+  simpleTask: {
+    setTimer: 'Ustaw czas trwania ćwiczenia',
+  },
   signIn: {
     signIn: 'Zaloguj się',
     signInAsAnonymous: 'Zaloguj się anonimowo',

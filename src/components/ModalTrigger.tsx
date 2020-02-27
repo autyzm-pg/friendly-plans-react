@@ -21,7 +21,7 @@ export const ModalTrigger: SFC<Props> = ({ children, modalContent, title }) => {
     <Modal transparent animationType="fade" visible={isVisible} onRequestClose={onClose}>
       <View style={styles.modalOverlay}>
         <View style={styles.modalInsideView}>
-          <StyledText style={styles.modalTitle}>{i18n.t('planItemActivity:addImage')}</StyledText>
+          <StyledText style={styles.modalTitle}>{title}</StyledText>
           <IconButton
             name="close"
             type="material"
