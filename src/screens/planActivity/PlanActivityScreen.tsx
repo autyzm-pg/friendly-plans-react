@@ -125,6 +125,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
 
   render() {
     const { plan, planItemList } = this.state;
+    const numberPlan = this.props.navigation.getParam('numberPlan');
     return (
       <>
         <FullScreenTemplate extraStyles={styles.fullScreen}>
@@ -132,6 +133,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
             <PlanForm
               onSubmit={this.onSubmit}
               plan={plan}
+              numberPlan={numberPlan}
               onValidate={this.validatePlan}
               shuffleDisabled={this.shuffleDisabled()}
               playDisabled={this.playDisabled()}

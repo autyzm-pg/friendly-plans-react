@@ -26,6 +26,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
       }
     >
       <Component
+        numberPlan="numberPlan"
         onSubmit={[Function]}
         onValidate={[Function]}
         plan="plan"

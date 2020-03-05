@@ -26,11 +26,19 @@ interface Props {
   plan?: Plan;
   shuffleDisabled?: boolean;
   playDisabled?: boolean;
+  numberPlan: number;
 }
 
-export const PlanForm: SFC<Props> = ({ plan, onSubmit, onValidate, shuffleDisabled = false, playDisabled = false }) => {
+export const PlanForm: SFC<Props> = ({
+  plan,
+  numberPlan,
+  onSubmit,
+  onValidate,
+  shuffleDisabled = false,
+  playDisabled = false,
+}) => {
   const initialValues: PlanFormData = {
-    planInput: plan ? plan.name : '',
+    planInput: plan ? plan.name : `${i18n.t('planActivity:newPlan')}${numberPlan}`,
     emoji: plan ? plan.emoji : DEFAULT_EMOJI,
   };
 
