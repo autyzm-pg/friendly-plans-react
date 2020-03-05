@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import { NavigationInjectedProps } from 'react-navigation';
 
 import { NarrowScreenTemplate, StudentSettings } from 'components';
@@ -42,13 +43,29 @@ export class StudentSettingsScreen extends React.PureComponent<NavigationInjecte
       this.props.navigation.goBack();
     });
 
+  handleRemoveStudentPressed = () => {
+    Alert.alert(
+      i18n.t('studentSettings:deleteStudent'),
+      i18n.t('studentSettings:deleteMessage'),
+      [
+        { text: i18n.t('studentSettings:cancel') },
+        { text: i18n.t('studentSettings:delete'), onPress: this.removeStudent },
+      ],
+      { cancelable: false },
+    );
+  };
+
   updateStudent = (data: StudentData) => this.state.student.update(data);
 
   render() {
     const { student } = this.state;
     return (
       <NarrowScreenTemplate title={this.screenName} navigation={this.props.navigation}>
-        <StudentSettings student={student} onStudentRemove={this.removeStudent} onStudentUpdate={this.updateStudent} />
+        <StudentSettings
+          student={student}
+          onStudentRemove={this.handleRemoveStudentPressed}
+          onStudentUpdate={this.updateStudent}
+        />
       </NarrowScreenTemplate>
     );
   }
