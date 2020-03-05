@@ -1,6 +1,7 @@
 const translations = {
   planActivity: {
     planNamePlaceholder: 'Wpisz nazwę planu',
+    newPlan: 'Nowy Plan',
     shuffleTasks: 'Tasuj zadania',
   },
   common: {
@@ -47,6 +48,7 @@ const translations = {
     imageActionLibrary: 'Wybierz z biblioteki',
     imageActionBrowse: 'Dodaj z urządzenia',
     imageLibraryTitle: 'Biblioteka zdjęć',
+    newTask: 'Nowe Zadanie #',
   },
   updatePlan: {
     addBreak: 'Dodaj przerwę',

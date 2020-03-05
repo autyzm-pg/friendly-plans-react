@@ -1,6 +1,7 @@
 const translations = {
   planActivity: {
     planNamePlaceholder: 'Type plan name',
+    newPlan: 'New Plan #',
     shuffleTasks: 'Shuffle tasks',
   },
   common: {
@@ -100,6 +101,7 @@ const translations = {
     imageActionLibrary: 'Browse from library',
     imageActionBrowse: 'Browse from device',
     imageLibraryTitle: 'Image Library',
+    newTask: 'New Task #',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',

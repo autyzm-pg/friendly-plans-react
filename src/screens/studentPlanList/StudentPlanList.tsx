@@ -53,6 +53,7 @@ export class StudentPlanList extends React.PureComponent<Props, State> {
 
     this.props.navigation.navigate(Route.PlanActivity, {
       student,
+      numberPlan: this.state.plans.length + 1,
     });
   };
 

@@ -12,6 +12,7 @@ describe('PlanFormControls', () => {
     plan: new Plan(),
     onValidate: jest.fn(),
     shuffleDisabled: false,
+    numberPlan: 1,
   };
 
   it('renders correctly', () => {

@@ -1,6 +1,6 @@
 import { Formik, FormikProps } from 'formik';
 import React from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
 import { IconButton, IconToggleButton, StyledText, TextInput } from 'components';
@@ -18,6 +18,7 @@ export interface PlanItemFormData {
 interface Props {
   onSubmit: (formData: PlanItemFormData) => Promise<void>;
   planItem: PlanItem;
+  taskNumber: number;
 }
 
 interface State {
@@ -30,7 +31,9 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
   };
 
   initialValues: PlanItemFormData = {
-    name: this.props.planItem ? this.props.planItem.name : '',
+    name: this.props.planItem
+      ? this.props.planItem.name
+      : `${i18n.t('planItemActivity:newTask')}${this.props.taskNumber}`,
     nameForChild: this.props.planItem ? this.props.planItem.nameForChild : '',
   };
 
