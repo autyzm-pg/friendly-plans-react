@@ -75,6 +75,11 @@ const translations = {
     studentNamePlaceholder: 'Wpisz imię podopiecznego',
     removeStudent: 'Usuń studenta',
     createStudent: 'Dodaj Studenta',
+    deleteStudent: 'Usuń ucznia',
+    deleteMessage:
+      'Usunięcie użytkownika jest nieodwracalne. Oznacza też usunięcie wszystkich przypisanych do niego planów i zadań.',
+    delete: 'Usuń',
+    cancel: 'Anuluj',
   },
   studentsList: {
     screenTitle: 'Wybór podopiecznego',
