@@ -1,7 +1,7 @@
 const translations = {
   planActivity: {
     planNamePlaceholder: 'Wpisz nazwę planu',
-    newPlan: 'Nowy Plan',
+    newPlan: 'Nowy Plan #',
     shuffleTasks: 'Tasuj zadania',
   },
   common: {
