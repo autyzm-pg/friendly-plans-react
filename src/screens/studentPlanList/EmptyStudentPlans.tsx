@@ -16,6 +16,7 @@ export class EmptyStudentPlans extends React.PureComponent<NavigationInjectedPro
 
     this.props.navigation.navigate(Route.PlanActivity, {
       student,
+      numberPlan: 0,
     });
   };
 
