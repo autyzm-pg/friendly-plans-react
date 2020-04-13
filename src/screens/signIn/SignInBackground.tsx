@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   leafNavyBlue: {
     position: 'absolute',
     top: '75%',
-    left: '5%%',
+    left: '5%',
     transform: [{ rotate: '20deg' }],
   },
   leafNavyBlueSmall: {
