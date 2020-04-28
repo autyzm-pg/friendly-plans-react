@@ -27,6 +27,12 @@ We have planned <b>three touchpoints</b> for the new version of our app:<br>
 
 You can read more about the <b>redesign</b> in our <a href="https://drive.google.com/open?id=1Q6iZXN8X7CwRLNOYTqEsyyVr4LjvtBO4">presentation (PL)</a> and also explore the <a href="https://xd.adobe.com/spec/01d5ebeb-d8a4-4a08-7f23-309931817948-77e4/">interactive prototype of the new app (PL)</a>.
 
+Child view<br>
+<img src="/doc-assets/app screenshot1.jpg" width="900"/><br>
+Plan view<br>
+<img src="/doc-assets/app screenshot2.jpg" width="900"/><br>
+Preparing a task<br>
+<img src="/doc-assets/app screenshot3.jpg" width="900"/><br>
 
 ## License
 The project is developing by people who want to make other people's life easier. Because of this Friendly Plans is going to be free to use, download and develop for everybody, forever.
