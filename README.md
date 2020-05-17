@@ -25,7 +25,7 @@ We have planned <b>three touchpoints</b> for the new version of our app:<br>
 -> tablet: for therapy sessions with autistic children<br>
 -> desktop: therapists prefer to create and edit schedules using their PCs<br>
 
-You can read more about the <b>redesign</b> in our <a href="https://drive.google.com/open?id=1Q6iZXN8X7CwRLNOYTqEsyyVr4LjvtBO4">presentation (PL)</a> and also explore the <a href="https://xd.adobe.com/spec/01d5ebeb-d8a4-4a08-7f23-309931817948-77e4/">interactive prototype of the new app (PL)</a>.
+You can read more about the <b>redesign</b> in our presentation <a href="https://drive.google.com/open?id=1Q6iZXN8X7CwRLNOYTqEsyyVr4LjvtBO4"> (PL)</a>  <a href="https://drive.google.com/open?id=1tKYoyRbTVCIqxEusUSXjoZBLIKkgWVYQand">(EN)</a> also explore the <a href="https://xd.adobe.com/spec/01d5ebeb-d8a4-4a08-7f23-309931817948-77e4/">interactive prototype of the new app (PL)</a>.
 
 Child view<br>
 <img src="/doc-assets/app screenshot1.jpg" width="900"/><br>
