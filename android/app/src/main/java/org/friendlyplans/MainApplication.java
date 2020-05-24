@@ -1,4 +1,4 @@
-package com.friendlyplans;
+package org.friendlyplans;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,5 +1,5 @@
-app_identifier("com.friendlyplans") # The bundle identifier of the app for iOS
-package_name("com.friendlyplans") # The bundle identifier of the app for Android
+app_identifier("org.friendlyplans") # The bundle identifier of the app for iOS
+package_name("org.friendlyplans") # The bundle identifier of the app for Android
 
 apple_id("") # Your Apple email address
 
@@ -8,19 +8,19 @@ team_id("") # Developer Portal Team ID
 
 for_platform :ios do
     for_lane :staging_testflight do
-        app_identifier 'com.friendlyplans.staging'
+        app_identifier 'org.friendlyplans.staging'
     end
     for_lane :staging_appstore do
-        app_identifier 'com.friendlyplans.staging'
+        app_identifier 'org.friendlyplans.staging'
     end
 end
 
 for_platform :android do
     for_lane :staging_googleplay_alpha do
-        package_name 'com.friendlyplans.staging'
+        package_name 'org.friendlyplans.staging'
     end
     for_lane :release_googleplay_alpha do
-        package_name 'com.friendlyplans.staging'
+        package_name 'org.friendlyplans.staging'
     end
 end
 

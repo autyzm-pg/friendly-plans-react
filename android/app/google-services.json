@@ -1,29 +1,34 @@
 {
   "project_info": {
-    "project_number": "175093379002",
-    "firebase_url": "https://friendly-plans.firebaseio.com",
-    "project_id": "friendly-plans",
-    "storage_bucket": "friendly-plans.appspot.com"
+    "project_number": "736380115849",
+    "firebase_url": "https://friendlyplans-org.firebaseio.com",
+    "project_id": "friendlyplans-org",
+    "storage_bucket": "friendlyplans-org.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:175093379002:android:42c34bb76cac2bfe",
+        "mobilesdk_app_id": "1:736380115849:android:5ef4e2fe4a31b3a6d0df58",
         "android_client_info": {
-          "package_name": "com.friendlyplans"
+          "package_name": "org.friendlyplans"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "736380115849-7s9vopvet83u6qacv2bt2pqqdmrmm19l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDvEVBAErunHgeRfp_7q7U7_tWzbrAOk_Y"
+          "current_key": "AIzaSyChQe3y0zgIREsASARs1FSbCxJWiLJYvcE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "175093379002-jlm9f5d7185fsm6321140emrgdqid7ct.apps.googleusercontent.com",
+              "client_id": "736380115849-7s9vopvet83u6qacv2bt2pqqdmrmm19l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

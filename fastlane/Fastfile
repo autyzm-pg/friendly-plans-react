@@ -32,7 +32,7 @@ platform :android do
         staging_firebase_config
         sh "bash ../scripts/build-signed-apk.sh staging"
         upload_to_play_store(
-            package_name: "com.friendlyplans.staging",
+            package_name: "org.friendlyplans.staging",
             track: "alpha",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -46,7 +46,7 @@ platform :android do
         staging_firebase_config
         sh "bash ../scripts/build-signed-apk.sh staging"
         upload_to_play_store(
-            package_name: "com.friendlyplans.staging",
+            package_name: "org.friendlyplans.staging",
             track: "production",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -60,7 +60,7 @@ platform :android do
         production_firebase_config
         sh "bash ../scripts/build-signed-apk.sh production"
         upload_to_play_store(
-            package_name: "com.friendlyplans",
+            package_name: "org.friendlyplans",
             track: "alpha",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -74,7 +74,7 @@ platform :android do
         production_firebase_config
         sh "bash ../scripts/build-signed-apk.sh production"
         upload_to_play_store(
-            package_name: "com.friendlyplans",
+            package_name: "org.friendlyplans",
             track: "production",
             skip_upload_images: true,
             skip_upload_screenshots: true,
@@ -114,7 +114,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
             plist_path: "FriendlyPlans/Info.plist",
-            app_identifier: "com.friendlyplans.staging"
+            app_identifier: "org.friendlyplans.staging"
         )
         update_info_plist(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
@@ -137,7 +137,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
             plist_path: "FriendlyPlans/Info.plist",
-            app_identifier: "com.friendlyplans.staging"
+            app_identifier: "org.friendlyplans.staging"
         )
         update_info_plist(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
@@ -158,7 +158,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
             plist_path: "FriendlyPlans/Info.plist",
-            app_identifier: "com.friendlyplans"
+            app_identifier: "org.friendlyplans"
         )
         update_info_plist(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
@@ -181,7 +181,7 @@ platform :ios do
         update_app_identifier(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",
             plist_path: "FriendlyPlans/Info.plist",
-            app_identifier: "com.friendlyplans"
+            app_identifier: "org.friendlyplans"
         )
         update_info_plist(
             xcodeproj: "ios/FriendlyPlans.xcodeproj",

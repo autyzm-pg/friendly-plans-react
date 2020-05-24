@@ -125,13 +125,13 @@ android {
 
     defaultConfig {
         missingDimensionStrategy 'react-native-camera', 'general'
-        resValue "string", "build_config_package", "com.friendlyplans"
+        resValue "string", "build_config_package", "org.friendlyplans"
         applicationId project.env.get("PACKAGE_NAME")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode project.env.get("CURRENT_PROJECT_VERSION").toInteger()
+        versionCode 1
         vectorDrawables.useSupportLibrary = true
-        versionName project.env.get("MARKETING_VERSION")
+        versionName "1.0.0"
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
     }

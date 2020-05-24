@@ -469,7 +469,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.friendlyplans;
+				PRODUCT_BUNDLE_IDENTIFIER = org.friendlyplans;
 				PRODUCT_NAME = FriendlyPlans;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -493,7 +493,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.friendlyplans;
+				PRODUCT_BUNDLE_IDENTIFIER = org.friendlyplans;
 				PRODUCT_NAME = FriendlyPlans;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
