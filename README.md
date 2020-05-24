@@ -1,4 +1,9 @@
+[![Build Status](https://app.bitrise.io/app/8731ecf4452041f0/status.svg?token=rc97mrC8mYU7w101QcDqGA&branch=master)](https://app.bitrise.io/app/8731ecf4452041f0)
 [<img src="https://autyzm-pg-slack.herokuapp.com/badge.svg">](https://autyzm-pg-slack.herokuapp.com)
+
+# Original repository
+
+This is a fork of [autyzm-pg/friendly-plans-react](https://github.com/autyzm-pg/friendly-plans-react) with automated CD via Bitrise.
 
 # Friendly Plans
 <img src="/doc-assets/Przyjazny_plan_logo.png" width="200" height="200"/>
