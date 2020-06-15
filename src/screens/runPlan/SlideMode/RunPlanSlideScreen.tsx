@@ -7,12 +7,15 @@ import { i18n } from 'locale';
 import { ModelSubscriber, PlanItem, Student } from 'models';
 import { Route } from 'navigation';
 import { palette, typography } from 'styles';
+import { loadImage } from '../../../infrastructure/Images';
 import { PlanSlideItem } from './PlanSlideItem';
 
 interface State {
   planItems: PlanItem[];
+  planItemImageUri: string;
   pageNumber: number;
   student: Student;
+  loadingImage: boolean;
 }
 
 export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedProps, State> {
@@ -24,6 +27,8 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
   planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
   state: Readonly<State> = {
     planItems: [],
+    planItemImageUri: '',
+    loadingImage: false,
     pageNumber: 0,
     student: this.props.navigation.getParam('student'),
   };
@@ -32,7 +37,12 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
     const student = this.props.navigation.getParam('student');
     const plan = this.props.navigation.getParam('plan');
 
-    this.planItemsSubscriber.subscribeCollectionUpdates(plan, planItems => this.setState({ planItems }));
+    this.planItemsSubscriber.subscribeCollectionUpdates(plan, async planItems => {
+      if (planItems.length > this.state.pageNumber) {
+        await this.loadPlanItemImage(planItems[this.state.pageNumber]);
+      }
+      this.setState({ planItems });
+    });
     this.studentSubscriber.subscribeElementUpdates(student, updatedStudent =>
       this.setState({ student: updatedStudent }),
     );
@@ -43,8 +53,19 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
     this.studentSubscriber.unsubscribeElementUpdates();
   }
 
-  nextPage = () => {
+  async loadPlanItemImage(planItem: PlanItem) {
+    let planItemImageUri = '';
+    this.setState({ loadingImage: true });
+    if (planItem.image) {
+      planItemImageUri = await loadImage(planItem.image);
+    }
+    this.setState({ planItemImageUri, loadingImage: false });
+  }
+
+  nextPage = async () => {
     if (this.state.pageNumber + 1 < this.state.planItems.length) {
+      const nextPlanItem = this.state.planItems[this.state.pageNumber + 1];
+      await this.loadPlanItemImage(nextPlanItem);
       this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
     } else {
       this.props.navigation.navigate(Route.Dashboard);
@@ -63,6 +84,7 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
               index={this.state.pageNumber}
               textSize={this.state.student.textSize}
               isUpperCase={this.state.student.isUpperCase}
+              imageUri={this.state.planItemImageUri}
             />
           </View>
           <FlatButton style={styles.button} onPress={this.nextPage} title={i18n.t('runPlan:next')} />
@@ -76,7 +98,7 @@ export class RunPlanSlideScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   render() {
-    return this.state.planItems.length ? this.renderPlan() : this.renderLoader();
+    return this.state.planItems.length && !this.state.loadingImage ? this.renderPlan() : this.renderLoader();
   }
 }
 

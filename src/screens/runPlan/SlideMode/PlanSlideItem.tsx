@@ -1,9 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { PlanNameText } from 'components';
 import { PlanItem, StudentDisplayOption } from 'models';
 import { palette } from 'styles';
+import { SlideImage } from '../../../components/runPlanSlide/SlideImage';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
@@ -12,9 +13,18 @@ interface Props {
   textSize: string;
   isUpperCase: boolean;
   type: StudentDisplayOption;
+  imageUri: string;
 }
 
-export class PlanSlideItem extends React.PureComponent<Props> {
+interface State {
+  imageUri: string;
+}
+
+export class PlanSlideItem extends React.PureComponent<Props, State> {
+  state = {
+    imageUri: '',
+  };
+
   get showText(): boolean {
     const { type } = this.props;
     return type === StudentDisplayOption.ImageWithTextSlide || type === StudentDisplayOption.TextSlide;
@@ -22,22 +32,14 @@ export class PlanSlideItem extends React.PureComponent<Props> {
 
   get showImage(): boolean {
     const { type } = this.props;
-    return type === StudentDisplayOption.ImageWithTextSlide || type === StudentDisplayOption.LargeImageSlide;
+    const imageMode = type === StudentDisplayOption.ImageWithTextSlide || type === StudentDisplayOption.LargeImageSlide;
+    return imageMode && !!this.props.planItem.image;
   }
 
   render() {
-    const { planItem } = this.props;
     return (
       <View style={styles.container}>
-        {this.showImage && (
-          <View style={styles.imageContainer}>
-            <Image
-              resizeMode="contain"
-              style={styles.image}
-              source={{ uri: `data:image/jpeg;base64,${planItem.image}` }}
-            />
-          </View>
-        )}
+        {this.showImage && <SlideImage imageUri={this.props.imageUri} />}
         {this.showText && (
           <PlanNameText
             planName={this.props.planItem.name}
@@ -58,16 +60,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: palette.background,
-  },
-  imageContainer: {
-    flex: 1,
-    alignSelf: 'stretch',
-    marginBottom: 16,
-  },
-  image: {
-    flex: 1,
-  },
-  nameTextColor: {
-    color: palette.textBlack,
   },
 });

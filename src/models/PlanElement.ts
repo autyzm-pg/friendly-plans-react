@@ -7,6 +7,7 @@ export interface PlanElement {
   completed: boolean;
   time: number;
   lector: boolean;
+  image: string;
 
   complete: () => void;
   update: (changes: any) => void;

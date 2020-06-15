@@ -13,6 +13,7 @@ import { SimpleTask } from './SimpleTask';
 export interface PlanItemFormData {
   name: string;
   nameForChild: string;
+  image: string;
 }
 
 interface Props {

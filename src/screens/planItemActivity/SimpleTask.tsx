@@ -26,12 +26,12 @@ export class SimpleTask extends React.PureComponent<Props> {
   };
 
   render() {
-    const { values, handleChange, submitForm } = this.props.formikProps;
+    const { values, handleChange, submitForm, setFieldValue } = this.props.formikProps;
 
     return (
       <SafeAreaView style={this.props.style}>
         <Card style={[styles.container]}>
-          <ImagePicker planItem={this.props.planItem} />
+          <ImagePicker planItem={this.props.planItem} setFieldValue={setFieldValue} submitForm={submitForm} />
           <TextInput
             style={styles.imageInputTextContainer}
             textStyle={styles.imageInputText}

@@ -4,8 +4,10 @@ import { StyleSheet, TouchableHighlight, View, ViewStyle } from 'react-native';
 import { Card, PlanNameText } from 'components';
 import { Plan, PlanElement, PlanItem, PlanItemType, Student } from 'models';
 import { Route } from 'navigation';
+import { Image } from 'react-native-elements';
 import { NavigationService } from 'services';
 import { palette } from 'styles';
+import { loadImage } from '../../../infrastructure/Images';
 import { PlanItemTimer } from '../PlanItemTimer';
 
 interface Props {
@@ -16,7 +18,22 @@ interface Props {
   currentTaskIndex: number;
 }
 
-export class PlanElementListItem extends React.PureComponent<Props> {
+interface State {
+  imageUri: string;
+}
+
+export class PlanElementListItem extends React.PureComponent<Props, State> {
+  state = {
+    imageUri: '',
+  };
+
+  componentDidMount = async () => {
+    if (this.props.item.image) {
+      const imageUri = await loadImage(this.props.item.image);
+      this.setState({ imageUri });
+    }
+  };
+
   container(): ViewStyle {
     return this.props.item.completed ? styles.containerCompleted : styles.container;
   }
@@ -58,6 +75,7 @@ export class PlanElementListItem extends React.PureComponent<Props> {
       <TouchableHighlight underlayColor={palette.underlay} style={styles.touchable} onPress={this.handlePress()}>
         <Card style={this.container()}>
           <View style={this.container()}>
+            {this.state.imageUri && <Image source={{ uri: this.state.imageUri }} style={styles.image} />}
             <PlanNameText
               planName={this.props.item.name}
               isUpperCase={this.props.student.isUpperCase}
@@ -104,5 +122,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'space-between',
     margin: 0,
+  },
+  image: {
+    flex: 1,
+    width: 100,
+    height: 100,
   },
 });
