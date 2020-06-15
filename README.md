@@ -1,45 +1,43 @@
 [<img src="https://autyzm-pg-slack.herokuapp.com/badge.svg">](https://autyzm-pg-slack.herokuapp.com)
 
 # Friendly Plans
-<img src="/doc-assets/friendly-plan-logo.png" width="200" height="200" />
+<img src="/doc-assets/Przyjazny_plan_logo.png" width="200" height="200"/>
 
-## About
-Friendly Plans is an application supporting autism treatment.
-It provides a digital version of activity schedules. More about treatment (ENG): [PCDI website](http://www.pcdi.org/videos/)
+## About the App and Autism Therapy
+“Friendly Plan” is an application supporting autism therapy for children and adults. It is based on two therapy methods: activity schedules and scripts. 
 
-The app is being used by a group of users and therapists. Everyone can download it (version 1.x) from [Google Play](https://play.google.com/store/apps/details?id=com.przyjaznydamianek&hl=pl).
+<b>Autism</b> is a developmental disorder characterized by difficulties with social interaction and communication and by restricted and repetitive behavior. Parents often notice signs of autism during the first three years of their child's life. Although there is no known cure, early therapy can help children with autism develop social and communication skills.
+<b>Activity schedules</b> are a behavioral method of autism treatment. They help people with autism learn how to perform different tasks or activities on their own and develop social behaviours. Schedules are presented as pictures or texts (lists).
+<b>Scripts</b> are written or visual prompts that initiate or sustain interaction. They teach an autistic person to start a conversation on his or her own, without verbal hints like “Say: hello”. 
+Both methods were verified by scientists at Princeton Child Development Institute in the USA. More about the treatment and some success stories on <a href="http://pcdi.org/videos//">PCDI website (EN)</a>.
 
-The following article and short film show the usage of the app in the Institute for Child Development in Gdańsk:
+<b>The app</b> allows users to create activity schedules in a digital form and freely modify them. It makes the preparation of schedules, which previously involved a lot of manual work, much faster and easier. “Friendly Plan” supports therapy sessions also by showing schedules in a form adjusted to the development level of the patient (global settings of the text size, use of illustrations etc.).
 
-- [Film](https://www.youtube.com/watch?v=zI0ma_XnmCc)
+## Old Version
+There are two apps in use at the moment: one for the therapist and one for the child. You can see <b>videos from therapy sessions</b> on <a href="http://www.fundacja.iwrd.pl/nasze-dzialania/aplikacje-na-tablety">the website of Institute for Child Development in Gdańsk (PL)</a>.
+You can <b>download the old app from</b> <a href="https://play.google.com/store/apps/details?id=com.przyjaznydamianek&hl=pl">Google Play</a>.
 
-- [Article](http://iwrd.pl/pl/fundacja/aplikacja-przyjazny-plan-dostepna)
+## New Version
+The new version of “Friendly Plan”, which is currently being developed, will be a <b>single app for two types of users</b>.
 
-The project was started by students from Gdańsk University of Technology. First version of the app is still available in the Google Play store and it's source code is on branch v1.x. Version 1.x is legacy as we're currently working on Friendly Plans 2.0.
-The application is being developed in the cooperation with Code for Poland community (ePaństwo foundation's program).
+We have planned <b>three touchpoints</b> for the new version of our app:<br> 
+-> smartphone: for spontaneous changes to the schedules if other touchpoints are unavailable to the therapist<br>
+-> tablet: for therapy sessions with autistic children<br>
+-> desktop: therapists prefer to create and edit schedules using their PCs<br>
 
-## Join the project - how to start
-If you would like to become a part of community, you are welcome to join and contribute. Your help is needed. It is easy to get in touch via the conversations in [issues](https://github.com/autyzm-pg/friendly-plans-react/issues) or [slack](https://autyzm-pg-slack.herokuapp.com).
-A great place to start is the project's [Wiki](https://github.com/autyzm-pg/friendly-plans-react/wiki)
+You can read more about the <b>redesign</b> in our presentation <a href="https://drive.google.com/open?id=1Q6iZXN8X7CwRLNOYTqEsyyVr4LjvtBO4"> (PL)</a>  <a href="https://drive.google.com/open?id=1tKYoyRbTVCIqxEusUSXjoZBLIKkgWVYQand">(EN)</a> also explore the <a href="https://xd.adobe.com/spec/01d5ebeb-d8a4-4a08-7f23-309931817948-77e4/">interactive prototype of the new app (PL)</a>.
 
-Making a long story short:
-
-- Read project documentation on the [Wiki](https://github.com/autyzm-pg/friendly-plans-react/wiki) and help us improve it!
-- Add yourself to [slack autyzm-pg.slack.com](https://autyzm-pg-slack.herokuapp.com)
-- For questions and bugs please use [Github Issues](https://github.com/autyzm-pg/friendly-plans-react/issues)
-- Feel free to grab an issue and propose a solution or answer
-- To share your changes please create a pull request to the master branch
-- We are using [GitHub Flow](https://guides.github.com/introduction/flow/). Please create pull requests to master branch.
-- Like us on facebook https://www.facebook.com/FriendlyPlan/
-
-## Development
-This project is using React Native without Expo - make sure to set up your local environment using
-[official guide by Facebook](https://facebook.github.io/react-native/docs/getting-started.html).
-Both iOS and Android platforms are supported, although Android platform has a priority.
+Child view<br>
+<img src="/doc-assets/app screenshot1.jpg" width="900"/><br>
+Plan view<br>
+<img src="/doc-assets/app screenshot2.jpg" width="900"/><br>
+Preparing a task<br>
+<img src="/doc-assets/app screenshot3.jpg" width="900"/><br>
 
 ## License
 The project is developing by people who want to make other people's life easier. Because of this Friendly Plans is going to be free to use, download and develop for everybody, forever.
-Except as otherwise noted, this software is licensed under the [GNU General Public License, v3](https://www.gnu.org/licenses/gpl-3.0.txt)
+Except as otherwise noted, this software is licensed under the [GNU General Public License, v3](https://www.gnu.org/licenses/gpl-3.0.txt).
 
 ## Partners
-<img src="/doc-assets/kdp-logo.jpg" height="150" /><img src="/doc-assets/iwrd-logo.png" height="150" /><img src="/doc-assets/pg-logo.jpg" height="150" />
+<img src="/doc-assets/kdp-logo.jpg" height="150" /><img src="/doc-assets/iwrd-logo.png" height="150" />
+<img src="/doc-assets/pg-logo.jpg" height="150" /><img src="/doc-assets/stx_logo.png" height="150" />
