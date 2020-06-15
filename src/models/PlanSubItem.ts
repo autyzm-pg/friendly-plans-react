@@ -30,6 +30,7 @@ export class PlanSubItem implements SubscribableModel, PlanElement {
   time!: number;
   type: PlanItemType = PlanItemType.SubElement;
   lector!: boolean;
+  image!: string;
 
   complete = () => {
     this.update({ completed: true });

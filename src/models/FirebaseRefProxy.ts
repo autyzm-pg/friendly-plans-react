@@ -34,6 +34,13 @@ export const getStudentRef = (studentId: string): RNFirebase.firestore.DocumentR
 export const getStudentsRef = (userId: string = getAuthenticatedUserId()): RNFirebase.firestore.CollectionReference =>
   getUserRef(userId).collection('students');
 
+export const getImagesStorage = (userId: string = getAuthenticatedUserId()): RNFirebase.storage.Reference =>
+  firebase
+    .storage()
+    .ref()
+    .child('images')
+    .child(userId);
+
 export const getUserRef = (userId: string): RNFirebase.firestore.DocumentReference => getUsersRef().doc(userId);
 
 const getUsersRef = (): RNFirebase.firestore.CollectionReference => {

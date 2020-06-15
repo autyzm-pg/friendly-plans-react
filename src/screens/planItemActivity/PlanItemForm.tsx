@@ -13,6 +13,7 @@ import { SimpleTask } from './SimpleTask';
 export interface PlanItemFormData {
   name: string;
   nameForChild: string;
+  image: string;
 }
 
 interface Props {
@@ -35,6 +36,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
       ? this.props.planItem.name
       : `${i18n.t('planItemActivity:newTask')}${this.props.taskNumber}`,
     nameForChild: this.props.planItem ? this.props.planItem.nameForChild : '',
+    image: '',
   };
 
   validationSchema = Yup.object().shape({
