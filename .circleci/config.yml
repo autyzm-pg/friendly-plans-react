@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install React Native CLI
+          command: yarn global add react-native-cli
+      - run:
           name: Install Dependencies
           command: yarn install
       - run:
