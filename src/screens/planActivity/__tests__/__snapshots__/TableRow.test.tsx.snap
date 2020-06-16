@@ -59,18 +59,8 @@ exports[`TableRow renders correctly 1`] = `
       }
     }
   >
-     (5)
+    (0)
   </Text>
-  <Text
-    style={
-      Object {
-        "color": "#3C35A8",
-        "fontFamily": "Rubik-Regular",
-        "fontSize": 14,
-        "letterSpacing": 0,
-      }
-    }
-  />
   <View
     style={
       Object {
