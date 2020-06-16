@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { Card, IconButton, ModalTrigger, TextInput } from 'components';
 import { FormikProps } from 'formik';
 import { i18n } from 'locale';
-import { PlanItem } from 'models';
+import { PlanElement, PlanItem, Student } from 'models';
 import { dimensions, palette, typography } from 'styles';
 import { ImagePicker } from './ImagePicker';
 import { PlanItemFormData } from './PlanItemForm';
@@ -16,13 +16,21 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-export class SimpleTask extends React.PureComponent<Props> {
+interface State {
+  selectedTime: number;
+}
+
+export class SimpleTask extends React.PureComponent<Props, State> {
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
+  };
+  state: Readonly<State> = {
+    selectedTime: this.props.formikProps.initialValues.time,
   };
 
   handleConfirmTimer = (time: number) => {
     this.props.formikProps.setFieldValue('time', time);
+    this.setState({ selectedTime: time });
   };
 
   async componentWillUnmount() {
@@ -30,7 +38,7 @@ export class SimpleTask extends React.PureComponent<Props> {
   }
 
   render() {
-    const { values, handleChange, submitForm, initialValues } = this.props.formikProps;
+    const { values, handleChange, submitForm } = this.props.formikProps;
 
     return (
       <SafeAreaView style={this.props.style}>
@@ -49,7 +57,7 @@ export class SimpleTask extends React.PureComponent<Props> {
             <ModalTrigger
               title={i18n.t('simpleTask:setTimer')}
               modalContent={
-                <TimeSlider min={1} max={60} onConfirm={this.handleConfirmTimer} savedTime={initialValues.time} />
+                <TimeSlider min={1} max={60} onConfirm={this.handleConfirmTimer} savedTime={this.state.selectedTime} />
               }
             >
               <IconButton
