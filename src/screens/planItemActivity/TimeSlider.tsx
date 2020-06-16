@@ -8,12 +8,13 @@ import { palette } from 'styles';
 interface Props {
   min: number;
   max: number;
+  savedTime: number;
   closeModal?: () => void;
   onConfirm?: (time: number) => void;
 }
 
-export const TimeSlider: SFC<Props> = ({ min, max, closeModal, onConfirm }) => {
-  const [timer, setTimer] = useState(1);
+export const TimeSlider: SFC<Props> = ({ min, max, closeModal, onConfirm, savedTime }) => {
+  const [timer, setTimer] = useState(savedTime);
   const handleSliding = (time: number) => setTimer(time);
   const handleConfirmPressed = () => {
     if (onConfirm) {
@@ -25,7 +26,7 @@ export const TimeSlider: SFC<Props> = ({ min, max, closeModal, onConfirm }) => {
   };
   return (
     <>
-      <Slider min={min} max={max} handleSliding={handleSliding} />
+      <Slider min={min} max={max} handleSliding={handleSliding} initValue={savedTime} />
       <Text style={styles.time}>{timer}</Text>
       <View style={styles.timeSlider}>
         <TouchableOpacity onPress={closeModal}>

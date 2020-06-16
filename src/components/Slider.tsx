@@ -5,13 +5,21 @@ import { default as SliderRN } from '@react-native-community/slider'; // tslint:
 interface Props {
   min: number;
   max: number;
+  initValue: number;
   handleSliding: (time: number) => void;
 }
 
-export const Slider: FC<Props> = ({ min, max, handleSliding }) => (
+export const Slider: FC<Props> = ({ min, max, handleSliding, initValue }) => (
   <View style={styles.sliderContainer}>
     <Text>{min}</Text>
-    <SliderRN style={styles.slider} minimumValue={min} maximumValue={max} onValueChange={handleSliding} step={1} />
+    <SliderRN
+      style={styles.slider}
+      minimumValue={min}
+      maximumValue={max}
+      onValueChange={handleSliding}
+      step={1}
+      value={initValue}
+    />
     <Text>{max}</Text>
   </View>
 );
