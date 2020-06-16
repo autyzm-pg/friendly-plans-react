@@ -123,6 +123,30 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ planItemList: planItemListRightOrder });
   };
 
+  shuffle(array: PlanItem[]) {
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  shuffleTasks = () => {
+    const { planItemList } = this.state;
+    let array = planItemList;
+    array = this.shuffle(array);
+    array.forEach((item, index) => item.setOrder(index));
+    this.setState({ planItemList: array });
+  };
+
   render() {
     const { plan, planItemList } = this.state;
     const numberPlan = this.props.navigation.getParam('numberPlan');
@@ -137,6 +161,7 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
               onValidate={this.validatePlan}
               shuffleDisabled={this.shuffleDisabled()}
               playDisabled={this.playDisabled()}
+              onShuffle={this.shuffleTasks}
             />
           </View>
           <TaskTable planItemList={planItemList} handlePlanListOrderChanged={this.handlePlanListOrderChanged} />

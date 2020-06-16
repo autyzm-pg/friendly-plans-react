@@ -26,6 +26,7 @@ interface Props {
   shuffleDisabled?: boolean;
   playDisabled?: boolean;
   numberPlan: number;
+  onShuffle?: () => void;
 }
 
 export const PlanForm: SFC<Props> = ({
@@ -35,6 +36,7 @@ export const PlanForm: SFC<Props> = ({
   onValidate,
   shuffleDisabled = false,
   playDisabled = false,
+  onShuffle,
 }) => {
   const initialValues: PlanFormData = {
     planInput: plan ? plan.name : `${i18n.t('planActivity:newPlan')}${numberPlan}`,
@@ -70,7 +72,7 @@ export const PlanForm: SFC<Props> = ({
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <ShuffleButton disabled={shuffleDisabled} />
+          <ShuffleButton disabled={shuffleDisabled} onPress={onShuffle} />
           <PlayButton plan={plan} disabled={!plan || playDisabled} size={36} />
         </View>
       </View>

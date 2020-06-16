@@ -27,6 +27,7 @@ exports[`PlanActivityScreen renders correctly 1`] = `
     >
       <Component
         numberPlan="numberPlan"
+        onShuffle={[Function]}
         onSubmit={[Function]}
         onValidate={[Function]}
         plan="plan"
