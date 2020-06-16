@@ -25,8 +25,12 @@ export class SimpleTask extends React.PureComponent<Props> {
     this.props.formikProps.setFieldValue('time', time);
   };
 
+  async componentWillUnmount() {
+    await this.props.formikProps.submitForm();
+  }
+
   render() {
-    const { values, handleChange, submitForm } = this.props.formikProps;
+    const { values, handleChange, submitForm, initialValues } = this.props.formikProps;
 
     return (
       <SafeAreaView style={this.props.style}>
@@ -44,7 +48,9 @@ export class SimpleTask extends React.PureComponent<Props> {
           <View style={styles.timerButton}>
             <ModalTrigger
               title={i18n.t('simpleTask:setTimer')}
-              modalContent={<TimeSlider min={1} max={60} onConfirm={this.handleConfirmTimer} />}
+              modalContent={
+                <TimeSlider min={1} max={60} onConfirm={this.handleConfirmTimer} savedTime={initialValues.time} />
+              }
             >
               <IconButton
                 name="alarm-off"

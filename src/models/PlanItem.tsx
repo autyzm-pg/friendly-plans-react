@@ -1,4 +1,5 @@
 import { RNFirebase } from 'react-native-firebase';
+import { PlanItemFormData } from 'screens/planItemActivity/PlanItemForm';
 import { i18n } from '../locale';
 import { getPlanItemRef, getPlanItemsRef, getPlanSubItemsRef } from './FirebaseRefProxy';
 import { Plan } from './Plan';
@@ -42,11 +43,11 @@ export class PlanItem implements SubscribableModel, PlanElement {
   static async createPlanItem(
     plan: Plan,
     type: PlanItemType,
-    name: string = i18n.t('updatePlan:planItemNamePlaceholder'),
+    data: PlanItemFormData,
     lastItemOrder: number,
   ): Promise<PlanItem> {
     const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
-      name,
+      name: data.name,
       studentId: plan.studentId,
       planId: plan.id,
       type,
@@ -54,11 +55,12 @@ export class PlanItem implements SubscribableModel, PlanElement {
       lector: false,
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
+      time: data.time,
     });
 
     return Object.assign(new PlanItem(), {
       id,
-      name,
+      name: data.name,
       studentId: plan.studentId,
       planId: plan.id,
       type,
@@ -66,6 +68,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       lector: false,
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
+      time: data.time,
     });
   }
 

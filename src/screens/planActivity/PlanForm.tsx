@@ -8,7 +8,6 @@ import { Plan } from 'models';
 import { dimensions, palette } from 'styles';
 import { DEFAULT_EMOJI } from '../../assets/emojis';
 import { IconSelectModal } from './IconSelectModal';
-import { PlanFormData } from './PlanForm';
 import { ShuffleButton } from './ShuffleButton';
 
 export interface PlanFormData {

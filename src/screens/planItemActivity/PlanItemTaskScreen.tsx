@@ -27,26 +27,27 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     return order;
   };
 
-  createPlanItem = async (name: string) => {
+  createPlanItem = async (data: PlanItemFormData) => {
     const plan = this.props.navigation.getParam('plan');
 
-    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, name, this.getLastItemOrder());
+    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, data, this.getLastItemOrder());
 
     this.setState({ planItem });
   };
 
   updatePlanItem = async (formData: PlanItemFormData) => {
-    const { name, nameForChild } = formData;
+    const { name, nameForChild, time } = formData;
     await this.state.planItem.update({
       name,
       nameForChild,
+      time,
     });
 
-    this.setState({ planItem: { ...this.state.planItem, name, nameForChild } });
+    this.setState({ planItem: { ...this.state.planItem, name, nameForChild, time } });
   };
 
   onSubmit = (formData: PlanItemFormData) =>
-    this.state.planItem ? this.updatePlanItem(formData) : this.createPlanItem(formData.name);
+    this.state.planItem ? this.updatePlanItem(formData) : this.createPlanItem(formData);
 
   render() {
     const { planItem } = this.state;

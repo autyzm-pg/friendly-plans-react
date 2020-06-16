@@ -38,8 +38,7 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <Icon name={planItem.getIconName()} type="material" />
       </View>
       <Text style={styles.textName}>{planItem.name}</Text>
-      <Text style={styles.text}>{' (5)'}</Text>
-      <Text style={styles.text}>{planItem.time}</Text>
+      <Text style={styles.text}>{`(${planItem.time || 0})`}</Text>
 
       <View style={styles.deleteIcon}>
         <IconButton name="delete" size={24} color={palette.textInputPlaceholder} onPress={onDelete} />
