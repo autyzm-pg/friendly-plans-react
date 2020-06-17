@@ -38,8 +38,15 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <Icon name={planItem.getIconName()} type="material" />
       </View>
       <Text style={styles.textName}>{planItem.name}</Text>
-      <Text style={styles.text}>{`(${planItem.time || 0})`}</Text>
 
+      {!!planItem.time && (
+        <View style={styles.timeContainer}>
+          <Icon name="timer" size={24} />
+          <View style={styles.timeLabelContainer}>
+            <Text style={styles.textName}>{`${planItem.time}'`}</Text>
+          </View>
+        </View>
+      )}
       <View style={styles.deleteIcon}>
         <IconButton name="delete" size={24} color={palette.textInputPlaceholder} onPress={onDelete} />
       </View>
@@ -87,5 +94,14 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginRight: 15,
+  },
+  timeContainer: {
+    position: 'absolute',
+    right: 138,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  timeLabelContainer: {
+    marginLeft: 10,
   },
 });

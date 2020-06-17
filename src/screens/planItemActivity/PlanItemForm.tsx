@@ -36,7 +36,7 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
       ? this.props.planItem.name
       : `${i18n.t('planItemActivity:newTask')}${this.props.taskNumber}`,
     nameForChild: this.props.planItem ? this.props.planItem.nameForChild : '',
-    time: this.props.planItem ? this.props.planItem.time : 1,
+    time: this.props.planItem ? this.props.planItem.time : 0,
   };
 
   validationSchema = Yup.object().shape({
