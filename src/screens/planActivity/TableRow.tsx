@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { CheckboxInput, Icon, IconButton } from 'components';
@@ -15,6 +16,17 @@ interface Props {
 }
 
 export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, drag }) => {
+  const [subtaskCount, setSubtaskCount] = useState(0);
+
+  useEffect(() => {
+    if (!planItem.isSimpleTask) {
+      planItem
+        .getChildCollectionRef()
+        .get()
+        .then(snap => setSubtaskCount(snap.size));
+    }
+  });
+
   const navigateToPlanItemUpdate = () => {
     NavigationService.navigate(Route.PlanItemTask, {
       planItem,
@@ -38,6 +50,7 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <Icon name={planItem.getIconName()} type="material" />
       </View>
       <Text style={styles.textName}>{planItem.name}</Text>
+      {!planItem.isSimpleTask && <Text style={styles.text}>{` (${subtaskCount})`}</Text>}
 
       {!!planItem.time && (
         <View style={styles.timeContainer}>
