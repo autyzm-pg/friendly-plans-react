@@ -1,10 +1,11 @@
-import { RNFirebase } from 'react-native-firebase';
-import { PlanItemFormData } from 'screens/planItemActivity/PlanItemForm';
+import firebase, { RNFirebase } from 'react-native-firebase';
 import { i18n } from '../locale';
 import { getPlanItemRef, getPlanItemsRef, getPlanSubItemsRef } from './FirebaseRefProxy';
 import { Plan } from './Plan';
 import { PlanElement } from './PlanElement';
+import { PlanItemFormData } from './PlanItemFormData';
 import { PlanSubItem } from './PlanSubItem';
+import SubitemReference from './SubitemReference';
 import { ParameterlessConstructor, SubscribableModel } from './SubscribableModel';
 
 export enum PlanItemType {
@@ -45,6 +46,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
     type: PlanItemType,
     data: PlanItemFormData,
     lastItemOrder: number,
+    parent?: RNFirebase.firestore.DocumentReference,
   ): Promise<PlanItem> {
     const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
       name: data.name,
@@ -56,6 +58,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
       time: data.time,
+      parent,
     });
 
     return Object.assign(new PlanItem(), {
@@ -69,6 +72,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
       time: data.time,
+      parent,
     });
   }
 
@@ -84,6 +88,8 @@ export class PlanItem implements SubscribableModel, PlanElement {
   nameForChild!: string;
   order!: number;
   pressed?: boolean;
+  parent?: RNFirebase.firestore.DocumentReference;
+  subtasks?: PlanItem[];
 
   getIconName = (): string => {
     return PLAN_ITEMS_ICONS[this.type];
@@ -112,8 +118,91 @@ export class PlanItem implements SubscribableModel, PlanElement {
     this.update({ type });
   };
 
+  setParent = (planItemParent: PlanItem) => {
+    this.update({
+      parent: planItemParent.id,
+    });
+  };
+
+  addSubtask = (subtaskItem: PlanItem) => {
+    const subtaskRef = this.getRef()
+      .collection('subtask')
+      .doc();
+    subtaskRef.set({
+      ref: subtaskItem.id,
+    });
+  };
+
+  deleteAllSubtasks = async (): Promise<void> => {
+    const subtasks = await this.getRef()
+      .collection('subtask')
+      .get();
+
+    const itemsToDelete: Array<Promise<void>> = [];
+
+    subtasks.docs.forEach(snap => {
+      const data = snap.data();
+      if (data) {
+        const subItem = this.planSubitem(data);
+        const subtasktRef = getPlanItemRef(this.studentId, this.planId, subItem.ref);
+        itemsToDelete.push(subtasktRef.delete());
+        itemsToDelete.push(snap.ref.delete());
+      }
+    });
+    Promise.all(itemsToDelete);
+  };
+
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
-  delete = (): Promise<void> => getPlanItemRef(this.studentId, this.planId, this.id).delete();
+  updateSubtask = (changes: object, subtaskId: string) =>
+    getPlanItemRef(this.studentId, this.planId, subtaskId).update(changes);
+
+  getSubtasks = async (): Promise<PlanItem[]> => {
+    const subtasks = await this.getRef()
+      .collection('subtask')
+      .get();
+
+    const itemsToDelete: Array<Promise<RNFirebase.firestore.DocumentSnapshot>> = [];
+
+    subtasks.docs.forEach(snap => {
+      const data = snap.data();
+      if (data) {
+        const subItem = this.planSubitem(data);
+        const subtasktRef = getPlanItemRef(this.studentId, this.planId, subItem.ref);
+        itemsToDelete.push(subtasktRef.get());
+      }
+    });
+    const result = await Promise.all(itemsToDelete);
+
+    return result.map(x => {
+      const data = x.data();
+      return Object.assign(new PlanItem(), {
+        id: x.id,
+        ...data,
+      });
+    });
+  };
+
+  planSubitem = (data: object) => {
+    return Object.assign(new SubitemReference(), data);
+  };
+
+  delete = async (): Promise<void> => {
+    if (!this.isSimpleTask()) {
+      await this.deleteAllSubtasks();
+    }
+    getPlanItemRef(this.studentId, this.planId, this.id).delete();
+  };
+
+  getSubtasksFromSnap = async (snap: RNFirebase.firestore.QuerySnapshot): Promise<PlanItem[]> => {
+    const subitems: PlanItem[] = [];
+    snap.forEach(async doc => {
+      const reference = Object.assign(new SubitemReference(), doc.data());
+      const subitemSnap = await getPlanItemRef(this.studentId, this.planId, reference.ref).get();
+      const subitem = Object.assign(new PlanItem(), { id: subitemSnap.id, ...subitemSnap.data() });
+      subitems.push(subitem);
+    });
+    return subitems;
+  };
 
   getChildCollectionRef: () => RNFirebase.firestore.CollectionReference = () =>
     getPlanSubItemsRef(this.studentId, this.planId, this.id);

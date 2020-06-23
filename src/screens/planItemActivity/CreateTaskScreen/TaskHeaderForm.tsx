@@ -5,68 +5,52 @@ import * as Yup from 'yup';
 
 import { IconButton, IconToggleButton, StyledText, TextInput } from 'components';
 import { i18n } from 'locale';
-import { PlanItem, PlanItemType } from 'models';
+import { PlanItemType } from 'models';
 import { dimensions, getElevation, palette, typography } from 'styles';
-import { ComplexTask } from './ComplexTask';
-import { SimpleTask } from './SimpleTask';
-
-export interface PlanItemFormData {
-  name: string;
-  time: number;
-  nameForChild: string;
-}
 
 interface Props {
-  onSubmit: (formData: PlanItemFormData) => Promise<void>;
-  planItem: PlanItem;
+  isSimple: boolean;
   taskNumber: number;
+  title: string;
+  taskType: PlanItemType;
+  onTitleChange: (title: string) => void;
+  onTaskTypeChange: (type: PlanItemType) => void;
+  onSubmit: (values: PlanItemHeaderFormData) => void;
 }
 
-interface State {
+interface PlanItemHeaderFormData {
+  name: string;
   taskType: PlanItemType;
 }
 
-export class PlanItemForm extends React.PureComponent<Props, State> {
-  state: State = {
-    taskType: this.props.planItem ? this.props.planItem.type : PlanItemType.SimpleTask,
+const TaskHeaderForm = (props: Props) => {
+  const initialValues: PlanItemHeaderFormData = {
+    name: props.title ? props.title : `${i18n.t('planItemActivity:newTask')}${props.taskNumber}`,
+    taskType: props.taskType ? props.taskType : PlanItemType.SimpleTask,
   };
 
-  initialValues: PlanItemFormData = {
-    name: this.props.planItem
-      ? this.props.planItem.name
-      : `${i18n.t('planItemActivity:newTask')}${this.props.taskNumber}`,
-    nameForChild: this.props.planItem ? this.props.planItem.nameForChild : '',
-    time: this.props.planItem ? this.props.planItem.time : 0,
-  };
-
-  validationSchema = Yup.object().shape({
+  const validationSchema = Yup.object().shape({
     name: Yup.string().required('Required!'),
     nameForChild: Yup.string(),
     time: Yup.number(),
   });
 
-  isSimpleTask = (): boolean => {
-    const { planItem } = this.props;
-
-    return !planItem || planItem.isSimpleTask();
+  const changePlanItemType = (formikProps: FormikProps<PlanItemHeaderFormData>) => async (simpleTask: boolean) => {
+    const type = simpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask;
+    formikProps.values.taskType = type;
+    formikProps.submitForm();
   };
 
-  changePlanItemType = async (isSimpleTask: boolean) => {
-    const { planItem } = this.props;
-    const type = isSimpleTask ? PlanItemType.SimpleTask : PlanItemType.ComplexTask;
-
-    if (planItem) {
-      planItem.changeType(type);
-    }
-
-    this.setState({
-      taskType: type,
-    });
+  const submitForm = (values: PlanItemHeaderFormData) => {
+    props.onSubmit(values);
   };
 
-  renderFormControls = (formikProps: FormikProps<PlanItemFormData>) => {
-    const { values, handleChange, submitForm, errors, touched } = formikProps;
+  const handleEndEditing = (values: any) => () => {
+    props.onTitleChange(values.name);
+  };
 
+  const renderForm = (formikProps: FormikProps<PlanItemHeaderFormData>) => {
+    const { values, handleChange, errors, touched } = formikProps;
     return (
       <>
         <View style={styles.subHeaderContainer}>
@@ -77,15 +61,15 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
               placeholder={i18n.t('planItemActivity:taskNamePlaceholder')}
               value={values.name}
               onChangeText={handleChange('name')}
-              onEndEditing={submitForm}
+              onEndEditing={handleEndEditing(values)}
             />
             {errors.name && touched.name && <StyledText style={styles.errorMessage}>{errors.name}</StyledText>}
           </View>
           <View style={styles.buttonsContainer}>
             <IconToggleButton
               iconNames={['layers-clear', 'layers']}
-              onPress={this.changePlanItemType}
-              secondButtonOn={!this.isSimpleTask()}
+              onPress={changePlanItemType(formikProps)}
+              secondButtonOn={!props.isSimple}
             />
             <IconButton
               name="mic-off"
@@ -96,26 +80,21 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
             />
           </View>
         </View>
-        {this.state.taskType === PlanItemType.SimpleTask ? (
-          <SimpleTask style={styles.simpleTaskContainer} planItem={this.props.planItem} formikProps={formikProps} />
-        ) : (
-          <ComplexTask planItem={this.props.planItem} formikProps={formikProps} />
-        )}
       </>
     );
   };
 
-  render() {
-    return (
-      <Formik
-        initialValues={this.initialValues}
-        validationSchema={this.validationSchema}
-        onSubmit={this.props.onSubmit}
-        render={this.renderFormControls}
-      />
-    );
-  }
-}
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={submitForm}
+      render={renderForm}
+    />
+  );
+};
+
+export default TaskHeaderForm;
 
 const styles = StyleSheet.create({
   subHeaderContainer: {

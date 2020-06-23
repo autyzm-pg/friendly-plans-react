@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator, HeaderProps } from 'react-navigation';
+import { createStackNavigator, HeaderProps, NavigationProp } from 'react-navigation';
 
 import { Header } from 'components';
 

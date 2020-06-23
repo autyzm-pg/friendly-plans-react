@@ -11,7 +11,7 @@ export const getPlanSubItemsRef = (
   studentId: string,
   planId: string,
   planItemId: string,
-): RNFirebase.firestore.CollectionReference => getPlanItemRef(studentId, planId, planItemId).collection('subItems');
+): RNFirebase.firestore.CollectionReference => getPlanItemRef(studentId, planId, planItemId).collection('subtask');
 
 export const getPlanItemRef = (
   studentId: string,

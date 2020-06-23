@@ -8,6 +8,7 @@ const props = {
   planItem: new PlanItem(),
   rowNumber: 1,
   drag: jest.fn(),
+  onEdit: jest.fn(),
 };
 
 describe('TableRow', () => {

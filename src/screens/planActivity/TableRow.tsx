@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { GestureResponderEvent, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { CheckboxInput, Icon, IconButton } from 'components';
 import { PlanItem } from 'models';
@@ -13,9 +13,10 @@ interface Props {
   border?: boolean;
   planItem: PlanItem;
   drag: () => void;
+  onEdit: (item: PlanItem) => void;
 }
 
-export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, drag }) => {
+export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, drag, onEdit }) => {
   const [subtaskCount, setSubtaskCount] = useState(0);
 
   useEffect(() => {
@@ -27,14 +28,12 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
     }
   });
 
-  const navigateToPlanItemUpdate = () => {
-    NavigationService.navigate(Route.PlanItemTask, {
-      planItem,
-    });
+  const onDelete = async () => {
+    await planItem.delete();
   };
 
-  const onDelete = () => {
-    planItem.delete();
+  const editHandle = () => {
+    onEdit(planItem);
   };
 
   const handleCheckboxChange = () => {
@@ -64,7 +63,7 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <IconButton name="delete" size={24} color={palette.textInputPlaceholder} onPress={onDelete} />
       </View>
       <View style={styles.pencilIcon}>
-        <IconButton name="pencil" size={24} onPress={navigateToPlanItemUpdate} />
+        <IconButton name="pencil" size={24} onPress={editHandle} />
       </View>
     </TouchableOpacity>
   );

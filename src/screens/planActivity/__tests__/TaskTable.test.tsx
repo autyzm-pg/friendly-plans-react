@@ -7,6 +7,7 @@ import { TaskTable } from '../TaskTable';
 const props = {
   planItemList: [new PlanItem()],
   handlePlanListOrderChanged: jest.fn(),
+  onEdit: jest.fn(),
 };
 
 describe('TaskTable', () => {

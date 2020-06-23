@@ -1,18 +1,19 @@
 import React, { SFC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { GestureResponderEvent, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { Card, IconButton, StyledText } from 'components';
-import { dimensions, palette, typography } from '../../styles';
+import { dimensions, palette, typography } from '../../../../styles';
 
 interface Props {
   name: string;
   image: string;
   time: string;
-  selected?: boolean;
+  selected: boolean;
+  onPress: () => void;
 }
 
-export const ComplexTaskItem: SFC<Props> = ({ name, image, time, selected = false }) => (
-  <View style={styles.container}>
+export const ComplexTaskItem: SFC<Props> = ({ name, image, time, onPress, selected = false }) => (
+  <TouchableOpacity style={styles.container} onPress={onPress}>
     <Card style={styles.card}>
       <View style={[styles.leftContainer, selected && styles.backgroundPrimary]}>
         <IconButton
@@ -33,7 +34,7 @@ export const ComplexTaskItem: SFC<Props> = ({ name, image, time, selected = fals
         </View>
       </View>
     </Card>
-  </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({

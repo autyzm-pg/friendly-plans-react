@@ -31,9 +31,10 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
   planItemsSubscriber: ModelSubscriber<PlanItem> = new ModelSubscriber();
 
   subscribeToPlanItems() {
-    this.planItemsSubscriber.subscribeCollectionUpdates(this.state.plan, (planItemList: PlanItem[]) =>
-      this.setState({ planItemList }),
-    );
+    this.planItemsSubscriber.subscribeCollectionUpdates(this.state.plan, (planItemList: PlanItem[]) => {
+      const filteredPlanItemList = planItemList.filter(item => item.parent === null);
+      this.setState({ planItemList: filteredPlanItemList });
+    });
   }
 
   unsubscribeToPlanItems() {
@@ -102,6 +103,14 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
     });
   };
 
+  navigateToEdit = (item: PlanItem) => {
+    const { plan } = this.state;
+    this.props.navigation.navigate(Route.PlanItemTask, {
+      plan,
+      planItem: item,
+    });
+  };
+
   shuffleDisabled(): boolean {
     const { planItemList } = this.state;
 
@@ -164,7 +173,11 @@ export class PlanActivityScreen extends React.PureComponent<NavigationInjectedPr
               onShuffle={this.shuffleTasks}
             />
           </View>
-          <TaskTable planItemList={planItemList} handlePlanListOrderChanged={this.handlePlanListOrderChanged} />
+          <TaskTable
+            planItemList={planItemList}
+            handlePlanListOrderChanged={this.handlePlanListOrderChanged}
+            onEdit={this.navigateToEdit}
+          />
         </FullScreenTemplate>
         {plan && <FixedCreatePlanItemButton onPress={this.navigateToCreatePlanItem} />}
       </>

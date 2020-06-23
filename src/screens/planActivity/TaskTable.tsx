@@ -10,9 +10,10 @@ import { TableRow } from './TableRow';
 interface Props {
   planItemList: PlanItem[];
   handlePlanListOrderChanged: (planItemList: DragEndParams<PlanItem>) => void;
+  onEdit: (item: PlanItem) => void;
 }
 
-export const TaskTable: SFC<Props> = ({ planItemList, handlePlanListOrderChanged }) => {
+export const TaskTable: SFC<Props> = ({ planItemList, handlePlanListOrderChanged, onEdit }) => {
   const data = planItemList.map(item => ({ ...item, key: item.id, label: item.name }));
   const renderItem = ({ item, index, drag }: RenderItemParams<PlanItem>) => {
     return (
@@ -23,6 +24,7 @@ export const TaskTable: SFC<Props> = ({ planItemList, handlePlanListOrderChanged
           key={index}
           rowNumber={index ? index + 1 : 0}
           drag={drag}
+          onEdit={onEdit}
         />
       </View>
     );
