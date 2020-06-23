@@ -70,9 +70,9 @@ export const CreateTaskScreen = (props: Props) => {
     formikProps.values.name = values.name;
     formikProps.values.taskType = values.taskType;
 
-    if (values.taskType === PlanItemType.SimpleTask) {
+    if (values.taskType === PlanItemType.SimpleTask && props.planItem) {
       props.planItem.deleteAllSubtasks();
-    } else if (values.taskType === PlanItemType.ComplexTask) {
+    } else if (values.taskType === PlanItemType.ComplexTask && props.planItem) {
       const snap = await props.planItem.getChildCollectionRef().get();
       props.onSubtask(initialValues, snap.size);
     }

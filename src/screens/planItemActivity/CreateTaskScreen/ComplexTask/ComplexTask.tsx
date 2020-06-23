@@ -67,7 +67,7 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
           time: values.time,
         })
         .then(() => {
-          onSubmit({ name: values.name, time: calculateTime(), taskType: PlanItemType.ComplexTask });
+          onSubmit({ name: values.name, time: calculateTime() + values.time, taskType: PlanItemType.ComplexTask });
           refreshSubtasks();
         });
     }
