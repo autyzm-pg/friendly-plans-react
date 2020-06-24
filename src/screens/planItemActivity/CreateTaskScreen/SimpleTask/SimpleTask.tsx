@@ -24,7 +24,7 @@ export const SimpleTask = (props: Props) => {
     if (props.planItem) {
       setTime(props.planItem.time);
     }
-  }, []);
+  });
 
   const handleConfirmTimer = (timeValue: number) => {
     setTime(timeValue);

@@ -1,14 +1,6 @@
-import { Form, Formik, FormikActions, FormikProps } from 'formik';
-import React, { FC, useEffect, useRef, useState } from 'react';
-import {
-  ActivityIndicator,
-  Dimensions,
-  GestureResponderEvent,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { Formik, FormikProps } from 'formik';
+import React, { FC, useEffect, useState } from 'react';
+import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
 import { i18n } from 'locale';
@@ -31,14 +23,14 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
 
   useEffect(() => {
     if (planItem) {
-      fetchSubtasks();
-      planItem.getChildCollectionRef().onSnapshot(() => refreshSubtasks());
+      planItem.getChildCollectionRef().onSnapshot(async () => {
+        fetchSubtasks().then(result => {
+          setSubitems(result);
+          setSelectedPlanItem(result[result.length - 1]);
+        });
+      });
     }
   }, []);
-
-  const refreshSubtasks = () => {
-    fetchSubtasks();
-  };
 
   const calculateTime = () => {
     let time = 0;
@@ -52,11 +44,8 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
     onCreateSubtask(subtaskInitData, subitems.length);
   };
 
-  const fetchSubtasks = async () => {
-    planItem.getSubtasks().then(result => {
-      setSubitems(result);
-      setSelectedPlanItem(result[result.length - 1]);
-    });
+  const fetchSubtasks = (): Promise<PlanItem[]> => {
+    return planItem.getSubtasks();
   };
 
   const handleSubmit = (values: PlanItemFormData) => {
@@ -68,7 +57,9 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
         })
         .then(() => {
           onSubmit({ name: values.name, time: calculateTime() + values.time, taskType: PlanItemType.ComplexTask });
-          refreshSubtasks();
+          fetchSubtasks().then(result => {
+            setSubitems(result);
+          });
         });
     }
   };
@@ -141,11 +132,6 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
   const changeSelection = (item: PlanItem, formikProps: FormikProps<PlanItemFormData>) => () => {
     formikProps.setFieldValue('nameForChild', item.nameForChild);
     formikProps.submitForm();
-
-    if (selectedPlanItem) {
-      subitems[subitems.indexOf(selectedPlanItem)].nameForChild = formikProps.values.nameForChild;
-      subitems[subitems.indexOf(selectedPlanItem)].time = formikProps.values.time;
-    }
     setSelectedPlanItem(item);
   };
 
@@ -193,5 +179,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     height: '100%',
+    width: '65%',
   },
 });
