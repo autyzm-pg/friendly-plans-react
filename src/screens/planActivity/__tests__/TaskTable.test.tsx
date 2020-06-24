@@ -8,6 +8,7 @@ const props = {
   planItemList: [new PlanItem()],
   handlePlanListOrderChanged: jest.fn(),
   onEdit: jest.fn(),
+  getSubtasksFromSnap: jest.fn(),
 };
 
 describe('TaskTable', () => {

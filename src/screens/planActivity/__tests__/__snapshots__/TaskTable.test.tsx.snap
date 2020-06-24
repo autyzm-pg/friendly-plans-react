@@ -23,6 +23,7 @@ exports[`TaskTable renders correctly 1`] = `
           "getIconName": [Function],
           "getRef": [Function],
           "getSubtasks": [Function],
+          "getSubtasksFromSnap": [Function],
           "isSimpleTask": [Function],
           "isTask": [Function],
           "key": undefined,

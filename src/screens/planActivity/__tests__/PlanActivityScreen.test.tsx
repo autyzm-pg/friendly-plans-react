@@ -14,6 +14,7 @@ jest.mock('models/ModelSubscriber', () => ({
 describe('PlanActivityScreen', () => {
   const props = {
     navigation: navigationMock,
+    onEdit: jest.fn(),
   };
 
   it('renders correctly', () => {
