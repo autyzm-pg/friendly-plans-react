@@ -20,7 +20,7 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
   const [subtaskCount, setSubtaskCount] = useState(0);
 
   useEffect(() => {
-    if (!planItem.isSimpleTask) {
+    if (!planItem.isSimpleTask()) {
       planItem
         .getChildCollectionRef()
         .get()
@@ -49,7 +49,7 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <Icon name={planItem.getIconName()} type="material" />
       </View>
       <Text style={styles.textName}>{planItem.name}</Text>
-      {!planItem.isSimpleTask && <Text style={styles.text}>{` (${subtaskCount})`}</Text>}
+      {!planItem.isSimpleTask() && <Text style={styles.text}>{` (${subtaskCount})`}</Text>}
 
       {!!planItem.time && (
         <View style={styles.timeContainer}>
