@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from 'react';
 import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import * as Yup from 'yup';
 
+import { StyledText } from 'components';
 import { i18n } from 'locale';
 import { PlanItem, PlanItemComplexFormData, PlanItemFormData, PlanItemType } from 'models';
 import { dimensions, palette } from 'styles';
@@ -20,13 +21,20 @@ interface Props {
 export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreateSubtask }) => {
   const [selectedPlanItem, setSelectedPlanItem] = useState<PlanItem>();
   const [subitems, setSubitems] = useState<PlanItem[]>([]);
+  const [noSubitems, setNoSubitems] = useState<boolean>(false);
 
   useEffect(() => {
     if (planItem) {
       planItem.getChildCollectionRef().onSnapshot(async () => {
         fetchSubtasks().then(result => {
           setSubitems(result);
-          setSelectedPlanItem(result[result.length - 1]);
+
+          if (result.length > 0) {
+            setSelectedPlanItem(result[result.length - 1]);
+            setNoSubitems(false);
+          } else {
+            setNoSubitems(true);
+          }
         });
       });
     }
@@ -84,6 +92,11 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
     time: Yup.number(),
   });
 
+  const handleDelete = (item: PlanItem) => async () => {
+    await planItem.deleteSubtask(item);
+    setSelectedPlanItem(undefined);
+  };
+
   const renderForm = (formikProps: FormikProps<PlanItemFormData>) => {
     return (
       <>
@@ -96,6 +109,7 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
                 image={item.image}
                 selected={isSelected(item)}
                 onPress={changeSelection(item, formikProps)}
+                onDelete={handleDelete(item)}
                 key={item.id}
               />
             ))}
@@ -104,7 +118,10 @@ export const ComplexTask: FC<Props> = ({ planItem, onSubmit, taskNumber, onCreat
         </View>
         {!selectedPlanItem && (
           <View style={styles.activityIndicatorContainer}>
-            <ActivityIndicator color={palette.primary} size="large" />
+            {!noSubitems && <ActivityIndicator color={palette.primary} size="large" />}
+            {noSubitems && (
+              <StyledText style={styles.noTaskLabel}>{i18n.t('planItemActivity:createFirstTask')}</StyledText>
+            )}
           </View>
         )}
         {selectedPlanItem && (
@@ -180,5 +197,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
     width: '65%',
+  },
+  noTaskLabel: {
+    alignSelf: 'center',
   },
 });

@@ -52,6 +52,7 @@ const translations = {
     imageActionBrowse: 'Dodaj z urządzenia',
     imageLibraryTitle: 'Biblioteka zdjęć',
     newTask: 'Nowe Zadanie #',
+    createFirstTask: 'Stwórz swoje pierwsze podzadanie',
   },
   updatePlan: {
     addBreak: 'Dodaj przerwę',

@@ -105,6 +105,7 @@ const translations = {
     imageActionBrowse: 'Browse from device',
     imageLibraryTitle: 'Image Library',
     newTask: 'New Task #',
+    createFirstTask: 'Create your first subtask',
   },
   updatePlan: {
     screenTitle: '{{studentName}} - Update a plan',

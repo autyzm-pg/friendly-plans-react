@@ -10,9 +10,10 @@ interface Props {
   time: string;
   selected: boolean;
   onPress: () => void;
+  onDelete: () => void;
 }
 
-export const ComplexTaskItem: SFC<Props> = ({ name, image, time, onPress, selected = false }) => (
+export const ComplexTaskItem: SFC<Props> = ({ name, image, time, onPress, onDelete, selected = false }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
     <Card style={styles.card}>
       <View style={[styles.leftContainer, selected && styles.backgroundPrimary]}>
@@ -22,7 +23,7 @@ export const ComplexTaskItem: SFC<Props> = ({ name, image, time, onPress, select
           size={24}
           color={selected ? palette.textWhite : palette.primary}
         />
-        <IconButton type="material" name="delete" size={24} color={palette.textInputPlaceholder} />
+        <IconButton type="material" name="delete" size={24} color={palette.textInputPlaceholder} onPress={onDelete} />
       </View>
       <View style={styles.rightContainer}>
         <View style={styles.timeContainer}>

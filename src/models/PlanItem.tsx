@@ -152,6 +152,20 @@ export class PlanItem implements SubscribableModel, PlanElement {
     Promise.all(itemsToDelete);
   };
 
+  deleteSubtask = async (subtask: PlanItem): Promise<void> => {
+    const snap = await this.getChildCollectionRef()
+      .where('ref', '==', subtask.id)
+      .get();
+
+    const deleteOperations = [];
+    const snapshotDoc = snap.docs[0];
+    if (snapshotDoc) {
+      deleteOperations.push(snapshotDoc.ref.delete());
+    }
+    deleteOperations.push(subtask.delete());
+    Promise.all(deleteOperations);
+  };
+
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
   updateSubtask = (changes: object, subtaskId: string) =>
     getPlanItemRef(this.studentId, this.planId, subtaskId).update(changes);
