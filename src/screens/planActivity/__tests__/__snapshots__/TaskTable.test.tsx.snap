@@ -18,6 +18,7 @@ exports[`TaskTable renders correctly 1`] = `
           "complete": [Function],
           "delete": [Function],
           "deleteAllSubtasks": [Function],
+          "deleteSubtask": [Function],
           "getChildCollectionRef": [Function],
           "getChildType": [Function],
           "getIconName": [Function],
