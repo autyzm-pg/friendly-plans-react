@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { CheckboxInput, Icon, IconButton } from 'components';
@@ -15,6 +16,17 @@ interface Props {
 }
 
 export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, drag }) => {
+  const [subtaskCount, setSubtaskCount] = useState(0);
+
+  useEffect(() => {
+    if (!planItem.isSimpleTask) {
+      planItem
+        .getChildCollectionRef()
+        .get()
+        .then(snap => setSubtaskCount(snap.size));
+    }
+  });
+
   const navigateToPlanItemUpdate = () => {
     NavigationService.navigate(Route.PlanItemTask, {
       planItem,
@@ -38,9 +50,16 @@ export const TableRow: React.FunctionComponent<Props> = ({ planItem, border, dra
         <Icon name={planItem.getIconName()} type="material" />
       </View>
       <Text style={styles.textName}>{planItem.name}</Text>
-      <Text style={styles.text}>{' (5)'}</Text>
-      <Text style={styles.text}>{planItem.time}</Text>
+      {!planItem.isSimpleTask && <Text style={styles.text}>{` (${subtaskCount})`}</Text>}
 
+      {!!planItem.time && (
+        <View style={styles.timeContainer}>
+          <Icon name="timer" size={24} />
+          <View style={styles.timeLabelContainer}>
+            <Text style={styles.textName}>{`${planItem.time}'`}</Text>
+          </View>
+        </View>
+      )}
       <View style={styles.deleteIcon}>
         <IconButton name="delete" size={24} color={palette.textInputPlaceholder} onPress={onDelete} />
       </View>
@@ -88,5 +107,14 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     marginRight: 15,
+  },
+  timeContainer: {
+    position: 'absolute',
+    right: 138,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  timeLabelContainer: {
+    marginLeft: 10,
   },
 });

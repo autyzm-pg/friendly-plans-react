@@ -41,4 +41,6 @@ target 'FriendlyPlans' do
   pod 'Crashlytics', '~> 3.13.1'
 
   use_native_modules!
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
 end
