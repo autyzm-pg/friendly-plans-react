@@ -35,7 +35,7 @@ Preparing a task<br>
 <img src="/doc-assets/app screenshot3.jpg" width="900"/><br>
 
 ## License
-The project is developing by people who want to make other people's life easier. Because of this Friendly Plans is going to be free to use, download and develop for everybody, forever.
+The project is developed by people who want to make other people's lives easier. Because of that Friendly Plans is going to be free to use, download and develop for everybody, forever.
 Except as otherwise noted, this software is licensed under the [GNU General Public License, v3](https://www.gnu.org/licenses/gpl-3.0.txt).
 
 ## Partners
