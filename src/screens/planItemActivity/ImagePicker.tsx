@@ -27,9 +27,6 @@ export const ImagePicker: SFC<Props> = ({planItem, updatePlanImage }) => {
 
   const updateImage = (img: string) => {
     setImage(img);
-    console.log(image + " image");
-    console.log(img + " img");
-    console.log("planItem: " + this.props.planItem);
     updatePlanImage(img);
   }
 

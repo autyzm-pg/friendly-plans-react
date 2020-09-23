@@ -48,14 +48,11 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
   };
 
   updatePlanImage = (image: string) => {
-    console.log("lalala " + image);
-    console.log("planItem: " + this.state.planItem);
-    const {planItem} = this.state;
+    //const {planItem} = this.state;
     //if(planItem) {
     //  planItem.changeImage(image);
     //}
     //this.setState({planItem: planItem});
-    console.log("blabla: " + planItem.image);
   }
 
   onSubmit = (formData: PlanItemFormData) =>

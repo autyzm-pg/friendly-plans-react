@@ -34,7 +34,6 @@ export const AlarmSoundSettingModal: SFC<Props> = ({ soundsList }) => {
               <TouchableOpacity onPress={() => handleClick(key)}>
                 <View>
                   <Text style={styles.text}>{ item.title }</Text>
-                  <CheckBox></CheckBox>
                 </View>
               </TouchableOpacity>
             </View>
