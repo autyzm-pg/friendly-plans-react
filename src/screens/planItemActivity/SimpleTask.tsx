@@ -14,6 +14,7 @@ interface Props {
   planItem: PlanItem;
   formikProps: FormikProps<PlanItemFormData>;
   style?: StyleProp<ViewStyle>;
+  updatePlanImage: (image: string) => void;
 }
 
 interface State {
@@ -43,7 +44,7 @@ export class SimpleTask extends React.PureComponent<Props, State> {
     return (
       <SafeAreaView style={this.props.style}>
         <Card style={[styles.container]}>
-          <ImagePicker planItem={this.props.planItem} />
+          <ImagePicker planItem={this.props.planItem} updatePlanImage={this.props.updatePlanImage}/>
           <TextInput
             style={styles.imageInputTextContainer}
             textStyle={styles.imageInputText}

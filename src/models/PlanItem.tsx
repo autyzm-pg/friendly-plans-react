@@ -112,6 +112,13 @@ export class PlanItem implements SubscribableModel, PlanElement {
     this.update({ type });
   };
 
+  changeImage = (image: string) => {
+    this.update({
+      image,
+    });
+  };
+
+
   update = (changes: object) => getPlanItemRef(this.studentId, this.planId, this.id).update(changes);
   delete = (): Promise<void> => getPlanItemRef(this.studentId, this.planId, this.id).delete();
 

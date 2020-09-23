@@ -10,6 +10,7 @@ interface State {
 }
 
 export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
+  
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
@@ -46,6 +47,17 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     this.setState({ planItem: { ...this.state.planItem, name, nameForChild, time } });
   };
 
+  updatePlanImage = (image: string) => {
+    console.log("lalala " + image);
+    console.log("planItem: " + this.state.planItem);
+    const {planItem} = this.state;
+    //if(planItem) {
+    //  planItem.changeImage(image);
+    //}
+    //this.setState({planItem: planItem});
+    console.log("blabla: " + planItem.image);
+  }
+
   onSubmit = (formData: PlanItemFormData) =>
     this.state.planItem ? this.updatePlanItem(formData) : this.createPlanItem(formData);
 
@@ -55,6 +67,6 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     const planItemList = this.props.navigation.getParam('planItemList');
     const planItemListCount = planItemList ? planItemList.length + 1 : 0;
 
-    return <PlanItemForm planItem={planItem} onSubmit={this.onSubmit} taskNumber={planItemListCount} />;
+    return <PlanItemForm planItem={this.state.planItem} onSubmit={this.onSubmit} taskNumber={planItemListCount} updatePlanImage = {this.updatePlanImage}/>;
   }
 }

@@ -15,15 +15,26 @@ import { PlanDisplayPreview } from './PlanDisplayPreview';
 import { SlideCardSetting } from './SlideCardSetting';
 import { TextCaseSetting } from './TextCaseSetting';
 import { TextSizeSetting } from './TextSizeSetting';
+import NotificationSounds, {playSampleSound} from "react-native-notification-sounds";
+import { AlarmSoundSettingModal } from './AlarmSoundSettingModal';
 
 interface Props {
   student: Student;
-  onStudentCreate?: (data: State) => any;
+  onStudentCreate?: (data: StudentData) => any;
   onStudentRemove?: () => void;
-  onStudentUpdate?: (data: State) => any;
+  onStudentUpdate?: (data: StudentData) => any;
 }
 
-type State = StudentData;
+//type State = StudentData;
+
+interface State {
+  name: string,
+  displaySettings: StudentDisplayOption,
+  textSize: StudentTextSizeOption,
+  isUpperCase: boolean,
+  isSwipeBlocked: boolean,
+  soundsList;
+}
 
 export class StudentSettings extends React.PureComponent<Props, State> {
   constructor(props: Props) {
@@ -34,6 +45,7 @@ export class StudentSettings extends React.PureComponent<Props, State> {
       textSize: props.student.textSize,
       isUpperCase: props.student.isUpperCase,
       isSwipeBlocked: props.student.isSwipeBlocked,
+      soundsList: undefined,
     };
   }
 
@@ -78,7 +90,7 @@ export class StudentSettings extends React.PureComponent<Props, State> {
         <SlideCardSetting value={isSwipeBlocked} onValueChange={this.onSwipeBlockedChange} />
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:soundSettings')}</StyledText>
-        <AlarmSoundSetting value="Beep" />
+        <AlarmSoundSetting value="Beep"/>
         <Separator extraWide />
 
         {!!onStudentCreate && (
