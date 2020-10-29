@@ -34,6 +34,8 @@ interface State {
   isUpperCase: boolean,
   isSwipeBlocked: boolean,
   soundsList;
+  modalVisible?: boolean;
+  value: string;
 }
 
 export class StudentSettings extends React.PureComponent<Props, State> {
@@ -46,7 +48,13 @@ export class StudentSettings extends React.PureComponent<Props, State> {
       isUpperCase: props.student.isUpperCase,
       isSwipeBlocked: props.student.isSwipeBlocked,
       soundsList: undefined,
+      modalVisible: false,
+      value: "",
     };
+    NotificationSounds.getNotifications('notification').then(soundsList  => {
+      this.setState({soundsList: soundsList});
+      this.setValue(soundsList[0].title);
+  });
   }
 
   get canCreate(): boolean {
@@ -69,6 +77,21 @@ export class StudentSettings extends React.PureComponent<Props, State> {
 
   onStudentUpdate = () => this.props.onStudentUpdate && this.props.onStudentUpdate(this.state);
 
+  
+ handleClick = () => {
+  if(this.state.modalVisible) {
+    this.setState({modalVisible: false});
+  }
+  else {
+    this.setState({modalVisible: true});
+  }
+  this.forceUpdate();
+}
+
+setValue = (val: string) => {
+  this.setState({value: val});
+}
+
   render() {
     const { onStudentCreate, onStudentRemove } = this.props;
     const { name, displaySettings, textSize, isUpperCase, isSwipeBlocked } = this.state;
@@ -90,7 +113,8 @@ export class StudentSettings extends React.PureComponent<Props, State> {
         <SlideCardSetting value={isSwipeBlocked} onValueChange={this.onSwipeBlockedChange} />
         <Separator extraWide />
         <StyledText style={[styles.label, styles.taskViewLabel]}>{i18n.t('studentSettings:soundSettings')}</StyledText>
-        <AlarmSoundSetting value="Beep"/>
+        <AlarmSoundSetting value={this.state.value} handleClick={this.handleClick} soundsList={this.state.soundsList} modalVisible={this.state.modalVisible}/>
+        {this.state.modalVisible && <AlarmSoundSettingModal soundsList={this.state.soundsList} setValue={this.setValue}/>}
         <Separator extraWide />
 
         {!!onStudentCreate && (

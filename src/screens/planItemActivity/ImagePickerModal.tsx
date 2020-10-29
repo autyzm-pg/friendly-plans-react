@@ -27,7 +27,7 @@ export const ImagePickerModal: SFC<Props> = ({ updateImage, closeModal, planItem
       closeModal();
     }
 
-    const navigateToImageLibrary = () => {
+    const browseDevice = () => {
         ImagePicker.openPicker({
             width: 300,
             height: 400,
@@ -56,10 +56,10 @@ export const ImagePickerModal: SFC<Props> = ({ updateImage, closeModal, planItem
         <IconButton name="photo-camera" type="material" size={24} onPress={takeAPhoto} />
       </ImageAction>
       <ImageAction title={i18n.t('planItemActivity:imageActionLibrary')}>
-        <IconButton name="photo-library" type="material" size={24} onPress={navigateToImageLibrary} />
+        <IconButton name="photo-library" type="material" size={24} />
       </ImageAction>
       <ImageAction title={i18n.t('planItemActivity:imageActionBrowse')}>
-        <IconButton name="file-download" type="material" size={24} />
+        <IconButton name="file-download" type="material" size={24} onPress={browseDevice}/>
       </ImageAction>
       <View style={styles.submitButton}>
         <Button title="Zatwierdź" onPress={() => {handleUpdateImage(image)}}></Button>

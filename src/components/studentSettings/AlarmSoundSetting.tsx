@@ -9,46 +9,12 @@ import {AlarmSoundSettingModal} from "./AlarmSoundSettingModal";
 interface Props {
   value: string;
   onChange?: (value: boolean) => void;
-}
-
-interface State {
-  modalVisible?: boolean;
   soundsList;
+  handleClick: () => void;
+  modalVisible: boolean;
 }
 
-export class AlarmSoundSetting extends React.PureComponent<Props, State> {
-  
-  constructor(props){
-    super(props);
- 
-    this.state = {
-       modalVisible: false,
-    }
- }
-
- handleClick = () => {
-  //NotificationSounds.getNotifications('notification').then(soundsList => {
-    
-  //  playSampleSound(soundsList[1]);
-  //  this.setState({soundsList: soundsList});
-  //  console.log('SOUNDS', JSON.stringify(this.state.soundsList));
-  //  this.setState({modalVisible: true});
-  //})
-
-  NotificationSounds.getNotifications('notification').then(soundsList  => {
-    //console.warn('SOUNDS', JSON.stringify(soundsList));
-    /*
-    Play the notification sound.
-    pass the complete sound object.
-    This function can be used for playing the sample sound
-    */
-    //playSampleSound(soundsList[1]);
-    // if you want to stop any playing sound just call:
-    // stopSampleSound();
-    this.setState({soundsList: soundsList});
-    this.setState({modalVisible: true});
-});
-}
+export class AlarmSoundSetting extends React.PureComponent<Props> {
 
   render() {
 
@@ -57,9 +23,8 @@ export class AlarmSoundSetting extends React.PureComponent<Props, State> {
         <StyledText style={styles.label}>{i18n.t('studentSettings:alarmSound')}</StyledText>
         <View style={styles.soundPickerContainer}>
           <StyledText style={styles.soundPicker}>{this.props.value}</StyledText>
-          <IconButton onPress={() => this.handleClick()} name="chevron-right" type="material" size={30} color={palette.textDisabled} />
+          <IconButton onPress={() => this.props.handleClick()} name={this.props.modalVisible ? "chevron-left" : "chevron-right"} type="material" size={30} color={palette.textDisabled} />
         </View>
-        {this.state.modalVisible && <AlarmSoundSettingModal soundsList={this.state.soundsList}></AlarmSoundSettingModal>}
       </View>
     );
   }

@@ -34,7 +34,7 @@ export const ImagePicker: SFC<Props> = ({planItem, updatePlanImage }) => {
     <View style={styles.container}>
       <ModalTrigger modalContent={<ImagePickerModal onRequestClose={() => this.closeModal()} updateImage = {updateImage} planItem={planItem} />} title={i18n.t('planItemActivity:addImage')}>
         <View style={styles.imagePicker}>
-          {image ? <Image source={{uri: image}} style={{height: 400, width: 300}}/> : <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />}
+          {image ? <Image source={{uri: image}} style={{height: 400, width: 800}}/> : <Icon name="add-a-photo" type="material" size={82} color={palette.textInputPlaceholder} />}
         </View>
       </ModalTrigger>
     </View>

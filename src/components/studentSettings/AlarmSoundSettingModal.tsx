@@ -17,31 +17,61 @@ import NotificationSounds, {playSampleSound} from "react-native-notification-sou
 interface Props {
   //closeModal: () => void;
   soundsList;
-}3
+  setValue: (value: string) => void;
+}
 
-export const AlarmSoundSettingModal: SFC<Props> = ({ soundsList }) => {
-    const handleClick = (key) => {
-      playSampleSound(soundsList[key]);
-    }    
+interface State {
+  currentIndex: number;
+}
+
+export class AlarmSoundSettingModal extends React.PureComponent<Props, State> {
     
-    return (
-    <View style={styles.imageActionContainer}>
-        <ScrollView nestedScrollEnabled={true}>
-        {
-          soundsList.map(( item, key ) =>
-          (
-            <View key = { key }>
-              <TouchableOpacity onPress={() => handleClick(key)}>
-                <View>
-                  <Text style={styles.text}>{ item.title }</Text>
+  constructor(props){
+    super(props);
+ 
+    this.state = {
+       currentIndex: 0,
+    }
+
+    for (var i = 1; i < this.props.soundsList.length; i++) {
+      this.props.soundsList[i].textColored = false
+    }
+    if (this.state.currentIndex) {
+      this.props.soundsList[this.state.currentIndex].textColored = true;
+    }
+  }
+
+  handleClick = (key) => {
+      playSampleSound(this.props.soundsList[key]);
+      this.props.soundsList[key].textColored = true;
+      this.setState({currentIndex: key});
+      for (var i = 0; i < this.props.soundsList.length; i++) {
+        if (i != key) this.props.soundsList[i].textColored = false;
+      }
+      this.props.setValue(this.props.soundsList[key].title);
+      this.forceUpdate();
+    }
+    
+    render() {
+      return (
+        <View style={styles.imageActionContainer}>
+            <ScrollView nestedScrollEnabled={true}>
+            {
+              this.props.soundsList.map(( item, key ) =>
+              (
+                <View key = { key }>
+                  <TouchableOpacity onPress={() => this.handleClick(key)}>
+                    <View>
+                      <Text style={this.props.soundsList[key].textColored ? styles.textColored : styles.text}>{ item.title }</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
-            </View>
-          ))
-        }
-        </ScrollView>
-    </View>
-  );
+              ))
+            }
+            </ScrollView>
+        </View>
+      );
+    }
 };
 
 const styles = StyleSheet.create({
@@ -50,12 +80,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'baseline',
     marginTop: dimensions.spacingLarge,
-    height: 150,
+    height: 600,
   },
 
   text: {
     fontSize: 18,
     color: 'black',
+    padding: 15,
+  },
+
+  textColored: {
+    fontSize: 18,
+    color: 'blue',
     padding: 15,
   }
 });

@@ -45,6 +45,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
     type: PlanItemType,
     data: PlanItemFormData,
     lastItemOrder: number,
+    image: string,
   ): Promise<PlanItem> {
     const { id } = await getPlanItemsRef(plan.studentId, plan.id).add({
       name: data.name,
@@ -56,6 +57,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
       time: data.time,
+      image: image,
     });
 
     return Object.assign(new PlanItem(), {
@@ -69,6 +71,7 @@ export class PlanItem implements SubscribableModel, PlanElement {
       nameForChild: i18n.t('planItemActivity:taskNameForChild'),
       order: lastItemOrder + 1,
       time: data.time,
+      image: image,
     });
   }
 
