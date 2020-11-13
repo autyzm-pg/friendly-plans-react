@@ -11,9 +11,10 @@ import { SimpleTask } from './SimpleTask';
 interface Props {
   planItem: PlanItem;
   formikProps: FormikProps<PlanItemFormData>;
+  updatePlanImage: (image: string) => void;
 }
 
-export const ComplexTask: SFC<Props> = ({ planItem, formikProps }) => {
+export const ComplexTask: SFC<Props> = ({ planItem, formikProps, updatePlanImage }) => {
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <View style={styles.container}>
@@ -25,7 +26,7 @@ export const ComplexTask: SFC<Props> = ({ planItem, formikProps }) => {
             <ComplexTaskItem name={'Ustaw podstawę'} image={'Zdjęcie'} time={'10'} />
           </ScrollView>
         </View>
-        <SimpleTask style={styles.simpleTask} planItem={planItem} formikProps={formikProps} />
+        <SimpleTask style={styles.simpleTask} planItem={planItem} formikProps={formikProps} updatePlanImage={updatePlanImage}/>
       </View>
     </SafeAreaView>
   );

@@ -34,7 +34,7 @@ export class PlanSlideItem extends React.PureComponent<Props> {
             <Image
               resizeMode="contain"
               style={styles.image}
-              source={{ uri: `data:image/jpeg;base64,${planItem.image}` }}
+              source={{ uri: planItem.image }}
             />
           </View>
         )}

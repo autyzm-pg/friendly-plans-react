@@ -20,6 +20,7 @@ interface Props {
   onSubmit: (formData: PlanItemFormData) => Promise<void>;
   planItem: PlanItem;
   taskNumber: number;
+  updatePlanImage: (image: string) => void;
 }
 
 interface State {
@@ -97,9 +98,9 @@ export class PlanItemForm extends React.PureComponent<Props, State> {
           </View>
         </View>
         {this.state.taskType === PlanItemType.SimpleTask ? (
-          <SimpleTask style={styles.simpleTaskContainer} planItem={this.props.planItem} formikProps={formikProps} />
+          <SimpleTask style={styles.simpleTaskContainer} planItem={this.props.planItem} updatePlanImage={this.props.updatePlanImage.bind(this)} formikProps={formikProps} />
         ) : (
-          <ComplexTask planItem={this.props.planItem} formikProps={formikProps} />
+          <ComplexTask planItem={this.props.planItem} formikProps={formikProps} updatePlanImage={this.props.updatePlanImage.bind(this)}/>
         )}
       </>
     );

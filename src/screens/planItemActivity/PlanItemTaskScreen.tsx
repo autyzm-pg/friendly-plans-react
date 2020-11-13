@@ -7,15 +7,18 @@ import { PlanItemForm, PlanItemFormData } from './PlanItemForm';
 
 interface State {
   planItem: PlanItem;
+  planItemImage: string;
 }
 
 export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedProps, State> {
+  
   static navigationOptions = {
     title: i18n.t('planItemActivity:viewTitleTask'),
   };
 
   state: State = {
     planItem: this.props.navigation.getParam('planItem'),
+    planItemImage: "",
   };
 
   getLastItemOrder = (): number => {
@@ -30,9 +33,11 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
   createPlanItem = async (data: PlanItemFormData) => {
     const plan = this.props.navigation.getParam('plan');
 
-    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, data, this.getLastItemOrder());
+    const planItem = await PlanItem.createPlanItem(plan, PlanItemType.SimpleTask, data, this.getLastItemOrder(), this.state.planItemImage);
 
     this.setState({ planItem });
+
+    console.log("image create" + this.state.planItemImage);
   };
 
   updatePlanItem = async (formData: PlanItemFormData) => {
@@ -44,9 +49,21 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
     });
 
     this.setState({ planItem: { ...this.state.planItem, name, nameForChild, time } });
+
+    const {planItem} = this.state;
+    if (planItem) {
+      planItem.changeImage(this.state.planItemImage);
+    }
+    this.setState({planItem: planItem});
+
+    console.log("image update" + this.state.planItemImage);
   };
 
-  onSubmit = (formData: PlanItemFormData) =>
+  updatePlanImage = (image: string) => {
+    this.setState({planItemImage: image});
+  }
+
+  onSubmit = (formData: PlanItemFormData) => 
     this.state.planItem ? this.updatePlanItem(formData) : this.createPlanItem(formData);
 
   render() {
@@ -54,7 +71,7 @@ export class PlanItemTaskScreen extends React.PureComponent<NavigationInjectedPr
 
     const planItemList = this.props.navigation.getParam('planItemList');
     const planItemListCount = planItemList ? planItemList.length + 1 : 0;
-
-    return <PlanItemForm planItem={planItem} onSubmit={this.onSubmit} taskNumber={planItemListCount} />;
+    
+    return <PlanItemForm planItem={this.state.planItem} onSubmit={this.onSubmit} taskNumber={planItemListCount} updatePlanImage = {this.updatePlanImage}/>;
   }
 }

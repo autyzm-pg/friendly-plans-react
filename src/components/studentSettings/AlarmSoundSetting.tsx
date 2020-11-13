@@ -1,23 +1,34 @@
-import { IconButton, StyledText } from 'components';
+import { IconButton, StyledText, ModalTrigger } from 'components';
 import { i18n } from 'locale';
 import React, { SFC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { dimensions, palette, typography } from 'styles';
+import NotificationSounds, {playSampleSound} from "react-native-notification-sounds";
+import {AlarmSoundSettingModal} from "./AlarmSoundSettingModal";
 
 interface Props {
   value: string;
   onChange?: (value: boolean) => void;
+  soundsList;
+  handleClick: () => void;
+  modalVisible: boolean;
 }
 
-export const AlarmSoundSetting: SFC<Props> = ({ value, onChange }) => (
-  <View style={styles.container}>
-    <StyledText style={styles.label}>{i18n.t('studentSettings:alarmSound')}</StyledText>
-    <View style={styles.soundPickerContainer}>
-      <StyledText style={styles.soundPicker}>{value}</StyledText>
-      <IconButton name="chevron-right" type="material" size={30} color={palette.textDisabled} />
-    </View>
-  </View>
-);
+export class AlarmSoundSetting extends React.PureComponent<Props> {
+
+  render() {
+
+      return(
+      <View style={styles.container}>
+        <StyledText style={styles.label}>{i18n.t('studentSettings:alarmSound')}</StyledText>
+        <View style={styles.soundPickerContainer}>
+          <StyledText style={styles.soundPicker}>{this.props.value}</StyledText>
+          <IconButton onPress={() => this.props.handleClick()} name={this.props.modalVisible ? "chevron-left" : "chevron-right"} type="material" size={30} color={palette.textDisabled} />
+        </View>
+      </View>
+    );
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
