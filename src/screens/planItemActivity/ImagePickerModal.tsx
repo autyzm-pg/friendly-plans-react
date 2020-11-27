@@ -4,12 +4,11 @@ import { noop } from 'lodash';
 import { PlanItem } from 'models';
 import { Route } from 'navigation';
 import React, { SFC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import { NavigationService } from 'services';
 import { dimensions } from 'styles';
-import { ImageAction } from './ImageAction';
 
 interface Props {
   closeModal?: () => void;
@@ -25,38 +24,41 @@ export const ImagePickerModal: SFC<Props> = ({ closeModal = noop, planItem }) =>
   };
 
   const takePhotoHandler = async () => {
-    closeModal();
     ImagePicker.openCamera({
       width: 300,
       height: 400,
       cropping: true,
     }).then((image: any) => {
+      closeModal();
       // SEND TO SERVER?
     });
   };
 
   const selectPhotoFromDeviceHandler = () => {
-    closeModal();
     ImagePicker.openPicker({
       width: 300,
       height: 400,
       cropping: true,
     }).then((image: any) => {
+      closeModal();
       // SEND TO SERVER?
     });
   };
 
   return (
     <View style={styles.imageActionContainer}>
-      <ImageAction title={i18n.t('planItemActivity:imageActionTakePhoto')}>
+      <View style={styles.iconDecscriptionContainer}>
+        <Text style={styles.descriptionText}>{i18n.t('planItemActivity:imageActionTakePhoto')}</Text>
         <IconButton name="photo-camera" type="material" size={24} onPress={takePhotoHandler} />
-      </ImageAction>
-      <ImageAction title={i18n.t('planItemActivity:imageActionLibrary')}>
+      </View>
+      <View style={styles.iconDecscriptionContainer}>
+        <Text style={styles.descriptionText}>{i18n.t('planItemActivity:imageActionLibrary')}</Text>
         <IconButton name="photo-library" type="material" size={24} onPress={navigateToImageLibrary} />
-      </ImageAction>
-      <ImageAction title={i18n.t('planItemActivity:imageActionBrowse')}>
+      </View>
+      <View style={styles.iconDecscriptionContainer}>
+        <Text style={styles.descriptionText}>{i18n.t('planItemActivity:imageActionBrowse')}</Text>
         <IconButton name="file-download" type="material" size={24} onPress={selectPhotoFromDeviceHandler} />
-      </ImageAction>
+      </View>
     </View>
   );
 };
@@ -67,5 +69,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'baseline',
     marginTop: dimensions.spacingLarge,
+  },
+  iconDecscriptionContainer: {
+    marginBottom: 20,
+  },
+  descriptionText: {
+    marginBottom: 5,
   },
 });
