@@ -32,9 +32,9 @@ export class StudentCreateScreen extends React.PureComponent<NavigationInjectedP
   };
 
   createStudent = async (data: StudentData) => {
+    this.props.navigation.navigate(Route.Dashboard);
     const student = await Student.create(data);
     await AuthUser.getAuthenticatedUser().setCurrentStudent(student.id);
-    this.props.navigation.navigate(Route.Dashboard);
   };
 
   get canNavigateBack(): boolean {

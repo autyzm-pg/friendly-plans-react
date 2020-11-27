@@ -18,6 +18,7 @@
     "postinstall": "yarn jetify"
   },
   "dependencies": {
+    "@react-native-community/slider": "^3.0.3",
     "@types/lodash.every": "^4.6.6",
     "@types/lodash.isempty": "^4.4.6",
     "@types/lodash.noop": "^3.0.6",
