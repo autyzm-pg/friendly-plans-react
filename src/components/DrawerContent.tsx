@@ -19,8 +19,8 @@ export class DrawerContent extends React.PureComponent<Props> {
   };
 
   signOut = async () => {
-    await firebase.auth().signOut();
     this.props.navigation.navigate(Route.Unauthenticated);
+    await firebase.auth().signOut();
   };
 
   onItemPress = ({ route, focused }: DrawerItem) => {
