@@ -140,7 +140,6 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.8.0)
-  - QBImagePickerController (3.4.0)
   - RCTRequired (0.61.5)
   - RCTTypeSafety (0.61.5):
     - FBLazyVector (= 0.61.5)
@@ -360,26 +359,35 @@ PODS:
     - React
   - RNGestureHandler (1.5.6):
     - React
-  - RNImageCropPicker (0.26.2):
-    - QBImagePickerController
+  - RNImageCropPicker (0.35.1):
     - React-Core
     - React-RCTImage
-    - RSKImageCropper
+    - RNImageCropPicker/QBImagePickerController (= 0.35.1)
+    - TOCropViewController
+  - RNImageCropPicker/QBImagePickerController (0.35.1):
+    - React-Core
+    - React-RCTImage
+    - TOCropViewController
   - RNLocalize (1.3.1):
     - React
   - RNReanimated (1.7.0):
     - React
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNSVG (9.13.3):
     - React
-  - RNVectorIcons (6.6.0):
+  - RNVectorIcons (7.1.0):
     - React
-  - RSKImageCropper (2.2.3)
   - SDWebImage (5.3.3):
     - SDWebImage/Core (= 5.3.3)
   - SDWebImage/Core (5.3.3)
   - SDWebImageWebPCoder (0.2.5):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.0)
+  - TOCropViewController (2.5.5)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -425,6 +433,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -452,10 +461,9 @@ SPEC REPOS:
     - libwebp
     - nanopb
     - Protobuf
-    - QBImagePickerController
-    - RSKImageCropper
     - SDWebImage
     - SDWebImageWebPCoder
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -524,6 +532,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
@@ -534,9 +544,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
-  Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
+  Crashlytics: 666da4380b70d38c80426754fa9d5dfca0e5fd43
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
-  Fabric: f6f21452846788bb44595d73e9909d79d328e617
+  Fabric: 58508b243fa6053c03bd04b9e0ada772f317d5b4
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
@@ -558,7 +568,6 @@ SPEC CHECKSUMS:
   libwebp: 057912d6d0abfb6357d8bb05c0ea470301f5d61e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
-  QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -584,16 +593,17 @@ SPEC CHECKSUMS:
   RNFastImage: 9b0c22643872bb7494c8d87bbbb66cc4c0d9e7a2
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
   RNGestureHandler: 911d3b110a7a233a34c4f800e7188a84b75319c6
-  RNImageCropPicker: 9d1a7eea4f8368fc479cbd2bf26459bd3c74d9aa
+  RNImageCropPicker: 16951bc02411f50c4d197488ed6406a23dc3b5f1
   RNLocalize: 07eb7a91d10021cdf59d80061ebf3adb8a5b5688
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
-  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  RSKImageCropper: a446db0e8444a036b34f3c43db01b2373baa4b2a
+  RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
   SDWebImage: 51ab1ce3ebd20dec6665ae8ba25c928da323db41
   SDWebImageWebPCoder: 947093edd1349d820c40afbd9f42acb6cdecd987
+  TOCropViewController: da59f531f8ac8a94ef6d6c0fc34009350f9e8bfe
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 97dc9135b3936ac9c4eeb883c4347a500a3af71a
+PODFILE CHECKSUM: 9a68fa6fe13957f3d416239574ab20dc7237b597
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

@@ -2,10 +2,10 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "28.0.3"
+        buildToolsVersion = "29.0.2"
         minSdkVersion = 21
-        compileSdkVersion = 28
-        targetSdkVersion = 28
+        compileSdkVersion = 29
+        targetSdkVersion = 29
         googlePlayServicesVersion = "16.+"
     }
     repositories {
@@ -22,7 +22,9 @@ buildscript {
         }
     }
     dependencies {
+        // VERSION 4.0.1 required to fix react-native-image-crop-picker
         classpath 'com.android.tools.build:gradle:4.0.1'
+        // classpath 'com.android.tools.build:gradle:3.5.3'
         classpath 'com.google.gms:google-services:4.2.0'
         classpath 'io.fabric.tools:gradle:1.28.1'
         // NOTE: Do not place your application dependencies here; they belong
@@ -45,7 +47,7 @@ allprojects {
         }
         maven { url 'https://maven.google.com' }
         maven {
-            url 'https://jitpack.io'
+            url 'https://www.jitpack.io'
         }
     }
 }
