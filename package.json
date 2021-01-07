@@ -6,15 +6,15 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "tslint --project .",
-    "lint:fix": "tslint --fix --project .",
-    "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx}' --fix",
+    "prettier:fix": "prettier --write '**/*.{js,ts,tsx}'",
     "prettier:check": "prettier --list-different \"**/*.{js,ts,tsx}\"",
     "test": "jest --env=jsdom --updateSnapshot --silent",
     "test:ci": "jest --env=jsdom --silent --coverage --runInBand",
     "test:coverage": "yarn test --coverage",
     "typescript:check": "tsc --noEmit",
-    "pre-commit": "lint-staged",
+    "pre-commit": "lint-staged && yarn typescript:check",
     "postinstall": "yarn jetify"
   },
   "dependencies": {
@@ -60,9 +60,17 @@
     "@types/react-native": "^0.61.23",
     "@types/react-navigation": "^3.0.7",
     "@types/yup": "^0.26.15",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
     "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-native": "^3.8.1",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.1",
@@ -72,21 +80,18 @@
     "react-art": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-test-renderer": "^16.11.0",
-    "ts-jest": "^24.1.0",
-    "tslint": "^5.20.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.1.0",
-    "typescript": "^3.6.4"
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "yarn run pre-commit"
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{js,ts,tsx}": [
       "prettier --write",
-      "tslint",
+      "eslint --fix",
       "git add"
     ]
   }
